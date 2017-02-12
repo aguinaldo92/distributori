@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 11-feb-2017 2.45.16 by Hibernate Tools 4.3.1.Final -->
+<hibernate-mapping>
+    <class name="it.unisalento.distributori.domain.FamiglieProdotto" table="famiglie_prodotto" catalog="distributoridb" optimistic-lock="version">
+        <composite-id name="id" class="it.unisalento.distributori.domain.FamiglieProdottoId">
+            <key-property name="famigliaId" type="int">
+                <column name="Famiglia_ID" />
+            </key-property>
+            <key-property name="prodottoId" type="int">
+                <column name="Prodotto_ID" />
+            </key-property>
+        </composite-id>
+        <many-to-one name="famiglia" class="it.unisalento.distributori.domain.Famiglia" update="false" insert="false" fetch="select">
+            <column name="Famiglia_ID" not-null="true" />
+        </many-to-one>
+        <many-to-one name="prodotto" class="it.unisalento.distributori.domain.Prodotto" update="false" insert="false" fetch="select">
+            <column name="Prodotto_ID" not-null="true" />
+        </many-to-one>
+    </class>
+</hibernate-mapping>

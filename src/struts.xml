@@ -8,7 +8,26 @@
 	<constant name="struts.configuration.xml.reload" value="false" />
 
 	<package name="default" extends="struts-default">
-		<default-action-ref name="index" />
-	</package>
+		<result-types>
+			<result-type name="tiles"
+				class="org.apache.struts2.views.tiles.TilesResult" />
+		</result-types>
 
+		<interceptors>
+			<interceptor name="myInterceptor"
+				class="it.unisalento.SWEng_project.interceptors.MyInterceptor" />
+			<interceptor name="LoginInterceptor"
+				class="it.unisalento.SWEng_project.interceptors.LoginInterceptor" />
+
+			<interceptor-stack name="loginStack">
+				<interceptor-ref name="LoginInterceptor" />
+				<interceptor-ref name="timer" />
+				<interceptor-ref name="defaultStack">
+					<!-- per il momento commento questo interceptor per i problemi di sicurezza 
+						di sessionAware <param name="params.excludeParams">dojo\..*,^struts\..*,^session\..*,^request\..*,^application\..*,^servlet(Request|Response)\..*,parameters\...*</param> -->
+				</interceptor-ref>
+			</interceptor-stack>
+			
+		</interceptors>
+	</package>
 </struts>

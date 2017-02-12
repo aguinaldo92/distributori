@@ -1,0 +1,57 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 11-feb-2017 2.45.16 by Hibernate Tools 4.3.1.Final -->
+<hibernate-mapping>
+    <class name="it.unisalento.distributori.domain.Distributore" table="distributore" catalog="distributoridb" optimistic-lock="version">
+        <id name="id" type="java.lang.Integer">
+            <column name="ID" />
+            <generator class="identity" />
+        </id>
+        <property name="lat" type="big_decimal">
+            <column name="Lat" precision="12" scale="9" not-null="true" />
+        </property>
+        <property name="lon" type="big_decimal">
+            <column name="Lon" precision="12" scale="9" not-null="true" />
+        </property>
+        <property name="indirizzo" type="string">
+            <column name="Indirizzo" />
+        </property>
+        <property name="posizioneEdificio" type="string">
+            <column name="Posizione_edificio" />
+        </property>
+        <property name="stato" type="string">
+            <column name="Stato" length="45" />
+        </property>
+        <set name="acquistos" table="acquisto" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="Distributore_ID" not-null="true" />
+            </key>
+            <one-to-many class="it.unisalento.distributori.domain.Acquisto" />
+        </set>
+        <set name="categorieFornites" table="categorie_fornite" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="Distributore_ID" not-null="true" />
+            </key>
+            <one-to-many class="it.unisalento.distributori.domain.CategorieFornite" />
+        </set>
+        <set name="prodottiErogatis" table="prodotti_erogati" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="Distributore_ID" not-null="true" />
+            </key>
+            <one-to-many class="it.unisalento.distributori.domain.ProdottiErogati" />
+        </set>
+        <set name="manutienes" table="manutiene" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="Distributore_ID" not-null="true" />
+            </key>
+            <one-to-many class="it.unisalento.distributori.domain.Manutiene" />
+        </set>
+        <set name="rifornisces" table="rifornisce" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="Distributore_ID" not-null="true" />
+            </key>
+            <one-to-many class="it.unisalento.distributori.domain.Rifornisce" />
+        </set>
+    </class>
+</hibernate-mapping>
