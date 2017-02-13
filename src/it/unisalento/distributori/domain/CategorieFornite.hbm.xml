@@ -1,21 +1,17 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated 11-feb-2017 2.45.16 by Hibernate Tools 4.3.1.Final -->
+<!-- Generated 13-feb-2017 11.51.50 by Hibernate Tools 4.3.1.Final -->
 <hibernate-mapping>
     <class name="it.unisalento.distributori.domain.CategorieFornite" table="categorie_fornite" catalog="distributoridb" optimistic-lock="version">
-        <composite-id name="id" class="it.unisalento.distributori.domain.CategorieForniteId">
-            <key-property name="distributoreId" type="int">
-                <column name="Distributore_ID" />
-            </key-property>
-            <key-property name="categoriaId" type="int">
-                <column name="Categoria_ID" />
-            </key-property>
-        </composite-id>
-        <many-to-one name="categoria" class="it.unisalento.distributori.domain.Categoria" update="false" insert="false" fetch="select">
+        <id name="id" type="java.lang.Integer">
+            <column name="ID" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="categoria" class="it.unisalento.distributori.domain.Categoria" fetch="select">
             <column name="Categoria_ID" not-null="true" />
         </many-to-one>
-        <many-to-one name="distributore" class="it.unisalento.distributori.domain.Distributore" update="false" insert="false" fetch="select">
+        <many-to-one name="distributore" class="it.unisalento.distributori.domain.Distributore" fetch="select">
             <column name="Distributore_ID" not-null="true" />
         </many-to-one>
     </class>

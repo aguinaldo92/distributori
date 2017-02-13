@@ -1,4 +1,4 @@
-package it.unisalento.distributori.daoimpls;
+package it.unisalento.distributori.daoimpl;
 
 import it.unisalento.distributori.dao.BaseDao;
 

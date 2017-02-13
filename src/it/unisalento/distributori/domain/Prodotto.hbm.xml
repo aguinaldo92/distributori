@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated 11-feb-2017 2.45.16 by Hibernate Tools 4.3.1.Final -->
+<!-- Generated 13-feb-2017 11.51.50 by Hibernate Tools 4.3.1.Final -->
 <hibernate-mapping>
     <class name="it.unisalento.distributori.domain.Prodotto" table="prodotto" catalog="distributoridb" optimistic-lock="version">
         <id name="id" type="java.lang.Integer">
@@ -10,9 +10,6 @@
         </id>
         <many-to-one name="categoria" class="it.unisalento.distributori.domain.Categoria" fetch="select">
             <column name="Categoria_ID" not-null="true" />
-        </many-to-one>
-        <many-to-one name="produttore" class="it.unisalento.distributori.domain.Produttore" fetch="select">
-            <column name="Produttore_ID" not-null="true" />
         </many-to-one>
         <many-to-one name="stabilimento" class="it.unisalento.distributori.domain.Stabilimento" fetch="select">
             <column name="Stabilimento_ID" not-null="true" />
@@ -38,9 +35,6 @@
         <property name="ingredienti" type="string">
             <column name="Ingredienti" length="16777215" />
         </property>
-        <property name="stabilimentoProduzione" type="string">
-            <column name="Stabilimento_produzione" />
-        </property>
         <set name="famiglieProdottos" table="famiglie_prodotto" inverse="true" lazy="true" fetch="select">
             <key>
                 <column name="Prodotto_ID" not-null="true" />
@@ -53,11 +47,11 @@
             </key>
             <one-to-many class="it.unisalento.distributori.domain.ProdottiErogati" />
         </set>
-        <set name="acquistos" table="acquisto" inverse="true" lazy="true" fetch="select">
+        <set name="acquistas" table="acquista" inverse="true" lazy="true" fetch="select">
             <key>
                 <column name="Prodotto_ID" not-null="true" />
             </key>
-            <one-to-many class="it.unisalento.distributori.domain.Acquisto" />
+            <one-to-many class="it.unisalento.distributori.domain.Acquista" />
         </set>
     </class>
 </hibernate-mapping>

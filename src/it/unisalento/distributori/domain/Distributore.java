@@ -1,5 +1,5 @@
 package it.unisalento.distributori.domain;
-// Generated 11-feb-2017 2.45.16 by Hibernate Tools 4.3.1.Final
+// Generated 13-feb-2017 11.51.49 by Hibernate Tools 4.3.1.Final
 
 import java.math.BigDecimal;
 import java.util.HashSet;
@@ -16,7 +16,7 @@ public class Distributore implements java.io.Serializable {
 	private String indirizzo;
 	private String posizioneEdificio;
 	private String stato;
-	private Set acquistos = new HashSet(0);
+	private Set acquistas = new HashSet(0);
 	private Set categorieFornites = new HashSet(0);
 	private Set prodottiErogatis = new HashSet(0);
 	private Set manutienes = new HashSet(0);
@@ -31,13 +31,13 @@ public class Distributore implements java.io.Serializable {
 	}
 
 	public Distributore(BigDecimal lat, BigDecimal lon, String indirizzo, String posizioneEdificio, String stato,
-			Set acquistos, Set categorieFornites, Set prodottiErogatis, Set manutienes, Set rifornisces) {
+			Set acquistas, Set categorieFornites, Set prodottiErogatis, Set manutienes, Set rifornisces) {
 		this.lat = lat;
 		this.lon = lon;
 		this.indirizzo = indirizzo;
 		this.posizioneEdificio = posizioneEdificio;
 		this.stato = stato;
-		this.acquistos = acquistos;
+		this.acquistas = acquistas;
 		this.categorieFornites = categorieFornites;
 		this.prodottiErogatis = prodottiErogatis;
 		this.manutienes = manutienes;
@@ -92,12 +92,12 @@ public class Distributore implements java.io.Serializable {
 		this.stato = stato;
 	}
 
-	public Set getAcquistos() {
-		return this.acquistos;
+	public Set getAcquistas() {
+		return this.acquistas;
 	}
 
-	public void setAcquistos(Set acquistos) {
-		this.acquistos = acquistos;
+	public void setAcquistas(Set acquistas) {
+		this.acquistas = acquistas;
 	}
 
 	public Set getCategorieFornites() {

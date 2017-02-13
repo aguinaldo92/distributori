@@ -1,5 +1,5 @@
 package it.unisalento.distributori.domain;
-// Generated 11-feb-2017 2.45.16 by Hibernate Tools 4.3.1.Final
+// Generated 13-feb-2017 11.51.49 by Hibernate Tools 4.3.1.Final
 
 import java.util.Date;
 

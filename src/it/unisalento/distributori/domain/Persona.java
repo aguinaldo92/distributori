@@ -1,5 +1,5 @@
 package it.unisalento.distributori.domain;
-// Generated 11-feb-2017 2.45.16 by Hibernate Tools 4.3.1.Final
+// Generated 13-feb-2017 11.51.49 by Hibernate Tools 4.3.1.Final
 
 import java.util.HashSet;
 import java.util.Set;
@@ -14,29 +14,29 @@ public class Persona implements java.io.Serializable {
 	private String cognome;
 	private String email;
 	private String password;
-	private String tipo;
+	private int ruolo;
 	private Set feedbacks = new HashSet(0);
-	private Set acquistos = new HashSet(0);
+	private Set acquistas = new HashSet(0);
 	private Dipendente dipendente;
 
 	public Persona() {
 	}
 
-	public Persona(String email, String password, String tipo) {
+	public Persona(String email, String password, int ruolo) {
 		this.email = email;
 		this.password = password;
-		this.tipo = tipo;
+		this.ruolo = ruolo;
 	}
 
-	public Persona(String nome, String cognome, String email, String password, String tipo, Set feedbacks,
-			Set acquistos, Dipendente dipendente) {
+	public Persona(String nome, String cognome, String email, String password, int ruolo, Set feedbacks, Set acquistas,
+			Dipendente dipendente) {
 		this.nome = nome;
 		this.cognome = cognome;
 		this.email = email;
 		this.password = password;
-		this.tipo = tipo;
+		this.ruolo = ruolo;
 		this.feedbacks = feedbacks;
-		this.acquistos = acquistos;
+		this.acquistas = acquistas;
 		this.dipendente = dipendente;
 	}
 
@@ -80,12 +80,12 @@ public class Persona implements java.io.Serializable {
 		this.password = password;
 	}
 
-	public String getTipo() {
-		return this.tipo;
+	public int getRuolo() {
+		return this.ruolo;
 	}
 
-	public void setTipo(String tipo) {
-		this.tipo = tipo;
+	public void setRuolo(int ruolo) {
+		this.ruolo = ruolo;
 	}
 
 	public Set getFeedbacks() {
@@ -96,12 +96,12 @@ public class Persona implements java.io.Serializable {
 		this.feedbacks = feedbacks;
 	}
 
-	public Set getAcquistos() {
-		return this.acquistos;
+	public Set getAcquistas() {
+		return this.acquistas;
 	}
 
-	public void setAcquistos(Set acquistos) {
-		this.acquistos = acquistos;
+	public void setAcquistas(Set acquistas) {
+		this.acquistas = acquistas;
 	}
 
 	public Dipendente getDipendente() {

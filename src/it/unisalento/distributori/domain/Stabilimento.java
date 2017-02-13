@@ -1,5 +1,5 @@
 package it.unisalento.distributori.domain;
-// Generated 11-feb-2017 2.45.16 by Hibernate Tools 4.3.1.Final
+// Generated 13-feb-2017 11.51.49 by Hibernate Tools 4.3.1.Final
 
 import java.util.HashSet;
 import java.util.Set;
@@ -9,7 +9,7 @@ import java.util.Set;
  */
 public class Stabilimento implements java.io.Serializable {
 
-	private int id;
+	private Integer id;
 	private Produttore produttore;
 	private String citta;
 	private String provincia;
@@ -18,24 +18,22 @@ public class Stabilimento implements java.io.Serializable {
 	public Stabilimento() {
 	}
 
-	public Stabilimento(int id, Produttore produttore) {
-		this.id = id;
+	public Stabilimento(Produttore produttore) {
 		this.produttore = produttore;
 	}
 
-	public Stabilimento(int id, Produttore produttore, String citta, String provincia, Set prodottos) {
-		this.id = id;
+	public Stabilimento(Produttore produttore, String citta, String provincia, Set prodottos) {
 		this.produttore = produttore;
 		this.citta = citta;
 		this.provincia = provincia;
 		this.prodottos = prodottos;
 	}
 
-	public int getId() {
+	public Integer getId() {
 		return this.id;
 	}
 
-	public void setId(int id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 

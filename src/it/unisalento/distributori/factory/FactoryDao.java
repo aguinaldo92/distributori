@@ -1,10 +1,10 @@
 /**
  * 
  */
-package it.unisalento.distributori.factories;
+package it.unisalento.distributori.factory;
 
 import it.unisalento.distributori.dao.PersonaDao;
-import it.unisalento.distributori.daoimpls.PersonaDaoImpl;
+import it.unisalento.distributori.daoimpl.PersonaDaoImpl;
 
 /**
  * @author aguinaldo
@@ -22,7 +22,7 @@ public class FactoryDao {
 	}
 	
 	public PersonaDao getPersonaDao(){
-		System.out.println("FactoryDao: getUserDao");
+		System.out.println("FactoryDao: getPersonaDao");
 		return new PersonaDaoImpl();
 	}
 	

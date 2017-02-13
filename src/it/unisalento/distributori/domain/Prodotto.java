@@ -1,5 +1,5 @@
 package it.unisalento.distributori.domain;
-// Generated 11-feb-2017 2.45.16 by Hibernate Tools 4.3.1.Final
+// Generated 13-feb-2017 11.51.49 by Hibernate Tools 4.3.1.Final
 
 import java.math.BigDecimal;
 import java.util.HashSet;
@@ -12,7 +12,6 @@ public class Prodotto implements java.io.Serializable {
 
 	private Integer id;
 	private Categoria categoria;
-	private Produttore produttore;
 	private Stabilimento stabilimento;
 	private String nome;
 	private String descrizione;
@@ -21,29 +20,24 @@ public class Prodotto implements java.io.Serializable {
 	private String foto;
 	private String preparazione;
 	private String ingredienti;
-	private String stabilimentoProduzione;
 	private Set famiglieProdottos = new HashSet(0);
 	private Set prodottiErogatis = new HashSet(0);
-	private Set acquistos = new HashSet(0);
+	private Set acquistas = new HashSet(0);
 
 	public Prodotto() {
 	}
 
-	public Prodotto(Categoria categoria, Produttore produttore, Stabilimento stabilimento, String nome,
-			BigDecimal prezzo) {
+	public Prodotto(Categoria categoria, Stabilimento stabilimento, String nome, BigDecimal prezzo) {
 		this.categoria = categoria;
-		this.produttore = produttore;
 		this.stabilimento = stabilimento;
 		this.nome = nome;
 		this.prezzo = prezzo;
 	}
 
-	public Prodotto(Categoria categoria, Produttore produttore, Stabilimento stabilimento, String nome,
-			String descrizione, BigDecimal prezzo, BigDecimal scontoUtenti, String foto, String preparazione,
-			String ingredienti, String stabilimentoProduzione, Set famiglieProdottos, Set prodottiErogatis,
-			Set acquistos) {
+	public Prodotto(Categoria categoria, Stabilimento stabilimento, String nome, String descrizione, BigDecimal prezzo,
+			BigDecimal scontoUtenti, String foto, String preparazione, String ingredienti, Set famiglieProdottos,
+			Set prodottiErogatis, Set acquistas) {
 		this.categoria = categoria;
-		this.produttore = produttore;
 		this.stabilimento = stabilimento;
 		this.nome = nome;
 		this.descrizione = descrizione;
@@ -52,10 +46,9 @@ public class Prodotto implements java.io.Serializable {
 		this.foto = foto;
 		this.preparazione = preparazione;
 		this.ingredienti = ingredienti;
-		this.stabilimentoProduzione = stabilimentoProduzione;
 		this.famiglieProdottos = famiglieProdottos;
 		this.prodottiErogatis = prodottiErogatis;
-		this.acquistos = acquistos;
+		this.acquistas = acquistas;
 	}
 
 	public Integer getId() {
@@ -72,14 +65,6 @@ public class Prodotto implements java.io.Serializable {
 
 	public void setCategoria(Categoria categoria) {
 		this.categoria = categoria;
-	}
-
-	public Produttore getProduttore() {
-		return this.produttore;
-	}
-
-	public void setProduttore(Produttore produttore) {
-		this.produttore = produttore;
 	}
 
 	public Stabilimento getStabilimento() {
@@ -146,14 +131,6 @@ public class Prodotto implements java.io.Serializable {
 		this.ingredienti = ingredienti;
 	}
 
-	public String getStabilimentoProduzione() {
-		return this.stabilimentoProduzione;
-	}
-
-	public void setStabilimentoProduzione(String stabilimentoProduzione) {
-		this.stabilimentoProduzione = stabilimentoProduzione;
-	}
-
 	public Set getFamiglieProdottos() {
 		return this.famiglieProdottos;
 	}
@@ -170,12 +147,12 @@ public class Prodotto implements java.io.Serializable {
 		this.prodottiErogatis = prodottiErogatis;
 	}
 
-	public Set getAcquistos() {
-		return this.acquistos;
+	public Set getAcquistas() {
+		return this.acquistas;
 	}
 
-	public void setAcquistos(Set acquistos) {
-		this.acquistos = acquistos;
+	public void setAcquistas(Set acquistas) {
+		this.acquistas = acquistas;
 	}
 
 }

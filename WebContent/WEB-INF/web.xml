@@ -13,7 +13,7 @@
 	</listener>
 	
 	<listener>
-		<listener-class>it.unisalento.SWEng_project.listeners.HibernateServletContextListener</listener-class>
+		<listener-class>it.unisalento.distributori.listener.HibernateServletContextListener</listener-class>
 	</listener>
   
 	<filter>
@@ -31,7 +31,7 @@
  	</session-config>
  	
  	<welcome-file-list>
-	    <welcome-file>login.jsp</welcome-file>
+	    <welcome-file>views/login.jsp</welcome-file>
   	</welcome-file-list>
   	
 </web-app>

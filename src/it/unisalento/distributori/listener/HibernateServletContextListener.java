@@ -1,7 +1,7 @@
 /**
  * 
  */
-package it.unisalento.distributori.listeners;
+package it.unisalento.distributori.listener;
 
 import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
@@ -14,7 +14,7 @@ import org.hibernate.service.ServiceRegistry;
  * @author aguinaldo
  *
  */
-public class HibernateServletContextListeners implements ServletContextListener {
+public class HibernateServletContextListener implements ServletContextListener {
 
 	@Override
 	public void contextDestroyed(ServletContextEvent sce) {
