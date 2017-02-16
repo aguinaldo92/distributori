@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 16-feb-2017 10.11.10 by Hibernate Tools 4.3.1.Final -->
+<hibernate-mapping>
+    <class name="it.unisalento.distributori.domain.Feedback" table="feedback" catalog="distributoridb" optimistic-lock="version">
+        <composite-id name="id" class="it.unisalento.distributori.domain.FeedbackId">
+            <key-property name="id" type="int">
+                <column name="ID" />
+            </key-property>
+            <key-property name="personaId" type="int">
+                <column name="Persona_ID" />
+            </key-property>
+        </composite-id>
+        <many-to-one name="persona" class="it.unisalento.distributori.domain.Persona" update="false" insert="false" fetch="select">
+            <column name="Persona_ID" not-null="true" />
+        </many-to-one>
+        <property name="testo" type="string">
+            <column name="Testo" not-null="true" />
+        </property>
+        <property name="data" type="timestamp">
+            <column name="Data" length="19" />
+        </property>
+        <property name="letto" type="java.lang.Byte">
+            <column name="Letto" />
+        </property>
+    </class>
+</hibernate-mapping>

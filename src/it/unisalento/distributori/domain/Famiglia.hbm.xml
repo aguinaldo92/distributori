@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 16-feb-2017 10.11.10 by Hibernate Tools 4.3.1.Final -->
+<hibernate-mapping>
+    <class name="it.unisalento.distributori.domain.Famiglia" table="famiglia" catalog="distributoridb" optimistic-lock="version">
+        <id name="id" type="java.lang.Integer">
+            <column name="ID" />
+            <generator class="identity" />
+        </id>
+        <property name="nome" type="string">
+            <column name="Nome" not-null="true" />
+        </property>
+        <set name="famiglieProdottos" table="famiglie_prodotto" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="Famiglia_ID" not-null="true" />
+            </key>
+            <one-to-many class="it.unisalento.distributori.domain.FamiglieProdotto" />
+        </set>
+    </class>
+</hibernate-mapping>

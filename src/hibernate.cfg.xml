@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC
+"-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+    <session-factory>
+        <property name="hibernate.bytecode.use_reflection_optimizer">false</property>
+        <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+        <property name="hibernate.connection.url">jdbc:mysql://127.0.0.1:3306/distributoridb</property>
+        <property name="hibernate.connection.username">root</property>
+        <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+        <property name="hibernate.search.autoregister_listeners">false</property>
+        <property name="hibernate.show_sql">true</property>
+        <property name="hibernate.validator.apply_to_ddl">false</property>
+        <mapping resource="it/unisalento/distributori/domain/Dipendente.hbm.xml" />
+        <mapping resource="it/unisalento/distributori/domain/Distributore.hbm.xml" />
+        <mapping resource="it/unisalento/distributori/domain/Rifornisce.hbm.xml" />
+        <mapping resource="it/unisalento/distributori/domain/CategorieFornite.hbm.xml" />
+        <mapping resource="it/unisalento/distributori/domain/FamiglieProdotto.hbm.xml" />
+        <mapping resource="it/unisalento/distributori/domain/Acquista.hbm.xml" />
+        <mapping resource="it/unisalento/distributori/domain/Famiglia.hbm.xml" />
+        <mapping resource="it/unisalento/distributori/domain/Produttore.hbm.xml" />
+        <mapping resource="it/unisalento/distributori/domain/ProdottiErogati.hbm.xml" />
+        <mapping resource="it/unisalento/distributori/domain/Prodotto.hbm.xml" />
+        <mapping resource="it/unisalento/distributori/domain/Feedback.hbm.xml" />
+        <mapping resource="it/unisalento/distributori/domain/Categoria.hbm.xml" />
+        <mapping resource="it/unisalento/distributori/domain/Manutiene.hbm.xml" />
+        <mapping resource="it/unisalento/distributori/domain/Persona.hbm.xml" />
+        <mapping resource="it/unisalento/distributori/domain/Stabilimento.hbm.xml" />
+    </session-factory>
+</hibernate-configuration>
