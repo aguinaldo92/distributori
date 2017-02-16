@@ -1,5 +1,5 @@
 package it.unisalento.distributori.domain;
-// Generated 16-feb-2017 10.11.09 by Hibernate Tools 4.3.1.Final
+// Generated 16-feb-2017 12.50.08 by Hibernate Tools 4.3.1.Final
 
 import java.math.BigDecimal;
 import java.util.HashSet;
@@ -11,6 +11,7 @@ import java.util.Set;
 public class Distributore implements java.io.Serializable {
 
 	private Integer id;
+	private Dipendente dipendente;
 	private BigDecimal lat;
 	private BigDecimal lon;
 	private String indirizzo;
@@ -25,13 +26,16 @@ public class Distributore implements java.io.Serializable {
 	public Distributore() {
 	}
 
-	public Distributore(BigDecimal lat, BigDecimal lon) {
+	public Distributore(Dipendente dipendente, BigDecimal lat, BigDecimal lon) {
+		this.dipendente = dipendente;
 		this.lat = lat;
 		this.lon = lon;
 	}
 
-	public Distributore(BigDecimal lat, BigDecimal lon, String indirizzo, String posizioneEdificio, String stato,
-			Set acquistas, Set categorieFornites, Set prodottiErogatis, Set manutienes, Set rifornisces) {
+	public Distributore(Dipendente dipendente, BigDecimal lat, BigDecimal lon, String indirizzo,
+			String posizioneEdificio, String stato, Set acquistas, Set categorieFornites, Set prodottiErogatis,
+			Set manutienes, Set rifornisces) {
+		this.dipendente = dipendente;
 		this.lat = lat;
 		this.lon = lon;
 		this.indirizzo = indirizzo;
@@ -50,6 +54,14 @@ public class Distributore implements java.io.Serializable {
 
 	public void setId(Integer id) {
 		this.id = id;
+	}
+
+	public Dipendente getDipendente() {
+		return this.dipendente;
+	}
+
+	public void setDipendente(Dipendente dipendente) {
+		this.dipendente = dipendente;
 	}
 
 	public BigDecimal getLat() {

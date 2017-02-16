@@ -1,5 +1,5 @@
 package it.unisalento.distributori.domain;
-// Generated 16-feb-2017 10.11.09 by Hibernate Tools 4.3.1.Final
+// Generated 16-feb-2017 12.50.08 by Hibernate Tools 4.3.1.Final
 
 import java.util.HashSet;
 import java.util.Set;
@@ -14,6 +14,7 @@ public class Dipendente implements java.io.Serializable {
 	private String telefono;
 	private Set rifornisces = new HashSet(0);
 	private Set manutienes = new HashSet(0);
+	private Set distributores = new HashSet(0);
 
 	public Dipendente() {
 	}
@@ -22,11 +23,12 @@ public class Dipendente implements java.io.Serializable {
 		this.persona = persona;
 	}
 
-	public Dipendente(Persona persona, String telefono, Set rifornisces, Set manutienes) {
+	public Dipendente(Persona persona, String telefono, Set rifornisces, Set manutienes, Set distributores) {
 		this.persona = persona;
 		this.telefono = telefono;
 		this.rifornisces = rifornisces;
 		this.manutienes = manutienes;
+		this.distributores = distributores;
 	}
 
 	public int getPersonaId() {
@@ -67,6 +69,14 @@ public class Dipendente implements java.io.Serializable {
 
 	public void setManutienes(Set manutienes) {
 		this.manutienes = manutienes;
+	}
+
+	public Set getDistributores() {
+		return this.distributores;
+	}
+
+	public void setDistributores(Set distributores) {
+		this.distributores = distributores;
 	}
 
 }
