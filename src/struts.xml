@@ -8,7 +8,39 @@
 	<constant name="struts.configuration.xml.reload" value="false" />
 
 	<package name="default" extends="struts-default">
-		<default-action-ref name="index" />
-	</package>
+		<result-types>
+			<result-type name="tiles"
+				class="org.apache.struts2.views.tiles.TilesResult" />
+		</result-types>
 
+		<interceptors>
+			<interceptor name="myInterceptor"
+				class="it.unisalento.distributori.interceptor.MyInterceptor" />
+			<interceptor name="LoginInterceptor"
+				class="it.unisalento.distributori.interceptor.LoginInterceptor" />
+
+			<interceptor-stack name="loginStack">
+				<interceptor-ref name="LoginInterceptor" />
+				<interceptor-ref name="timer" />
+				<interceptor-ref name="defaultStack">
+					<!-- per il momento commento questo interceptor per i problemi di sicurezza 
+						di sessionAware <param name="params.excludeParams">dojo\..*,^struts\..*,^session\..*,^request\..*,^application\..*,^servlet(Request|Response)\..*,parameters\...*</param> -->
+				</interceptor-ref>
+			</interceptor-stack>
+			
+		</interceptors>
+		
+		<global-results>
+			<result name="login" type="redirect">/loginUser.action</result>
+			<result name="DENIED" type="redirect">/denied.action</result>
+		</global-results>
+		
+		<action name="Login" class="it.unisalento.distributori.action.Login">
+			<result name="success" type="tiles">index</result>
+			<result name="error" type="tiles">error</result>
+			<result name="input" type="tiles">login</result>
+		</action>
+		
+		
+	</package>
 </struts>
