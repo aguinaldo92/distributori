@@ -6,6 +6,7 @@
 	<constant name="struts.devMode" value="true" />
 	<constant name="struts.i18n.reload" value="false" />
 	<constant name="struts.configuration.xml.reload" value="false" />
+	<constant name="struts.ui.theme" value="simple" />
 
 	<package name="default" extends="struts-default">
 		<result-types>
@@ -30,14 +31,14 @@
 			
 		</interceptors>
 		
-		<global-results>
-			<result name="login" type="redirect">/loginUser.action</result>
-			<result name="DENIED" type="redirect">/denied.action</result>
-		</global-results>
+		<default-action-ref name="index"/>
 		
-		<action name="Login" class="it.unisalento.distributori.action.Login">
-			<result name="success" type="tiles">index</result>
-			<result name="error" type="tiles">error</result>
+		<action name="index">
+			<result type="tiles">index</result>
+		</action>
+		
+		<action name="login" class="it.unisalento.distributori.action.Login">
+			<result name="success" type="tiles">logged</result>
 			<result name="input" type="tiles">login</result>
 		</action>
 		

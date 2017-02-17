@@ -1,20 +1,46 @@
 <%@ taglib prefix="s" uri="/struts-tags"%>
-<s:if test="hasActionErrors()">
-	<div style="color: red">
-		<s:actionerror />
-	</div>
-</s:if>
-<div class="wrapper">
-<s:div class="container">
-	<s:div class="account">
-			<h2 class="account-in">Account</h2>
-			<s:form action="Login">
-			<s:textfield name="email" label="Email"/>
-			<s:password name="password" label="Password"/>
-			<s:submit value="Invia" />
-			</s:form>
-	</s:div>
-</s:div>
+<!DOCTYPE html>
+<html lang="en">
 
-<div class="push"></div>
-</div>
+
+<body>
+	<s:if test="hasActionErrors()">
+		<div style="color: red">
+			<s:actionerror />
+		</div>
+	</s:if>
+	
+<br></br>
+		<s:div class="container">
+			<div class="row">
+				<div class="col-md-4 col-md-offset-4">
+					<div class="login-panel panel panel-default">
+						<div class="panel-heading">
+							<h3 class="panel-title">Please Sign In</h3>
+						</div>
+						<div class="panel-body">
+							<s:form action="Login" role="form">
+								<fieldset>
+									<div class="form-group">
+										<s:textfield name="email" label="Email" placeholder="E-mail"
+											type="email" class="form-control" />
+									</div>
+									<div class="form-group">
+										<s:password name="password" label="Password" class="form-control" placeholder="Password" />
+									</div>
+									<div class="form-group">
+										<s:submit value="login"
+											class="btn btn-lg btn-success btn-block" />
+									</div>
+								</fieldset>
+							</s:form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</s:div>
+
+
+</body>
+
+</html>

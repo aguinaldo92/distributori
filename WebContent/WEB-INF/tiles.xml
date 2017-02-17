@@ -9,21 +9,19 @@
 
 	<definition name="baseLayout" template="/baselayout/baseLayout.jsp">
 		<put-attribute name="title" value="" />
-		<put-attribute name="header" value="" />
-		<put-attribute name="menu" value="" />
+		<put-attribute name="header" value="/baselayout/header.jsp" />
+		<put-attribute name="menu" value="/baselayout/menu.jsp" />
 		<put-attribute name="body" value="" />
-		<put-attribute name="footer" value="" />
+		<put-attribute name="footer" value="/baselayout/footer.jsp" />
 	</definition>
 	
-	<definition name="login" extends="baseLayout">
+	<definition name="index" extends="baseLayout">
 		<put-attribute name="title" value="Login" />
 		<put-attribute name="body" value="/views/login.jsp" />
-		<put-attribute name="footer" value="" />
-		<put-attribute name="header" value="" />
-		<put-attribute name="menu"  value="" />
+		<put-attribute name="menu"  value="/baselayout/emptymenu.jsp" />
 	</definition>
 	
-		<definition name="index" extends="baseLayout">
+		<definition name="logged" extends="baseLayout">
 		<put-attribute name="title" value="Success" />
 		<put-attribute name="body" value="/views/logged.jsp" />
 		<put-attribute name="footer" value="" />
