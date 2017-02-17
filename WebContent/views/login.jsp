@@ -1,23 +1,26 @@
 <%@ taglib prefix="s" uri="/struts-tags"%>
 <!DOCTYPE html>
-<html lang="en">
-
-
-<body>
-	<s:if test="hasActionErrors()">
-		<div style="color: red">
-			<s:actionerror />
-		</div>
-	</s:if>
-	
-<br></br>
-		<s:div class="container">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<div id="wrapper">  
+           
+        <!-- /. NAV SIDE  -->
+        <div id="page-wrapper" >
+            <div id="page-inner">
+                <div class="row">
+                    <div class="col-md-12">
+                     <h2>Effettua il LOGIN</h2>   
+                        <h5>messaggi di errore</h5>
+                       
+                    </div>
+                </div>
+                 <!-- /. ROW  -->
+                 <hr />
+                 
+                 		<s:div class="container">
 			<div class="row">
 				<div class="col-md-4 col-md-offset-4">
 					<div class="login-panel panel panel-default">
-						<div class="panel-heading">
-							<h3 class="panel-title">Please Sign In</h3>
-						</div>
+						
 						<div class="panel-body">
 							<s:form action="Login" role="form">
 								<fieldset>
@@ -39,8 +42,16 @@
 				</div>
 			</div>
 		</s:div>
+                 
+               
+    </div>
+             <!-- /. PAGE INNER  -->
+            </div>
+         <!-- /. PAGE WRAPPER  -->
+        </div>
+     <!-- /. WRAPPER  -->
 
-
+    
+   
 </body>
-
 </html>
