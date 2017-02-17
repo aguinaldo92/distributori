@@ -33,13 +33,22 @@
 		
 		<default-action-ref name="index"/>
 		
+		<global-results>
+			<result name="login" type="redirect">/index.action</result>
+			<result name="DENIED" type="redirect">/denied.action</result>
+		</global-results>
+		
 		<action name="index">
 			<result type="tiles">index</result>
 		</action>
 		
-		<action name="login" class="it.unisalento.distributori.action.Login">
+		<action name="denied">
+			<result type="tiles">index</result>
+		</action>
+		
+		<action name="Login" class="it.unisalento.distributori.action.Login">
 			<result name="success" type="tiles">logged</result>
-			<result name="input" type="tiles">login</result>
+			<result name="input" type="tiles">index</result>
 		</action>
 		
 		
