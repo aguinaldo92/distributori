@@ -26,26 +26,36 @@ public class Login extends ActionSupport implements SessionAware, ParameterNameA
 
 	private static final long serialVersionUID = 1L;
 	private Persona persona= new Persona();
+	private Persona personaBySession;
 	private SessionMap<String, Object> personaSession ;
 
 	private String email;
 	private String password;
 
 	public String execute() {
-
-		System.out.println("Sono entrato nella action Login");
-		personaSession.put("persona", persona);
+		
+		System.out.println("Sono entrato nel metodo execute della action Login");
+		
+		personaBySession = (Persona) personaSession.get("persona");
 		System.out.println("email: " + persona.getEmail());
-
+		System.out.println("email già salvata: " + personaBySession.getEmail());
 		System.out.println("ruolo: " + persona.getRuolo());
-		System.out.println("success final");
-		return SUCCESS;
+		System.out.println("ruolo già salvato: " + personaBySession.getRuolo());
+		
+		switch (personaBySession.getRuolo()) {
+			case 0:	return "gestore";
+			case 1: return "dipendente";
+			default: return SUCCESS;
+		} 
+		
 	}
 	
 	public void validate() {
 		boolean errors = false;
-
-		if (!(personaSession.containsKey("persona"))){//controllo se la userSession è stata impostata
+		System.out.println("Sono entrato nel metodo validate della Login");
+		if (!(personaSession.containsKey("persona"))){
+			System.out.println("sono nell if persona: nessuna persona in personaSession");
+			//controllo se la userSession è stata impostata
 			try {	 
 				//ottengo anagrafica e indirizzi salvati dallo user loggato
 				persona=FactoryDao.getIstance().getPersonaDao().getPersonaByCredentials(email, password);
@@ -53,15 +63,20 @@ public class Login extends ActionSupport implements SessionAware, ParameterNameA
 				if (persona == null ){
 					errors = true;
 					addFieldError("email", "Utente non presente nel sistema");
+					System.out.println("email non presente: " + persona.getEmail());
+				} else {
+					personaSession.put("persona", persona);
+					System.out.println("salvo persona nella sessione " + persona.getEmail());
 				}
-
+				
 			} catch (Exception e){
 				System.out.println(e.getLocalizedMessage());
 				errors = true;
 			}
-		}
+		} 		
 		if (errors) {
 			addActionError("Email o Password errati");
+			System.out.println("aggiungo errori");
 		}
 	}
 	

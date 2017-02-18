@@ -1,6 +1,7 @@
 <%@ taglib prefix="s" uri="/struts-tags"%>
-<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml">
+
+
+
 <div id="wrapper">
 
 	<!-- /. NAV SIDE  -->
@@ -36,6 +37,11 @@
 											<s:submit value="login"
 												class="btn btn-lg btn-success btn-block" />
 										</div>
+										<s:if test="hasActionErrors()">
+											<div style="color: red">
+												<s:actionerror />
+											</div>
+										</s:if>
 									</fieldset>
 								</s:form>
 							</div>
@@ -55,4 +61,4 @@
 
 
 <body></body>
-</html>
+<html></html>

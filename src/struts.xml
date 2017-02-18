@@ -7,6 +7,8 @@
 	<constant name="struts.i18n.reload" value="false" />
 	<constant name="struts.configuration.xml.reload" value="false" />
 	<constant name="struts.ui.theme" value="simple" />
+	
+	
 
 	<package name="default" extends="struts-default">
 		<result-types>
@@ -47,10 +49,39 @@
 		</action>
 		
 		<action name="Login" class="it.unisalento.distributori.action.Login">
-			<result name="success" type="tiles">logged</result>
+			<result name="dipendente" type="tiles">dashboardDipendente</result>
+			<result name="gestore" type="tiles">dashboardGestore</result>
 			<result name="input" type="tiles">index</result>
 		</action>
 		
 		
 	</package>
+	
+	<package name="dipendente" extends="default" namespace="/dipendente">
+	
+	<default-interceptor-ref name="loginStack"/>
+	<default-action-ref name="dashboard"/>
+
+		<action name="dashboard">
+			<result type="tiles">dashboardDipendente</result>
+		</action>
+		
+		<action name="listaInterventi">
+			<result type="tiles">listaInterventi</result>
+		</action>
+		
+	</package>
+	
+		<package name="gestore" extends="default" namespace="/gestore">
+	
+		<default-interceptor-ref name="loginStack"/>
+<!-- 	<default-action-ref name="dashboard"/> -->
+
+		<action name="dashboard">
+			<result type="tiles">dashboardGestore</result>
+		</action>
+		
+	</package>
+	
+	
 </struts>
