@@ -25,7 +25,7 @@ public class LoginInterceptor implements Interceptor {
 	private Persona persona;
 	private String namespaceAction;
 	private String nameAction;
-	private PermissionsHashMap permissionsHashMap;
+	private PermissionsHashMap permissionsHashMap = new PermissionsHashMap();
 	private HashMap<Integer, String> ruolo_namespace;
 	@Override
 	public void destroy() {

@@ -59,7 +59,7 @@
 	
 	<package name="dipendente" extends="default" namespace="/dipendente">
 	
-	<default-interceptor-ref name="loginStack"/>
+<!-- 	<default-interceptor-ref name="loginStack"/> -->
 	<default-action-ref name="dashboard"/>
 
 		<action name="dashboard">
