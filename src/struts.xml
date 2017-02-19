@@ -54,6 +54,11 @@
 			<result name="input" type="tiles">index</result>
 		</action>
 		
+		<action name="Logout" class="it.unisalento.distributori.action.Logout">
+			<result name="success" type="tiles">index</result>
+			<result name="input" type="tiles">index</result>
+		</action>
+		
 		
 	</package>
 	
