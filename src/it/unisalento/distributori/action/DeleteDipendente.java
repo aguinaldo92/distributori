@@ -1,26 +1,15 @@
 package it.unisalento.distributori.action;
 
-import org.hibernate.annotations.Cascade;
-import org.hibernate.annotations.CascadeType;
-
 import com.opensymphony.xwork2.ActionSupport;
 import it.unisalento.distributori.domain.Dipendente;
 import it.unisalento.distributori.domain.Persona;
 import it.unisalento.distributori.factory.FactoryDao;
+import it.unisalento.distributori.util.SendMailSSL;
 
 public class DeleteDipendente extends ActionSupport{
 	
 	private int idDip;
-	private Dipendente deleted_dipendente = new Dipendente();
 	private Persona new_persona = new Persona();
-	
-	public Dipendente getDeleted_dipendente() {
-		return deleted_dipendente;
-	}
-
-	public void setDeleted_dipendente(Dipendente deleted_dipendente) {
-		this.deleted_dipendente = deleted_dipendente;
-	}
 
 	public Persona getNew_persona() {
 		return new_persona;
@@ -28,14 +17,6 @@ public class DeleteDipendente extends ActionSupport{
 
 	public void setNew_persona(Persona new_persona) {
 		this.new_persona = new_persona;
-	}
-
-	public Dipendente getDelited_dipendente() {
-		return deleted_dipendente;
-	}
-
-	public void setDelited_dipendente(Dipendente delited_dipendente) {
-		this.deleted_dipendente = delited_dipendente;
 	}
 
 	public int getIdDip() {
@@ -50,15 +31,19 @@ public class DeleteDipendente extends ActionSupport{
 		
 		System.out.println("ID dipendente da eliminare="+idDip);
 		this.new_persona=FactoryDao.getIstance().getPersonaDao().get(idDip, Persona.class);
-		this.deleted_dipendente=new_persona.getDipendente();
-		
-		//aggiornamento ruolo
-		new_persona.setRuolo(2);
-		
-		System.out.println("Nominativo dipendente: "+deleted_dipendente.getPersona().getNome()+" "+deleted_dipendente.getPersona().getCognome());
 
-		FactoryDao.getIstance().getPersonaDao().update(new_persona);
-		FactoryDao.getIstance().getDipendenteDao().delete(deleted_dipendente);
+		
+		System.out.println("Nominativo dipendente: "+new_persona.getNome()+" "+new_persona.getCognome());
+
+		FactoryDao.getIstance().getPersonaDao().delete(new_persona);
+		
+		SendMailSSL sending_mail=new SendMailSSL();
+		sending_mail.send(new_persona.getEmail(), "WiFi Drink&Snacks - NOTIFICA DI CANCELLAZIONE DAL GESTIONALE", "Gent.mo/a Sig./Sig.ra "+
+		new_persona.getNome()+" "+new_persona.getCognome()+
+		", la presente per notificarLe l'avvenuta eliminazione dal gestionale aziendale "+
+		"del suo nominativo. Se vuole continuare ad acquistare i nostri prodotti dovrà registrarsi dalla nostra APP."+
+		" Tanta CARNE!!!"+
+		" Cordialmente. Giovanni Rana");
 		
 		System.out.println("Dipendente eliminato con successo");
 		

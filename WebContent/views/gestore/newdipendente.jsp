@@ -9,21 +9,15 @@
             <div id="page-inner">
                 <div class="row">
                     <div class="col-md-12">
-                     <h2>AGGIORNAMENTO DIPENDENTE</h2>   
+                     <h2>REGISTRAZIONE NUOVO DIPENDENTE</h2>   
                         <h5>messaggi di errore</h5>
                        
                     </div>
                 </div>
                  <!-- /. ROW  -->
                  <hr />
-		<s:iterator value="dipendente">
-			<s:form name="update" action="UpdateDipendente">
+			<s:form name="update" action="AddDipendente">
 				
-				<div class=" form-group input-group input-group-lg">
-  				<span class="input-group-addon">Badge</span>
-  				<s:textfield cssClass="form-control" cssStyle="width: 10%; background-color: #eee;" readonly="true" name="id"/>
-  				</div>
-  				<br><br><br><br>
 				<div class=" form-group input-group input-group-lg">
   				<span class="input-group-addon">Nome</span>
   				<s:textfield cssClass="form-control" name="nome"/>
@@ -38,15 +32,18 @@
   				<s:textfield cssClass="form-control" name="telefono"/>
 				</div>
 				<br><br>
+				<div class="form-group">
+                    <label>NOTA: La password di accesso verrà generata dal sistema e 
+                    inviata automaticamente via email al dipendente.</label>
+               	</div>
 				<p align="center">
 				<s:a action="ListDipendenti" class="btn btn-danger btn-lg">Annulla</s:a>
 				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-				<s:submit cssClass="btn btn-primary btn-lg" value="Modifica"/>
+				<s:submit cssClass="btn btn-primary btn-lg" value="Inserisci"/>
 
 				</p>
 			</s:form>
-		</s:iterator>
 
 
     		</div>

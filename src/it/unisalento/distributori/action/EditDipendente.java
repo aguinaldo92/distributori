@@ -2,19 +2,19 @@ package it.unisalento.distributori.action;
 
 import com.opensymphony.xwork2.ActionSupport;
 import it.unisalento.distributori.domain.Dipendente;
-import it.unisalento.distributori.domain.Persona;
 import it.unisalento.distributori.factory.FactoryDao;
+import it.unisalento.distributori.model.PersonaModel;
 
 public class EditDipendente extends ActionSupport{
 	
 	private int idDip;
-	private Dipendente dipendente = new Dipendente();
+	private PersonaModel dipendente = new PersonaModel();
 
-	public Dipendente getDipendente() {
+	public PersonaModel getDipendente() {
 		return dipendente;
 	}
 
-	public void setDipendente(Dipendente dipendente) {
+	public void setDipendente(PersonaModel dipendente) {
 		this.dipendente = dipendente;
 	}
 
@@ -30,9 +30,15 @@ public class EditDipendente extends ActionSupport{
 		
 		System.out.println("ID dipendente da modificare="+idDip);
 		
-		dipendente=FactoryDao.getIstance().getDipendenteDao().get(idDip, Dipendente.class);
+		Dipendente dip=FactoryDao.getIstance().getDipendenteDao().get(idDip, Dipendente.class);
 		
-		System.out.println("Dipendente ottenuto: "+dipendente.getPersona().getNome()+" "+dipendente.getPersona().getCognome());
+		dipendente.setCognome(dip.getPersona().getCognome());
+		dipendente.setNome(dip.getPersona().getNome());
+		dipendente.setEmail(dip.getPersona().getEmail());
+		dipendente.setId(dip.getPersonaId());
+		dipendente.setTelefono(dip.getTelefono());
+		
+		System.out.println("Dipendente ottenuto: "+dipendente.getNome()+" "+dipendente.getCognome());
 		
 		return SUCCESS;
 	}

@@ -38,6 +38,10 @@
 			<result type="tiles">index</result>
 		</action>
 		
+		<action name="CreateDipendente">
+			<result type="tiles">createDipendente</result>
+		</action>
+		
 		<action name="login" class="it.unisalento.distributori.action.Login">
 			<result name="success" type="tiles">logged</result>
 			<result name="input" type="tiles">index</result>
@@ -56,6 +60,15 @@
 			<result type="tiles">editDipendente</result>
 		</action>
 		
+		<action name="UpdateDipendente" class="it.unisalento.distributori.action.UpdateDipendente">
+			<result name="success" type="redirectAction">ListDipendenti</result>
+			<result name="input" type="tiles">editDipendente</result>
+		</action>
+		
+		<action name="AddDipendente" class="it.unisalento.distributori.action.AddDipendente">
+			<result name="success" type="redirectAction">ListDipendenti</result>
+			<result name="input" type="tiles">createDipendente</result>
+		</action>
 		
 	</package>
 </struts>

@@ -14,11 +14,19 @@ public class PersonaModel {
 	private String cognome;
 	private String email;
 	private int ruolo;
+	private String telefono;
 	
-	public int getId() {
+	public String getTelefono() {
+		return telefono;
+	}
+	public void setTelefono(String telefono) {
+		this.telefono = telefono;
+	}
+
+	public Integer getId() {
 		return id;
 	}
-	public void setId(int id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 	public String getNome() {

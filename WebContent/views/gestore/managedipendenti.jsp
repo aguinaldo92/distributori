@@ -23,6 +23,10 @@
 
                         <div class="panel-body">
                             <div class="table-responsive">
+                            <p align="right">
+                            <s:a action="CreateDipendente" class="btn btn-success">Inserisci nuovo dipendente</s:a>
+                            </p>
+                            <p></p>
                                 <table class="table table-striped table-bordered table-hover" id="dataTables-example">
                                     <thead>
                                         <tr align="center">
@@ -65,7 +69,7 @@
 				                                        </div>
 				                                        <div class="modal-body">
 				                                            Attenzione. Questa operazione è irreversibile. Le informazioni eliminate non saranno recuperabili in alcun modo.
-				                                            <br>Si vuole, pertanto, confermare l'eliminazione del dipendente ${persona.nome} ${persona.cognome}?
+				                                            <br>Si vuole, pertanto, confermare l'eliminazione del dipendente<b> ${persona.nome} ${persona.cognome}</b>?
 				                                        </div>
 				                                        <div class="modal-footer">
 				                                            <button type="button" class="btn btn-default" data-dismiss="modal">Annulla</button>
@@ -80,7 +84,7 @@
                                         </tr>
                                         
                                     </s:iterator>
-                                    
+
                                     </tbody>
                                 </table>
                             </div>

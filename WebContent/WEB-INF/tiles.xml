@@ -36,4 +36,9 @@
 		<put-attribute name="body" value="/views/gestore/editdipendente.jsp" />
 	</definition>
 	
+		<definition name="createDipendente" extends="baseLayout">
+		<put-attribute name="title" value="Inserisci Dipendente" />
+		<put-attribute name="body" value="/views/gestore/newdipendente.jsp" />
+	</definition>
+	
 </tiles-definitions>
