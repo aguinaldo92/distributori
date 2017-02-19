@@ -8,7 +8,7 @@
             <div id="page-inner">
                 <div class="row">
                     <div class="col-md-12">
-                     <h2>LOGGED</h2>   
+                     <h2>DASHBOARD</h2>   
                         <h5>messaggi di errore</h5>
                        
                     </div>
@@ -16,7 +16,7 @@
                  <!-- /. ROW  -->
                  <hr />
 
-    </div>
+    		</div>
              <!-- /. PAGE INNER  -->
             </div>
          <!-- /. PAGE WRAPPER  -->

@@ -7,14 +7,14 @@
 <!-- </font> -->
 <!-- </p> -->
 
-    <!-- SCRIPTS -AT THE BOTOM TO REDUCE THE LOAD TIME-->
+         <!-- SCRIPTS -AT THE BOTOM TO REDUCE THE LOAD TIME-->
     <!-- JQUERY SCRIPTS -->
-    <script src="../vendor/js/jquery-1.10.2.js"></script>
+    <script src="vendor/js/jquery-1.10.2.js"></script>
       <!-- BOOTSTRAP SCRIPTS -->
-    <script src="../vendor/js/bootstrap.min.js"></script>
+    <script src="vendor/js/bootstrap.min.js"></script>
     <!-- METISMENU SCRIPTS -->
-    <script src="../vendor/js/jquery.metisMenu.js"></script>
+    <script src="vendor/js/jquery.metisMenu.js"></script>
       <!-- CUSTOM SCRIPTS -->
-    <script src="../vendor/js/custom.js"></script>
+    <script src="vendor/js/custom.js"></script>
 
 </div>

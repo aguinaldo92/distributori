@@ -6,7 +6,7 @@
             <div class="sidebar-collapse">
                 <ul class="nav" id="main-menu">
 				<li class="text-center">
-                    <img src="../vendor/img/find_user.png" class="user-image img-responsive"/>
+                    <img src="vendor/img/find_user.png" class="user-image img-responsive"/>
 					</li>
 				
 					
@@ -14,7 +14,7 @@
                         <a  href="index.html"><i class="fa fa-dashboard fa-3x"></i> Dashboard</a>
                     </li>
                       <li>
-                        <a  href="ui.html"><i class="fa fa-table fa-3x"></i> Gestione Dipendenti</a>
+                         <s:a action="ListDipendenti"><i class="fa fa-table fa-3x"></i> Gestione Dipendenti</s:a>
                     </li>
                     <li>
                         <a  href="tab-panel.html"><i class="fa fa-table fa-3x"></i> Gestione Catalogo</a>

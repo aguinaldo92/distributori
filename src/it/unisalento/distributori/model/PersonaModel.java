@@ -8,12 +8,19 @@ package it.unisalento.distributori.model;
  *
  */
 public class PersonaModel {
+	
+	private Integer id;
 	private String nome;
 	private String cognome;
 	private String email;
 	private int ruolo;
 	
-	
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
+	}
 	public String getNome() {
 		return nome;
 	}

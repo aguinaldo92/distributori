@@ -16,13 +16,15 @@
                  <!-- /. ROW  -->
                  <hr />
                  
+                 <!-- INIZIO FORM DI LOGIN -->
+                 
                  		<s:div class="container">
 			<div class="row">
 				<div class="col-md-4 col-md-offset-4">
 					<div class="login-panel panel panel-default">
 						
 						<div class="panel-body">
-							<s:form action="Login" role="form">
+							<s:form action="login" role="form">
 								<fieldset>
 									<div class="form-group">
 										<s:textfield name="email" label="Email" placeholder="E-mail"
@@ -41,6 +43,9 @@
 					</div>
 				</div>
 			</div>
+			
+			<!-- FINE FORM DI LOGIN -->
+			
 		</s:div>
                  
                

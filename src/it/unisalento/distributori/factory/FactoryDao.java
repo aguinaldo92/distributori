@@ -3,7 +3,9 @@
  */
 package it.unisalento.distributori.factory;
 
+import it.unisalento.distributori.dao.DipendenteDao;
 import it.unisalento.distributori.dao.PersonaDao;
+import it.unisalento.distributori.daoimpl.DipendenteDaoImpl;
 import it.unisalento.distributori.daoimpl.PersonaDaoImpl;
 
 /**
@@ -24,6 +26,11 @@ public class FactoryDao {
 	public PersonaDao getPersonaDao(){
 		System.out.println("FactoryDao: getPersonaDao");
 		return new PersonaDaoImpl();
+	}
+	
+	public DipendenteDao getDipendenteDao(){
+		System.out.println("FactoryDao: getPersonaDao");
+		return new DipendenteDaoImpl();
 	}
 	
 }

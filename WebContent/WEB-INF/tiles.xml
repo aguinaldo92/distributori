@@ -24,9 +24,16 @@
 		<definition name="logged" extends="baseLayout">
 		<put-attribute name="title" value="Success" />
 		<put-attribute name="body" value="/views/logged.jsp" />
-		<put-attribute name="footer" value="" />
-		<put-attribute name="header" value="" />
-		<put-attribute name="menu"  value="" />
+	</definition>
+	
+		<definition name="listDipendenti" extends="baseLayout">
+		<put-attribute name="title" value="Gestione Dipendenti" />
+		<put-attribute name="body" value="/views/gestore/managedipendenti.jsp" />
+	</definition>
+	
+		<definition name="editDipendente" extends="baseLayout">
+		<put-attribute name="title" value="Modifica Dipendente" />
+		<put-attribute name="body" value="/views/gestore/editdipendente.jsp" />
 	</definition>
 	
 </tiles-definitions>
