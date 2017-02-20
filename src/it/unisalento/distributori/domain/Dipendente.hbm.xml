@@ -1,41 +1,36 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
-                                   "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated 17-feb-2017 10.07.26 by Hibernate Tools 4.3.1.Final -->
-<hibernate-mapping default-lazy="false">
- <class catalog="distributoridb"
-  name="it.unisalento.distributori.domain.Dipendente" table="dipendente">
-  <id name="personaId" type="int">
-   <column name="Persona_ID"/>
-   <generator class="foreign">
-    <param name="property">persona</param>
-   </generator>
-  </id>
-  <one-to-one class="it.unisalento.distributori.domain.Persona"
-   constrained="true" name="persona" lazy="false"/>
-  <property generated="never" lazy="false" name="telefono" type="string">
-   <column length="14" name="Telefono"/>
-  </property>
-  <set fetch="select" inverse="true" lazy="true" name="rifornisces"
-   sort="unsorted" table="rifornisce">
-   <key>
-    <column name="Persona_ID" not-null="true"/>
-   </key>
-   <one-to-many class="it.unisalento.distributori.domain.Rifornisce"/>
-  </set>
-  <set fetch="select" inverse="true" lazy="true" name="manutienes"
-   sort="unsorted" table="manutiene">
-   <key>
-    <column name="Persona_ID" not-null="true"/>
-   </key>
-   <one-to-many class="it.unisalento.distributori.domain.Manutiene"/>
-  </set>
-  <set fetch="select" inverse="true" lazy="true" name="distributores"
-   sort="unsorted" table="distributore">
-   <key>
-    <column name="Dipendente_Persona_ID" not-null="true"/>
-   </key>
-   <one-to-many class="it.unisalento.distributori.domain.Distributore"/>
-  </set>
- </class>
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 20-feb-2017 14.41.47 by Hibernate Tools 4.3.1.Final -->
+<hibernate-mapping>
+    <class name="it.unisalento.distributori.domain.Dipendente" table="dipendente" catalog="distributoridb" optimistic-lock="version">
+        <id name="personaId" type="int">
+            <column name="Persona_ID" />
+            <generator class="foreign">
+                <param name="property">persona</param>
+            </generator>
+        </id>
+        <one-to-one name="persona" class="it.unisalento.distributori.domain.Persona" constrained="true" lazy="false"></one-to-one>
+        <property name="telefono" type="string">
+            <column name="Telefono" length="14" />
+        </property>
+        <set name="rifornisces" table="rifornisce" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="Persona_ID" />
+            </key>
+            <one-to-many class="it.unisalento.distributori.domain.Rifornisce" />
+        </set>
+        <set name="manutienes" table="manutiene" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="Persona_ID" />
+            </key>
+            <one-to-many class="it.unisalento.distributori.domain.Manutiene" />
+        </set>
+        <set name="distributores" table="distributore" inverse="true" lazy="false" fetch="select">
+            <key>
+                <column name="Dipendente_Persona_ID" />
+            </key>
+            <one-to-many class="it.unisalento.distributori.domain.Distributore" />
+        </set>
+    </class>
 </hibernate-mapping>
