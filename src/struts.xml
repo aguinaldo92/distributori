@@ -7,8 +7,7 @@
 	<constant name="struts.i18n.reload" value="false" />
 	<constant name="struts.configuration.xml.reload" value="false" />
 	<constant name="struts.ui.theme" value="simple" />
-	
-	
+
 
 	<package name="default" extends="struts-default">
 		<result-types>
@@ -21,6 +20,9 @@
 				class="it.unisalento.distributori.interceptor.MyInterceptor" />
 			<interceptor name="LoginInterceptor"
 				class="it.unisalento.distributori.interceptor.LoginInterceptor" />
+				
+			<interceptor name="homepageInterceptor"
+				class="it.unisalento.distributori.interceptor.HomepageInterceptor" />
 
 			<interceptor-stack name="loginStack">
 				<interceptor-ref name="LoginInterceptor" />
@@ -30,63 +32,65 @@
 						di sessionAware <param name="params.excludeParams">dojo\..*,^struts\..*,^session\..*,^request\..*,^application\..*,^servlet(Request|Response)\..*,parameters\...*</param> -->
 				</interceptor-ref>
 			</interceptor-stack>
-			
+
 		</interceptors>
-		
-		<default-action-ref name="index"/>
-		
+
+		<default-action-ref name="index" />
+
 		<global-results>
 			<result name="login" type="redirect">/index.action</result>
 			<result name="DENIED" type="redirect">/denied.action</result>
+			<result name="/dipendente" type="redirect">/dipendente/dashboard.action</result>
+			<result name="/gestore" type="redirect">/gestore/dashboard.action</result>
 		</global-results>
-		
+
 		<action name="index">
+			<interceptor-ref name="homepageInterceptor" />
 			<result type="tiles">index</result>
 		</action>
-		
+
 		<action name="denied">
 			<result type="tiles">index</result>
 		</action>
-		
+
 		<action name="Login" class="it.unisalento.distributori.action.Login">
 			<result name="dipendente" type="tiles">dashboardDipendente</result>
 			<result name="gestore" type="tiles">dashboardGestore</result>
 			<result name="input" type="tiles">index</result>
 		</action>
-		
+
 		<action name="Logout" class="it.unisalento.distributori.action.Logout">
 			<result name="success" type="tiles">index</result>
 			<result name="input" type="tiles">index</result>
 		</action>
-		
-		
+
 	</package>
-	
+
 	<package name="dipendente" extends="default" namespace="/dipendente">
 	
-<!-- 	<default-interceptor-ref name="loginStack"/> -->
-	<default-action-ref name="dashboard"/>
+		<default-interceptor-ref name="loginStack" />
+		<default-action-ref name="dashboard" />
 
 		<action name="dashboard">
 			<result type="tiles">dashboardDipendente</result>
 		</action>
-		
+
 		<action name="listaInterventi">
 			<result type="tiles">listaInterventi</result>
 		</action>
-		
+
 	</package>
-	
-		<package name="gestore" extends="default" namespace="/gestore">
-	
-		<default-interceptor-ref name="loginStack"/>
-<!-- 	<default-action-ref name="dashboard"/> -->
+
+	<package name="gestore" extends="default" namespace="/gestore">
+
+		<default-interceptor-ref name="loginStack" />
+		<default-action-ref name="dashboard" />
 
 		<action name="dashboard">
 			<result type="tiles">dashboardGestore</result>
 		</action>
-		
+
 	</package>
-	
-	
+
+
 </struts>

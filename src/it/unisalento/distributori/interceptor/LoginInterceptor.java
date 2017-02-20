@@ -21,12 +21,12 @@ public class LoginInterceptor implements Interceptor {
 	private static final long serialVersionUID = 1L;
 
 	private SessionMap<String, Object> personaSession;
-	private  Integer ruolo;
-	private Persona persona;
+	private Integer ruolo;
 	private String namespaceAction;
 	private String nameAction;
 	private PermissionsHashMap permissionsHashMap = new PermissionsHashMap();
 	private HashMap<Integer, String> ruolo_namespace;
+
 	@Override
 	public void destroy() {
 		// TODO Auto-generated method stub
@@ -40,34 +40,32 @@ public class LoginInterceptor implements Interceptor {
 
 	@Override
 	public String intercept(ActionInvocation invocation) throws Exception {
-		personaSession = (SessionMap<String, Object>)invocation.getInvocationContext().getSession();
+		personaSession = (SessionMap<String, Object>) invocation.getInvocationContext().getSession();
 		namespaceAction = invocation.getProxy().getNamespace();
 		nameAction = invocation.getProxy().getActionName();
 		System.out.println(namespaceAction);
 		System.out.println(nameAction);
-		
+
 		ruolo_namespace = permissionsHashMap.getRuolo_namespace();
-		
-			if (personaSession.containsKey("persona")) {
-				persona = (Persona) personaSession.get("persona");
-				ruolo = persona.getRuolo();
-				if (ruolo_namespace.get(ruolo).equals(namespaceAction)) {
-					System.out.println("permessi ok");
-					System.out.println("sei nel namespace: " + namespaceAction + " action:  " + nameAction + " poichè hai il ruolo " + ruolo);
-					return invocation.invoke();
-				}
-				else {
-					System.out.println("permessi Insufficieneti ");
-					System.out.println("hai provato ad entrare nel namespace " + namespaceAction + " action:  " + nameAction +  " poichè hai il ruolo " + ruolo);
-					return "DENIED";
-				}
+
+		if (personaSession.containsKey("persona")) {
+			ruolo = ((Persona) personaSession.get("persona")).getRuolo();
+			if (ruolo_namespace.get(ruolo).equals(namespaceAction)) {
+				System.out.println("permessi ok");
+				System.out.println("sei nel namespace: " + namespaceAction + " action:  " + nameAction
+						+ " poichè hai il ruolo " + ruolo);
+				return invocation.invoke();
 			} else {
-				System.out.println("L'utente deve essere loggato per arrivare alla pagina ");
+				System.out.println("permessi Insufficienti ");
+				System.out.println("hai provato ad entrare nel namespace " + namespaceAction + " action:  " + nameAction
+						+ " poichè hai il ruolo " + ruolo);
 				return Action.LOGIN;
 			}
-
-
-
+		} else {
+			System.out.println("L'utente deve essere loggato per arrivare alla pagina ");
+			return Action.LOGIN;
 		}
 
 	}
+
+}
