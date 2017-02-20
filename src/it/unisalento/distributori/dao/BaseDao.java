@@ -16,5 +16,7 @@ public interface BaseDao<T> {//questa è l'interfaccia di BaseDaoImpl (applicazio
 	public abstract List<T> getAll(Class clazz);
 	
 	public void update(T entity);
+	
+	public void delete(T entity);
 
 }

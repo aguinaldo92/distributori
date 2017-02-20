@@ -41,4 +41,18 @@
 		<put-attribute name="body" value="/views/dipendente/listaInterventi.jsp" />
 	</definition>
 	
+			<definition name="listDipendenti" extends="baseLayout">
+		<put-attribute name="title" value="Gestione Dipendenti" />
+		<put-attribute name="body" value="/views/gestore/managedipendenti.jsp" />
+	</definition>
+	
+		<definition name="editDipendente" extends="baseLayout">
+		<put-attribute name="title" value="Modifica Dipendente" />
+		<put-attribute name="body" value="/views/gestore/editdipendente.jsp" />
+	</definition>
+	
+		<definition name="createDipendente" extends="baseLayout">
+		<put-attribute name="title" value="Inserisci Dipendente" />
+		<put-attribute name="body" value="/views/gestore/newdipendente.jsp" />
+	</definition>
 </tiles-definitions>
