@@ -3,16 +3,6 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Free Bootstrap Admin Template : Binary Admin</title>
-<!-- BOOTSTRAP STYLES-->
-<link href="vendor/css/bootstrap.css" rel="stylesheet" />
-<!-- FONTAWESOME STYLES-->
-<link href="vendor/css/font-awesome.css" rel="stylesheet" />
-<!-- CUSTOM STYLES-->
-<link href="vendor/css/custom.css" rel="stylesheet" />
-<!-- GOOGLE FONTS-->
-<link href='http://fonts.googleapis.com/css?family=Open+Sans'
-	rel='stylesheet' type='text/css' />
 </head>
 <body>
 	<div id="wrapper">

@@ -9,9 +9,12 @@
 
 <head>
 
-	<link href="vendor/css/bootstrap.css" rel="stylesheet" />
-	<link href="vendor/css/font-awesome.css" rel="stylesheet" />
-	<link href="vendor/css/custom.css" rel="stylesheet" />
+	<link href="../vendor/css/bootstrap.css" rel="stylesheet" />
+	<link href="../vendor/css/font-awesome.css" rel="stylesheet" />
+	<link href="../vendor/css/custom.css" rel="stylesheet" />
+	<!-- GOOGLE FONTS-->
+	<link href='http://fonts.googleapis.com/css?family=Open+Sans'
+	rel='stylesheet' type='text/css' />
 
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	
