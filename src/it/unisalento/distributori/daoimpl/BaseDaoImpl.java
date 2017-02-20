@@ -11,6 +11,8 @@ import org.apache.struts2.ServletActionContext;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
+import org.hibernate.annotations.Cascade;
+import org.hibernate.annotations.CascadeType;
 
 public class BaseDaoImpl<T> implements BaseDao<T> {
 
@@ -79,4 +81,15 @@ public class BaseDaoImpl<T> implements BaseDao<T> {
 		tx.commit();
 		session.close();
 	}
+	
+	@Override
+	public void delete(T entity) {
+		System.out.println("BaseDaoImpl: delete()");
+		Session session = sf.openSession();
+		Transaction tx = session.beginTransaction();
+		session.delete(entity);
+		tx.commit();
+		session.close();
+	}
+	
 }

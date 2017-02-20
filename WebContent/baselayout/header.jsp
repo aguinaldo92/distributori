@@ -5,11 +5,11 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Free Bootstrap Admin Template : Binary Admin</title>
 <!-- BOOTSTRAP STYLES-->
-<link href="../vendor/css/bootstrap.css" rel="stylesheet" />
+<link href="vendor/css/bootstrap.css" rel="stylesheet" />
 <!-- FONTAWESOME STYLES-->
-<link href="../vendor/css/font-awesome.css" rel="stylesheet" />
+<link href="vendor/css/font-awesome.css" rel="stylesheet" />
 <!-- CUSTOM STYLES-->
-<link href="../vendor/css/custom.css" rel="stylesheet" />
+<link href="vendor/css/custom.css" rel="stylesheet" />
 <!-- GOOGLE FONTS-->
 <link href='http://fonts.googleapis.com/css?family=Open+Sans'
 	rel='stylesheet' type='text/css' />
@@ -25,7 +25,8 @@
 						class="icon-bar"></span> <span class="icon-bar"></span> <span
 						class="icon-bar"></span>
 				</button>
-				<a class="navbar-brand" href="index.html">Binary admin</a>
+				
+				<s:a action="index" class="navbar-brand" cssStyle="font-size: 26px;">WiFi Drink&Snacks</s:a> 
 			</div>
 			<s:if test="#session.persona != null">
 				<div
