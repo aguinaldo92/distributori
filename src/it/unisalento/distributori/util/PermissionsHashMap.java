@@ -1,7 +1,7 @@
 /**
  * 
  */
-package it.unisalento.distributori.utils;
+package it.unisalento.distributori.util;
 
 import java.util.HashMap;
 

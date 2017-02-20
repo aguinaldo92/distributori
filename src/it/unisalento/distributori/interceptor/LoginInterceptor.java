@@ -1,7 +1,7 @@
 package it.unisalento.distributori.interceptor;
 
 import it.unisalento.distributori.domain.Persona;
-import it.unisalento.distributori.utils.PermissionsHashMap;
+import it.unisalento.distributori.util.PermissionsHashMap;
 
 import java.util.HashMap;
 

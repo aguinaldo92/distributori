@@ -13,7 +13,7 @@ import com.opensymphony.xwork2.interceptor.Interceptor;
 
 import freemarker.core.Environment.Namespace;
 import it.unisalento.distributori.domain.Persona;
-import it.unisalento.distributori.utils.PermissionsHashMap;
+import it.unisalento.distributori.util.PermissionsHashMap;
 
 /**
  * @author aguinaldo
