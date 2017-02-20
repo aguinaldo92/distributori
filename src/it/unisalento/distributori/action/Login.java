@@ -45,6 +45,7 @@ public class Login extends ActionSupport implements SessionAware, ParameterNameA
 		switch (personaBySession.getRuolo()) {
 			case 0:	return "gestore";
 			case 1: return "dipendente";
+			
 			default: return SUCCESS;
 		} 
 		
