@@ -5,6 +5,7 @@ package it.unisalento.distributori.model;
 
 /**
  * @author aguinaldo
+ * 
  *
  */
 public class PersonaModel {
