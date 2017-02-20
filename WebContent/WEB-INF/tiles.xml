@@ -3,56 +3,67 @@
 <!DOCTYPE tiles-definitions PUBLIC
        "-//Apache Software Foundation//DTD Tiles Configuration 2.0//EN"
        "http://tiles.apache.org/dtds/tiles-config_2_0.dtd">
-       
-       
+
+
 <tiles-definitions>
 
-	<definition name="baseLayout" template="/baselayout/baseLayout.jsp">
+ 	<!-- Layout solo della pagina di login  -->
+	<definition name="index" template="/baselayout/baseLayout.jsp">
+		<put-attribute name="title" value="Login" />
+		<put-attribute name="header" value="/baselayout/header.jsp" />
+		<put-attribute name="menu" value="/baselayout/emptymenu.jsp" />
+		<put-attribute name="body" value="/views/login.jsp" />
+		<put-attribute name="footer" value="/baselayout/footer.jsp" />
+	</definition>
+
+	<!-- Layout di base da ereditare -->
+	<definition name="baseLayoutGestore" template="/baselayout/baseLayout.jsp">
 		<put-attribute name="title" value="" />
 		<put-attribute name="header" value="/baselayout/header.jsp" />
-		<put-attribute name="menu" value="/baselayout/menu.jsp" />
+		<put-attribute name="menu" value="/baselayout/menuGestore.jsp" />
 		<put-attribute name="body" value="" />
 		<put-attribute name="footer" value="/baselayout/footer.jsp" />
 	</definition>
-	
-	<definition name="index" extends="baseLayout">
-		<put-attribute name="title" value="Login" />
-		<put-attribute name="body" value="/views/login.jsp" />
-		<put-attribute name="menu"  value="/baselayout/emptymenu.jsp" />
+
+	<definition name="baseLayoutDipendente" template="/baselayout/baseLayout.jsp">
+		<put-attribute name="title" value="" />
+		<put-attribute name="header" value="/baselayout/header.jsp" />
+		<put-attribute name="menu" value="/baselayout/menuDipendente.jsp" />
+		<put-attribute name="body" value="" />
+		<put-attribute name="footer" value="/baselayout/footer.jsp" />
 	</definition>
-	
-	<definition name="logged" extends="baseLayout">
-		<put-attribute name="title" value="Success" />
-		<put-attribute name="body" value="/views/logged.jsp" />
-	</definition>
-	
-	<definition name="dashboardGestore" extends="baseLayout">
+
+	<!-- Inizio elenco tiles del gestore -->
+	<definition name="dashboardGestore" extends="baseLayoutGestore">
 		<put-attribute name="title" value="Dashboard" />
 		<put-attribute name="body" value="/views/gestore/dashboard.jsp" />
 	</definition>
-	
-	<definition name="dashboardDipendente" extends="baseLayout">
-		<put-attribute name="title" value="Dashboard" />
-		<put-attribute name="body" value="/views/dipendente/dashboard.jsp" />
-	</definition>
-	
-	<definition name="listaInterventi" extends="baseLayout">
-		<put-attribute name="title" value="ListaIntervent" />
-		<put-attribute name="body" value="/views/dipendente/listaInterventi.jsp" />
-	</definition>
-	
-			<definition name="listDipendenti" extends="baseLayout">
+
+	<definition name="listDipendenti" extends="baseLayoutGestore">
 		<put-attribute name="title" value="Gestione Dipendenti" />
-		<put-attribute name="body" value="/views/gestore/managedipendenti.jsp" />
+		<put-attribute name="body"
+			value="/views/gestore/managedipendenti.jsp" />
 	</definition>
-	
-		<definition name="editDipendente" extends="baseLayout">
+
+	<definition name="editDipendente" extends="baseLayoutGestore">
 		<put-attribute name="title" value="Modifica Dipendente" />
 		<put-attribute name="body" value="/views/gestore/editdipendente.jsp" />
 	</definition>
-	
-		<definition name="createDipendente" extends="baseLayout">
+
+	<definition name="createDipendente" extends="baseLayoutGestore">
 		<put-attribute name="title" value="Inserisci Dipendente" />
 		<put-attribute name="body" value="/views/gestore/newdipendente.jsp" />
+	</definition>
+	
+	<!-- Inizio elenco tiles del dipendente -->
+	<definition name="dashboardDipendente" extends="baseLayoutDipendente">
+		<put-attribute name="title" value="Dashboard" />
+		<put-attribute name="body" value="/views/dipendente/dashboard.jsp" />
+	</definition>
+
+	<definition name="listaInterventi" extends="baseLayoutDipendente">
+		<put-attribute name="title" value="ListaIntervent" />
+		<put-attribute name="body"
+			value="/views/dipendente/listaInterventi.jsp" />
 	</definition>
 </tiles-definitions>

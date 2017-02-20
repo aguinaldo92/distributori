@@ -25,11 +25,17 @@
 							<div class="panel-body">
 								<s:form action="Login" role="form">
 									<fieldset>
-										<div class="form-group">
+										<div
+											class='form-group <s:if test="hasActionErrors()">
+											has-error
+										</s:if>'>
 											<s:textfield name="email" label="Email" placeholder="E-mail"
 												type="email" class="form-control" />
 										</div>
-										<div class="form-group">
+										<div
+											class='form-group <s:if test="hasActionErrors()">
+											has-error
+										</s:if>'>
 											<s:password name="password" label="Password"
 												class="form-control" placeholder="Password" />
 										</div>
