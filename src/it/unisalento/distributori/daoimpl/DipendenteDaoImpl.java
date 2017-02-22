@@ -19,5 +19,6 @@ import org.hibernate.annotations.CascadeType;
  *
  */
 public class DipendenteDaoImpl extends BaseDaoImpl<Dipendente> implements DipendenteDao {
+	
 
 }

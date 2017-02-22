@@ -3,10 +3,16 @@
  */
 package it.unisalento.distributori.factory;
 
+import it.unisalento.distributori.dao.CategorieForniteDao;
 import it.unisalento.distributori.dao.DipendenteDao;
+import it.unisalento.distributori.dao.DistributoreDao;
 import it.unisalento.distributori.dao.PersonaDao;
+import it.unisalento.distributori.dao.ProdottiErogatiDao;
+import it.unisalento.distributori.daoimpl.CategorieForniteDaoImpl;
 import it.unisalento.distributori.daoimpl.DipendenteDaoImpl;
+import it.unisalento.distributori.daoimpl.DistributoreDaoImpl;
 import it.unisalento.distributori.daoimpl.PersonaDaoImpl;
+import it.unisalento.distributori.daoimpl.ProdottiErogatiDaoImpl;
 
 /**
  * @author aguinaldo
@@ -29,8 +35,22 @@ public class FactoryDao {
 	}
 	
 	public DipendenteDao getDipendenteDao(){
-		System.out.println("FactoryDao: getPersonaDao");
+		System.out.println("FactoryDao: getDipendenteDao");
 		return new DipendenteDaoImpl();
 	}
 	
+	public DistributoreDao getDistributoreDao(){
+		System.out.println("FactoryDao: getDistributoreDao");
+		return new DistributoreDaoImpl();
+	}
+	
+	public CategorieForniteDao getCategorieForniteDao(){
+		System.out.println("FactoryDao: getCategorieForniteDao");
+		return new CategorieForniteDaoImpl();
+	}
+	
+	public ProdottiErogatiDao getProdottiErogatiDao(){
+		System.out.println("FactoryDao: getProdottiErogatiDao");
+		return new ProdottiErogatiDaoImpl();
+	}
 }

@@ -1,5 +1,5 @@
 package it.unisalento.distributori.domain;
-// Generated 20-feb-2017 14.41.46 by Hibernate Tools 4.3.1.Final
+// Generated 21-feb-2017 15.59.54 by Hibernate Tools 4.3.1.Final
 
 import java.math.BigDecimal;
 import java.util.HashSet;
@@ -16,7 +16,9 @@ public class Distributore implements java.io.Serializable {
 	private BigDecimal lon;
 	private String indirizzo;
 	private String posizioneEdificio;
-	private String stato;
+	private Integer stato;
+	private Integer numScaffali;
+	private Integer numPosti;
 	private Set acquistas = new HashSet(0);
 	private Set categorieFornites = new HashSet(0);
 	private Set prodottiErogatis = new HashSet(0);
@@ -32,14 +34,16 @@ public class Distributore implements java.io.Serializable {
 	}
 
 	public Distributore(Dipendente dipendente, BigDecimal lat, BigDecimal lon, String indirizzo,
-			String posizioneEdificio, String stato, Set acquistas, Set categorieFornites, Set prodottiErogatis,
-			Set manutienes, Set rifornisces) {
+			String posizioneEdificio, Integer stato, Integer numScaffali, Integer numPosti, Set acquistas,
+			Set categorieFornites, Set prodottiErogatis, Set manutienes, Set rifornisces) {
 		this.dipendente = dipendente;
 		this.lat = lat;
 		this.lon = lon;
 		this.indirizzo = indirizzo;
 		this.posizioneEdificio = posizioneEdificio;
 		this.stato = stato;
+		this.numScaffali = numScaffali;
+		this.numPosti = numPosti;
 		this.acquistas = acquistas;
 		this.categorieFornites = categorieFornites;
 		this.prodottiErogatis = prodottiErogatis;
@@ -95,12 +99,28 @@ public class Distributore implements java.io.Serializable {
 		this.posizioneEdificio = posizioneEdificio;
 	}
 
-	public String getStato() {
+	public Integer getStato() {
 		return this.stato;
 	}
 
-	public void setStato(String stato) {
+	public void setStato(Integer stato) {
 		this.stato = stato;
+	}
+
+	public Integer getNumScaffali() {
+		return this.numScaffali;
+	}
+
+	public void setNumScaffali(Integer numScaffali) {
+		this.numScaffali = numScaffali;
+	}
+
+	public Integer getNumPosti() {
+		return this.numPosti;
+	}
+
+	public void setNumPosti(Integer numPosti) {
+		this.numPosti = numPosti;
 	}
 
 	public Set getAcquistas() {

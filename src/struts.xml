@@ -75,7 +75,7 @@
 			<result type="tiles">dashboardDipendente</result>
 		</action>
 
-		<action name="listaInterventi">
+		<action name="listDistributoriDipendente" class="it.unisalento.distributori.action.ListDistributoriDipendente">
 			<result type="tiles">listaInterventi</result>
 		</action>
 

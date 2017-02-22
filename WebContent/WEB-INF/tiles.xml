@@ -64,6 +64,6 @@
 	<definition name="listaInterventi" extends="baseLayoutDipendente">
 		<put-attribute name="title" value="ListaIntervent" />
 		<put-attribute name="body"
-			value="/views/dipendente/listaInterventi.jsp" />
+			value="/views/dipendente/dashboard.jsp" />
 	</definition>
 </tiles-definitions>
