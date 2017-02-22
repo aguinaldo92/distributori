@@ -17,6 +17,7 @@ import it.unisalento.distributori.domain.ProdottiErogati;
  *
  */
 public class ProdottiErogatiDaoImpl extends BaseDaoImpl<ProdottiErogati> implements ProdottiErogatiDao{
+	private ArrayList<ProdottiErogati> listProdottiErogatiScarseggianti;
 	private ArrayList<ProdottiErogati> listProdottiErogati;
 	private Session session;
 	private Transaction tx;
@@ -38,6 +39,33 @@ public class ProdottiErogatiDaoImpl extends BaseDaoImpl<ProdottiErogati> impleme
 			Query query = session.createQuery(hql);
 			query.setInteger("idDistributore", idDistributore);
 			query.setInteger("quantitaMinima", quantitaMinima);
+			listProdottiErogatiScarseggianti = (ArrayList<ProdottiErogati>) query.list();
+			tx.commit();
+		}
+		catch (Exception e) {
+			System.out.println("Impossibile ottenere lista dei prodotti dato un distributore:");
+			System.out.println(e.getLocalizedMessage());
+			return null;
+		}
+		session.close();
+		return listProdottiErogatiScarseggianti;
+	}
+
+	@Override
+	public ArrayList<String> GetNomiProdottiScarseggiantiByDistributore(Integer idDistributore,
+			Integer quantitaMinima) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public ArrayList<ProdottiErogati> GetProdottiErogatiByDistributore(Integer idDistributore) {
+		try {
+			session = sf.openSession();
+			tx = session.beginTransaction();
+			String hql = "from ProdottiErogati PE where PE.distributore.id = :idDistributore and order by PE.quantita asc" ;
+			Query query = session.createQuery(hql);
+			query.setInteger("idDistributore", idDistributore);
 			listProdottiErogati = (ArrayList<ProdottiErogati>) query.list();
 			tx.commit();
 		}
@@ -48,13 +76,6 @@ public class ProdottiErogatiDaoImpl extends BaseDaoImpl<ProdottiErogati> impleme
 		}
 		session.close();
 		return listProdottiErogati;
-	}
-
-	@Override
-	public ArrayList<String> GetNomiProdottiScarseggiantiByDistributore(Integer idDistributore,
-			Integer quantitaMinima) {
-		// TODO Auto-generated method stub
-		return null;
 	}
 
 }
