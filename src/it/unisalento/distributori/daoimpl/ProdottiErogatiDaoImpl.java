@@ -50,4 +50,11 @@ public class ProdottiErogatiDaoImpl extends BaseDaoImpl<ProdottiErogati> impleme
 		return listProdottiErogati;
 	}
 
+	@Override
+	public ArrayList<String> GetNomiProdottiScarseggiantiByDistributore(Integer idDistributore,
+			Integer quantitaMinima) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }

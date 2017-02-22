@@ -19,6 +19,7 @@ import it.unisalento.distributori.domain.CategorieFornite;
  */
 public class CategorieForniteDaoImpl extends BaseDaoImpl<CategorieFornite> implements CategorieForniteDao{
 	private ArrayList<CategorieFornite> listCategorieFornite;
+	private ArrayList<String> listNomiCategorieFornite;
 	
 	private Session session;
 	private Transaction tx;
@@ -41,6 +42,26 @@ public class CategorieForniteDaoImpl extends BaseDaoImpl<CategorieFornite> imple
 		}
 		session.close();
 		return listCategorieFornite;
+	}
+
+	@Override
+	public ArrayList<String> GetNomiCategorieForniteByDistributore(Integer idDistributore) {
+		try {
+			session = sf.openSession();
+			tx = session.beginTransaction();
+			String hql = "Select C.nome from CategorieFornite CF inner join CF.categoria C where CF.distributore.id = :idDistributore order by C.nome" ;
+			Query query = session.createQuery(hql);
+			query.setInteger("idDistributore", idDistributore);
+			listNomiCategorieFornite = (ArrayList<String>) query.list();
+			tx.commit();
+		}
+		catch (Exception e) {
+			System.out.println("Impossibile ottenere lista dei nomi delle categorie fornite dato un distributore:");
+			System.out.println(e.getLocalizedMessage());
+			return null;
+		}
+		session.close();
+		return listNomiCategorieFornite;
 	}
 
 

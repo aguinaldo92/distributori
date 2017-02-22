@@ -33,14 +33,17 @@ public class ListDistributoriDipendente extends ActionSupport implements Session
 	private List<Distributore> listDistributore ;
 	// elenco delle possibili categorie che un distributore può fornire
 	// (anche se non è detto che lo faccia)
-	private List<CategorieFornite> listCategorieFornite;
+	
+	private ArrayList<String> listNomiCategorieFornite;
 	// elenco dei prodotti forniti da un solo distributore
-	private List<ProdottiErogati> listProdottiErogati ;
+	private ArrayList<ProdottiErogati> listProdottiErogati;
+	private ArrayList<String> listNomiQuantitaProdottiErogati;
 	// elenco dei distributori contentneti i prodotti in fine e le categorie che possono erogare
 	private List<DistributoreModel> listDistributoreModel ;
 	private DistributoreModel currentDistributoreModel;
 	private SessionMap<String, Object> personaSession;
 	private Distributore currentDistributore;
+	private ProdottiErogati currentProdottoErogato;
 	
 	
 
@@ -54,44 +57,73 @@ public class ListDistributoriDipendente extends ActionSupport implements Session
 
 	public String execute() {
 		Integer idDipendente = ((Persona) personaSession.get("persona")).getId();
-		currentDistributoreModel  = new DistributoreModel();
+		listNomiQuantitaProdottiErogati = new ArrayList<String>();
 		listDistributoreModel = new ArrayList<DistributoreModel>();
 		// TODO: quantità minima da settare diversamente
 		Integer quantitaMinima = 10100;
 
 			try {
 			listDistributore = FactoryDao.getIstance().getDistributoreDao().getDistributoriByIdDipendenteSortedByStato(idDipendente);
-			
+			} catch (Exception e) {
+				//System.out.println("eccezione" + e.getLocalizedMessage());
+				return ERROR;
+			}
 			// iteratore su tutti i distributori
 			Iterator<Distributore> distributoriIterator = listDistributore.iterator();
-			Integer count=1;
-			System.out.println("numero di iterazioni da effettuare: "+ listDistributore.size());
+			
+			//System.out.println("numero di iterazioni da effettuare: "+ listDistributore.size());
 			while (distributoriIterator.hasNext()) {
-				System.out.println("iterazione: " + count);
-				System.out.println("numero di iterazioni rimanenti: "+ (listDistributore.size() - count));
+				// se non venisse ricreato ogni iterazione, verrebbe aggiunto più volte lo stesso model alla lista inserendo duplicati
+				currentDistributoreModel  = new DistributoreModel();
+				//System.out.println("iterazione: " + count);
+				//System.out.println("numero di iterazioni rimanenti: "+ (listDistributore.size() - count));
 				currentDistributore =  distributoriIterator.next();
-				System.out.println("Ditributore: " + currentDistributore.getId() + " stato " + currentDistributore.getStato());
-				listCategorieFornite = FactoryDao.getIstance().getCategorieForniteDao().GetCategorieForniteByDistributore(currentDistributore.getId());
-				System.out.println("Categorie fornite dal Distributore: " + listCategorieFornite.size());
+				//System.out.println("Ditributore: " + currentDistributore.getId() + " stato " + currentDistributore.getStato());
+				
+				try {
+					listNomiCategorieFornite = FactoryDao.getIstance().getCategorieForniteDao().GetNomiCategorieForniteByDistributore(currentDistributore.getId());
+				} catch (Exception e) {
+					//System.out.println("eccezione" + e.getLocalizedMessage());
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				
+				//System.out.println("Categorie fornite dal Distributore: " + listNomiCategorieFornite.size());
+				
 				listProdottiErogati = FactoryDao.getIstance().getProdottiErogatiDao().GetProdottiScarseggiantiByDistributore(currentDistributore.getId(), quantitaMinima);
-				System.out.println("prodotti erogati dal Distributore: " + listProdottiErogati.size());			
+				
+				Iterator<ProdottiErogati> prodottiErogatiIterator = listProdottiErogati.iterator();
+				//System.out.println("Inizio iterator su prodotti");
+				while (prodottiErogatiIterator.hasNext()) {
+					currentProdottoErogato = prodottiErogatiIterator.next();
+					
+					try {
+						listNomiQuantitaProdottiErogati.add(currentProdottoErogato.getProdotto().getNome() + ": " + currentProdottoErogato.getQuantita());
+					} catch (Exception e) {
+						//System.out.println("eccezione in while prodotti erogoati iterator" + e.getLocalizedMessage());
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+					
+					//System.out.println("Aggiunto : " + listNomiQuantitaProdottiErogati.get((listNomiQuantitaProdottiErogati.size() -1)));
+					
+				}
+				
+				//System.out.println("prodotti erogati dal Distributore: " + listNomiQuantitaProdottiErogati.size());			
 				currentDistributoreModel.setId(currentDistributore.getId());
 				currentDistributoreModel.setIndirizzo(currentDistributore.getIndirizzo());
 				currentDistributoreModel.setStato(currentDistributore.getStato());
 				currentDistributoreModel.setPosizioneEdificio(currentDistributore.getPosizioneEdificio());
-				currentDistributoreModel.setCategorieFornite((ArrayList<CategorieFornite>) listCategorieFornite);
-				currentDistributoreModel.setProdottiForniti((ArrayList<ProdottiErogati>) listProdottiErogati);
-				System.out.println("popolato il DistributoreModel numero: " + count);
+				currentDistributoreModel.setCategorieFornite((ArrayList<String>) listNomiCategorieFornite);
+				currentDistributoreModel.setProdottiForniti((ArrayList<String>) listNomiQuantitaProdottiErogati);
+				//System.out.println("popolato il DistributoreModel numero: " + count);
 				listDistributoreModel.add(currentDistributoreModel);
-				System.out.println("aggiunto elemento alla lista dei models: " + currentDistributoreModel);
+				//System.out.println("aggiunto elemento alla lista dei models: " + currentDistributoreModel);
 				
 				}
-			System.out.println("la lista dei DistributoreModel contiene: " + listDistributoreModel.size() + " dopo "+ count +  " iterazioni ." );
+			//System.out.println("la lista dei DistributoreModel contiene: " + listDistributoreModel.size() + " dopo "+ count +  " iterazioni ." );
 			ServletActionContext.getRequest().setAttribute("listDistributoreModel", listDistributoreModel);
-			} catch (Exception e) {
-				System.out.println(e.getLocalizedMessage());
-				return ERROR;
-			}
+		
 		return SUCCESS;
 
 	}
@@ -103,25 +135,4 @@ public class ListDistributoriDipendente extends ActionSupport implements Session
 	}
 
 
-
-//	@Override
-//	public Object getModel() {
-//		// TODO Auto-generated method stub
-//		if (listDistributoreModel.size() != 0) {
-//			System.out.println("get model listDistributoreModel.size(): " + listDistributoreModel.size());
-//		return listDistributoreModel;
-//		}
-//		else {
-//			System.out.println("get model else: ");
-//			return null;
-//		}
-//	}
-
-//	@Override
-//	public void prepare() throws Exception {
-//
-//
-//
-//	
-//	}
 }

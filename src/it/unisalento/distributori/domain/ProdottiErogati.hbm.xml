@@ -8,10 +8,10 @@
             <column name="ID" />
             <generator class="identity" />
         </id>
-        <many-to-one name="distributore" class="it.unisalento.distributori.domain.Distributore" fetch="select">
+        <many-to-one name="distributore" class="it.unisalento.distributori.domain.Distributore" fetch="select" lazy="false">
             <column name="Distributore_ID" not-null="true" />
         </many-to-one>
-        <many-to-one name="prodotto" class="it.unisalento.distributori.domain.Prodotto" fetch="select">
+        <many-to-one name="prodotto" class="it.unisalento.distributori.domain.Prodotto" fetch="select" lazy="false">
             <column name="Prodotto_ID" not-null="true" />
         </many-to-one>
         <property name="scaffale" type="java.lang.Integer">
