@@ -17,12 +17,17 @@ public class DettaglioDistributore extends ActionSupport {
 	 * 
 	 */
 	private static final long serialVersionUID = 3181980036211349123L;
-	private Integer id_distributore;
+	private Integer idDistributore;
 	private Integer scaffali = 10;
 	private Integer posti = 5;
 	
-	
-	
+		
+	public Integer getIdDistributore() {
+		return idDistributore;
+	}
+	public void setIdDistributore(Integer idDistributore) {
+		this.idDistributore = idDistributore;
+	}
 	public Integer getScaffali() {
 		return scaffali;
 	}
@@ -36,13 +41,6 @@ public class DettaglioDistributore extends ActionSupport {
 		this.posti = posti;
 	}
 
-	
-	public Integer getId_distributore() {
-		return id_distributore;
-	}
-	public void setId_distributore(Integer id_distributore) {
-		this.id_distributore = id_distributore;
-	}
 	// mi servono scaffale e posto, quantità , nome prodotto
 	public String execute(){
 		

@@ -33,7 +33,6 @@
 							<thead>
 								<tr align="center">
 									<th>ID</th>
-									<th>Stato</th>
 									<th>Prodotti da rifornire</th>
 									<th>Indirizzo</th>
 									<th>Posizione nell'edificio</th>
@@ -45,7 +44,7 @@
 <%-- 							<s:if test="listDistributoreModel.size() != 0"> Size != 0</s:if> --%>
 								<s:iterator value="#attr.listDistributoreModel" var="listDistrModel" >
 								<s:url var="dettaglioDistributore" action="DettaglioDistributore">
-										<s:param name="id_distributore"><s:property value="id"/></s:param>
+										<s:param name="idDistributore"><s:property value="id"/></s:param>
 									</s:url>
 <%-- 									<s:url var="EditDip" action="EditDipendente"> --%>
 <%-- 										<s:param name="idDip"> --%>
