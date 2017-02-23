@@ -7,4 +7,16 @@
 <!-- </font> -->
 <!-- </p> -->
 
+    <!-- SCRIPTS -AT THE BOTOM TO REDUCE THE LOAD TIME-->
+<!--     JQUERY SCRIPTS -->
+    <script src="../vendor/js/jquery-1.10.2.js"></script> <!-- Barra della ricerca e num record per pagina di advanced table e MODAL WINDOW -->
+      <!-- BOOTSTRAP SCRIPTS -->
+    <script src="../vendor/js/bootstrap.min.js"></script> <!-- MODAL WINDOW -->
+<!--     METISMENU SCRIPTS -->
+<!--     <script src="../vendor/js/jquery.metisMenu.js"></script> -->
+<!--      DATA TABLE SCRIPTS -->
+<!--     <script src="../vendor/js/dataTables/jquery.dataTables.js"></script> impaginazione advanced table -->
+<!--     <script src="../vendor/js/dataTables/dataTables.bootstrap.js"></script> tema grafico dei numeri di pagine per advanced table -->
+
+
 </div>

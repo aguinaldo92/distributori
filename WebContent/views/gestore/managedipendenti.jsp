@@ -2,7 +2,7 @@
     pageEncoding="ISO-8859-1"%>
 <%@ taglib prefix="s" uri="/struts-tags" %>
 
-<s:action name="ListDipendenti"/>
+<s:action name="ListDipendenti" namespace="/gestore"/>
 
 <div id="wrapper">  
            
@@ -40,9 +40,9 @@
                                     </thead>
                                     <tbody>
                                     
-                                    <s:iterator value="dipendenti">
-                                    
-                                    <s:url var="EditDip" action="EditDipendente">
+                                    <s:iterator value="#attr.dipendenti">
+                 
+                                    <s:url var="DipDet" action="DipendenteDetail">
 										<s:param name="idDip"><s:property value="personaId"/></s:param>
 									</s:url>
 									<s:url var="DelDip" action="DeleteDipendente">
@@ -51,13 +51,13 @@
                                     
                                         <tr class="odd gradeA">
                                         	<td><s:property value="personaId"/> </td>
-                                            <td><s:property value="persona.nome"/> </td>
+                                            <td><s:property value="persona.nome"/></td>
                                             <td><s:property value="persona.cognome"/> </td>
                                             <td><s:property value="persona.email"/> </td>
-                                            <td class="center"><s:property value="telefono"/> </td>
+                                            <td><s:property value="telefono"/></td>
                                             <td class="center">
-											<a href="${EditDip}" class="compare-in" ><button class="btn btn-primary"><i class="fa fa-edit "></i> Edit</button></a>
-                                       		
+											<s:a href="%{DipDet}" class="compare-in" name="edit_button" value="Edit"><button class="btn btn-primary"><i class="fa fa-edit "></i> Edit</button></s:a>
+
                                        		<button class="btn btn-danger" data-toggle="modal" data-target="#${personaId}_delete"> <i class="fa fa-pencil"></i> Delete</button>
 							<!-- INIZIO FINESTRA MODALE DI CONFERMA ELIMINAZIONE -->
 				                            <div class="modal fade" id="${personaId}_delete" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">

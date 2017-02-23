@@ -3,6 +3,7 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
 </head>
 <body>
 	<div id="wrapper">
@@ -25,5 +26,6 @@
 					<s:a action="Logout" class="btn btn-danger square-btn-adjust">Logout</s:a>
 				</div>
 			</s:if>
+
 		</nav>
 	</div>

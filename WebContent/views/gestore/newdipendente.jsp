@@ -10,14 +10,17 @@
                 <div class="row">
                     <div class="col-md-12">
                      <h2>REGISTRAZIONE NUOVO DIPENDENTE</h2>   
-                        <h5>messaggi di errore</h5>
+                        <h5><s:if test="hasFieldErrors()">
+	  							<div class="form-group" style="color: red;">
+	                  			<label><s:fielderror /></label>
+	               				</div>
+						</s:if></h5>
                        
                     </div>
                 </div>
                  <!-- /. ROW  -->
                  <hr />
 			<s:form name="update" action="AddDipendente">
-				
 				<div class=" form-group input-group input-group-lg">
   				<span class="input-group-addon">Nome</span>
   				<s:textfield cssClass="form-control" name="nome"/>
@@ -25,11 +28,23 @@
   				<s:textfield cssClass="form-control" name="cognome"/>
 				</div>
 				<br><br>
-				<div class=" form-group input-group input-group-lg">
+				<div class="form-group">
+                   <label>Contatti</label>
+               	</div>
+				<div class=' form-group input-group input-group-lg <s:if test="hasActionErrors()">
+																		has-error
+																	</s:if>'>
   				<span class="input-group-addon">Email</span>
-  				<s:textfield cssClass="form-control" name="email"/>
+  				<s:textfield cssClass="form-control" cssStyle="width: 60%;" type="email" name="email"/>
+  				<s:if test="hasActionErrors()">
+	  				<div class="form-group" style="color: red;">
+	                   <label><s:actionerror /></label>
+	               	</div>
+				</s:if>
+  				</div>
+  				<div class=" form-group input-group input-group-lg">
   				<span class="input-group-addon">Telefono</span>
-  				<s:textfield cssClass="form-control" name="telefono"/>
+  				<s:textfield cssClass="form-control" cssStyle="width: 60%;" name="telefono"/>
 				</div>
 				<br><br>
 				<div class="form-group">

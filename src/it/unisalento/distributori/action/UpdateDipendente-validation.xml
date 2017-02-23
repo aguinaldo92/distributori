@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE validators PUBLIC "-//Apache Struts//XWork Validator 1.0.3//EN"
+ "http://struts.apache.org/dtds/xwork-validator-1.0.3.dtd">
+
+ <validators>
+     <field name="nome">
+         <field-validator type="requiredstring">
+             <message>Nome richiesto</message>
+         </field-validator>
+     </field>
+     <field name="cognome">
+         <field-validator type="requiredstring">
+             <message>Cognome richiesto</message>
+         </field-validator>
+     </field>
+    <field name="email">
+         <field-validator type="requiredstring">
+             <message>Email richiesta</message>
+         </field-validator>
+         <field-validator type="email">
+             <message>Formato email non corretto</message>
+         </field-validator>
+     </field>
+     <field name="telefono">
+         <field-validator type="regex">
+            <param name="regex">[03][0-9]{9}</param>
+            <message>Formato Telefono non corretto (10 cifre - es.: 3399900888 / 0832331100)</message>
+         </field-validator>
+     </field>
+ </validators>

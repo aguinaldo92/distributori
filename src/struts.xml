@@ -90,29 +90,35 @@
 			<result type="tiles">dashboardGestore</result>
 		</action>
 
-<action name="CreateDipendente">
+		<action name="CreateDipendente">
 			<result type="tiles">createDipendente</result>
 		</action>
-<action name="ListDipendenti" class="it.unisalento.distributori.action.ListDipendenti">
+		<action name="ListDipendenti" class="it.unisalento.distributori.action.ListDipendenti">
 			<result type="tiles">listDipendenti</result>
 		</action>
+		
+		<action name="showDipendenti">
+			<result type="tiles">listDipendenti</result>
+		</action>
+		
 		
 		<action name="DeleteDipendente" class="it.unisalento.distributori.action.DeleteDipendente">
 			<result name="success" type="redirectAction">ListDipendenti</result>
 			<result name="input" type="redirectAction">ListDipendenti</result>
 		</action>
 		
-		<action name="EditDipendente" class="it.unisalento.distributori.action.EditDipendente">
-			<result type="tiles">editDipendente</result>
+		<action name="DipendenteDetail" class="it.unisalento.distributori.action.DipendenteDetail">
+			<result name="success" type="tiles">editDip</result>
+			<result name="input" type="tiles">editDip</result>
 		</action>
 		
 		<action name="UpdateDipendente" class="it.unisalento.distributori.action.UpdateDipendente">
-			<result name="success" type="redirectAction">ListDipendenti</result>
-			<result name="input" type="tiles">editDipendente</result>
+			<result name="success" type="tiles">listDipendenti</result>
+			<result name="input" type="tiles">editDip</result>
 		</action>
 		
 		<action name="AddDipendente" class="it.unisalento.distributori.action.AddDipendente">
-			<result name="success" type="redirectAction">ListDipendenti</result>
+			<result name="success" type="tiles">listDipendenti</result>
 			<result name="input" type="tiles">createDipendente</result>
 		</action>
 		

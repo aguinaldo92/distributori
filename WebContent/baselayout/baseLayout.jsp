@@ -9,10 +9,10 @@
 
 <head>
 
-	<link href="../vendor/css/bootstrap.css" rel="stylesheet" />
-	<link href="../vendor/css/font-awesome.css" rel="stylesheet" />
-	<link href="../vendor/css/custom.css" rel="stylesheet" />
-	<!-- GOOGLE FONTS-->
+	<link href="http://localhost:8080/distributori/vendor/css/bootstrap.css"  type="text/css" rel="stylesheet" />
+	<link href="http://localhost:8080/distributori/vendor/css/font-awesome.css" type="text/css" rel="stylesheet" />
+	<link href="http://localhost:8080/distributori/vendor/css/custom.css" type="text/css" rel="stylesheet" />
+	<!-- GOOGLE FONTS -->
 	<link href='http://fonts.googleapis.com/css?family=Open+Sans'
 	rel='stylesheet' type='text/css' />
 

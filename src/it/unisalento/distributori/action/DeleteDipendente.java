@@ -1,13 +1,12 @@
 package it.unisalento.distributori.action;
 
 import com.opensymphony.xwork2.ActionSupport;
-import it.unisalento.distributori.domain.Dipendente;
 import it.unisalento.distributori.domain.Persona;
 import it.unisalento.distributori.factory.FactoryDao;
 import it.unisalento.distributori.util.SendMailSSL;
 
 public class DeleteDipendente extends ActionSupport{
-	
+
 	private int idDip;
 	private Persona new_persona = new Persona();
 

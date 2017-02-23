@@ -45,7 +45,7 @@
 			value="/views/gestore/managedipendenti.jsp" />
 	</definition>
 
-	<definition name="editDipendente" extends="baseLayoutGestore">
+	<definition name="editDip" extends="baseLayoutGestore">
 		<put-attribute name="title" value="Modifica Dipendente" />
 		<put-attribute name="body" value="/views/gestore/editdipendente.jsp" />
 	</definition>

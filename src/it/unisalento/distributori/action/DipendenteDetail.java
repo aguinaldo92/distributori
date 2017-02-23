@@ -1,11 +1,14 @@
 package it.unisalento.distributori.action;
 
 import com.opensymphony.xwork2.ActionSupport;
+import com.opensymphony.xwork2.ModelDriven;
+
 import it.unisalento.distributori.domain.Dipendente;
+import it.unisalento.distributori.domain.Persona;
 import it.unisalento.distributori.factory.FactoryDao;
 import it.unisalento.distributori.model.PersonaModel;
 
-public class EditDipendente extends ActionSupport{
+public class DipendenteDetail extends ActionSupport{
 	
 	private int idDip;
 	private PersonaModel dipendente = new PersonaModel();
@@ -42,4 +45,5 @@ public class EditDipendente extends ActionSupport{
 		
 		return SUCCESS;
 	}
+
 }

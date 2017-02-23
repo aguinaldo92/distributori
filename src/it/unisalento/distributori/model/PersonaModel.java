@@ -3,6 +3,8 @@
  */
 package it.unisalento.distributori.model;
 
+import com.opensymphony.xwork2.validator.annotations.RequiredStringValidator;
+
 /**
  * @author aguinaldo
  * 
@@ -20,6 +22,7 @@ public class PersonaModel {
 	public String getTelefono() {
 		return telefono;
 	}
+	
 	public void setTelefono(String telefono) {
 		this.telefono = telefono;
 	}

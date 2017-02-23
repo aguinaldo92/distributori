@@ -1,9 +1,8 @@
 package it.unisalento.distributori.action;
 
-import java.util.Map;
+import javax.servlet.http.HttpServletRequest;
 
-import org.apache.struts2.dispatcher.SessionMap;
-import org.apache.struts2.interceptor.SessionAware;
+import org.apache.struts2.ServletActionContext;
 
 import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.ModelDriven;
@@ -21,7 +20,7 @@ import it.unisalento.distributori.model.PersonaModel;
  *	Per sfuttare l'interceptor ModelDriven la action deve implementare l'interfaccia ModelDriven
  */
 public class UpdateDipendente extends ActionSupport implements ModelDriven<PersonaModel>{
-		
+
 	private PersonaModel DipForm = new PersonaModel();
 	private Dipendente new_Dip = new Dipendente();
 	
@@ -32,6 +31,14 @@ public class UpdateDipendente extends ActionSupport implements ModelDriven<Perso
 	public void setNew_Dip(Dipendente new_Dip) {
 		this.new_Dip = new_Dip;
 	}
+//	
+//	public PersonaModel getDipForm() {
+//		return DipForm;
+//	}
+//
+//	public void setDipForm(PersonaModel dipForm) {
+//		DipForm = dipForm;
+//	}
 
 	public String execute() {
 		
@@ -50,12 +57,30 @@ public class UpdateDipendente extends ActionSupport implements ModelDriven<Perso
 //		new_persona.setDipendente(new_Dip);
 		
 		//aggiorno persona e dipendente nel DB
-		FactoryDao.getIstance().getPersonaDao().update(new_persona);
-		FactoryDao.getIstance().getDipendenteDao().update(new_Dip);
-		
+//		try{
+			FactoryDao.getIstance().getPersonaDao().update(new_persona);
+			FactoryDao.getIstance().getDipendenteDao().update(new_Dip);
+//		}catch (Exception e){
+//			System.out.println("La mail è già presente");
+//			addActionError("Email già presente");
+//			return INPUT;
+//		}
 		System.out.println("Aggiornato il dipendente nel DB. ID USER="+new_Dip.getPersonaId());
+		
 				
 		return SUCCESS;
+	}
+	
+	public void validate(){
+
+		ServletActionContext.getRequest().setAttribute("dipendente", DipForm);
+		
+		System.out.println("sono in validate() di UpdateDipendente: "+DipForm.getCognome()+" "+DipForm.getNome());
+		
+		if (FactoryDao.getIstance().getPersonaDao().emailExists(DipForm.getEmail(),DipForm.getId())){
+			System.out.println("La mail è già presente");
+			addActionError("Email già presente");
+		}
 	}
 	
 	@Override

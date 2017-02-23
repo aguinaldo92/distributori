@@ -7,8 +7,10 @@
             <div class="sidebar-collapse">
                 <ul class="nav" id="main-menu">
 				<li class="text-center">
-                    <img src="vendor/img/find_user.png" class="user-image img-responsive"/>
+                    <img src="http://localhost:8080/distributori/vendor/img/find_user.png" class="user-image img-responsive"/>
 					</li>
+					</ul>
+				</div>
 
 
 </nav>

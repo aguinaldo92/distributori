@@ -34,5 +34,25 @@ public class PersonaDaoImpl extends BaseDaoImpl<Persona> implements PersonaDao {
         return persona;
 	}
 
-	
+	@Override
+	public boolean emailExists(String email, Integer my_ID) {
+		Session session = sf.openSession();
+        Transaction tx = session.beginTransaction();
+        Query query;
+        if(my_ID != null){
+        	query = session.createQuery("from Persona where email=:email and id!=:id");
+            query.setString("id", my_ID.toString());
+        }else
+        	query = session.createQuery("from Persona where email=:email");
+        query.setString("email", email);
+        Persona persona = (Persona) query.uniqueResult();
+        tx.commit();
+        session.close();
+        if(persona != null){
+            return true;
+        } else {
+        	return false;
+        }
+	}
+
 }

@@ -1,10 +1,6 @@
 package it.unisalento.distributori.action;
 
 import java.sql.SQLException;
-import java.util.Map;
-
-import org.apache.struts2.dispatcher.SessionMap;
-import org.apache.struts2.interceptor.SessionAware;
 
 import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.ModelDriven;
@@ -51,7 +47,7 @@ public class AddDipendente extends ActionSupport implements ModelDriven<PersonaM
 		int dim_pw=6;
 		GeneraPwd pw_generator = new GeneraPwd(dim_pw);//generatore di password lunghe 6 caratteri
 		
-		System.out.println("Sono entrato nella action UpdateDipendente - ID dipendente="+DipForm.getId());
+		System.out.println("Sono entrato nella action AddDipendente - ID dipendente="+DipForm.getId());
 				
 		new_persona.setCognome(DipForm.getCognome());//modifico con quelli del form
 		new_persona.setNome(DipForm.getNome());
@@ -62,14 +58,19 @@ public class AddDipendente extends ActionSupport implements ModelDriven<PersonaM
 		new_persona.setDipendente(new_Dip);
 
 		//inserisco persona e dipendente nel DB
+
 		try {
 			new_persona.setId(FactoryDao.getIstance().getPersonaDao().set(new_persona));
-			new_Dip.setPersona(new_persona);
+		} catch (SQLException e1) {
+			e1.printStackTrace();
+		}
+		new_Dip.setPersona(new_persona);
+		try {
 			FactoryDao.getIstance().getDipendenteDao().set(new_Dip);
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+
 		
 		SendMailSSL sending_mail=new SendMailSSL();
 		sending_mail.send(new_persona.getEmail(), "WiFi Drink&Snacks - NOTIFICA DI INSERIMENTO NEL GESTIONALE", "Gent.mo/a Sig./Sig.ra "+
@@ -83,6 +84,15 @@ public class AddDipendente extends ActionSupport implements ModelDriven<PersonaM
 		System.out.println("Inserito il dipendente nel DB. ID USER="+new_id);
 				
 		return SUCCESS;
+	}
+	
+	public void validate(){
+		if(DipForm.getEmail().length()>0){
+			if (FactoryDao.getIstance().getPersonaDao().emailExists(DipForm.getEmail(), null)){
+				System.out.println("La mail è già presente");
+				addActionError("Email già presente");
+			}
+		}
 	}
 	
 	@Override
