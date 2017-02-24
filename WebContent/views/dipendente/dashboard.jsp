@@ -32,7 +32,8 @@
 							id="dataTables-example">
 							<thead>
 								<tr align="center">
-									<th>ID</th>
+									<th>Azioni</th>
+									<th>Stato</th>
 									<th>Prodotti da rifornire</th>
 									<th>Indirizzo</th>
 									<th>Posizione nell'edificio</th>
@@ -43,19 +44,10 @@
 							<tbody>
 <%-- 							<s:if test="listDistributoreModel.size() != 0"> Size != 0</s:if> --%>
 								<s:iterator value="#attr.listDistributoreModel" var="listDistrModel" >
-								<s:url var="dettaglioDistributore" action="DettaglioDistributore">
+								<s:url var="dettaglioDistributore" namespace="/dipendente" action="DettaglioDistributore">
 										<s:param name="idDistributore"><s:property value="id"/></s:param>
 									</s:url>
-<%-- 									<s:url var="EditDip" action="EditDipendente"> --%>
-<%-- 										<s:param name="idDip"> --%>
-<%-- 											<s:property value="personaId" /> --%>
-<%-- 										</s:param> --%>
-<%-- 									</s:url> --%>
-<%-- 									<s:url var="DelDip" action="DeleteDipendente"> --%>
-<%-- 										<s:param name="idDip"> --%>
-<%-- 											<s:property value="personaId" /> --%>
-<%-- 										</s:param> --%>
-<%-- 									</s:url> --%>
+
 									<tr class="odd gradeA">
 										<td>
 									<a href="${dettaglioDistributore}" class="compare-in" ><button class="btn btn-primary"><i class="fa fa-edit "></i>Dettaglio</button></a></td>

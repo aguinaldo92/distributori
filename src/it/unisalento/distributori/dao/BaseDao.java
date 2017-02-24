@@ -11,7 +11,7 @@ public interface BaseDao<T> {//questa è l'interfaccia di BaseDaoImpl (applicazio
 	public abstract int set(T entity) throws SQLException;
 
 	//clazz serve per capire di che oggetto stiamo parlando
-	public abstract T get(int id, Class clazz);
+	public abstract T get(int id, Class clazz) throws Exception;
 
 	public abstract List<T> getAll(Class clazz);
 	

@@ -7,46 +7,65 @@
 	<div id="page-wrapper">
 		<div id="page-inner">
 
-			
+
 			<div class="row">
 				<div class="col-md-12">
 					<h2>Distributore</h2>
-					
+
 					<s:debug />
 				</div>
 			</div>
 			<!-- /. ROW  -->
 			<hr />
 
-<!-- La costruzione della tabella funziona -->
+			<!-- La costruzione della tabella funziona -->
 			<div class="panel panel-default">
 				<div class="panel-body">
+				  <p align="right">
+                            <s:a action="UpdateDistributore" class="btn btn-success">Salva modifiche</s:a>
+                            </p>
+                            <p></p>
 					<div class="table-responsive">
-<!-- 						<p align="right"> -->
-<%-- 							<s:a action="CreateDipendente" class="btn btn-success">Inserisci nuovo dipendente</s:a> --%>
-<!-- 						</p> -->
-<!-- 						<p></p> -->
 						<table class="table table-striped table-bordered table-hover"
 							id="dataTables-example">
 							<thead>
 								<tr align="center">
-								<s:iterator begin="1" end="posti" status="headStatus" >
-									<th><s:property value="#headStatus.count"/>° Fila</th>
-								</s:iterator>
+									<th>Scaffale / Posto</th>
+									<s:iterator begin="1" end="posti" status="headStatus">
+										<th><s:property value="#headStatus.count" />° Posto</th>
+									</s:iterator>
 								</tr>
-								
+
 							</thead>
 							<tbody>
-							<s:iterator begin="1" end="2" >
-								<tr class="odd gradeA">
-								<s:iterator begin="1" end="posti" >
-								<td>Posto</td>
-								
-									
-									
-
-								</s:iterator>
-							</tr>
+								<s:iterator value="listProdottiErogatixScaffale"
+									var="listaEsterna" status="rowStatus">
+									<tr class="odd gradeA">
+										<th><s:property value="#rowStatus.count" />° Scaffale</th>
+										<!-- SI USA TOP PER INDICARE L'ELEMENTO PIù IN CIMA NELLO STACK, OSSIA L'ELEMENTO DELLA LISTA CORRENTE ALLA TALE RIGA -->
+										<!-- DA USARE PER iterare su liste di liste -->
+										<s:iterator value="top" status="columnStatus">
+											<td><label><s:property
+														value="nomeProdottoErogato" /></label>
+												<div class="input-group">
+													<span class="input-group-btn">
+														<button type="button" class="btn btn-default"
+															data-value="-1" data-target="#spinner<s:property value="#rowStatus.count"/>_<s:property value="#columnStatus.count"/>"
+															data-toggle="spinner">
+															<span class="glyphicon glyphicon-minus"></span>
+														</button>
+													</span> <input type="text" data-ride="spinner" id="spinner<s:property value="#rowStatus.count"/>_<s:property value="#columnStatus.count"/>"
+														class="form-control input-number" value="1" data-min="1"
+														data-max="10"> <span class="input-group-btn">
+														<button type="button" class="btn btn-default"
+															data-value="1" data-target="#spinner<s:property value="#rowStatus.count"/>_<s:property value="#columnStatus.count"/>"
+															data-toggle="spinner" data-on="mousehold">
+															<span class="glyphicon glyphicon-plus"></span>
+														</button>
+													</span>
+												</div></td>
+										</s:iterator>
+									</tr>
 								</s:iterator>
 							</tbody>
 						</table>

@@ -30,7 +30,7 @@ public class ProdottiErogatiDaoImpl extends BaseDaoImpl<ProdottiErogati> impleme
 	 * @see it.unisalento.distributori.dao.ProdottiErogatiDao#GetProdottiScarseggiantiByDistributore(java.lang.Integer, java.lang.Integer)
 	 */
 	@Override
-	public ArrayList<ProdottiErogati> GetProdottiScarseggiantiByDistributore(Integer idDistributore,
+	public ArrayList<ProdottiErogati> getProdottiScarseggiantiByDistributore(Integer idDistributore,
 			Integer quantitaMinima) {
 		try {
 			session = sf.openSession();
@@ -52,18 +52,18 @@ public class ProdottiErogatiDaoImpl extends BaseDaoImpl<ProdottiErogati> impleme
 	}
 
 	@Override
-	public ArrayList<String> GetNomiProdottiScarseggiantiByDistributore(Integer idDistributore,
+	public ArrayList<String> getNomiProdottiScarseggiantiByDistributore(Integer idDistributore,
 			Integer quantitaMinima) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public ArrayList<ProdottiErogati> GetProdottiErogatiByDistributore(Integer idDistributore) {
+	public ArrayList<ProdottiErogati> getProdottiErogatiByDistributoreSortedByScaffalePosto(Integer idDistributore) {
 		try {
 			session = sf.openSession();
 			tx = session.beginTransaction();
-			String hql = "from ProdottiErogati PE where PE.distributore.id = :idDistributore and order by PE.quantita asc" ;
+			String hql = "from ProdottiErogati PE where PE.distributore.id = :idDistributore order by PE.scaffale, PE.posto asc" ;
 			Query query = session.createQuery(hql);
 			query.setInteger("idDistributore", idDistributore);
 			listProdottiErogati = (ArrayList<ProdottiErogati>) query.list();

@@ -9,15 +9,15 @@
 	<constant name="struts.ui.theme" value="simple" />
 
 
-	<package name="default" extends="struts-default">
+	<package name="default" extends="struts-default" namespace="/">
 		<result-types>
 			<result-type name="tiles"
 				class="org.apache.struts2.views.tiles.TilesResult" />
 		</result-types>
 
 		<interceptors>
-			<interceptor name="myInterceptor"
-				class="it.unisalento.distributori.interceptor.MyInterceptor" />
+<!-- 			<interceptor name="myInterceptor" -->
+<!-- 				class="it.unisalento.distributori.interceptor.MyInterceptor" /> -->
 			<interceptor name="LoginInterceptor"
 				class="it.unisalento.distributori.interceptor.LoginInterceptor" />
 				
@@ -40,6 +40,7 @@
 		<global-results>
 			<result name="login" type="redirect">/index.action</result>
 			<result name="DENIED" type="redirect">/denied.action</result>
+			<result name="error" type="redirect">error.action</result>
 			<result name="/dipendente" type="redirect">/dipendente/dashboard.action</result>
 			<result name="/gestore" type="redirect">/gestore/dashboard.action</result>
 		</global-results>
@@ -51,6 +52,10 @@
 
 		<action name="denied">
 			<result type="tiles">index</result>
+		</action>
+		
+		<action name="error">
+			<result type="tiles">error</result>
 		</action>
 
 		<action name="Login" class="it.unisalento.distributori.action.Login">
@@ -76,7 +81,7 @@
 		</action>
 		
 		<action name="DettaglioDistributore" class="it.unisalento.distributori.action.DettaglioDistributore">
-			<result type="tiles">dettaglioDistributore</result>
+			<result  type="tiles">dettaglioDistributore</result>
 		</action>
 		
 

@@ -32,8 +32,7 @@ public class ListDistributoriDipendente extends ActionSupport implements Session
 	private static final long serialVersionUID = 9135964785938261849L;
 	private List<Distributore> listDistributore ;
 	// elenco delle possibili categorie che un distributore può fornire
-	// (anche se non è detto che lo faccia)
-	
+	// (anche se non è detto che lo faccia)	
 	private ArrayList<String> listNomiCategorieFornite;
 	// elenco dei prodotti forniti da un solo distributore
 	private ArrayList<ProdottiErogati> listProdottiErogati;
@@ -56,6 +55,7 @@ public class ListDistributoriDipendente extends ActionSupport implements Session
 	}
 
 	public String execute() {
+		System.out.println("ListDistributoriDipendente.action:");
 		Integer idDipendente = ((Persona) personaSession.get("persona")).getId();
 		listNomiQuantitaProdottiErogati = new ArrayList<String>();
 		listDistributoreModel = new ArrayList<DistributoreModel>();
@@ -90,7 +90,7 @@ public class ListDistributoriDipendente extends ActionSupport implements Session
 				
 				//System.out.println("Categorie fornite dal Distributore: " + listNomiCategorieFornite.size());
 				
-				listProdottiErogati = FactoryDao.getIstance().getProdottiErogatiDao().GetProdottiScarseggiantiByDistributore(currentDistributore.getId(), quantitaMinima);
+				listProdottiErogati = FactoryDao.getIstance().getProdottiErogatiDao().getProdottiScarseggiantiByDistributore(currentDistributore.getId(), quantitaMinima);
 				
 				Iterator<ProdottiErogati> prodottiErogatiIterator = listProdottiErogati.iterator();
 				//System.out.println("Inizio iterator su prodotti");
@@ -133,6 +133,6 @@ public class ListDistributoriDipendente extends ActionSupport implements Session
 		this.personaSession = (SessionMap<String, Object>) map;
 
 	}
-
+	
 
 }

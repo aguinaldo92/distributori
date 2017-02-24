@@ -22,7 +22,7 @@
 				<div
 					style="color: white; padding: 15px 50px 5px 50px; float: right; font-size: 16px;">
 					<s:property value="#session.persona.nome" /> <s:property value="#session.persona.cognome" />
-					<s:a action="Logout" class="btn btn-danger square-btn-adjust">Logout</s:a>
+					<s:a namespace="/" action="Logout" class="btn btn-danger square-btn-adjust">Logout</s:a>
 				</div>
 			</s:if>
 		</nav>

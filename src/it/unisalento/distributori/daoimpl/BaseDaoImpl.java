@@ -53,7 +53,7 @@ public class BaseDaoImpl<T> implements BaseDao<T> {
 
 
 	@Override
-	public T get(int id, Class clazz){
+	public T get(int id, Class clazz) throws Exception{
 		Session session = sf.openSession();
 		Transaction tx = session.beginTransaction();
 		T entity= (T)session.get(clazz, id);
