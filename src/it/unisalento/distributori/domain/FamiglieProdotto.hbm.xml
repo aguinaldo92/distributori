@@ -8,7 +8,7 @@
             <column name="ID" />
             <generator class="identity" />
         </id>
-        <many-to-one name="famiglia" class="it.unisalento.distributori.domain.Famiglia" fetch="select">
+        <many-to-one name="famiglia" class="it.unisalento.distributori.domain.Famiglia" fetch="select" lazy="false">
             <column name="Famiglia_ID" not-null="true" />
         </many-to-one>
         <many-to-one name="prodotto" class="it.unisalento.distributori.domain.Prodotto" fetch="select">

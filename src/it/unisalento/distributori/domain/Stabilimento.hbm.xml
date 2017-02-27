@@ -8,7 +8,7 @@
             <column name="ID" />
             <generator class="identity" />
         </id>
-        <many-to-one name="produttore" class="it.unisalento.distributori.domain.Produttore" fetch="select">
+        <many-to-one name="produttore" class="it.unisalento.distributori.domain.Produttore" fetch="select" lazy="false">
             <column name="Produttore_ID" not-null="true" />
         </many-to-one>
         <property name="citta" type="string">
@@ -21,7 +21,7 @@
             <key>
                 <column name="Stabilimento_ID" not-null="true" />
             </key>
-            <one-to-many class="it.unisalento.distributori.domain.Prodotto" />
+            <one-to-many class="it.unisalento.distributori.domain.Prodotto"/>
         </set>
     </class>
 </hibernate-mapping>

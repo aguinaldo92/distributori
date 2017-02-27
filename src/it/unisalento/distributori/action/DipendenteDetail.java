@@ -31,7 +31,7 @@ public class DipendenteDetail extends ActionSupport{
 
 	public String execute () throws Exception {
 		
-		System.out.println("ID dipendente da modificare="+idDip);
+		System.out.println("ID dipendente da visualizzare="+idDip);
 		
 		Dipendente dip=FactoryDao.getIstance().getDipendenteDao().get(idDip, Dipendente.class);
 		

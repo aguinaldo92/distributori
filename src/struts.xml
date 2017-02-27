@@ -8,7 +8,6 @@
 	<constant name="struts.configuration.xml.reload" value="false" />
 	<constant name="struts.ui.theme" value="simple" />
 
-
 	<package name="default" extends="struts-default">
 		<result-types>
 			<result-type name="tiles"
@@ -80,6 +79,14 @@
 		</action>
 
 	</package>
+	
+	<package name="json" extends="default, json-default" namespace="/gestorejson">
+		
+		<action name="RefreshStabilimenti_json" class="it.unisalento.distributori.action.json.RefreshStabilimenti">
+			<result name="success" type="json">editProdotto</result>
+		</action>
+	
+	</package>
 
 	<package name="gestore" extends="default" namespace="/gestore">
 
@@ -93,14 +100,22 @@
 		<action name="CreateDipendente">
 			<result type="tiles">createDipendente</result>
 		</action>
-		<action name="ListDipendenti" class="it.unisalento.distributori.action.ListDipendenti">
-			<result type="tiles">listDipendenti</result>
-		</action>
 		
 		<action name="showDipendenti">
 			<result type="tiles">listDipendenti</result>
 		</action>
 		
+		<action name="showCatalogo">
+			<result type="tiles">listProdotti</result>
+		</action>
+		
+		<action name="ListProdotti" class="it.unisalento.distributori.action.ListProdotti">
+			<result type="tiles">listProdotti</result>
+		</action>
+		
+		<action name="ListDipendenti" class="it.unisalento.distributori.action.ListDipendenti">
+			<result type="tiles">listDipendenti</result>
+		</action>
 		
 		<action name="DeleteDipendente" class="it.unisalento.distributori.action.DeleteDipendente">
 			<result name="success" type="redirectAction">ListDipendenti</result>
@@ -120,6 +135,11 @@
 		<action name="AddDipendente" class="it.unisalento.distributori.action.AddDipendente">
 			<result name="success" type="tiles">listDipendenti</result>
 			<result name="input" type="tiles">createDipendente</result>
+		</action>
+		
+		<action name="ProdottoDetail" class="it.unisalento.distributori.action.ProdottoDetail">
+			<result name="success" type="tiles">editProdotto</result>
+			<result name="input" type="tiles">editProdotto</result>
 		</action>
 		
 	</package>

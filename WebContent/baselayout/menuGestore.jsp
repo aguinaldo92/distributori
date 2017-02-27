@@ -14,10 +14,10 @@
                         <a  href="index.html"><i class="fa fa-dashboard fa-3x"></i> Dashboard</a>
                     </li>
                       <li>
-                         <s:a action="showDipendenti"><i class="fa fa-table fa-3x"></i> Gestione Dipendenti</s:a>
+                         <s:a namespace="/gestore" action="showDipendenti"><i class="fa fa-table fa-3x"></i> Gestione Dipendenti</s:a>
                     </li>
                     <li>
-                        <a  href="tab-panel.html"><i class="fa fa-table fa-3x"></i> Gestione Catalogo</a>
+                        <s:a namespace="/gestore" action="showCatalogo"><i class="fa fa-table fa-3x"></i> Gestione Catalogo</s:a>
                     </li>
 						   <li  >
                         <a  href="chart.html"><i class="fa fa-table fa-3x"></i> Gestione Distributori</a>

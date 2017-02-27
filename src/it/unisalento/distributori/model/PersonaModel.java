@@ -3,8 +3,6 @@
  */
 package it.unisalento.distributori.model;
 
-import com.opensymphony.xwork2.validator.annotations.RequiredStringValidator;
-
 /**
  * @author aguinaldo
  * 
