@@ -12,12 +12,12 @@
 
 			<li><a href="index.html"><i class="fa fa-dashboard fa-3x"></i>
 					Dashboard</a></li>
-			<li><s:a action="ListDipendenti">
+			<li><s:a namespace="/gestore" action="ListDipendenti">
 					<i class="fa fa-table fa-3x"></i> Gestione Dipendenti</s:a></li>
 			<li><a href="tab-panel.html"><i class="fa fa-table fa-3x"></i>
 					Gestione Catalogo</a></li>
-			<li><a href="chart.html"><i class="fa fa-table fa-3x"></i>
-					Gestione Distributori</a></li>
+			<li><s:a namespace="/gestore" action="ListDistributoriGestore"><i class="fa fa-table fa-3x"></i>
+					Gestione Distributori</s:a></li>
 		</ul>
 
 	</div>

@@ -43,6 +43,11 @@
 		<put-attribute name="title" value="Dashboard" />
 		<put-attribute name="body" value="/views/gestore/dashboard.jsp" />
 	</definition>
+	
+	<definition name="gestioneDistributori" extends="baseLayoutGestore">
+		<put-attribute name="title" value="Distributori" />
+		<put-attribute name="body" value="/views/gestore/gestioneDistributori.jsp" />
+	</definition>
 
 	<definition name="listDipendenti" extends="baseLayoutGestore">
 		<put-attribute name="title" value="Gestione Dipendenti" />

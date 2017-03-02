@@ -35,6 +35,6 @@
             </key>
             <one-to-many class="it.unisalento.distributori.domain.Acquista" />
         </set>
-        <one-to-one name="dipendente" class="it.unisalento.distributori.domain.Dipendente"></one-to-one>
+        <one-to-one name="dipendente" class="it.unisalento.distributori.domain.Dipendente" lazy="false"></one-to-one>
     </class>
 </hibernate-mapping>

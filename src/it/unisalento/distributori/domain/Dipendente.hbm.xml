@@ -10,7 +10,7 @@
                 <param name="property">persona</param>
             </generator>
         </id>
-        <one-to-one name="persona" class="it.unisalento.distributori.domain.Persona" constrained="true"></one-to-one>
+        <one-to-one name="persona" class="it.unisalento.distributori.domain.Persona" constrained="true" lazy="false"></one-to-one>
         <property name="telefono" type="string">
             <column name="Telefono" length="14" />
         </property>

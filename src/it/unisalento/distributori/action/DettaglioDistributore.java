@@ -12,6 +12,7 @@ import com.opensymphony.xwork2.ActionSupport;
 import it.unisalento.distributori.dao.DistributoreDao;
 import it.unisalento.distributori.domain.Distributore;
 import it.unisalento.distributori.domain.ProdottiErogati;
+import it.unisalento.distributori.domain.Prodotto;
 import it.unisalento.distributori.factory.FactoryDao;
 import it.unisalento.distributori.model.DettaglioDistributoreModel;
 
@@ -33,6 +34,7 @@ public class DettaglioDistributore extends ActionSupport {
 	private ProdottiErogati  currentProdottiErogati;
 	private ArrayList<ArrayList<DettaglioDistributoreModel>> listProdottiErogatixScaffale;
 	private ArrayList<DettaglioDistributoreModel> listDettaglioDistributoreModel;
+	private ArrayList<Prodotto> prodottiCompatibili; 
 
 	// mi servono scaffale e posto, quantità , nome prodotto
 	public String execute(){

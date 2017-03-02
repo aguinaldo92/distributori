@@ -5,6 +5,8 @@ package it.unisalento.distributori.model;
 
 import java.util.ArrayList;
 
+import it.unisalento.distributori.domain.Persona;
+
 /**
  * @author aguinaldo
  *
@@ -14,6 +16,7 @@ public class DistributoreModel {
 	private Integer stato;
 	private String indirizzo;
 	private String posizioneEdificio;
+	private Persona dipendente;
 	private ArrayList<?> categorieFornite;
 	private ArrayList<?> prodottiForniti;
 	
@@ -41,6 +44,12 @@ public class DistributoreModel {
 	}
 	public void setPosizioneEdificio(String posizioneEdificio) {
 		this.posizioneEdificio = posizioneEdificio;
+	}
+	public Persona getDipendente() {
+		return dipendente;
+	}
+	public void setDipendente(Persona dipendente) {
+		this.dipendente = dipendente;
 	}
 	public ArrayList getCategorieFornite() {
 		return categorieFornite;
