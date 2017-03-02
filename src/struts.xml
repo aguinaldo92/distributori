@@ -82,8 +82,8 @@
 	
 	<package name="json" extends="default, json-default" namespace="/gestorejson">
 		
-		<action name="RefreshStabilimenti_json" class="it.unisalento.distributori.action.json.RefreshStabilimenti">
-			<result name="success" type="json">editProdotto</result>
+		<action name="LoadProdStab" class="it.unisalento.distributori.action.json.LoadProduttori_Stabilimenti">
+			<result name="success" type="json"/>
 		</action>
 	
 	</package>
@@ -140,6 +140,15 @@
 		<action name="ProdottoDetail" class="it.unisalento.distributori.action.ProdottoDetail">
 			<result name="success" type="tiles">editProdotto</result>
 			<result name="input" type="tiles">editProdotto</result>
+		</action>
+		
+		<action name="UpdateProdotto" class="it.unisalento.distributori.action.UpdateProdotto">
+			<result name="success" type="tiles">listProdotti</result>
+			<result name="input" type="tiles">editProdotto</result>
+		</action>
+		
+		<action name="LoadProdStab" class="it.unisalento.distributori.util.LoadProduttoriStabilimenti" method="display">
+			<result name="none" type="tiles">editProdotto</result>
 		</action>
 		
 	</package>

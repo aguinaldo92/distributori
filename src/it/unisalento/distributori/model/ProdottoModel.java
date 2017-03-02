@@ -4,17 +4,23 @@ import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
+import it.unisalento.distributori.domain.Categoria;
+import it.unisalento.distributori.domain.Produttore;
+import it.unisalento.distributori.domain.Stabilimento;
+
 public class ProdottoModel {
 	
 	private String nome;
 	private String foto;
-	private int idProduttore;
-	private int idStabilimento;
-	private int idCategoria;
-	private List<Integer> idFamiglie=new ArrayList<Integer>();
+	private Produttore produttore;
+	private Stabilimento stabilimento;
+	private Categoria categoria;
+	private List<Integer> IDsfamiglie;
 	private String descrizione;
 	private String ingredienti;
 	private String preparazione;
+	private BigDecimal prezzo;
+	private BigDecimal sconto;
 	
 	public String getNome() {
 		return nome;
@@ -27,30 +33,6 @@ public class ProdottoModel {
 	}
 	public void setFoto(String foto) {
 		this.foto = foto;
-	}
-	public int getIdProduttore() {
-		return idProduttore;
-	}
-	public void setIdProduttore(int idProduttore) {
-		this.idProduttore = idProduttore;
-	}
-	public int getIdStabilimento() {
-		return idStabilimento;
-	}
-	public void setIdStabilimento(int idStabilimento) {
-		this.idStabilimento = idStabilimento;
-	}
-	public int getIdCategoria() {
-		return idCategoria;
-	}
-	public void setIdCategoria(int idCategoria) {
-		this.idCategoria = idCategoria;
-	}
-	public List<Integer> getIdFamiglie() {
-		return idFamiglie;
-	}
-	public void setIdFamiglie(List<Integer> idFamiglie) {
-		this.idFamiglie = idFamiglie;
 	}
 	public String getDescrizione() {
 		return descrizione;
@@ -82,6 +64,29 @@ public class ProdottoModel {
 	public void setSconto(BigDecimal sconto) {
 		this.sconto = sconto;
 	}
-	private BigDecimal prezzo;
-	private BigDecimal sconto;
+
+	public Produttore getProduttore() {
+		return produttore;
+	}
+	public void setProduttore(Produttore produttore) {
+		this.produttore = produttore;
+	}
+	public Stabilimento getStabilimento() {
+		return stabilimento;
+	}
+	public void setStabilimento(Stabilimento stabilimento) {
+		this.stabilimento = stabilimento;
+	}
+	public Categoria getCategoria() {
+		return categoria;
+	}
+	public void setCategoria(Categoria categoria) {
+		this.categoria = categoria;
+	}
+	public List<Integer> getIDsfamiglie() {
+		return IDsfamiglie;
+	}
+	public void setIDsfamiglie(List<Integer> iDsfamiglie) {
+		IDsfamiglie = iDsfamiglie;
+	}
 }

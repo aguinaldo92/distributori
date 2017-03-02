@@ -20,7 +20,7 @@
                  <!-- /. ROW  -->
                  <hr />
 		<s:iterator value="prodotto" var="prod">
-			<s:form name="update" action="UpdateProdotto">
+			<s:form name="update" namespace="/gestore" action="UpdateProdotto">
 			
 				<div class="panel panel-default">
                         <div class="panel-heading">
@@ -42,10 +42,14 @@
                                 <div class="tab-pane fade" id="caratt_prodotto">
                                     <h4></h4>
 						  				<img src="/distributori/${foto}" class="img-thumbnail" alt="Foto_${nome}" width="304" height="236">
+										<div class="form-group">
+                                            <label>Modifica foto</label>
+                                            <s:file name="foto" accept="image/*"/>
+                                        </div>
 										<p></p>
 										<div class=" form-group input-group input-group-lg">
-						  				<span class="input-group-addon">Nome</span>
-						  				<s:textfield cssClass="form-control" name="nome"/>
+							  				<span class="input-group-addon">Nome</span>
+							  				<s:textfield cssClass="form-control" name="nome"/>
 										</div>
 										<div class=" form-group input-group input-group-lg">
 						  					<span class="input-group-addon">Descrizione</span>
@@ -55,23 +59,11 @@
 										<div class="form-group">
                                             <div class=" form-group input-group input-group-lg">
 						  					<span class="input-group-addon">Categoria</span>
-						  					<s:select class="form-control" list="all_categ" name="categoria" value="#prod.categoria.id" listKey="id" listValue="nome"/>
+						  					<s:select class="form-control" list="all_categ" name="categoria.id" value="#prod.categoria.id" listKey="id" listValue="nome"/>
                                             </div>
                                         </div>
-	                                    <label><h4>Famiglie:</h4></label><br>
-										<s:iterator value="all_fam" var="fam">
-											<label class="checkbox-inline">
-											
-											<input name="famiglie_scelte" type="checkbox" 
-												<s:iterator value="#prod.famiglieProdottos" var="prod_fam">
-												<s:if test="#fam.id==#prod_fam.id">
-												checked="checked"
-												</s:if>
-												</s:iterator>
-											/>
-											<s:property value="nome" />
-											</label>
-										</s:iterator>
+	                                    <label><h4>Famiglie:</h4></label><br>               
+	                                    <s:checkboxlist list="famiglie" name="famiglia_scelta" listKey="id" listValue="nome" value="#prod.IDsfamiglie"/>
 										<p></p>
                                         <div class="form-group input-group input-group-lg">
                                             <span class="input-group-addon"><i class="fa fa-eur"></i>
@@ -80,35 +72,46 @@
                                         </div>
                                         <div class=" form-group input-group">
 						  					<span class="input-group-addon">Sconto per utenti registati</span>
-						  					<s:textfield cssClass="form-control" name="scontoUtenti"/>
+						  					<s:textfield cssClass="form-control" name="sconto"/>
 										</div>
                                 </div>
                                 <!-- FINE TAB CARATTERISTICHE PRODOTTO -->
                                 
                                 <!-- TAB CARATTERISTICHE PRODUTTORE -->
+                                <s:action namespace="/gestore" name="LoadProdStab"/>
                                 <div class="tab-pane fade" id="caratt_produttore">
                                     <h4></h4>
-                                    
+
+									<s:doubleselect label="Fruits (OGNL) "
+										name="fruit1" list="{'fruit','meat'}"
+										doubleName="fruit2"
+										doubleList="top == 'fruit' ? {'apple', 'orange','banana'} : {'chicken', 'pig'}" />
+										
+<%-- 										<s:set name="serverList" --%>
+<%-- 										     value="#{ --%>
+<%-- 										         'AppServer': {'Apache', 'Tomcat', 'JBoss'}, --%>
+<%-- 										         'Database': {'Oracle', 'MySQL'} --%>
+<%-- 										         }" /> --%>
+<%-- 										<s:doubleselect label="Server (OGNL) " --%>
+<%-- 										name="server1" list="#serverList.keySet()" --%>
+<%-- 										doubleName="server2" doubleList="#serverList[top]" /> --%>
+										
+										<s:doubleselect label="Language (Java List) "
+										name="language1" list="languageMap.keySet()"
+										doubleName="language2" doubleList="languageMap.get(top)" />
+
+
 									<div class="form-group">
 	                                    <div class=" form-group input-group input-group-lg">
 										<span class="input-group-addon">Nome Azienda</span>
-	                                    <select class="form-control">
-	                                        <s:iterator value="all_produttori" var="produttore">
-	                                        <option 
-	                                        <s:if test="#produttore.id==#prod.stabilimento.produttore.id">
-	                                        		selected="selected"
-	                                        </s:if>>
-	                                        <s:property value="nome"/>
-	                                        </option>
-	                                        </s:iterator>
-	                                    </select>
+										<s:select class="form-control" list="all_produttori" name="produttore.id" listKey="id" listValue="nome" value="#prod.stabilimento.produttore.id"/>
 	                                    </div>
                                     </div>
                                     
                                     <div class="form-group">
 	                                    <div class=" form-group input-group input-group-lg">
 										<span class="input-group-addon">Stabilimento di produzione</span>
-	                                    <s:select class="form-control" list="stabilimentiByProduttore" name="stabilimento" value="#prod.stabilimento.id" listKey="id" listValue="citta +' (' + provincia + ')'"/>
+	                                    <s:select class="form-control" list="stabilimentiByProduttore" name="stabilimento.id" value="#prod.stabilimento.id" listKey="id" listValue="citta +' (' + provincia + ')'"/>
 	                                    </div>
                                     </div>
 
@@ -120,11 +123,11 @@
                                     <h4></h4>
                                    	<div class=" form-group input-group input-group-lg">
 					  					<span class="input-group-addon">Ingredienti</span>
-                                           <textarea class="form-control"><s:property value="ingredienti"/></textarea>
+					  						<s:textarea class="form-control" name="ingredienti"/>
                                     </div>
                                     <div class=" form-group input-group input-group-lg">
 					  					<span class="input-group-addon">Preparazione</span>
-                                           <textarea class="form-control"><s:property value="preparazione"/></textarea>
+                                           <s:textarea class="form-control" name="preparazione"/>
                                     </div>
                                 </div>
                                  <!-- FINE TAB INGREDIENTI E PREPARAZIONE -->

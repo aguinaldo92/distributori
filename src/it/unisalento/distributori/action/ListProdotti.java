@@ -8,7 +8,6 @@ import org.apache.struts2.ServletActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 
 import it.unisalento.distributori.domain.Categoria;
-import it.unisalento.distributori.domain.Dipendente;
 import it.unisalento.distributori.domain.Famiglia;
 import it.unisalento.distributori.domain.Prodotto;
 import it.unisalento.distributori.factory.FactoryDao;
