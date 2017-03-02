@@ -73,6 +73,17 @@ public class BaseDaoImpl<T> implements BaseDao<T> {
 	}
 
 	@Override
+	public List<T> getAllSortedBy(Class clazz, String column) {
+		Session session = sf.openSession();
+		Transaction tx = session.beginTransaction();
+		List<T> list= (List<T>)session.createQuery("from " + clazz.getName() + " order by " + clazz.getName() + "." + column).list();
+		tx.commit();
+		session.close();
+		return list;
+	}
+	
+	
+	@Override
 	public void update(T entity) throws Exception {
 		System.out.println("BaseDaoImpl: update()");
 		Session session = sf.openSession();
@@ -91,5 +102,5 @@ public class BaseDaoImpl<T> implements BaseDao<T> {
 		tx.commit();
 		session.close();
 	}
-	
+
 }

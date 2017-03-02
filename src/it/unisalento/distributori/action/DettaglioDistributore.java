@@ -61,7 +61,8 @@ public class DettaglioDistributore extends ActionSupport {
 				for (Integer i = 1; i <= posti; i++){
 					currentProdottiErogati = prodottiErogatiIterator.next();
 					currentDettaglioDistributoreModel = new DettaglioDistributoreModel();
-					currentDettaglioDistributoreModel.setId(currentProdottiErogati.getId());
+					currentDettaglioDistributoreModel.setIdProdottoErogato(currentProdottiErogati.getId());
+					currentDettaglioDistributoreModel.setIdProdotto(currentProdottiErogati.getProdotto().getId());
 					currentDettaglioDistributoreModel.setNomeProdottoErogato(currentProdottiErogati.getProdotto().getNome());
 					currentDettaglioDistributoreModel.setQuantita(currentProdottiErogati.getQuantita());
 					listDettaglioDistributoreModel.add(currentDettaglioDistributoreModel);

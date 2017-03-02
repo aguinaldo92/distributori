@@ -1,16 +1,24 @@
 package it.unisalento.distributori.model;
 
 public class DettaglioDistributoreModel {
-	private Integer id;
+	private Integer idProdotto;
+	private Integer idProdottoErogato;
 	private String nomeProdottoErogato;
 	private Integer quantita;
 
 	
-	public Integer getId() {
-		return id;
+	
+	public Integer getIdProdotto() {
+		return idProdotto;
 	}
-	public void setId(Integer id) {
-		this.id = id;
+	public void setIdProdotto(Integer idProdotto) {
+		this.idProdotto = idProdotto;
+	}
+	public Integer getIdProdottoErogato() {
+		return idProdottoErogato;
+	}
+	public void setIdProdottoErogato(Integer idProdottoErogato) {
+		this.idProdottoErogato = idProdottoErogato;
 	}
 	public String getNomeProdottoErogato() {
 		return nomeProdottoErogato;

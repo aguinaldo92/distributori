@@ -28,7 +28,6 @@
 									<th>Indirizzo</th>
 									<th>Posizione nell'edificio</th>
 									<th>Categorie fornite dal distributore</th>
-									<!-- 									<th>AZIONI</th> -->
 								</tr>
 							</thead>
 							<tbody>

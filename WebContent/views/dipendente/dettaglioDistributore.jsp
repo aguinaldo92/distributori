@@ -42,7 +42,12 @@
 											<!-- SI USA TOP PER INDICARE L'ELEMENTO PIù IN CIMA NELLO STACK, OSSIA L'ELEMENTO DELLA LISTA CORRENTE ALLA TALE RIGA -->
 											<!-- DA USARE PER iterare su liste di liste -->
 											<s:iterator value="#listProdottiErogatixScaffale" var="listDettaglioDistributoreModel" status="columnStatus">
-												<td><label><s:property value="nomeProdottoErogato" /></label> <s:hidden name="ids" value="%{id}" />
+											<s:url var="dettaglioProdotto" namespace="/dipendente" action="ProdottoDetail">
+														<s:param name="idProdotto">
+															<s:property value="%{idProdotto}" />
+														</s:param>
+													</s:url>
+												<td><a href="${dettaglioProdotto}"> <s:property value="nomeProdottoErogato" /></a> <s:hidden name="ids" value="%{ididProdottoErogato}" />
 													<div class="input-group">
 														<span class="input-group-btn">
 															<button type="button" class="btn btn-default" data-value="-1" data-target='#spinner<s:property value="#rowStatus.count"/>_<s:property value="#columnStatus.count"/>' data-toggle="spinner">
