@@ -42,9 +42,7 @@
 
 									<tr class="odd gradeA">
 										<td><a href="${dettaglioDistributore}" class="compare-in">
-												<button class="btn btn-primary">
-													Dettaglio
-												</button>
+												<button class="btn btn-primary">Dettaglio</button>
 										</a></td>
 										<td><s:property value="stato" /></td>
 										<!--  mostro solo i prodotti non vuoti -->

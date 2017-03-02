@@ -43,7 +43,12 @@ public class UpdateDipendente extends ActionSupport implements ModelDriven<Perso
 		System.out.println("Sono entrato nella action UpdateDipendente - ID dipendente="+DipForm.getId());
 				
 		//precarico i dati del dipendente
-		new_Dip=FactoryDao.getIstance().getDipendenteDao().get(DipForm.getId(), Dipendente.class);
+		try {
+			new_Dip=FactoryDao.getIstance().getDipendenteDao().get(DipForm.getId(), Dipendente.class);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		new_Dip.setTelefono(DipForm.getTelefono());//modifico con il dato del form
 		
 		Persona new_persona = new_Dip.getPersona();//precarico i dati della persona
@@ -55,14 +60,14 @@ public class UpdateDipendente extends ActionSupport implements ModelDriven<Perso
 //		new_persona.setDipendente(new_Dip);
 		
 		//aggiorno persona e dipendente nel DB
-//		try{
+		try{
 			FactoryDao.getIstance().getPersonaDao().update(new_persona);
 			FactoryDao.getIstance().getDipendenteDao().update(new_Dip);
-//		}catch (Exception e){
-//			System.out.println("La mail è già presente");
-//			addActionError("Email già presente");
-//			return INPUT;
-//		}
+		}catch (Exception e){
+			System.out.println("La mail è già presente");
+			addActionError("Email già presente");
+			return INPUT;
+		}
 		System.out.println("Aggiornato il dipendente nel DB. ID USER="+new_Dip.getPersonaId());
 		
 				
