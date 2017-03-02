@@ -24,7 +24,7 @@ public class LoginInterceptor implements Interceptor {
 	private Integer ruolo;
 	private String namespaceAction;
 	private String nameAction;
-	private PermissionsHashMap permissionsHashMap = new PermissionsHashMap();
+	private PermissionsHashMap permissionsHashMap;
 	private HashMap<Integer, String> ruolo_namespace;
 
 	@Override
@@ -35,34 +35,38 @@ public class LoginInterceptor implements Interceptor {
 
 	@Override
 	public void init() {
+		permissionsHashMap = new PermissionsHashMap();
+		ruolo_namespace = permissionsHashMap.getRuolo_namespace();
+		
 
 	}
 
 	@Override
 	public String intercept(ActionInvocation invocation) throws Exception {
 		personaSession = (SessionMap<String, Object>) invocation.getInvocationContext().getSession();
-		namespaceAction = invocation.getProxy().getNamespace();
-		nameAction = invocation.getProxy().getActionName();
-		System.out.println(namespaceAction);
-		System.out.println(nameAction);
-
-		ruolo_namespace = permissionsHashMap.getRuolo_namespace();
+		System.out.println("LoginInterceptor: intercept");
 
 		if (personaSession.containsKey("persona")) {
+			namespaceAction = invocation.getProxy().getNamespace();
+			nameAction = invocation.getProxy().getActionName();
+			System.out.println("LoginInterceptor: Namespace: " + namespaceAction);
+			System.out.println("LoginInterceptor: action name:" + nameAction);
+
+			
 			ruolo = ((Persona) personaSession.get("persona")).getRuolo();
 			if (ruolo_namespace.get(ruolo).equals(namespaceAction)) {
-				System.out.println("permessi ok");
-				System.out.println("sei nel namespace: " + namespaceAction + " action:  " + nameAction
+				System.out.println("LoginInterceptor: permessi ok");
+				System.out.println("LoginInterceptor: sei nel namespace: " + namespaceAction + " action:  " + nameAction
 						+ " poichè hai il ruolo " + ruolo);
 				return invocation.invoke();
 			} else {
-				System.out.println("permessi Insufficienti ");
-				System.out.println("hai provato ad entrare nel namespace " + namespaceAction + " action:  " + nameAction
+				System.out.println("LoginInterceptor: permessi Insufficienti ");
+				System.out.println(" LoginInterceptor: hai provato ad entrare nel namespace " + namespaceAction + " action:  " + nameAction
 						+ " poichè hai il ruolo " + ruolo);
 				return Action.LOGIN;
 			}
 		} else {
-			System.out.println("L'utente deve essere loggato per arrivare alla pagina ");
+			System.out.println("LoginInterceptor: L'utente deve essere loggato per arrivare alla pagina ");
 			return Action.LOGIN;
 		}
 

@@ -9,10 +9,15 @@
 
 <head>
 
-	<link href="http://localhost:8080/distributori/vendor/css/bootstrap.css"  type="text/css" rel="stylesheet" />
-	<link href="http://localhost:8080/distributori/vendor/css/font-awesome.css" type="text/css" rel="stylesheet" />
-	<link href="http://localhost:8080/distributori/vendor/css/custom.css" type="text/css" rel="stylesheet" />
-	<!-- GOOGLE FONTS -->
+	<link href="/distributori/vendor/css/bootstrap.css" rel="stylesheet" />
+	<link href="/distributori/vendor/css/font-awesome.css" rel="stylesheet" />
+	<link href="/distributori/vendor/css/custom.css" rel="stylesheet" />
+	<!--  Js per i pulsanti più e meno per le quantità -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.js"></script>
+	<script type="text/javascript" src="/distributori/vendor/js/bootstrap.js"></script>
+	<script type="text/javascript" src="/distributori/vendor/js/bootstrap-spinner/bootstrap-spinner.js"></script> 
+	<script type="text/javascript" src="/distributori/vendor/js/bootstrap-spinner/mousehold.js"></script>
+	<!-- GOOGLE FONTS-->
 	<link href='http://fonts.googleapis.com/css?family=Open+Sans'
 	rel='stylesheet' type='text/css' />
 

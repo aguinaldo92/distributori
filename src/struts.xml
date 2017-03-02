@@ -151,6 +151,16 @@
 			<result name="none" type="tiles">editProdotto</result>
 		</action>
 		
+		<action name="ListDistributoriGestore"
+			class="it.unisalento.distributori.action.ListDistributoriGestore">
+			<result name="success" type="tiles">gestioneDistributori</result>
+		</action>
+		
+		<action name="DettaglioDistributore"
+			class="it.unisalento.distributori.action.DettaglioDistributore">
+			<result type="tiles">dettaglioDistributore</result>
+		</action>
+		
 	</package>
 
 

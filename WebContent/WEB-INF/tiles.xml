@@ -7,13 +7,18 @@
 
 <tiles-definitions>
 
- 	<!-- Layout solo della pagina di login  -->
+ 	<!-- Layout della pagina di login  -->
 	<definition name="index" template="/baselayout/baseLayout.jsp">
 		<put-attribute name="title" value="Login" />
 		<put-attribute name="header" value="/baselayout/header.jsp" />
 		<put-attribute name="menu" value="/baselayout/emptymenu.jsp" />
 		<put-attribute name="body" value="/views/login.jsp" />
 		<put-attribute name="footer" value="/baselayout/footer.jsp" />
+	</definition>
+	
+	<definition name="error" extends="index">
+		<put-attribute name="title" value="Error" />
+		<put-attribute name="body" value="/views/error.jsp" />
 	</definition>
 
 	<!-- Layout di base da ereditare -->
@@ -37,6 +42,11 @@
 	<definition name="dashboardGestore" extends="baseLayoutGestore">
 		<put-attribute name="title" value="Dashboard" />
 		<put-attribute name="body" value="/views/gestore/dashboard.jsp" />
+	</definition>
+	
+	<definition name="gestioneDistributori" extends="baseLayoutGestore">
+		<put-attribute name="title" value="Distributori" />
+		<put-attribute name="body" value="/views/gestore/gestioneDistributori.jsp" />
 	</definition>
 
 	<definition name="listDipendenti" extends="baseLayoutGestore">
@@ -71,10 +81,12 @@
 		<put-attribute name="title" value="Dashboard" />
 		<put-attribute name="body" value="/views/dipendente/dashboard.jsp" />
 	</definition>
+	
+	
 
-	<definition name="listaInterventi" extends="baseLayoutDipendente">
-		<put-attribute name="title" value="ListaIntervent" />
+	<definition name="dettaglioDistributore" extends="baseLayoutDipendente">
+		<put-attribute name="title" value="Distributore" />
 		<put-attribute name="body"
-			value="/views/dipendente/listaInterventi.jsp" />
+			value="/views/dipendente/dettaglioDistributore.jsp" />
 	</definition>
 </tiles-definitions>

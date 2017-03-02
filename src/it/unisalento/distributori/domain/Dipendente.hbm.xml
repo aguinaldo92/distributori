@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated 20-feb-2017 14.41.47 by Hibernate Tools 4.3.1.Final -->
+<!-- Generated 21-feb-2017 15.59.54 by Hibernate Tools 4.3.1.Final -->
 <hibernate-mapping>
     <class name="it.unisalento.distributori.domain.Dipendente" table="dipendente" catalog="distributoridb" optimistic-lock="version">
         <id name="personaId" type="int">
@@ -26,7 +26,7 @@
             </key>
             <one-to-many class="it.unisalento.distributori.domain.Manutiene" />
         </set>
-        <set name="distributores" table="distributore" inverse="true" lazy="false" fetch="select">
+        <set name="distributores" table="distributore" inverse="true" lazy="true" fetch="select">
             <key>
                 <column name="Dipendente_Persona_ID" />
             </key>

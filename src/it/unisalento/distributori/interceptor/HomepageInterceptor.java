@@ -47,7 +47,7 @@ public class HomepageInterceptor implements Interceptor {
 		personaSession = (SessionMap<String, Object>) invocation.getInvocationContext().getSession();
 		if (personaSession.containsKey("persona")) {
 			ruolo_namespace = permissionsHashMap.getRuolo_namespace();
-			System.out.println("chiamata action dashboard");
+			System.out.println("HomepageInterceptor: chiamata action dashboard");
 			ruolo = ((Persona) personaSession.get("persona")).getRuolo();
 			return ruolo_namespace.get(ruolo);
 		}
