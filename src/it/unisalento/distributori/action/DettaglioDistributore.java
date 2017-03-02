@@ -22,6 +22,9 @@ import it.unisalento.distributori.model.DettaglioDistributoreModel;
 public class DettaglioDistributore extends ActionSupport {
 	private static final long serialVersionUID = 3181980036211349123L;
 	private Integer idDistributore;
+	private Distributore distributore;
+	private String indirizzoDistributore;
+	private String posizioneEdificioDistributore;
 	private Integer scaffali ;
 	private Integer posti;
 	private ArrayList<ProdottiErogati> listProdottiErogati;
@@ -35,8 +38,11 @@ public class DettaglioDistributore extends ActionSupport {
 	public String execute(){
 
 		try{
-			scaffali = FactoryDao.getIstance().getDistributoreDao().get(idDistributore, Distributore.class).getNumScaffali();
-			posti = FactoryDao.getIstance().getDistributoreDao().get(idDistributore, Distributore.class).getNumPosti();
+			distributore = FactoryDao.getIstance().getDistributoreDao().get(idDistributore, Distributore.class);
+			indirizzoDistributore = distributore.getIndirizzo();
+			posizioneEdificioDistributore = distributore.getPosizioneEdificio();
+			scaffali = distributore.getNumScaffali();
+			posti = distributore.getNumPosti();
 		} catch (Exception e){
 			System.out.println("primo try " + e.getMessage());
 			return ERROR;
@@ -49,6 +55,7 @@ public class DettaglioDistributore extends ActionSupport {
 			Integer count=1;
 			for (Integer j = 1; j <= scaffali; j++){	
 				listDettaglioDistributoreModel = new ArrayList<DettaglioDistributoreModel>();
+				
 				for (Integer i = 1; i <= posti; i++){
 					currentProdottiErogati = prodottiErogatiIterator.next();
 					currentDettaglioDistributoreModel = new DettaglioDistributoreModel();
@@ -58,13 +65,9 @@ public class DettaglioDistributore extends ActionSupport {
 					listDettaglioDistributoreModel.add(currentDettaglioDistributoreModel);
 					count++;
 				}
-				System.out.println("dimensione lista scaffale "+ count + " : " +listDettaglioDistributoreModel.size());
 				
 				listProdottiErogatixScaffale.add(listDettaglioDistributoreModel);
 			}
-			System.out.println("dimensione totale lista listProdottiErogatixScaffale " +listProdottiErogatixScaffale.size());
-
-			System.out.println("totale iterazioni: "+ count);
 
 
 
@@ -77,6 +80,36 @@ public class DettaglioDistributore extends ActionSupport {
 
 
 	}
+
+
+
+
+	public String getIndirizzoDistributore() {
+		return indirizzoDistributore;
+	}
+
+
+
+
+	public void setIndirizzoDistributore(String indirizzoDistributore) {
+		this.indirizzoDistributore = indirizzoDistributore;
+	}
+
+
+
+
+	public String getPosizioneEdificioDistributore() {
+		return posizioneEdificioDistributore;
+	}
+
+
+
+
+	public void setPosizioneEdificioDistributore(String posizioneEdificioDistributore) {
+		this.posizioneEdificioDistributore = posizioneEdificioDistributore;
+	}
+
+
 
 
 	public ArrayList<DettaglioDistributoreModel> getListDettaglioDistributoreModel() {
