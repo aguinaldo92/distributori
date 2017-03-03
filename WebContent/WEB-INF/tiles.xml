@@ -88,6 +88,16 @@
 		<put-attribute name="body" value="/views/dipendente/dashboard.jsp" />
 	</definition>
 	
+	<definition name="profilo" extends="baseLayoutDipendente">
+		<put-attribute name="title" value="Modifica Profilo" />
+		<put-attribute name="body" value="/views/dipendente/profilo.jsp" />
+	</definition>
+	
+	<definition name="modificaPassword" extends="baseLayoutDipendente">
+		<put-attribute name="title" value="Modifica Password" />
+		<put-attribute name="body" value="/views/dipendente/modificaPassword.jsp" />
+	</definition>
+	
 	<definition name="dettaglioDistributoreDipendente" extends="baseLayoutDipendente">
 		<put-attribute name="title" value="Distributore" />
 		<put-attribute name="body"

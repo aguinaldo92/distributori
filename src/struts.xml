@@ -74,8 +74,18 @@
 			<result type="tiles">dashboardDipendente</result>
 		</action>
 
-		<action name="listaInterventi">
-			<result type="tiles">listaInterventi</result>
+		<action name="goToModificaPassword">
+			<result type="tiles">modificaPassword</result>
+		</action>
+		
+		<action name="UpdatePassword" class="it.unisalento.distributori.action.UpdatePassword" >
+			<result name="success" type="tiles">profilo</result>
+			<result name="input" type="tiles">modificaPassword</result>
+		</action>
+		
+		<action name="DipendenteDetail" class="it.unisalento.distributori.action.DipendenteDetail">
+			<result name="success" type="tiles">profilo</result>
+			<result name="input" type="tiles">profilo</result>
 		</action>
 		
 		<action name="DettaglioDistributore"

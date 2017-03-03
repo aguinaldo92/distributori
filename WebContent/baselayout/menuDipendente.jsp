@@ -13,6 +13,10 @@
                     <li>
                         <s:a  namespace="/dipendente" action="dashboard"><i class="fa fa-table fa-3x"></i>Gestione Distributori</s:a>
                     </li>
+                    
+                     <li>
+                        <s:a  namespace="/dipendente" action="DipendenteDetail"><i class="fa fa-table fa-3x"></i>Profilo</s:a>
+                    </li>
      	
                 </ul>
                
