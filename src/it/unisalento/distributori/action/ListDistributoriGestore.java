@@ -39,7 +39,7 @@ public class ListDistributoriGestore extends ActionSupport{
 	
 	public String execute() {
 		System.out.println("ListDistributoriDipendente.action:");
-		listNomiQuantitaProdottiErogati = new ArrayList<String>();
+		
 		listDistributoreModel = new ArrayList<DistributoreModel>();
 		// TODO: quantità minima da settare diversamente (così mostriamo tutti i prodotti erogati diversi da vuoto)
 		Integer quantitaMinima = 10100;
@@ -56,6 +56,7 @@ public class ListDistributoriGestore extends ActionSupport{
 			System.out.println("numero di iterazioni da effettuare: "+ listDistributore.size());
 			while (distributoriIterator.hasNext()) {
 				// se non venisse ricreato ogni iterazione, verrebbe aggiunto più volte lo stesso model alla lista inserendo duplicati
+				listNomiQuantitaProdottiErogati = new ArrayList<String>();
 				currentDistributoreModel  = new DistributoreModel();
 				//System.out.println("iterazione: " + count);
 				//System.out.println("numero di iterazioni rimanenti: "+ (listDistributore.size() - count));

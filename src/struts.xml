@@ -80,7 +80,7 @@
 		
 		<action name="DettaglioDistributore"
 			class="it.unisalento.distributori.action.DettaglioDistributore">
-			<result type="tiles">dettaglioDistributore</result>
+			<result type="tiles">dettaglioDistributoreDipendente</result>
 		</action>
 		
 		<action name="UpdateQuantitaProdottiByDistributore"
@@ -168,6 +168,11 @@
 			<result name="input" type="tiles">editProdotto</result>
 		</action>
 		
+		<action name="UpdateProdottiErogati" class="it.unisalento.distributori.action.UpdateProdottiErogati">
+			<result name="success" type="tiles">dashboardGestore</result>
+			<result name="input" type="tiles">dashboardGestore</result>
+		</action>
+		
 		<action name="LoadProdStab" class="it.unisalento.distributori.util.LoadProduttoriStabilimenti" method="display">
 			<result name="none" type="tiles">editProdotto</result>
 		</action>
@@ -179,7 +184,7 @@
 		
 		<action name="DettaglioDistributore"
 			class="it.unisalento.distributori.action.DettaglioDistributore">
-			<result type="tiles">dettaglioDistributore</result>
+			<result type="tiles">dettaglioDistributoreGestore</result>
 		</action>
 		
 	</package>

@@ -1,13 +1,8 @@
 package it.unisalento.distributori.action;
 
-import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-import java.util.stream.IntStream;
-
 import com.opensymphony.xwork2.ActionSupport;
-import com.opensymphony.xwork2.ModelDriven;
-import com.opensymphony.xwork2.Preparable;
 
 import it.unisalento.distributori.domain.ProdottiErogati;
 import it.unisalento.distributori.factory.FactoryDao;
@@ -19,8 +14,6 @@ public class UpdateQuantitaProdottiByDistributore extends ActionSupport {
 	private DettaglioDistributoreModel currentDettaglioDistributoreModel;
 	private ProdottiErogati prodottiErogatiUpdated;
 
-	// private DettaglioDistributoreModel dettaglio = new
-	// DettaglioDistributoreModel();
 	private Boolean updateSuccess = false;
 	private Integer idDistributore;
 	private List<Integer> ids;
@@ -67,39 +60,25 @@ public class UpdateQuantitaProdottiByDistributore extends ActionSupport {
 		this.currentDettaglioDistributoreModel = currentDettaglioDistributoreModel;
 	}
 
-	public Boolean getUpdateSuccess() {
-		return updateSuccess;
-	}
-
-	public void setUpdateSuccess(Boolean updateSuccess) {
-		this.updateSuccess = updateSuccess;
-	}
 
 	public String execute() {
-		updateSuccess = true;
 		try {
 			System.out.println("idDistributore: " + idDistributore);
 			Iterator<Integer> idsIterator = ids.iterator();
-			//			Iterator<Integer> oldQuantitaIterator = oldQuantita.iterator();
 			Iterator<Integer> quantitaIterator = quantita.iterator();
 			if ( ids.size() == quantita.size() ) {
 				while (idsIterator.hasNext()) {
 					Integer newQuantita = quantitaIterator.next();
-
-					//						prodottiErogatiUpdated = new ProdottiErogati();
 					prodottiErogatiUpdated = FactoryDao.getIstance().getProdottiErogatiDao().get(idsIterator.next(),ProdottiErogati.class);
-					if (prodottiErogatiUpdated.getQuantita().equals(newQuantita)) {
-						idsIterator.next();
-					} else {
+					if (!prodottiErogatiUpdated.getQuantita().equals(newQuantita)) {
 						prodottiErogatiUpdated.setQuantita(newQuantita);
 						FactoryDao.getIstance().getProdottiErogatiDao().update(prodottiErogatiUpdated);
-						idsIterator.next();
 					}
-
 				}
 			} else {
 				System.out.println("Errore ids.size diverso da quantita.size");
 			}
+			updateSuccess = true;
 		} catch (Exception e) {
 			System.out.println("ERRORE UpdateQuantitaprodottoByDistributore: " + e.getMessage());
 

@@ -48,6 +48,12 @@
 		<put-attribute name="title" value="Distributori" />
 		<put-attribute name="body" value="/views/gestore/gestioneDistributori.jsp" />
 	</definition>
+	
+	<definition name="dettaglioDistributoreGestore" extends="baseLayoutGestore">
+		<put-attribute name="title" value="Distributore" />
+		<put-attribute name="body"
+			value="/views/gestore/dettaglioDistributore.jsp" />
+	</definition>
 
 	<definition name="listDipendenti" extends="baseLayoutGestore">
 		<put-attribute name="title" value="Gestione Dipendenti" />
@@ -82,11 +88,10 @@
 		<put-attribute name="body" value="/views/dipendente/dashboard.jsp" />
 	</definition>
 	
-	
-
-	<definition name="dettaglioDistributore" extends="baseLayoutDipendente">
+	<definition name="dettaglioDistributoreDipendente" extends="baseLayoutDipendente">
 		<put-attribute name="title" value="Distributore" />
 		<put-attribute name="body"
 			value="/views/dipendente/dettaglioDistributore.jsp" />
 	</definition>
+	
 </tiles-definitions>
