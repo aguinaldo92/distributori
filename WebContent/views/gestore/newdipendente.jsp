@@ -20,7 +20,7 @@
                 </div>
                  <!-- /. ROW  -->
                  <hr />
-			<s:form name="update" action="AddDipendente">
+			<s:form name="update" namespace="/gestore" action="AddDipendente">
 				<div class=" form-group input-group input-group-lg">
   				<span class="input-group-addon">Nome</span>
   				<s:textfield cssClass="form-control" name="nome"/>

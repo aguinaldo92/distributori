@@ -20,7 +20,7 @@
                  <!-- /. ROW  -->
                  <hr />
 		<s:iterator value="#attr.dipendente">
-			<s:form name="update" action="UpdateDipendente">
+			<s:form name="update" namespace="/gestore" action="UpdateDipendente">
 				
 				<div class=" form-group input-group input-group-lg">
   				<span class="input-group-addon">Badge</span>

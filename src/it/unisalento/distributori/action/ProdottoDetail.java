@@ -24,22 +24,17 @@ import it.unisalento.distributori.model.ProdottoModel;
 public class ProdottoDetail extends ActionSupport implements Preparable{
 	
 	private int idProdotto;
-	
-//	private Prodotto prodotto = new Prodotto();
+
 	private ProdottoModel prodotto = new ProdottoModel();
 	
 	private List<Categoria> all_categ = new ArrayList<Categoria>();
 	private List<Famiglia> famiglie = new ArrayList<Famiglia>();
-	private List<Produttore> all_produttori = new ArrayList<Produttore>();
-	private List<Stabilimento> stabilimentiByProduttore = new ArrayList<Stabilimento>();	
 
 	Map select_mapping =new HashMap();
 	
 	public String execute () throws Exception {
 		System.out.println("ProdottoDetail -> execute()");
-		System.out.println("ID prodotto da visualizzare="+idProdotto);	
-		
-//		prodotto=FactoryDao.getIstance().getProdottoDao().get(idProdotto, Prodotto.class);
+		System.out.println("ID prodotto da visualizzare="+idProdotto);
 		
 		Prodotto prod_scelto=FactoryDao.getIstance().getProdottoDao().get(idProdotto, Prodotto.class);
 		prodotto.setDescrizione(prod_scelto.getDescrizione());
@@ -61,12 +56,9 @@ public class ProdottoDetail extends ActionSupport implements Preparable{
 		}
 		prodotto.setIDsfamiglie(IDsf);
 		
-		all_categ=FactoryDao.getIstance().getCategoriaDao().getAll(Categoria.class);
+		all_categ=FactoryDao.getIstance().getCategoriaDao().getAllCategorie();
 		famiglie=FactoryDao.getIstance().getFamigliaDao().getAll(Famiglia.class);
-		all_produttori=FactoryDao.getIstance().getProduttoreDao().getAll(Produttore.class);
-//		stabilimentiByProduttore=FactoryDao.getIstance().getProduttoreDao().getStabilimentiByProduttore(prodotto.getStabilimento().getProduttore().getId());
-		stabilimentiByProduttore=FactoryDao.getIstance().getProduttoreDao().getStabilimentiByProduttore(prod_scelto.getStabilimento().getProduttore().getId());
-		
+
 		System.out.println("Prodotto ottenuto: "+prodotto.getNome());
 		return SUCCESS;
 	}
@@ -75,7 +67,7 @@ public class ProdottoDetail extends ActionSupport implements Preparable{
 	public void prepare() throws Exception {
 		
 		//caricamento delle doubleselect per Produttore e Stabilimento
-		List<Produttore> all_produttori=FactoryDao.getIstance().getProduttoreDao().getAll(Produttore.class);
+		List<Produttore> all_produttori=FactoryDao.getIstance().getProduttoreDao().getAllProduttori();
 		List<Stabilimento> stabilimentiOfprod;
 		for (int i=0; i<all_produttori.size(); i++){
 			stabilimentiOfprod=new ArrayList<Stabilimento>(all_produttori.get(i).getStabilimentos());
@@ -99,23 +91,7 @@ public class ProdottoDetail extends ActionSupport implements Preparable{
 	public void setFamiglie(List<Famiglia> famiglie) {
 		this.famiglie = famiglie;
 	}
-
-	public List<Stabilimento> getStabilimentiByProduttore() {
-		return stabilimentiByProduttore;
-	}
-
-	public void setStabilimentiByProduttore(List<Stabilimento> stabilimentiByProduttore) {
-		this.stabilimentiByProduttore = stabilimentiByProduttore;
-	}
-
-	public List<Produttore> getAll_produttori() {
-		return all_produttori;
-	}
-
-	public void setAll_produttori(List<Produttore> all_produttori) {
-		this.all_produttori = all_produttori;
-	}
-
+	
 	public ProdottoModel getProdotto() {
 		return prodotto;
 	}

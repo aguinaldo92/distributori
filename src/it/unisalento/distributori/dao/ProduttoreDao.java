@@ -9,4 +9,5 @@ public interface ProduttoreDao extends BaseDao<Produttore>{
 	
 	public List<Stabilimento> getStabilimentiByProduttore(int id_produttore);
 		
+	public List<Produttore> getAllProduttori();
 }

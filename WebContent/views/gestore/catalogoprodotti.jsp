@@ -24,7 +24,7 @@
 				<div class="panel-body">
 					<div class="table-responsive">
 						<p align="right">
-							<s:a action="CreateDipendente" class="btn btn-success">Inserisci nuovo prodotto</s:a>
+							<s:a action="CreateProdotto" class="btn btn-success">Inserisci nuovo prodotto</s:a>
 						</p>
 						<div class="panel panel-info">
 	                        <div class="panel-heading">

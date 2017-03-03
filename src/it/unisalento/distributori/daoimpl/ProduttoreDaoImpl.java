@@ -13,6 +13,7 @@ import org.hibernate.Transaction;
 
 import it.unisalento.distributori.dao.ProduttoreDao;
 import it.unisalento.distributori.domain.Persona;
+import it.unisalento.distributori.domain.Prodotto;
 import it.unisalento.distributori.domain.Produttore;
 import it.unisalento.distributori.domain.Stabilimento;
 
@@ -36,5 +37,21 @@ public class ProduttoreDaoImpl extends BaseDaoImpl<Produttore> implements Produt
         session.close();
 		return stabilimenti;
 	}
+
+	@Override
+	public List<Produttore> getAllProduttori(){
+		Session session = sf.openSession();
+        Transaction tx = session.beginTransaction();
+        Query query = session.createQuery("from Produttore as P where P.nome IS NOT NULL order by P.nome");
+        
+        List<Produttore> list_prodotti = new ArrayList<Produttore>();
+        list_prodotti=query.list();
+        
+        tx.commit();
+        session.close();
+		return list_prodotti;
+	}
+	
+	
 
 }

@@ -160,6 +160,15 @@
 			<result name="input" type="tiles">editProdotto</result>
 		</action>
 		
+		<action name="CreateProdotto" class="it.unisalento.distributori.action.AddProdotto" method="load_info">
+			<result name="none" type="tiles">createProdotto</result>
+		</action>
+		
+		<action name="AddProdotto" class="it.unisalento.distributori.action.AddProdotto">
+			<result name="success" type="tiles">listProdotti</result>
+			<result name="input" type="tiles">createProdotto</result>
+		</action>
+		
 		<action name="ListDistributoriGestore"
 			class="it.unisalento.distributori.action.ListDistributoriGestore">
 			<result name="success" type="tiles">gestioneDistributori</result>

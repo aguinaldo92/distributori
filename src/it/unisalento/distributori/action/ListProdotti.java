@@ -36,8 +36,8 @@ public class ListProdotti extends ActionSupport{
 
 	public String execute () {
 		
-		this.prodotti=FactoryDao.getIstance().getProdottoDao().getAll(Prodotto.class);
-		this.categorie=FactoryDao.getIstance().getCategoriaDao().getAll(Categoria.class);
+		this.prodotti=FactoryDao.getIstance().getProdottoDao().getAllProdotti();
+		this.categorie=FactoryDao.getIstance().getCategoriaDao().getAllCategorie();
 		this.famiglie=FactoryDao.getIstance().getFamigliaDao().getAll(Famiglia.class);
 		
 		ServletActionContext.getRequest().setAttribute("prodotti", prodotti);

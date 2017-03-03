@@ -76,6 +76,11 @@
 		<put-attribute name="body" value="/views/gestore/editprodotto.jsp" />
 	</definition>
 	
+	<definition name="createProdotto" extends="baseLayoutGestore">
+		<put-attribute name="title" value="Inserisci Prodotto" />
+		<put-attribute name="body" value="/views/gestore/newprodotto.jsp" />
+	</definition>
+	
 	<!-- Inizio elenco tiles del dipendente -->
 	<definition name="dashboardDipendente" extends="baseLayoutDipendente">
 		<put-attribute name="title" value="Dashboard" />
