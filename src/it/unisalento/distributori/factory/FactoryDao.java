@@ -8,19 +8,23 @@ import it.unisalento.distributori.dao.CategorieForniteDao;
 import it.unisalento.distributori.dao.DipendenteDao;
 import it.unisalento.distributori.dao.DistributoreDao;
 import it.unisalento.distributori.dao.FamigliaDao;
+import it.unisalento.distributori.dao.FamiglieProdottoDao;
 import it.unisalento.distributori.dao.PersonaDao;
 import it.unisalento.distributori.dao.ProdottiErogatiDao;
 import it.unisalento.distributori.dao.ProdottoDao;
 import it.unisalento.distributori.dao.ProduttoreDao;
+import it.unisalento.distributori.dao.StabilimentoDao;
 import it.unisalento.distributori.daoimpl.CategoriaDaoImpl;
 import it.unisalento.distributori.daoimpl.CategorieForniteDaoImpl;
 import it.unisalento.distributori.daoimpl.DipendenteDaoImpl;
 import it.unisalento.distributori.daoimpl.DistributoreDaoImpl;
 import it.unisalento.distributori.daoimpl.FamigliaDaoImpl;
+import it.unisalento.distributori.daoimpl.FamiglieProdottoDaoImpl;
 import it.unisalento.distributori.daoimpl.PersonaDaoImpl;
 import it.unisalento.distributori.daoimpl.ProdottiErogatiDaoImpl;
 import it.unisalento.distributori.daoimpl.ProdottoDaoImpl;
 import it.unisalento.distributori.daoimpl.ProduttoreDaoImpl;
+import it.unisalento.distributori.daoimpl.StabilimentoDaoImpl;
 
 /**
  * @author aguinaldo
@@ -58,13 +62,18 @@ public class FactoryDao {
 	}
 
 	public FamigliaDao getFamigliaDao(){
-		System.out.println("FactoryDao: FamigliaDaoDao");
+		System.out.println("FactoryDao: getFamigliaDao");
 		return new FamigliaDaoImpl();
 	}
 
 	public ProduttoreDao getProduttoreDao(){
-		System.out.println("FactoryDao: ProduttoreDaoDao");
+		System.out.println("FactoryDao: getProduttoreDao");
 		return new ProduttoreDaoImpl();
+	}
+	
+	public StabilimentoDao getStabilimentoDao(){
+		System.out.println("FactoryDao: getStabilimentoDao");
+		return new StabilimentoDaoImpl();
 	}
 
 	public DistributoreDao getDistributoreDao(){
@@ -80,5 +89,10 @@ public class FactoryDao {
 	public ProdottiErogatiDao getProdottiErogatiDao(){
 		System.out.println("FactoryDao: getProdottiErogatiDao");
 		return new ProdottiErogatiDaoImpl();
+	}
+	
+	public FamiglieProdottoDao getFamiglieProdottoDao(){
+		System.out.println("FactoryDao: getFamiglieProdottoDao");
+		return new FamiglieProdottoDaoImpl();
 	}
 }

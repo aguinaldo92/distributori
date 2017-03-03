@@ -97,10 +97,6 @@
 	</package>
 	
 	<package name="json" extends="default, json-default" namespace="/gestorejson">
-		
-		<action name="LoadProdStab" class="it.unisalento.distributori.action.json.LoadProduttori_Stabilimenti">
-			<result name="success" type="json"/>
-		</action>
 	
 	</package>
 
@@ -156,15 +152,12 @@
 		<action name="ProdottoDetail" class="it.unisalento.distributori.action.ProdottoDetail">
 			<result name="success" type="tiles">editProdotto</result>
 			<result name="input" type="tiles">editProdotto</result>
+			<result name="none" type="tiles">editProdotto</result>
 		</action>
 		
 		<action name="UpdateProdotto" class="it.unisalento.distributori.action.UpdateProdotto">
 			<result name="success" type="tiles">listProdotti</result>
 			<result name="input" type="tiles">editProdotto</result>
-		</action>
-		
-		<action name="LoadProdStab" class="it.unisalento.distributori.util.LoadProduttoriStabilimenti" method="display">
-			<result name="none" type="tiles">editProdotto</result>
 		</action>
 		
 		<action name="ListDistributoriGestore"
@@ -175,6 +168,17 @@
 		<action name="DettaglioDistributore"
 			class="it.unisalento.distributori.action.DettaglioDistributore">
 			<result type="tiles">dettaglioDistributore</result>
+		</action>
+		
+		<action name="LoadImage" class="it.unisalento.distributori.util.FileUpload">
+			<interceptor-ref name="fileUpload">
+				<param name="maximumSize">2097152</param> <!-- Limite dimensione file: 2MB -->
+				<param name="allowedTypes">
+					image/png,image/gif,image/jpeg,image/pjpeg
+				</param>
+			</interceptor-ref>
+			<result name="success" type="tiles">editProdotto</result>
+			<result name="input">editProdotto</result>
 		</action>
 		
 	</package>

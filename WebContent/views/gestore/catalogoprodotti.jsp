@@ -84,10 +84,12 @@
 										<td><s:property value="stabilimento.citta" /> (<s:property
 												value="stabilimento.provincia" />)</td>
 										<td><s:property value="categoria.nome" /></td>
-										<td><s:iterator value="famiglieProdottos">
-												<s:property value="famiglia.nome" />
-												<br>
-											</s:iterator></td>
+										<td>
+										<ul><s:iterator value="famiglieProdottos">
+												<li><s:property value="famiglia.nome" /></li>
+											</s:iterator>
+										</ul>
+										</td>
 										<td><s:property value="prezzo" /></td>
 										<td class="center"><s:a href="%{ProdDet}"
 												class="compare-in" name="edit_button" value="Edit">
