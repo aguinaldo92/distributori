@@ -5,6 +5,9 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
+import org.apache.struts2.ServletActionContext;
+
 import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.ModelDriven;
 import it.unisalento.distributori.domain.Categoria;
@@ -81,7 +84,7 @@ public class AddProdotto extends ActionSupport implements ModelDriven<ProdottoMo
 		new_prodotto.setPrezzo(prodotto_Form.getPrezzo());
 		new_prodotto.setScontoUtenti(BigDecimal.valueOf(sconto_percentuale).divide(BigDecimal.valueOf(100)));
 		new_prodotto.setStabilimento(FactoryDao.getIstance().getStabilimentoDao().get(prodotto_Form.getStabilimento().getId(), Stabilimento.class));
-		
+		new_prodotto.setFoto("images/no_image.jpg");
 		//inserimento nel DATABASE del prodotto
 		new_prodotto.setId(FactoryDao.getIstance().getProdottoDao().set(new_prodotto));
 		
@@ -93,6 +96,8 @@ public class AddProdotto extends ActionSupport implements ModelDriven<ProdottoMo
 			fam_prod_obj.setProdotto(new_prodotto);
 			FactoryDao.getIstance().getFamiglieProdottoDao().set(fam_prod_obj);
 		}
+		
+		ServletActionContext.getRequest().setAttribute("idNewProdotto", new_prodotto.getId());
 				
 		return SUCCESS;
 	}

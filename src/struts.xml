@@ -165,7 +165,7 @@
 		</action>
 		
 		<action name="AddProdotto" class="it.unisalento.distributori.action.AddProdotto">
-			<result name="success" type="tiles">listProdotti</result>
+			<result name="success" type="tiles">uploadFoto_newProdotto</result>
 			<result name="input" type="tiles">createProdotto</result>
 		</action>
 		
@@ -179,12 +179,17 @@
 			<result type="tiles">dettaglioDistributore</result>
 		</action>
 		
-		<action name="FileUpload" class="it.unisalento.distributori.action.UpdateImageProdotto">
+		<action name="FileUpload_editProdotto" class="it.unisalento.distributori.action.UpdateImageProdotto">
 			<result name="success" type="redirectAction">
         		<param name="actionName">ProdottoDetail</param>
         		<param name="idProdotto">${idProdotto}</param>
         	</result>
 	       <result name="error" type="tiles">editProdotto</result>
+		</action>
+		
+		<action name="Fileupload_newProdotto" class="it.unisalento.distributori.action.UpdateImageProdotto">
+			<result name="success" type="tiles">listProdotti</result>
+			<result name="error" type="tiles">uploadFoto_newProdotto</result>
 		</action>
 		
 	</package>

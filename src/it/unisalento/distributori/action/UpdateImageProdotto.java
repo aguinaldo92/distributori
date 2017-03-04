@@ -26,7 +26,7 @@ public class UpdateImageProdotto extends ActionSupport{
 		
 	   public String execute() throws Exception {
 		   
-		   Random random = new Random();
+		   Random random = new Random();//per garantire un nome diverso della nuova foto per agevolare il caricamento anche se la cache ha salvato la foto precedente
 		   
 	      /* Copy file to a safe location */
 	      destPath = "C:/Users/Salvatore/Documents/Università/Specialistica/A.A. 2014_2015/Software Engineering/Workspace2/distributori/WebContent/images/";

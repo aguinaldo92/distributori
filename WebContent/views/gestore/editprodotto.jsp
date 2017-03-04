@@ -39,7 +39,7 @@
                             <div id="foto_prodotto" class="panel-collapse in" style="height: 0px;">
                                 <div class="panel-body">
                                    	<img id="prod_img" src="/distributori/${foto}" class="img-thumbnail" alt="Foto_${nome}" width="304" height="236">
-                                   	<s:form name="file_upload" namespace="/gestore" action="FileUpload" enctype="multipart/form-data">
+                                   	<s:form name="file_upload" namespace="/gestore" action="FileUpload_editProdotto" enctype="multipart/form-data">
 									<div class="form-group"> 
 										<br>
 										<label>Modifica foto</label>

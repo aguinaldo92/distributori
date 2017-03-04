@@ -22,9 +22,6 @@
             
 			<s:form name="update" namespace="/gestore" action="AddProdotto">
 				<div class="panel panel-default">
-                        <div class="panel-heading">
-                            <h4></h4>
-                        </div>
                         <div class="panel-body">
 
                             <ul class="nav nav-pills">
@@ -41,12 +38,6 @@
                             
                                 <div class="tab-pane fade active in" id="caratt_prodotto">
                                     <h4></h4>
-						  				<div class="form-group">
-											<br>
-											<label>Inserisci la foto del prodotto</label>
-		                                    <s:file name="foto" accept="image/*"/>
-                                        </div>
-										<p></p>
 										<div class=" form-group input-group input-group-lg">
 							  				<span class="input-group-addon">Nome</span>
 							  				<s:textfield cssClass="form-control" name="nome"/>
@@ -112,7 +103,7 @@
                 <s:a action="ListProdotti" class="btn btn-danger btn-lg">Annulla</s:a>
 				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-				<s:submit cssClass="btn btn-primary btn-lg" value="Modifica"/>
+				<s:submit cssClass="btn btn-primary btn-lg" value="Salva prodotto"/>
 				</p>
 			</s:form>
 		
