@@ -11,7 +11,7 @@
 				
 					
                     <li>
-                        <a  href="index.html"><i class="fa fa-dashboard fa-3x"></i> Dashboard</a>
+                        <s:a  namespace="/gestore" action="dashboard"><i class="fa fa-dashboard fa-3x"></i> Dashboard</s:a>
                     </li>
                       <li>
                          <s:a namespace="/gestore" action="showDipendenti"><i class="fa fa-table fa-3x"></i> Gestione Dipendenti</s:a>

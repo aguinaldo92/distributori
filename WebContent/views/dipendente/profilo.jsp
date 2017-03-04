@@ -54,7 +54,7 @@
 				</div>
 				<br><br>
 				<p align="center">
-				<s:a action="ListDipendenti" class="btn btn-danger btn-lg">Annulla</s:a>
+				<s:a namespace="/dipendente" action="dashboard" class="btn btn-danger btn-lg">Annulla</s:a>
 				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 				<s:submit cssClass="btn btn-success btn-lg" name="edit_button" value="Modifica"/>

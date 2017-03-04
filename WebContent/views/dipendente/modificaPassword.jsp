@@ -10,9 +10,9 @@
 				<div class="col-md-12">
 					<h2>AGGIORNAMENTO DIPENDENTE</h2>
 					<h5>
-						<s:if test="hasFieldErrors()">
+						<s:if test="hasActionErrors()">
 							<div class="form-group" style="color: red;">
-								<label><s:fielderror /></label>
+								<label><s:actionerror /></label>
 							</div>
 						</s:if>
 					</h5>
@@ -21,24 +21,30 @@
 			<!-- /. ROW  -->
 			<hr />
 			<s:form name="update" action="UpdatePassword">
-
 				<div class="form-group">
 					<label>Modifica Password</label>
-				</div>
-				<div class='form-group input-group input-group-lg <s:if test="hasActionErrors()">has-error</s:if>'>
 				
+				
+				<div class='form-group input-group input-group-lg <s:if test="hasActionErrors()">has-error</s:if>'>
 					<span class="input-group-addon">Nuova Password</span>
-					<s:textfield cssClass="form-control" cssStyle="width: 60%;" type="password" name="password1" />
-					<s:if test="hasActionErrors()">
-						<div class="form-group" style="color: red;">
-							<label><s:actionerror /></label>
-						</div>
-					</s:if>
+					<s:textfield  cssClass="form-control" cssStyle="width: 60%;" type="password" name="newPassword" />
 				</div>
-				<div class=" form-group input-group input-group-lg">
+				<s:if test="hasFieldErrors()">
+					<div class="form-group" style="color: red;">
+						<label><s:fielderror fieldName="newPassword" /></label>
+					</div>
+				</s:if>
+				</div>
+				<div class="form-group">
+				<div class='form-group input-group input-group-lg <s:if test="hasActionErrors()">has-error</s:if>'>
 					<span class="input-group-addon">Ripeti Password</span>
-					<s:textfield cssClass="form-control" cssStyle="width: 60%;" type="password" name="password2" />
+					<s:textfield cssClass="form-control" cssStyle="width: 60%;" type="password" name="confirmPassword" />
 				</div>
+				<s:if test="hasFieldErrors()">
+					<div class="form-group" style="color: red;">
+						<label><s:fielderror fieldName="confirmPassword" /></label>
+					</div>
+				</s:if>
 				<br>
 				<br>
 				<p align="center">
@@ -46,6 +52,7 @@
 					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 					<s:submit cssClass="btn btn-success btn-lg" name="edit_button" value="Modifica" />
 				</p>
+				</div>
 			</s:form>
 
 
