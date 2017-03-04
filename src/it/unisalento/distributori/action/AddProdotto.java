@@ -1,45 +1,39 @@
 package it.unisalento.distributori.action;
 
-import java.io.File;
+import java.math.BigDecimal;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.HashMap;
-import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-import java.util.Scanner;
-import java.util.Set;
-
-import javax.servlet.http.HttpServletRequest;
-
-import org.apache.commons.io.FileUtils;
-import org.apache.struts2.ServletActionContext;
-import org.apache.struts2.interceptor.ServletRequestAware;
-
 import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.ModelDriven;
-import com.opensymphony.xwork2.Preparable;
-
 import it.unisalento.distributori.domain.Categoria;
-import it.unisalento.distributori.domain.Dipendente;
 import it.unisalento.distributori.domain.Famiglia;
 import it.unisalento.distributori.domain.FamiglieProdotto;
-import it.unisalento.distributori.domain.Persona;
 import it.unisalento.distributori.domain.Prodotto;
 import it.unisalento.distributori.domain.Produttore;
 import it.unisalento.distributori.domain.Stabilimento;
 import it.unisalento.distributori.factory.FactoryDao;
-import it.unisalento.distributori.model.PersonaModel;
 import it.unisalento.distributori.model.ProdottoModel;
 
 public class AddProdotto extends ActionSupport implements ModelDriven<ProdottoModel>{
 	
+	private int sconto_percentuale;
 	private ProdottoModel prodotto_Form = new ProdottoModel();
 	private String famiglia_scelta;
 
 	Map select_mapping =new HashMap();
 	private List<Categoria> all_categ = new ArrayList<Categoria>();
 	private List<Famiglia> famiglie = new ArrayList<Famiglia>();
+	
+
+	public int getSconto_percentuale() {
+		return sconto_percentuale;
+	}
+
+	public void setSconto_percentuale(int sconto_percentuale) {
+		this.sconto_percentuale = sconto_percentuale;
+	}
 	
 	public String getFamiglia_scelta() {
 		return famiglia_scelta;
@@ -73,10 +67,33 @@ public class AddProdotto extends ActionSupport implements ModelDriven<ProdottoMo
 		this.select_mapping = select_mapping;
 	}
 
-	public String execute(){
+	public String execute() throws Exception{
 		
 		System.out.println("AddProdotto: execute()");
 
+		Prodotto new_prodotto=new Prodotto();
+		//settaggio caratteristiche prodotto
+		new_prodotto.setCategoria(FactoryDao.getIstance().getCategoriaDao().get(prodotto_Form.getCategoria().getId(), Categoria.class));
+		new_prodotto.setDescrizione(prodotto_Form.getDescrizione());
+		new_prodotto.setIngredienti(prodotto_Form.getIngredienti());
+		new_prodotto.setNome(prodotto_Form.getNome());
+		new_prodotto.setPreparazione(prodotto_Form.getPreparazione());
+		new_prodotto.setPrezzo(prodotto_Form.getPrezzo());
+		new_prodotto.setScontoUtenti(BigDecimal.valueOf(sconto_percentuale).divide(BigDecimal.valueOf(100)));
+		new_prodotto.setStabilimento(FactoryDao.getIstance().getStabilimentoDao().get(prodotto_Form.getStabilimento().getId(), Stabilimento.class));
+		
+		//inserimento nel DATABASE del prodotto
+		new_prodotto.setId(FactoryDao.getIstance().getProdottoDao().set(new_prodotto));
+		
+		//settaggio delle famiglie e inserimento nel DATABASE
+		prodotto_Form.setIDsfamiglie(famiglia_scelta);
+		FamiglieProdotto fam_prod_obj = new FamiglieProdotto();
+		for (int i=0; i<prodotto_Form.getIDsfamiglie().size();i++){
+			fam_prod_obj.setFamiglia(FactoryDao.getIstance().getFamigliaDao().get(prodotto_Form.getIDsfamiglie().get(i), Famiglia.class));
+			fam_prod_obj.setProdotto(new_prodotto);
+			FactoryDao.getIstance().getFamiglieProdottoDao().set(fam_prod_obj);
+		}
+				
 		return SUCCESS;
 	}
 

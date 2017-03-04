@@ -1,5 +1,6 @@
 package it.unisalento.distributori.action;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
@@ -26,6 +27,7 @@ public class ProdottoDetail extends ActionSupport implements Preparable{
 	private int idProdotto;
 
 	private ProdottoModel prodotto = new ProdottoModel();
+	private int sconto_percentuale;
 	
 	private List<Categoria> all_categ = new ArrayList<Categoria>();
 	private List<Famiglia> famiglie = new ArrayList<Famiglia>();
@@ -46,7 +48,7 @@ public class ProdottoDetail extends ActionSupport implements Preparable{
 		prodotto.setNome(prod_scelto.getNome());
 		prodotto.setPreparazione(prod_scelto.getPreparazione());
 		prodotto.setPrezzo(prod_scelto.getPrezzo());
-		prodotto.setSconto(prod_scelto.getScontoUtenti());
+		sconto_percentuale=prod_scelto.getScontoUtenti().multiply(new BigDecimal("100")).intValue();
 		
 		List<FamiglieProdotto> f = new ArrayList<FamiglieProdotto>();
 		f.addAll(prod_scelto.getFamiglieProdottos());
@@ -118,5 +120,15 @@ public class ProdottoDetail extends ActionSupport implements Preparable{
 	public void setIdProdotto(int idProdotto) {
 		this.idProdotto = idProdotto;
 	}
+	
+	public int getSconto_percentuale() {
+		return sconto_percentuale;
+	}
+
+	public void setSconto_percentuale(int sconto_percentuale) {
+		this.sconto_percentuale = sconto_percentuale;
+	}
+
+
 
 }

@@ -28,7 +28,7 @@
 						</p>
 						<div class="panel panel-info">
 	                        <div class="panel-heading">
-	                            Applica dei filtri
+	                            Criteri di filtraggio del catalogo
 	                        </div>
 	                        <div class="panel-body">
 	                            <div class="form-group">
@@ -51,7 +51,8 @@
 								</p>
 							</div>
 	                        <div class="panel-footer" style="text-align: right;">
-	                            <a href="#" class="btn btn-info btn-xs">FILTRA</a>
+	                        	<s:a class="btn btn-default btn-xs" namespace="/gestore" action="showCatalogo">Elimina filtri</s:a>
+	                            <a href="#" class="btn btn-info btn-xs">Applica filtri</a>
 	                        </div>
 	                    	</div>	
 						</div>

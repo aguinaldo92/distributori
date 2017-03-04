@@ -179,15 +179,12 @@
 			<result type="tiles">dettaglioDistributore</result>
 		</action>
 		
-		<action name="LoadImage" class="it.unisalento.distributori.util.FileUpload">
-			<interceptor-ref name="fileUpload">
-				<param name="maximumSize">2097152</param> <!-- Limite dimensione file: 2MB -->
-				<param name="allowedTypes">
-					image/png,image/gif,image/jpeg,image/pjpeg
-				</param>
-			</interceptor-ref>
-			<result name="success" type="tiles">editProdotto</result>
-			<result name="input">editProdotto</result>
+		<action name="FileUpload" class="it.unisalento.distributori.action.UpdateImageProdotto">
+			<result name="success" type="redirectAction">
+        		<param name="actionName">ProdottoDetail</param>
+        		<param name="idProdotto">${idProdotto}</param>
+        	</result>
+	       <result name="error" type="tiles">editProdotto</result>
 		</action>
 		
 	</package>

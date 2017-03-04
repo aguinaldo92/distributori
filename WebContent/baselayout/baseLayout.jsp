@@ -22,6 +22,9 @@
 	rel='stylesheet' type='text/css' />
 
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<META http-equiv="Pragma" content="no-cache">
+	<META HTTP-EQUIV="Expires" CONTENT="-1">
+	<meta http-equiv="cache-control" content="no-cache" />
 	
 	<title><tiles:insertAttribute name="title" ignore="true" /></title>
 	

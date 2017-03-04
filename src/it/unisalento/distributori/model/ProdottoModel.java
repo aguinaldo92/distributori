@@ -3,6 +3,7 @@ package it.unisalento.distributori.model;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 import it.unisalento.distributori.domain.Categoria;
 import it.unisalento.distributori.domain.Produttore;
@@ -22,6 +23,12 @@ public class ProdottoModel {
 	private BigDecimal prezzo;
 	private BigDecimal sconto;
 	
+	public BigDecimal getSconto() {
+		return sconto;
+	}
+	public void setSconto(BigDecimal sconto) {
+		this.sconto = sconto;
+	}
 	public String getNome() {
 		return nome;
 	}
@@ -58,13 +65,6 @@ public class ProdottoModel {
 	public void setPrezzo(BigDecimal prezzo) {
 		this.prezzo = prezzo;
 	}
-	public BigDecimal getSconto() {
-		return sconto;
-	}
-	public void setSconto(BigDecimal sconto) {
-		this.sconto = sconto;
-	}
-
 	public Produttore getProduttore() {
 		return produttore;
 	}
@@ -88,5 +88,14 @@ public class ProdottoModel {
 	}
 	public void setIDsfamiglie(List<Integer> iDsfamiglie) {
 		IDsfamiglie = iDsfamiglie;
+	}
+	public void setIDsfamiglie(String list_IDs) {
+		Scanner scan_fam = new Scanner(list_IDs.replace(", ", " "));
+		List<Integer> list_fam = new ArrayList<Integer>();
+		while (scan_fam.hasNextInt()) {
+			list_fam.add(scan_fam.nextInt());
+		}
+		scan_fam.close();
+		this.IDsfamiglie=list_fam;
 	}
 }

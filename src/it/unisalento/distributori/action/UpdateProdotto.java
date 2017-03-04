@@ -1,43 +1,26 @@
 package it.unisalento.distributori.action;
 
 import java.io.File;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Scanner;
-import java.util.Set;
-
-import javax.servlet.http.HttpServletRequest;
-
+import java.io.IOException;
+import java.math.BigDecimal;
 import org.apache.commons.io.FileUtils;
-import org.apache.struts2.ServletActionContext;
-import org.apache.struts2.interceptor.ServletRequestAware;
-
 import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.ModelDriven;
 
 import it.unisalento.distributori.domain.Categoria;
-import it.unisalento.distributori.domain.Dipendente;
 import it.unisalento.distributori.domain.Famiglia;
 import it.unisalento.distributori.domain.FamiglieProdotto;
-import it.unisalento.distributori.domain.Persona;
 import it.unisalento.distributori.domain.Prodotto;
 import it.unisalento.distributori.domain.Stabilimento;
 import it.unisalento.distributori.factory.FactoryDao;
-import it.unisalento.distributori.model.PersonaModel;
 import it.unisalento.distributori.model.ProdottoModel;
 
-public class UpdateProdotto extends ActionSupport implements ServletRequestAware,ModelDriven<ProdottoModel>{
+public class UpdateProdotto extends ActionSupport implements ModelDriven<ProdottoModel>{
 	
+	private int sconto_percentuale;
 	private String famiglia_scelta;
 	private Integer idProdotto;
 	private ProdottoModel prodotto_form = new ProdottoModel();
-	
-	private File userImage;
-	private String userImageContentType;
-	private String userImageFileName;
-	private HttpServletRequest servletRequest;
 	
 	public Integer getIdProdotto() {
 		return idProdotto;
@@ -59,15 +42,8 @@ public class UpdateProdotto extends ActionSupport implements ServletRequestAware
 
 		System.out.println("Categoria selezionata: "+prodotto_form.getCategoria().getId());
 		System.out.println("famiglia scelta: "+famiglia_scelta);
-		
-		//Scanning delle famiglie selezionate e sistemazione in prodotto_updated
-		Scanner scan_fam = new Scanner(famiglia_scelta.replace(", ", " "));
-		List<Integer> list_fam = new ArrayList<Integer>();
-		while (scan_fam.hasNextInt()) {
-			list_fam.add(scan_fam.nextInt());
-		}
-		scan_fam.close();
-		prodotto_form.setIDsfamiglie(list_fam);
+
+		prodotto_form.setIDsfamiglie(famiglia_scelta);
 		
 		Prodotto newprodotto=FactoryDao.getIstance().getProdottoDao().get(idProdotto, Prodotto.class);
 		
@@ -78,9 +54,10 @@ public class UpdateProdotto extends ActionSupport implements ServletRequestAware
 		newprodotto.setNome(prodotto_form.getNome());
 		newprodotto.setPreparazione(prodotto_form.getPreparazione());
 		newprodotto.setPrezzo(prodotto_form.getPrezzo());
-		newprodotto.setScontoUtenti(prodotto_form.getSconto());
 		newprodotto.setStabilimento(FactoryDao.getIstance().getStabilimentoDao().get(prodotto_form.getStabilimento().getId(), Stabilimento.class));
-		
+
+		BigDecimal sconto_decimale=BigDecimal.valueOf(sconto_percentuale).divide(BigDecimal.valueOf(100));
+		newprodotto.setScontoUtenti(sconto_decimale);
 		
 		//inserimento nel DATABASE
 		FactoryDao.getIstance().getProdottoDao().update(newprodotto);
@@ -106,35 +83,13 @@ public class UpdateProdotto extends ActionSupport implements ServletRequestAware
 		// TODO Auto-generated method stub
 		return prodotto_form;
 	}
-
-	@Override
-	public void setServletRequest(HttpServletRequest servletRequest) {
-		this.servletRequest = servletRequest;
-		
+	
+	public int getSconto_percentuale() {
+		return sconto_percentuale;
 	}
 
-	public File getUserImage() {
-		return userImage;
-	}
-
-	public void setUserImage(File userImage) {
-		this.userImage = userImage;
-	}
-
-	public String getUserImageContentType() {
-		return userImageContentType;
-	}
-
-	public void setUserImageContentType(String userImageContentType) {
-		this.userImageContentType = userImageContentType;
-	}
-
-	public String getUserImageFileName() {
-		return userImageFileName;
-	}
-
-	public void setUserImageFileName(String userImageFileName) {
-		this.userImageFileName = userImageFileName;
+	public void setSconto_percentuale(int sconto_percentuale) {
+		this.sconto_percentuale = sconto_percentuale;
 	}
 
 }

@@ -26,6 +26,7 @@
                             <h4></h4>
                         </div>
                         <div class="panel-body">
+
                             <ul class="nav nav-pills">
                                 <li class="active"><a href="#caratt_prodotto" data-toggle="tab">Caratteristiche prodotto</a>
                                 </li>
@@ -71,7 +72,8 @@
                                         </div>
                                         <div class=" form-group input-group">
 						  					<span class="input-group-addon">Sconto per utenti registati</span>
-						  					<s:textfield cssClass="form-control" name="sconto"/>
+						  					<s:textfield cssClass="form-control" name="sconto_percentuale"/>
+						  					<span class="input-group-addon">%</span>
 										</div>
                                 </div>
                                 <!-- FINE TAB CARATTERISTICHE PRODOTTO -->

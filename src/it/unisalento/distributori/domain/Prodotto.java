@@ -99,14 +99,6 @@ public class Prodotto implements java.io.Serializable {
 		this.prezzo = prezzo;
 	}
 
-	public BigDecimal getScontoUtenti() {
-		return this.scontoUtenti;
-	}
-
-	public void setScontoUtenti(BigDecimal scontoUtenti) {
-		this.scontoUtenti = scontoUtenti;
-	}
-
 	public String getFoto() {
 		return this.foto;
 	}
@@ -153,6 +145,13 @@ public class Prodotto implements java.io.Serializable {
 
 	public void setAcquistas(Set acquistas) {
 		this.acquistas = acquistas;
+	}
+	public BigDecimal getScontoUtenti() {
+		return scontoUtenti;
+	}
+
+	public void setScontoUtenti(BigDecimal scontoUtenti) {
+		this.scontoUtenti = scontoUtenti;
 	}
 
 }
