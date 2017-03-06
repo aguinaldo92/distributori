@@ -31,29 +31,20 @@
 	                            Criteri di filtraggio del catalogo
 	                        </div>
 	                        <div class="panel-body">
-	                            <div class="form-group">
-								<p>
-									<label>Per categoria:</label>
-									<s:iterator value="#attr.categorie">
-										<label class="checkbox-inline"> <input
-											name="categoria_scelta" type="radio" /> <s:property
-												value="nome" />
-										</label>
-									</s:iterator>
-								<br>
-									<label>Per famiglia:</label>
-									<s:iterator value="#attr.famiglie">
-										<label class="checkbox-inline"> <input
-											name="famiglie_scelte" type="checkbox" /> <s:property
-												value="nome" />
-										</label>
-									</s:iterator>
-								</p>
-							</div>
-	                        <div class="panel-footer" style="text-align: right;">
-	                        	<s:a class="btn btn-default btn-xs" namespace="/gestore" action="showCatalogo">Elimina filtri</s:a>
-	                            <a href="#" class="btn btn-info btn-xs">Applica filtri</a>
-	                        </div>
+	                        <s:form name="filtraggio_catalogo" namespace="/gestore" action="showCatalogo">
+		                    	<div class="form-group">
+									<p>
+										<label>Per categoria:</label>
+										<s:checkboxlist listCssClass="checkbox-inline" list="#attr.categorie" listKey="id" listValue="nome" value="#attr.categorie_scelte" name="list_categorie_scelte"/>
+									<br>
+										<label>Per famiglia:</label>
+										<s:checkboxlist listCssClass="checkbox-inline" list="#attr.famiglie" listKey="id" listValue="nome" value="#attr.famiglie_scelte" name="list_famiglie_scelte"/>
+									</p>
+								</div>
+		                        <div class="panel-footer" style="text-align: right;">
+		                            <s:submit class="btn btn-info btn-xs" value="Applica filtri"/>
+		                        </div>
+	                        </s:form>
 	                    	</div>	
 						</div>
 						<table class="table table-striped table-bordered table-hover"

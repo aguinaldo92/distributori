@@ -125,7 +125,7 @@
 							                            	<div class=" form-group input-group input-group-lg">
 							                            		<span class="input-group-addon">Azienda<br><br>Stabilimento</span>
 																<s:doubleselect  
-																name="produttore.id" list="select_mapping.keySet()" listKey="id" listValue="nome" value="#prod.stabilimento.produttore.id" cssClass="form-control"
+																name="produttore.id" list="select_mapping.keySet()" listKey="id" listValue="nome + ' - Sede: '+sede" value="#prod.stabilimento.produttore.id" cssClass="form-control"
 						 										doubleName="stabilimento.id" doubleList="select_mapping.get(top)" doubleListKey="id" doubleListValue="citta +' (' + provincia + ')'" doubleValue="#prod.stabilimento.it" doubleCssClass="form-control"/>
 						 									</div>
 														</div>
