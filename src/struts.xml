@@ -74,13 +74,23 @@
 			<result type="tiles">dashboardDipendente</result>
 		</action>
 
-		<action name="listaInterventi">
-			<result type="tiles">listaInterventi</result>
+		<action name="goToModificaPassword">
+			<result type="tiles">modificaPassword</result>
+		</action>
+		
+		<action name="UpdatePassword" class="it.unisalento.distributori.action.UpdatePassword" >
+			<result name="success" type="tiles">profilo</result>
+			<result name="input" type="tiles">modificaPassword</result>
+		</action>
+		
+		<action name="DipendenteDetail" class="it.unisalento.distributori.action.DipendenteDetail">
+			<result name="success" type="tiles">profilo</result>
+			<result name="input" type="tiles">profilo</result>
 		</action>
 		
 		<action name="DettaglioDistributore"
 			class="it.unisalento.distributori.action.DettaglioDistributore">
-			<result type="tiles">dettaglioDistributore</result>
+			<result type="tiles">dettaglioDistributoreDipendente</result>
 		</action>
 		
 		<action name="UpdateQuantitaProdottiByDistributore"
@@ -93,7 +103,12 @@
 			class="it.unisalento.distributori.action.ListDistributoriDipendente">
 			<result type="tiles">listaInterventi</result>
 		</action>
-
+		
+		<action name="ProdottoDetail" class="it.unisalento.distributori.action.ProdottoDetail">
+			<result name="success" type="tiles">editProdotto</result>
+<!-- 			<result name="input" type="tiles">editProdotto</result> -->
+		</action>
+		
 	</package>
 	
 	<package name="json" extends="default, json-default" namespace="/gestorejson">
@@ -108,7 +123,9 @@
 		<action name="dashboard">
 			<result type="tiles">dashboardGestore</result>
 		</action>
-
+		
+		<action name="DashboardGestore" class="it.unisalento.distributori.action.DashboardGestore" ></action>
+		
 		<action name="CreateDipendente">
 			<result type="tiles">createDipendente</result>
 		</action>
@@ -160,6 +177,11 @@
 			<result name="input" type="tiles">editProdotto</result>
 		</action>
 		
+		<action name="UpdateProdottiErogati" class="it.unisalento.distributori.action.UpdateProdottiErogati">
+			<result name="success" type="tiles">dashboardGestore</result>
+			<result name="input" type="tiles">dashboardGestore</result>
+		</action>
+		
 		<action name="CreateProdotto" class="it.unisalento.distributori.action.AddProdotto" method="load_info">
 			<result name="none" type="tiles">createProdotto</result>
 		</action>
@@ -174,9 +196,9 @@
 			<result name="success" type="tiles">gestioneDistributori</result>
 		</action>
 		
-		<action name="DettaglioDistributore"
+		<action name="DettaglioDistributoreGestore"
 			class="it.unisalento.distributori.action.DettaglioDistributore">
-			<result type="tiles">dettaglioDistributore</result>
+			<result type="tiles">dettaglioDistributoreGestore</result>
 		</action>
 		
 		<action name="FileUpload_editProdotto" class="it.unisalento.distributori.action.UpdateImageProdotto">

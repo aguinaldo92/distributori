@@ -23,8 +23,8 @@
 			<!-- La costruzione della tabella funziona -->
 			<div class="panel panel-default">
 				<div class="panel-body">
-					<s:form name="update" namespace="/dipendente" action="UpdateQuantitaProdottiByDistributore">
-					<s:hidden name="idDistributore" value="%{idDistributore}"/>	
+					<s:form name="update" namespace="/gestore" action="UpdateProdottiErogati" >
+						<s:hidden name="idDistributore" value="%{idDistributore}"/>	
 						<div class="table-responsive">
 							<table class="table table-striped table-bordered table-hover" id="dataTables-example">
 								<thead>
@@ -42,24 +42,16 @@
 											<!-- SI USA TOP PER INDICARE L'ELEMENTO PIù IN CIMA NELLO STACK, OSSIA L'ELEMENTO DELLA LISTA CORRENTE ALLA TALE RIGA -->
 											<!-- DA USARE PER iterare su liste di liste -->
 											<s:iterator value="#listProdottiErogatixScaffale" var="listDettaglioDistributoreModel" status="columnStatus">
-											<s:url var="dettaglioProdotto" namespace="/dipendente" action="ProdottoDetail">
-														<s:param name="idProdotto">
-															<s:property value="%{idProdotto}" />
-														</s:param>
-													</s:url>
-												<td><a href="${dettaglioProdotto}"> <s:property value="nomeProdottoErogato" /></a> 
-												<s:hidden name="ids" value="%{idProdottoErogato}" />
-													<div class="input-group">
-														<span class="input-group-btn">
-															<button type="button" class="btn btn-default" data-value="-1" data-target='#spinner<s:property value="#rowStatus.count"/>_<s:property value="#columnStatus.count"/>' data-toggle="spinner">
-																<span class="glyphicon glyphicon-minus"></span>
-															</button>
-														</span> <input type="text" name="quantita" data-ride="spinner" id='spinner<s:property value="#rowStatus.count"/>_<s:property value="#columnStatus.count"/>' class="form-control input-number" value='<s:property value="#listDettaglioDistributoreModel.quantita" />' data-min="1" data-max="1000"> <span class="input-group-btn">
-															<button type="button" class="btn btn-default" data-value="1" data-target='#spinner<s:property value="#rowStatus.count"/>_<s:property value="#columnStatus.count"/>' data-toggle="spinner" data-on="mousehold">
-																<span class="glyphicon glyphicon-plus"></span>
-															</button>
-														</span>
-													</div></td>
+												<s:url var="dettaglioProdotto" namespace="/gestore" action="ProdottoDetail">
+													<s:param name="idProdotto">
+														<s:property value="%{#listDettaglioDistributoreModel.idProdotto}" />
+													</s:param>
+												</s:url>
+												<td>
+												<s:hidden name="listIdsProdottiErogati" value="%{#listDettaglioDistributoreModel.idProdottoErogato}" />
+												<s:select list="prodottiCompatibili" listKey="id" listValue="nome" name="listIdsProdotti" value="%{#listDettaglioDistributoreModel.idProdotto}" />
+												<a href="${dettaglioProdotto}" class="btn btn-primary btn-xs">Dettaglio</a> 
+												</td>
 											</s:iterator>
 										</tr>
 									</s:iterator>

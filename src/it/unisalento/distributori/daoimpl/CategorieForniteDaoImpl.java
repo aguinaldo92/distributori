@@ -49,7 +49,7 @@ public class CategorieForniteDaoImpl extends BaseDaoImpl<CategorieFornite> imple
 		try {
 			session = sf.openSession();
 			tx = session.beginTransaction();
-			String hql = "Select C.nome from CategorieFornite CF inner join CF.categoria C where CF.distributore.id = :idDistributore order by C.nome" ;
+			String hql = "Select C.nome from CategorieFornite CF inner join CF.categoria C where CF.distributore.id = :idDistributore and C.nome != 'Generica' order by C.nome" ;
 			Query query = session.createQuery(hql);
 			query.setInteger("idDistributore", idDistributore);
 			listNomiCategorieFornite = (ArrayList<String>) query.list();

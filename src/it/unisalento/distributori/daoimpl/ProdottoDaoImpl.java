@@ -19,11 +19,14 @@ import it.unisalento.distributori.domain.Stabilimento;
  *
  */
 public class ProdottoDaoImpl extends BaseDaoImpl<Prodotto> implements ProdottoDao {
-
+	private ArrayList<Prodotto> listProdottiCompatibili;
+	private Session session;
+	private Transaction tx;
+	
 	@Override
 	public List<Prodotto> getAllProdotti() {
-		Session session = sf.openSession();
-        Transaction tx = session.beginTransaction();
+		session = sf.openSession();
+        tx = session.beginTransaction();
         Query query = session.createQuery("from Prodotto as P where P.nome!=:vuoto order by P.nome");
         query.setString("vuoto", "Vuoto");
         
@@ -37,8 +40,8 @@ public class ProdottoDaoImpl extends BaseDaoImpl<Prodotto> implements ProdottoDa
 
 	@Override
 	public List<Prodotto> getAllProdottiFiltrati(List<String> list_fam_IDs, List<String> list_categ_IDs) {
-		Session session = sf.openSession();
-        Transaction tx = session.beginTransaction();
+		session = sf.openSession();
+        tx = session.beginTransaction();
         String querystring="select distinct P from Prodotto as P inner join P.categoria as C inner join C.prodottos as P inner join P.famiglieProdottos as F where ";
         
         //aggiunta delle condizioni di filtraggio alla query
@@ -68,6 +71,25 @@ public class ProdottoDaoImpl extends BaseDaoImpl<Prodotto> implements ProdottoDa
         tx.commit();
         session.close();
 		return list_prodotti;
+	}
+		@Override
+	public ArrayList<Prodotto> getProdottiCompatibiliByDistributore(Integer idDistributore) {
+		try {
+			session = sf.openSession();
+			tx = session.beginTransaction();
+			String hql = "select P from Distributore as D inner join D.categorieFornites as CF inner join CF.categoria as C1 inner join C1.prodottos as P inner join P.categoria as C2 where D.id = :idDistributore and C1.id = C2.id  order by C1.nome, P.nome" ;
+			Query query = session.createQuery(hql);
+			query.setInteger("idDistributore", idDistributore);
+			listProdottiCompatibili = (ArrayList<Prodotto>) query.list();
+			tx.commit();
+		}
+		catch (Exception e) {
+			System.out.println("Impossibile ottenere lista dei prodotti compatibili dato un distributore:");
+			System.out.println(e.getLocalizedMessage());
+			return null;
+		}
+		session.close();
+		return listProdottiCompatibili;
 	}
 	
 }

@@ -15,6 +15,8 @@ public interface BaseDao<T> {//questa è l'interfaccia di BaseDaoImpl (applicazio
 
 	public abstract List<T> getAll(Class clazz);
 	
+	public abstract List<T> getAllSortedBy(Class clazz, String column);
+	
 	public void update(T entity) throws Exception;
 	
 	public void delete(T entity);

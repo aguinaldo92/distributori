@@ -13,5 +13,6 @@ import it.unisalento.distributori.domain.Distributore;
  */
 public interface DistributoreDao extends BaseDao<Distributore> {
 	public ArrayList<Distributore> getDistributoriByIdDipendenteSortedByStato(Integer idDipendente);
+	public Long getNumDistributoriNonOk();
 	
 }

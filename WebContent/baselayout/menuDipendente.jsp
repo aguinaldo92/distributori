@@ -11,17 +11,13 @@
 				
 					
                     <li>
-                        <a  href="index.html"><i class="fa fa-dashboard fa-3x"></i> Dashboard</a>
+                        <s:a  namespace="/dipendente" action="dashboard"><i class="fa fa-table fa-3x"></i>Gestione Distributori</s:a>
                     </li>
-                      <li>
-                         <s:a namespace="/dipendente" action="ListDipendenti"><i class="fa fa-table fa-3x"></i> Gestione Dipendenti</s:a>
+                    
+                     <li>
+                        <s:a  namespace="/dipendente" action="DipendenteDetail"><i class="fa fa-table fa-3x"></i>Profilo</s:a>
                     </li>
-                    <li>
-                        <a  href="tab-panel.html"><i class="fa fa-table fa-3x"></i> Gestione Catalogo</a>
-                    </li>
-						   <li  >
-                        <a  href="chart.html"><i class="fa fa-table fa-3x"></i> Gestione Distributori</a>
-                    </li>	
+     	
                 </ul>
                
             </div>

@@ -44,13 +44,12 @@
 										<td><a href="${dettaglioDistributore}" class="compare-in">
 												<button class="btn btn-primary">Dettaglio</button>
 										</a></td>
-										<td><s:property value="stato" /></td>
+										<td><img src="/distributori/images/stato-${stato}.ico" alt="Stato"></td>
 										<!--  mostro solo i prodotti non vuoti -->
 										<td><ul>
 												<s:iterator value="#listDistrModel.prodottiForniti" var="prodotti">
-													<s:if test="%{!#prodotti.contains('vuoto:')}">
-														<li><s:property value="prodotti" /></li>
-													</s:if>
+													
+													<li><s:property value="prodotti" /></li>
 												</s:iterator>
 											</ul></td>
 										<td><s:property value="indirizzo" /></td>

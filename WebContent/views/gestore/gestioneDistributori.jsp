@@ -28,12 +28,11 @@
 									<th>Indirizzo</th>
 									<th>Posizione nell'edificio</th>
 									<th>Categorie fornite dal distributore</th>
-									<!-- 									<th>AZIONI</th> -->
 								</tr>
 							</thead>
 							<tbody>
 								<s:iterator value="#attr.listDistributoreModel" var="listDistrModel">
-									<s:url var="dettaglioDistributore" namespace="/gestore" action="DettaglioDistributore">
+									<s:url var="dettaglioDistributore" namespace="/gestore" action="DettaglioDistributoreGestore">
 										<s:param name="idDistributore">
 											<s:property value="id" />
 										</s:param>
@@ -44,7 +43,7 @@
 												<button class="btn btn-primary">Dettaglio</button>
 										</a></td>
 										<td><img src="/distributori/images/stato-${stato}.ico" alt="Stato" ></td>
-										<s:url var="editDip" action="EditDipendente">
+										<s:url var="editDip" action="DipendenteDetail">
 											<s:param name="idDip">
 												<s:property value="dipendente.id" />
 											</s:param>
@@ -53,9 +52,7 @@
 										<!--  mostro solo i prodotti non vuoti -->
 										<td><ul>
 												<s:iterator value="#listDistrModel.prodottiForniti" var="prodotti">
-													<s:if test="%{!#prodotti.contains('vuoto:')}">
 														<li><s:property value="prodotti" /></li>
-													</s:if>
 												</s:iterator>
 											</ul></td>
 										<td><s:property value="indirizzo" /></td>

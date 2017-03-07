@@ -49,6 +49,13 @@ public class DettaglioDistributore extends ActionSupport {
 			System.out.println("primo try " + e.getMessage());
 			return ERROR;
 		}
+		try {
+			prodottiCompatibili = FactoryDao.getIstance().getProdottoDao().getProdottiCompatibiliByDistributore(idDistributore);
+		}catch (Exception e){
+			System.out.println("prodottiCompatibili");
+		}
+		
+		
 		try{
 			
 			listProdottiErogati = FactoryDao.getIstance().getProdottiErogatiDao().getProdottiErogatiByDistributoreSortedByScaffalePosto(idDistributore);
@@ -61,7 +68,8 @@ public class DettaglioDistributore extends ActionSupport {
 				for (Integer i = 1; i <= posti; i++){
 					currentProdottiErogati = prodottiErogatiIterator.next();
 					currentDettaglioDistributoreModel = new DettaglioDistributoreModel();
-					currentDettaglioDistributoreModel.setId(currentProdottiErogati.getId());
+					currentDettaglioDistributoreModel.setIdProdottoErogato(currentProdottiErogati.getId());
+					currentDettaglioDistributoreModel.setIdProdotto(currentProdottiErogati.getProdotto().getId());
 					currentDettaglioDistributoreModel.setNomeProdottoErogato(currentProdottiErogati.getProdotto().getNome());
 					currentDettaglioDistributoreModel.setQuantita(currentProdottiErogati.getQuantita());
 					listDettaglioDistributoreModel.add(currentDettaglioDistributoreModel);
@@ -81,6 +89,20 @@ public class DettaglioDistributore extends ActionSupport {
 		return SUCCESS;
 
 
+	}
+
+	
+
+
+	public ArrayList<Prodotto> getProdottiCompatibili() {
+		return prodottiCompatibili;
+	}
+
+
+
+
+	public void setProdottiCompatibili(ArrayList<Prodotto> prodottiCompatibili) {
+		this.prodottiCompatibili = prodottiCompatibili;
 	}
 
 
