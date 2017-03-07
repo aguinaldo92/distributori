@@ -1,12 +1,14 @@
 <%@ taglib prefix="s" uri="/struts-tags"%>
-<div id="wrapper">
 
+<s:action name="DashboardGestore" namespace="/gestore" />
+
+<div id="wrapper">
 	<!-- /. NAV SIDE  -->
 	<div id="page-wrapper">
 		<div id="page-inner">
 		<div class="col-md-12">
 			<h1>DASHBOARD GESTORE</h1>
-			<s:a namespace="gestore" action="listaInterventi">listaInterventi</s:a>
+			
 			<hr>
 			<div class="row">
 			
@@ -15,7 +17,7 @@
 						<span class="icon-box bg-color-blue set-icon"> <i class="fa fa-envelope-o"></i>
 						</span>
 						<div class="text-box">
-							<p class="main-text">120 Nuovi</p>
+							<p class="main-text"><s:a namespace="/gestore" action="ListaMessaggi"><s:property value="#attr.numMessaggiNonLetti"/> Nuovi</s:a></p>
 							<p class="text-muted">Messages</p>
 						</div>
 					</div>
@@ -25,7 +27,7 @@
 						<span class="icon-box bg-color-red set-icon"> <i class="fa fa-warning"></i>
 						</span>
 						<div class="text-box">
-							<p class="main-text">120 Distributori</p>
+							<p class="main-text"><s:a namespace="/gestore" action="ListDistributoriGestore"><s:property value="#attr.numDistributoriNonOk"/> Distributori </s:a></p>
 							<p class="text-muted">Richiedono manutenzione</p>
 						</div>
 					</div>

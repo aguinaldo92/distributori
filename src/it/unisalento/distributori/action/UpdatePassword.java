@@ -50,7 +50,7 @@ public class UpdatePassword extends ActionSupport implements SessionAware{
 		}
 		if(newPassword.equals(persona.getPassword())){
 			System.out.println("UpdatePassword: password non cambiata");
-			addFieldError("password", "La password scelta è la stessa già utilizzata, sceglierne una differente");
+			addFieldError("newPassword", "La password scelta è la stessa già utilizzata, sceglierne una differente");
 			errors = true;
 		}
 		System.out.println("UpdatePassword: fine validate");

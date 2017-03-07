@@ -127,6 +127,8 @@
 		<action name="dashboard">
 			<result type="tiles">dashboardGestore</result>
 		</action>
+		
+		<action name="DashboardGestore" class="it.unisalento.distributori.action.DashboardGestore" ></action>
 
 		<action name="CreateDipendente">
 			<result type="tiles">createDipendente</result>
