@@ -5,6 +5,7 @@ import java.io.FilenameFilter;
 
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.io.filefilter.DirectoryFileFilter;
+import org.apache.struts2.ServletActionContext;
 
 import java.io.IOException;
 import java.util.Random;
@@ -22,15 +23,16 @@ public class UpdateImageProdotto extends ActionSupport{
 		private File file_foto;
 		private String myFileContentType;
 		private String myFileFileName;
-		private String destPath;
+		private String tomcat_destPath;
 		
 	   public String execute() throws Exception {
 		   
 		   Random random = new Random();//per garantire un nome diverso della nuova foto per agevolare il caricamento anche se la cache ha salvato la foto precedente
 		   
 	      /* Copy file to a safe location */
-	      destPath = "C:/Users/Salvatore/Documents/Università/Specialistica/A.A. 2014_2015/Software Engineering/Workspace2/distributori/WebContent/images/";
 	      file_foto=new File(foto);
+	      
+	      tomcat_destPath=System.getProperty("catalina.base")+"/webapps/distributori/images/";
 	      
 	      //ottengo il prodotto per comporre il nome del file di destinazione
 	      Prodotto prodotto=FactoryDao.getIstance().getProdottoDao().get(idProdotto, Prodotto.class);
@@ -40,10 +42,10 @@ public class UpdateImageProdotto extends ActionSupport{
 	     	 System.out.println("Src File name: " + foto);
 	     	 System.out.println("Dst File name: " + myFileFileName);
 
-	     	 File destFile  = new File(destPath, myFileFileName);
+	     	 File destFile  = new File(tomcat_destPath, myFileFileName);
 	     	 
 	     	 //elimino eventuali foto precedenti del prodotto
-	     	 File directory = new File(destPath);
+	     	 File directory = new File(tomcat_destPath);
 	     	 File[] files = directory.listFiles(new FilenameFilter()
 	     	 {
 	     		 public boolean accept(File dir, String name)
@@ -70,8 +72,6 @@ public class UpdateImageProdotto extends ActionSupport{
 	         e.printStackTrace();
 	         return ERROR;
 	      }
-	      
-	      Thread.sleep(5000);//per il refresh delle immagini del progetto
 	
 	      return SUCCESS;
 	   }
@@ -111,6 +111,14 @@ public class UpdateImageProdotto extends ActionSupport{
 
 	public void setIdProdotto(int idProdotto) {
 		this.idProdotto = idProdotto;
+	}
+
+	public String getTomcat_destPath() {
+		return tomcat_destPath;
+	}
+
+	public void setTomcat_destPath(String tomcat_destPath) {
+		this.tomcat_destPath = tomcat_destPath;
 	}
 	
 }

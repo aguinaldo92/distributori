@@ -4,6 +4,8 @@
 
 <!DOCTYPE html>
 
+<s:action namespace="/gestore" name="PreloadedFieldsProdotto"/>
+
 <div id="wrapper">  
            
         <!-- /. NAV SIDE  -->
@@ -14,7 +16,7 @@
                      <h2><b><s:property value="prodotto.nome"/></b></h2>   
                         <h5><s:if test="hasFieldErrors()">
 	  							<div class="form-group" style="color: red;">
-	                  			<label><s:fielderror /></label>
+	                  			<label>Sono presenti errori all'interno del form</label>
 	               				</div>
 						</s:if></h5>
                     </div>
@@ -22,7 +24,7 @@
                  <!-- /. ROW  -->
                  <hr />
                                   
-		<s:iterator value="prodotto" var="prod">
+		<s:iterator value="#attr.prodotto" var="prod">
 		
 			<div class="panel panel-default">                        	
 				<div class="panel-heading">
@@ -91,30 +93,55 @@
 												  				<span class="input-group-addon">Nome</span>
 												  				<s:textfield cssClass="form-control" name="nome"/>
 															</div>
+																	<h5><s:if test="hasFieldErrors()">
+												  							<div class="form-group" style="color: red;">
+												                  			<label><s:fielderror fieldName="nome"/></label>
+												               				</div>
+																	</s:if></h5>
 															<div class=" form-group input-group input-group-lg">
 											  					<span class="input-group-addon">Descrizione</span>
 					                                            <s:textarea cssClass="form-control" name="descrizione"/>
 					                                        </div>
+					                                        		<h5><s:if test="hasFieldErrors()">
+												  							<div class="form-group" style="color: red;">
+												                  			<label><s:fielderror fieldName="descrizione"/></label>
+												               				</div>
+																	</s:if></h5>
 					                                        <p></p>
 															<div class="form-group">
 					                                            <div class=" form-group input-group input-group-lg">
 											  					<span class="input-group-addon">Categoria</span>
-											  					<s:select class="form-control" list="all_categ" name="categoria.id" value="#prod.categoria.id" listKey="id" listValue="nome"/>
+											  					<s:select class="form-control" list="#attr.all_categ" name="categoria.id" value="#prod.categoria.id" listKey="id" listValue="nome"/>
 					                                            </div>
 					                                        </div>
 						                                    <label><h4>Famiglie:</h4></label>&nbsp;&nbsp;&nbsp;               
-						                                    <s:checkboxlist list="famiglie" name="famiglia_scelta" listKey="id" listValue="nome" value="#prod.IDsfamiglie"/>
+						                                    <s:checkboxlist list="#attr.famiglie" name="famiglia_scelta" listKey="id" listValue="nome" value="#prod.IDsfamiglie"/>
+																	<h5><s:if test="hasFieldErrors()">
+												  							<div class="form-group" style="color: red;">
+												                  			<label><s:fielderror fieldName="nofamilyselected"/></label>
+												               				</div>
+																	</s:if></h5>
 															<p></p>
 					                                        <div class="form-group input-group input-group-lg">
 					                                            <span class="input-group-addon"><i class="fa fa-eur"></i>
 					                                            </span>
 					                                            <s:textfield cssClass="form-control" name="prezzo"/>
 					                                        </div>
+					                                        		<h5><s:if test="hasFieldErrors()">
+												  							<div class="form-group" style="color: red;">
+												                  			<label><s:fielderror fieldName="prezzo"/></label>
+												               				</div>
+																	</s:if></h5>
 					                                        <div class=" form-group input-group">
 											  					<span class="input-group-addon">Sconto per utenti registati</span>
-											  					<s:textfield cssClass="form-control" name="sconto_percentuale"/>
+											  					<s:textfield cssClass="form-control" name="sconto"/>
 											  					<span class="input-group-addon">%</span>
 															</div>
+																	<h5><s:if test="hasFieldErrors()">
+												  							<div class="form-group" style="color: red;">
+												                  			<label><s:fielderror fieldName="sconto"/></label>
+												               				</div>
+																	</s:if></h5>
 					                                </div>
 					                                <!-- FINE TAB CARATTERISTICHE PRODOTTO -->
 					                                
@@ -125,8 +152,8 @@
 							                            	<div class=" form-group input-group input-group-lg">
 							                            		<span class="input-group-addon">Azienda<br><br>Stabilimento</span>
 																<s:doubleselect  
-																name="produttore.id" list="select_mapping.keySet()" listKey="id" listValue="nome + ' - Sede: '+sede" value="#prod.stabilimento.produttore.id" cssClass="form-control"
-						 										doubleName="stabilimento.id" doubleList="select_mapping.get(top)" doubleListKey="id" doubleListValue="citta +' (' + provincia + ')'" doubleValue="#prod.stabilimento.it" doubleCssClass="form-control"/>
+																name="produttore.id" list="#attr.select_mapping.keySet()" listKey="id" listValue="nome + ' - Sede: '+sede" value="#prod.stabilimento.produttore.id" cssClass="form-control"
+						 										doubleName="stabilimento.id" doubleList="#attr.select_mapping.get(top)" doubleListKey="id" doubleListValue="citta +' (' + provincia + ')'" doubleValue="#prod.stabilimento.it" doubleCssClass="form-control"/>
 						 									</div>
 														</div>
 					                                </div>
@@ -139,17 +166,27 @@
 										  					<span class="input-group-addon">Ingredienti</span>
 										  						<s:textarea class="form-control" name="ingredienti"/>
 					                                    </div>
+					                                    		<h5><s:if test="hasFieldErrors()">
+												  							<div class="form-group" style="color: red;">
+												                  			<label><s:fielderror fieldName="ingredienti"/></label>
+												               				</div>
+																	</s:if></h5>
 					                                    <div class=" form-group input-group input-group-lg">
 										  					<span class="input-group-addon">Preparazione</span>
 					                                           <s:textarea class="form-control" name="preparazione"/>
 					                                    </div>
+					                                    		<h5><s:if test="hasFieldErrors()">
+												  							<div class="form-group" style="color: red;">
+												                  			<label><s:fielderror fieldName="preparazione"/></label>
+												               				</div>
+																	</s:if></h5>
 					                                </div>
 					                                 <!-- FINE TAB INGREDIENTI E PREPARAZIONE -->
 					                            </div>
 					                        </div>
 					                    </div>
 					                <p align="center">    		
-					                <s:a action="ListDipendenti" class="btn btn-danger btn-lg">Annulla</s:a>
+					                <s:a action="showCatalogo" class="btn btn-danger btn-lg">Annulla</s:a>
 									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 									<s:submit cssClass="btn btn-primary btn-lg" name="edit_button" value="Modifica informazioni"/>

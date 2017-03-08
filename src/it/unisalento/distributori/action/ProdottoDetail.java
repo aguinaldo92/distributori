@@ -7,6 +7,9 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+
+import org.apache.struts2.ServletActionContext;
+
 import java.util.HashSet;
 
 import com.opensymphony.xwork2.ActionSupport;
@@ -27,10 +30,9 @@ public class ProdottoDetail extends ActionSupport implements Preparable{
 	private int idProdotto;
 
 	private ProdottoModel prodotto = new ProdottoModel();
-	private int sconto_percentuale;
 	
-	private List<Categoria> all_categ = new ArrayList<Categoria>();
-	private List<Famiglia> famiglie = new ArrayList<Famiglia>();
+//	private List<Categoria> all_categ = new ArrayList<Categoria>();
+//	private List<Famiglia> famiglie = new ArrayList<Famiglia>();
 
 	Map select_mapping =new HashMap();
 	
@@ -47,8 +49,8 @@ public class ProdottoDetail extends ActionSupport implements Preparable{
 		prodotto.setIngredienti(prod_scelto.getIngredienti());
 		prodotto.setNome(prod_scelto.getNome());
 		prodotto.setPreparazione(prod_scelto.getPreparazione());
-		prodotto.setPrezzo(prod_scelto.getPrezzo());
-		sconto_percentuale=prod_scelto.getScontoUtenti().multiply(new BigDecimal("100")).intValue();
+		prodotto.setPrezzo(prod_scelto.getPrezzo().toString());
+		prodotto.setSconto(Integer.toString(prod_scelto.getScontoUtenti().multiply(new BigDecimal("100")).intValue()));
 		
 		List<FamiglieProdotto> f = new ArrayList<FamiglieProdotto>();
 		f.addAll(prod_scelto.getFamiglieProdottos());
@@ -58,8 +60,8 @@ public class ProdottoDetail extends ActionSupport implements Preparable{
 		}
 		prodotto.setIDsfamiglie(IDsf);
 		
-		all_categ=FactoryDao.getIstance().getCategoriaDao().getAllCategorie();
-		famiglie=FactoryDao.getIstance().getFamigliaDao().getAll(Famiglia.class);
+//		all_categ=FactoryDao.getIstance().getCategoriaDao().getAllCategorie();
+//		famiglie=FactoryDao.getIstance().getFamigliaDao().getAll(Famiglia.class);
 
 		System.out.println("Prodotto ottenuto: "+prodotto.getNome());
 		return SUCCESS;
@@ -68,13 +70,13 @@ public class ProdottoDetail extends ActionSupport implements Preparable{
 	@Override
 	public void prepare() throws Exception {
 		
-		//caricamento delle doubleselect per Produttore e Stabilimento
-		List<Produttore> all_produttori=FactoryDao.getIstance().getProduttoreDao().getAllProduttori();
-		List<Stabilimento> stabilimentiOfprod;
-		for (int i=0; i<all_produttori.size(); i++){
-			stabilimentiOfprod=new ArrayList<Stabilimento>(all_produttori.get(i).getStabilimentos());
-			select_mapping.put(all_produttori.get(i), stabilimentiOfprod);
-		}
+//		//caricamento delle doubleselect per Produttore e Stabilimento
+//		List<Produttore> all_produttori=FactoryDao.getIstance().getProduttoreDao().getAllProduttori();
+//		List<Stabilimento> stabilimentiOfprod;
+//		for (int i=0; i<all_produttori.size(); i++){
+//			stabilimentiOfprod=new ArrayList<Stabilimento>(all_produttori.get(i).getStabilimentos());
+//			select_mapping.put(all_produttori.get(i), stabilimentiOfprod);
+//		}
 	}
 	
 
@@ -86,13 +88,13 @@ public class ProdottoDetail extends ActionSupport implements Preparable{
 		this.select_mapping = select_mapping;
 	}
 
-	public List<Famiglia> getFamiglie() {
-		return famiglie;
-	}
-
-	public void setFamiglie(List<Famiglia> famiglie) {
-		this.famiglie = famiglie;
-	}
+//	public List<Famiglia> getFamiglie() {
+//		return famiglie;
+//	}
+//
+//	public void setFamiglie(List<Famiglia> famiglie) {
+//		this.famiglie = famiglie;
+//	}
 	
 	public ProdottoModel getProdotto() {
 		return prodotto;
@@ -102,14 +104,14 @@ public class ProdottoDetail extends ActionSupport implements Preparable{
 		this.prodotto = prodotto;
 	}
 	
-	public List<Categoria> getAll_categ() {
-		return all_categ;
-	}
-
-
-	public void setAll_categ(List<Categoria> all_categ) {
-		this.all_categ = all_categ;
-	}
+//	public List<Categoria> getAll_categ() {
+//		return all_categ;
+//	}
+//
+//
+//	public void setAll_categ(List<Categoria> all_categ) {
+//		this.all_categ = all_categ;
+//	}
 
 
 	public int getIdProdotto() {
@@ -120,15 +122,4 @@ public class ProdottoDetail extends ActionSupport implements Preparable{
 	public void setIdProdotto(int idProdotto) {
 		this.idProdotto = idProdotto;
 	}
-	
-	public int getSconto_percentuale() {
-		return sconto_percentuale;
-	}
-
-	public void setSconto_percentuale(int sconto_percentuale) {
-		this.sconto_percentuale = sconto_percentuale;
-	}
-
-
-
 }

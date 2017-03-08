@@ -138,6 +138,14 @@
 			<result type="tiles">listProdotti</result>
 		</action>
 		
+		<action name="CreateProdotto">
+			<result type="tiles">createProdotto</result>
+		</action>
+		
+		<action name="PreloadedFieldsProdotto" class="it.unisalento.distributori.action.PreloadedFieldsProdotto">
+			<result type="tiles">createProdotto</result>
+		</action>
+		
 		<action name="ListProdotti" class="it.unisalento.distributori.action.ListProdotti">
 			<result type="tiles">listProdotti</result>
 		</action>
@@ -182,9 +190,6 @@
 			<result name="input" type="tiles">dashboardGestore</result>
 		</action>
 		
-		<action name="CreateProdotto" class="it.unisalento.distributori.action.AddProdotto" method="load_info">
-			<result name="none" type="tiles">createProdotto</result>
-		</action>
 		
 		<action name="AddProdotto" class="it.unisalento.distributori.action.AddProdotto">
 			<result name="success" type="tiles">uploadFoto_newProdotto</result>

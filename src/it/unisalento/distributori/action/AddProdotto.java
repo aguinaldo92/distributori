@@ -6,6 +6,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.apache.commons.lang.Validate;
 import org.apache.struts2.ServletActionContext;
 
 import com.opensymphony.xwork2.ActionSupport;
@@ -21,7 +22,6 @@ import it.unisalento.distributori.model.ProdottoModel;
 
 public class AddProdotto extends ActionSupport implements ModelDriven<ProdottoModel>{
 	
-	private int sconto_percentuale;
 	private ProdottoModel prodotto_Form = new ProdottoModel();
 	private String famiglia_scelta;
 
@@ -29,14 +29,6 @@ public class AddProdotto extends ActionSupport implements ModelDriven<ProdottoMo
 	private List<Categoria> all_categ = new ArrayList<Categoria>();
 	private List<Famiglia> famiglie = new ArrayList<Famiglia>();
 	
-
-	public int getSconto_percentuale() {
-		return sconto_percentuale;
-	}
-
-	public void setSconto_percentuale(int sconto_percentuale) {
-		this.sconto_percentuale = sconto_percentuale;
-	}
 	
 	public String getFamiglia_scelta() {
 		return famiglia_scelta;
@@ -73,7 +65,7 @@ public class AddProdotto extends ActionSupport implements ModelDriven<ProdottoMo
 	public String execute() throws Exception{
 		
 		System.out.println("AddProdotto: execute()");
-
+		
 		Prodotto new_prodotto=new Prodotto();
 		//settaggio caratteristiche prodotto
 		new_prodotto.setCategoria(FactoryDao.getIstance().getCategoriaDao().get(prodotto_Form.getCategoria().getId(), Categoria.class));
@@ -81,8 +73,8 @@ public class AddProdotto extends ActionSupport implements ModelDriven<ProdottoMo
 		new_prodotto.setIngredienti(prodotto_Form.getIngredienti());
 		new_prodotto.setNome(prodotto_Form.getNome());
 		new_prodotto.setPreparazione(prodotto_Form.getPreparazione());
-		new_prodotto.setPrezzo(prodotto_Form.getPrezzo());
-		new_prodotto.setScontoUtenti(BigDecimal.valueOf(sconto_percentuale).divide(BigDecimal.valueOf(100)));
+		new_prodotto.setPrezzo(new BigDecimal(prodotto_Form.getPrezzo()));
+		new_prodotto.setScontoUtenti(BigDecimal.valueOf(Integer.parseInt(prodotto_Form.getSconto())).divide(BigDecimal.valueOf(100)));
 		new_prodotto.setStabilimento(FactoryDao.getIstance().getStabilimentoDao().get(prodotto_Form.getStabilimento().getId(), Stabilimento.class));
 		new_prodotto.setFoto("images/no_image.jpg");
 		//inserimento nel DATABASE del prodotto
@@ -101,23 +93,13 @@ public class AddProdotto extends ActionSupport implements ModelDriven<ProdottoMo
 				
 		return SUCCESS;
 	}
-
-	public String load_info(){
-		System.out.println("AddProdotto: load_info()");
+	
+	public void validate(){
 		
-		//caricamento delle categorie e delle famiglie
-		all_categ=FactoryDao.getIstance().getCategoriaDao().getAllCategorie();
-		famiglie=FactoryDao.getIstance().getFamigliaDao().getAll(Famiglia.class);
-		
-		//caricamento delle doubleselect per Produttore e Stabilimento
-		List<Produttore> all_produttori=FactoryDao.getIstance().getProduttoreDao().getAllProduttori();
-		List<Stabilimento> stabilimentiOfprod;
-		for (int i=0; i<all_produttori.size(); i++){
-			stabilimentiOfprod=new ArrayList<Stabilimento>(all_produttori.get(i).getStabilimentos());
-			select_mapping.put(all_produttori.get(i), stabilimentiOfprod);
+		if(famiglia_scelta.length()==0){
+			System.out.println("AddProdotto: nessuna famiglia selezionata");
+			addFieldError("nofamilyselected", "Selezionare ALMENO una famiglia di prodotti.");
 		}
-		
-		return NONE;
 	}
 
 	@Override

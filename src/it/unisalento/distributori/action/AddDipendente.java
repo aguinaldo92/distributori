@@ -90,7 +90,7 @@ public class AddDipendente extends ActionSupport implements ModelDriven<PersonaM
 		if(DipForm.getEmail().length()>0){
 			if (FactoryDao.getIstance().getPersonaDao().emailExists(DipForm.getEmail(), null)){
 				System.out.println("La mail è già presente");
-				addActionError("Email già presente");
+				addFieldError("email_esistente", "Email già presente");
 			}
 		}
 	}

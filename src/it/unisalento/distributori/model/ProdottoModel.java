@@ -20,15 +20,10 @@ public class ProdottoModel {
 	private String descrizione;
 	private String ingredienti;
 	private String preparazione;
-	private BigDecimal prezzo;
-	private BigDecimal sconto;
+	private String prezzo;
+	private String sconto;
 	
-	public BigDecimal getSconto() {
-		return sconto;
-	}
-	public void setSconto(BigDecimal sconto) {
-		this.sconto = sconto;
-	}
+	
 	public String getNome() {
 		return nome;
 	}
@@ -59,12 +54,7 @@ public class ProdottoModel {
 	public void setPreparazione(String preparazione) {
 		this.preparazione = preparazione;
 	}
-	public BigDecimal getPrezzo() {
-		return prezzo;
-	}
-	public void setPrezzo(BigDecimal prezzo) {
-		this.prezzo = prezzo;
-	}
+
 	public Produttore getProduttore() {
 		return produttore;
 	}
@@ -97,5 +87,17 @@ public class ProdottoModel {
 		}
 		scan_fam.close();
 		this.IDsfamiglie=list_fam;
+	}
+	public String getPrezzo() {
+		return prezzo;
+	}
+	public void setPrezzo(String prezzo) {
+		this.prezzo = prezzo;
+	}
+	public String getSconto() {
+		return sconto;
+	}
+	public void setSconto(String sconto) {
+		this.sconto = sconto;
 	}
 }

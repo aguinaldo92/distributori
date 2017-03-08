@@ -12,7 +12,7 @@
                      <h2>AGGIORNAMENTO DIPENDENTE</h2>   
                         <h5><s:if test="hasFieldErrors()">
 	  							<div class="form-group" style="color: red;">
-	                  			<label><s:fielderror /></label>
+	                  			<label>Sono presenti errori all'interno del form</label>
 	               				</div>
 						</s:if></h5>
                     </div>
@@ -33,6 +33,12 @@
   				<span class="input-group-addon">Cognome</span>
   				<s:textfield cssClass="form-control" name="cognome"/>
 				</div>
+						<h5><s:if test="hasFieldErrors()">
+	  							<div class="form-group" style="color: red;">
+	                  			<label><s:fielderror fieldName="nome"/></label>
+	                  			<label><s:fielderror fieldName="cognome"/></label>
+	               				</div>
+						</s:if></h5>
 				<br><br>
 				<div class="form-group">
                    <label>Contatti</label>
@@ -42,16 +48,22 @@
 																	</s:if>'>
   				<span class="input-group-addon">Email</span>
   				<s:textfield cssClass="form-control" cssStyle="width: 60%;" type="email" name="email"/>
-  				<s:if test="hasActionErrors()">
-	  				<div class="form-group" style="color: red;">
-	                   <label><s:actionerror /></label>
-	               	</div>
-				</s:if>
   				</div>
+  					<h5><s:if test="hasFieldErrors()">
+		  							<div class="form-group" style="color: red;">
+		                  			<label><s:fielderror fieldName="email_esistente"/></label>
+		                  			<label><s:fielderror fieldName="email"/></label>
+		               				</div>
+					</s:if></h5>
   				<div class=" form-group input-group input-group-lg">
   				<span class="input-group-addon">Telefono</span>
   				<s:textfield cssClass="form-control" cssStyle="width: 60%;" name="telefono"/>
 				</div>
+					<h5><s:if test="hasFieldErrors()">
+		  							<div class="form-group" style="color: red;">
+		                  			<label><s:fielderror fieldName="telefono"/></label>
+		               				</div>
+					</s:if></h5>
 				<br><br>
 				<p align="center">
 				<s:a action="ListDipendenti" class="btn btn-danger btn-lg">Annulla</s:a>

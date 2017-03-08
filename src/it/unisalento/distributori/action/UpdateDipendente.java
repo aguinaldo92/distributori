@@ -29,14 +29,6 @@ public class UpdateDipendente extends ActionSupport implements ModelDriven<Perso
 	public void setNew_Dip(Dipendente new_Dip) {
 		this.new_Dip = new_Dip;
 	}
-//	
-//	public PersonaModel getDipForm() {
-//		return DipForm;
-//	}
-//
-//	public void setDipForm(PersonaModel dipForm) {
-//		DipForm = dipForm;
-//	}
 
 	public String execute() {
 		
@@ -56,9 +48,6 @@ public class UpdateDipendente extends ActionSupport implements ModelDriven<Perso
 		new_persona.setNome(DipForm.getNome());
 		new_persona.setEmail(DipForm.getEmail());
 
-//		new_Dip.setPersona(new_persona);
-//		new_persona.setDipendente(new_Dip);
-		
 		//aggiorno persona e dipendente nel DB
 		try{
 			FactoryDao.getIstance().getPersonaDao().update(new_persona);
@@ -82,7 +71,7 @@ public class UpdateDipendente extends ActionSupport implements ModelDriven<Perso
 		
 		if (FactoryDao.getIstance().getPersonaDao().emailExists(DipForm.getEmail(),DipForm.getId())){
 			System.out.println("La mail è già presente");
-			addActionError("Email già presente");
+			addFieldError("email_esistente", "Email già presente");
 		}
 	}
 	

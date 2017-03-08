@@ -1,6 +1,9 @@
 package it.unisalento.distributori.action;
 
 import java.math.BigDecimal;
+
+import org.apache.struts2.ServletActionContext;
+
 import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.ModelDriven;
 
@@ -14,7 +17,6 @@ import it.unisalento.distributori.model.ProdottoModel;
 
 public class UpdateProdotto extends ActionSupport implements ModelDriven<ProdottoModel>{
 	
-	private int sconto_percentuale;
 	private String famiglia_scelta;
 	private Integer idProdotto;
 	private ProdottoModel prodotto_form = new ProdottoModel();
@@ -50,10 +52,10 @@ public class UpdateProdotto extends ActionSupport implements ModelDriven<Prodott
 		newprodotto.setIngredienti(prodotto_form.getIngredienti());
 		newprodotto.setNome(prodotto_form.getNome());
 		newprodotto.setPreparazione(prodotto_form.getPreparazione());
-		newprodotto.setPrezzo(prodotto_form.getPrezzo());
+		newprodotto.setPrezzo(new BigDecimal(prodotto_form.getPrezzo()));
 		newprodotto.setStabilimento(FactoryDao.getIstance().getStabilimentoDao().get(prodotto_form.getStabilimento().getId(), Stabilimento.class));
 
-		BigDecimal sconto_decimale=BigDecimal.valueOf(sconto_percentuale).divide(BigDecimal.valueOf(100));
+		BigDecimal sconto_decimale=BigDecimal.valueOf(Integer.parseInt(prodotto_form.getSconto())).divide(BigDecimal.valueOf(100));
 		newprodotto.setScontoUtenti(sconto_decimale);
 		
 		//inserimento nel DATABASE
@@ -74,19 +76,22 @@ public class UpdateProdotto extends ActionSupport implements ModelDriven<Prodott
 		
 		return SUCCESS;
 	}
+	
+	public void validate(){
+		
+		prodotto_form.setIDsfamiglie(famiglia_scelta);
+		ServletActionContext.getRequest().setAttribute("prodotto", prodotto_form);
+		
+		if(famiglia_scelta.length()==0){
+			System.out.println("AddProdotto: nessuna famiglia selezionata");
+			addFieldError("nofamilyselected", "Selezionare ALMENO una famiglia di prodotti.");
+		}
+	}
 
 	@Override
 	public ProdottoModel getModel() {
 		// TODO Auto-generated method stub
 		return prodotto_form;
-	}
-	
-	public int getSconto_percentuale() {
-		return sconto_percentuale;
-	}
-
-	public void setSconto_percentuale(int sconto_percentuale) {
-		this.sconto_percentuale = sconto_percentuale;
 	}
 
 }

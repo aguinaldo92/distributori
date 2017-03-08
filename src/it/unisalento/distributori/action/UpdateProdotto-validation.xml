@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE validators PUBLIC "-//Apache Struts//XWork Validator 1.0.3//EN"
+ "http://struts.apache.org/dtds/xwork-validator-1.0.3.dtd">
+
+ <validators>
+     <field name="nome">
+         <field-validator type="requiredstring">
+             <message>Nome richiesto</message>
+         </field-validator>
+     </field>
+     <field name="descrizione">
+         <field-validator type="requiredstring">
+             <message>Descrizione richiesta</message>
+         </field-validator>
+     </field>
+    <field name="prezzo">
+         <field-validator type="requiredstring">
+             <message>Prezzo richiesto</message>
+         </field-validator>
+         <field-validator type="regex">
+         	<param name="regex">^(0|[1-9]\d*)(\.\d{2})$</param>
+            <message>Formato prezzo non corretto (es.: 1.30)</message>
+         </field-validator>
+     </field>
+     <field name="sconto">
+         <field-validator type="requiredstring">
+             <message>Sconto richiesto</message>
+         </field-validator>
+         <field-validator type="regex">
+         	<param name="regex">^(0|100|[1-9][0-9])$</param>
+            <message>Lo sconto deve essere un numero intero compreso tra 0 e 100</message>
+         </field-validator>
+     </field>
+     <field name="ingredienti">
+         <field-validator type="requiredstring">
+             <message>Ingredienti richiesti</message>
+         </field-validator>
+     </field>
+     <field name="preparazione">
+         <field-validator type="requiredstring">
+             <message>Preparazione richiesta</message>
+         </field-validator>
+     </field>
+ </validators>
