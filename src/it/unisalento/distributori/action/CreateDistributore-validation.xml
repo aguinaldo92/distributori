@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE validators PUBLIC "-//Apache Struts//XWork Validator 1.0.3//EN"
+ "http://struts.apache.org/dtds/xwork-validator-1.0.3.dtd">
+
+<validators>
+	<field name="indirizzo">
+		<field-validator type="requiredstring">
+			<message>indirizzo richiesto</message>
+		</field-validator>
+	</field>
+	<field name="numScaffali">
+		<field-validator type="required">
+			<message>il numero di scaffali del distributore è obbligatorio</message>
+		</field-validator>
+		<field-validator type="int">
+			<message>Il numero di scaffali del distributore deve essere intero</message>
+		</field-validator>
+	</field>
+	<field name="numPosti">
+		<field-validator type="required">
+			<message>il numero di colonne del distributore è obbligatorio</message>
+		</field-validator>
+		<field-validator type="int">
+			<message>Il numero di colonne del distributore deve essere intero</message>
+		</field-validator>
+	</field>
+</validators>

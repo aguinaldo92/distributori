@@ -10,25 +10,20 @@
 
 	<package name="default" extends="struts-default">
 		<result-types>
-			<result-type name="tiles"
-				class="org.apache.struts2.views.tiles.TilesResult" />
+			<result-type name="tiles" class="org.apache.struts2.views.tiles.TilesResult" />
 		</result-types>
 
 		<interceptors>
-			<interceptor name="myInterceptor"
-				class="it.unisalento.distributori.interceptor.MyInterceptor" />
-			<interceptor name="LoginInterceptor"
-				class="it.unisalento.distributori.interceptor.LoginInterceptor" />
-				
-			<interceptor name="homepageInterceptor"
-				class="it.unisalento.distributori.interceptor.HomepageInterceptor" />
+			<interceptor name="myInterceptor" class="it.unisalento.distributori.interceptor.MyInterceptor" />
+			<interceptor name="LoginInterceptor" class="it.unisalento.distributori.interceptor.LoginInterceptor" />
+
+			<interceptor name="homepageInterceptor" class="it.unisalento.distributori.interceptor.HomepageInterceptor" />
 
 			<interceptor-stack name="loginStack">
 				<interceptor-ref name="LoginInterceptor" />
 				<interceptor-ref name="timer" />
 				<interceptor-ref name="defaultStack">
-					<!-- per il momento commento questo interceptor per i problemi di sicurezza 
-						di sessionAware <param name="params.excludeParams">dojo\..*,^struts\..*,^session\..*,^request\..*,^application\..*,^servlet(Request|Response)\..*,parameters\...*</param> -->
+					<!-- per il momento commento questo interceptor per i problemi di sicurezza di sessionAware <param name="params.excludeParams">dojo\..*,^struts\..*,^session\..*,^request\..*,^application\..*,^servlet(Request|Response)\..*,parameters\...*</param> -->
 				</interceptor-ref>
 			</interceptor-stack>
 
@@ -63,10 +58,19 @@
 			<result name="input" type="tiles">index</result>
 		</action>
 
+
+
+	</package>
+
+	<package name="common" extends="default" namespace="/">
+	
+		<action name="ListCategorie" class="it.unisalento.distributori.action.ListCategorie" />
+
+		
 	</package>
 
 	<package name="dipendente" extends="default" namespace="/dipendente">
-	
+
 		<default-interceptor-ref name="loginStack" />
 		<default-action-ref name="dashboard" />
 
@@ -77,42 +81,39 @@
 		<action name="goToModificaPassword">
 			<result type="tiles">modificaPassword</result>
 		</action>
-		
-		<action name="UpdatePassword" class="it.unisalento.distributori.action.UpdatePassword" >
+
+		<action name="UpdatePassword" class="it.unisalento.distributori.action.UpdatePassword">
 			<result name="success" type="tiles">profilo</result>
 			<result name="input" type="tiles">modificaPassword</result>
 		</action>
-		
+
 		<action name="DipendenteDetail" class="it.unisalento.distributori.action.DipendenteDetail">
 			<result name="success" type="tiles">profilo</result>
 			<result name="input" type="tiles">profilo</result>
 		</action>
-		
-		<action name="DettaglioDistributore"
-			class="it.unisalento.distributori.action.DettaglioDistributore">
+
+		<action name="DettaglioDistributore" class="it.unisalento.distributori.action.DettaglioDistributore">
 			<result type="tiles">dettaglioDistributoreDipendente</result>
 		</action>
-		
-		<action name="UpdateQuantitaProdottiByDistributore"
-			class="it.unisalento.distributori.action.UpdateQuantitaProdottiByDistributore">
+
+		<action name="UpdateQuantitaProdottiByDistributore" class="it.unisalento.distributori.action.UpdateQuantitaProdottiByDistributore">
 			<result type="tiles">dashboardDipendente</result>
 			<result name="input" type="tiles">dashboardDipendente</result>
 		</action>
 
-		<action name="listDistributoriDipendente"
-			class="it.unisalento.distributori.action.ListDistributoriDipendente">
+		<action name="listDistributoriDipendente" class="it.unisalento.distributori.action.ListDistributoriDipendente">
 			<result type="tiles">listaInterventi</result>
 		</action>
-		
+
 		<action name="ProdottoDetail" class="it.unisalento.distributori.action.ProdottoDetail">
 			<result name="success" type="tiles">editProdotto</result>
-<!-- 			<result name="input" type="tiles">editProdotto</result> -->
+			<!-- <result name="input" type="tiles">editProdotto</result> -->
 		</action>
-		
+
 	</package>
-	
+
 	<package name="json" extends="default, json-default" namespace="/gestorejson">
-	
+
 	</package>
 
 	<package name="gestore" extends="default" namespace="/gestore">
@@ -123,97 +124,107 @@
 		<action name="dashboard">
 			<result type="tiles">dashboardGestore</result>
 		</action>
-		
-		<action name="DashboardGestore" class="it.unisalento.distributori.action.DashboardGestore" ></action>
-		
+
+		<action name="DashboardGestore" class="it.unisalento.distributori.action.DashboardGestore"></action>
+
 		<action name="CreateDipendente">
 			<result type="tiles">createDipendente</result>
 		</action>
-		
+
+		<action name="gotoCreateDistributore" class="it.unisalento.distributori.action.GotoCreateDistributore">
+			<result type="tiles">createDistributore</result>
+		</action>
+
 		<action name="showDipendenti">
 			<result type="tiles">listDipendenti</result>
 		</action>
-		
+
 		<action name="showCatalogo">
 			<result type="tiles">listProdotti</result>
 		</action>
-		
+
 		<action name="ListProdotti" class="it.unisalento.distributori.action.ListProdotti">
 			<result type="tiles">listProdotti</result>
 		</action>
-		
+
 		<action name="ListDipendenti" class="it.unisalento.distributori.action.ListDipendenti">
 			<result type="tiles">listDipendenti</result>
 		</action>
-		
+
 		<action name="DeleteDipendente" class="it.unisalento.distributori.action.DeleteDipendente">
 			<result name="success" type="redirectAction">ListDipendenti</result>
 			<result name="input" type="redirectAction">ListDipendenti</result>
 		</action>
-		
+
 		<action name="DipendenteDetail" class="it.unisalento.distributori.action.DipendenteDetail">
 			<result name="success" type="tiles">editDip</result>
 			<result name="input" type="tiles">editDip</result>
 		</action>
-		
+
 		<action name="UpdateDipendente" class="it.unisalento.distributori.action.UpdateDipendente">
 			<result name="success" type="tiles">listDipendenti</result>
 			<result name="input" type="tiles">editDip</result>
 		</action>
-		
+
 		<action name="AddDipendente" class="it.unisalento.distributori.action.AddDipendente">
 			<result name="success" type="tiles">listDipendenti</result>
 			<result name="input" type="tiles">createDipendente</result>
 		</action>
-		
+
 		<action name="ProdottoDetail" class="it.unisalento.distributori.action.ProdottoDetail">
 			<result name="success" type="tiles">editProdotto</result>
 			<result name="input" type="tiles">editProdotto</result>
 			<result name="none" type="tiles">editProdotto</result>
 		</action>
-		
+
 		<action name="UpdateProdotto" class="it.unisalento.distributori.action.UpdateProdotto">
 			<result name="success" type="tiles">listProdotti</result>
 			<result name="input" type="tiles">editProdotto</result>
 		</action>
-		
+
 		<action name="UpdateProdottiErogati" class="it.unisalento.distributori.action.UpdateProdottiErogati">
 			<result name="success" type="tiles">dashboardGestore</result>
 			<result name="input" type="tiles">dashboardGestore</result>
 		</action>
-		
+
 		<action name="CreateProdotto" class="it.unisalento.distributori.action.AddProdotto" method="load_info">
 			<result name="none" type="tiles">createProdotto</result>
 		</action>
-		
+
 		<action name="AddProdotto" class="it.unisalento.distributori.action.AddProdotto">
 			<result name="success" type="tiles">uploadFoto_newProdotto</result>
 			<result name="input" type="tiles">createProdotto</result>
 		</action>
-		
-		<action name="ListDistributoriGestore"
-			class="it.unisalento.distributori.action.ListDistributoriGestore">
+
+		<action name="ListDistributoriGestore" class="it.unisalento.distributori.action.ListDistributoriGestore">
 			<result name="success" type="tiles">gestioneDistributori</result>
 		</action>
-		
-		<action name="DettaglioDistributoreGestore"
-			class="it.unisalento.distributori.action.DettaglioDistributore">
+
+		<action name="DettaglioDistributoreGestore" class="it.unisalento.distributori.action.DettaglioDistributore">
 			<result type="tiles">dettaglioDistributoreGestore</result>
 		</action>
-		
+
+		<action name="CreateDistributore" class="it.unisalento.distributori.action.CreateDistributore">
+			<result name="success" type="redirectAction">
+				<param name="actionName">DettaglioDistributoreGestore</param>
+				<param name="idDistributore">${idDistributore}</param>
+			</result>
+			<result name="input" type="tiles">createDistributore</result>
+		</action>
+
 		<action name="FileUpload_editProdotto" class="it.unisalento.distributori.action.UpdateImageProdotto">
 			<result name="success" type="redirectAction">
-        		<param name="actionName">ProdottoDetail</param>
-        		<param name="idProdotto">${idProdotto}</param>
-        	</result>
-	       <result name="error" type="tiles">editProdotto</result>
+				<param name="actionName">ProdottoDetail</param>
+				<param name="idProdotto">${idProdotto}</param>
+			</result>
+			<result name="error" type="tiles">editProdotto</result>
 		</action>
-		
+
 		<action name="Fileupload_newProdotto" class="it.unisalento.distributori.action.UpdateImageProdotto">
 			<result name="success" type="tiles">listProdotti</result>
 			<result name="error" type="tiles">uploadFoto_newProdotto</result>
 		</action>
-		
+
 	</package>
 
 

@@ -14,7 +14,8 @@ import it.unisalento.distributori.domain.CategorieFornite;
  */
 public interface CategorieForniteDao extends BaseDao<CategorieFornite>{
 	
-	public List<CategorieFornite> GetCategorieForniteByDistributore(Integer idDistributore);
-	public ArrayList<String> GetNomiCategorieForniteByDistributore(Integer idDistributore);
+	public List<CategorieFornite> getCategorieForniteByDistributore(Integer idDistributore);
+	public List<String> getNomiCategorieForniteByDistributore(Integer idDistributore);
+	public List<Integer> getIdsCategorieForniteByDistributore(Integer idDistributore);
 
 }

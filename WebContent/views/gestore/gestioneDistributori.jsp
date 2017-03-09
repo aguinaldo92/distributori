@@ -18,6 +18,10 @@
 				<div class="panel-body">
 					<s:if test="#updateBoolean"> Aggiornato!</s:if>
 					<div class="table-responsive">
+						<p align="right">
+							<s:a namespace="/gestore" action="gotoCreateDistributore" class="btn btn-success">Inserisci nuovo distributore</s:a>
+						</p>
+						<p></p>
 						<table class="table table-striped table-bordered table-hover" id="dataTables-example">
 							<thead>
 								<tr align="center">
@@ -37,12 +41,21 @@
 											<s:property value="id" />
 										</s:param>
 									</s:url>
+									
+									<s:url var="gotoCreateDistributore" namespace="/gestore" action="gotoCreateDistributore">
+										<s:param name="idDistributore">
+											<s:property value="id" />
+										</s:param>
+									</s:url>
 
 									<tr class="odd gradeA">
 										<td><a href="${dettaglioDistributore}" class="compare-in">
 												<button class="btn btn-primary">Dettaglio</button>
+										</a>
+										<a href="${gotoCreateDistributore}" class="compare-in">
+												<button class="btn btn-success">Modifica</button>
 										</a></td>
-										<td><img src="/distributori/images/stato-${stato}.ico" alt="Stato" ></td>
+										<td><img src="/distributori/images/stato-${stato}.ico" alt="Stato"></td>
 										<s:url var="editDip" action="DipendenteDetail">
 											<s:param name="idDip">
 												<s:property value="dipendente.id" />
@@ -52,7 +65,7 @@
 										<!--  mostro solo i prodotti non vuoti -->
 										<td><ul>
 												<s:iterator value="#listDistrModel.prodottiForniti" var="prodotti">
-														<li><s:property value="prodotti" /></li>
+													<li><s:property value="prodotti" /></li>
 												</s:iterator>
 											</ul></td>
 										<td><s:property value="indirizzo" /></td>

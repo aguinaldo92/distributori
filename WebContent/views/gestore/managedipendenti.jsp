@@ -24,7 +24,7 @@
                         <div class="panel-body">
                             <div class="table-responsive">
                             <p align="right">
-                            <s:a action="CreateDipendente" class="btn btn-success">Inserisci nuovo dipendente</s:a>
+                            <s:a namespace="/gestore" action="CreateDipendente" class="btn btn-success">Inserisci nuovo dipendente</s:a>
                             </p>
                             <p></p>
                                 <table class="table table-striped table-bordered table-hover" id="dataTables-example">

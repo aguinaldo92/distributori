@@ -18,7 +18,7 @@ public class ListDistributoriGestore extends ActionSupport{
 	private List<Distributore> listDistributore ;
 	// elenco delle possibili categorie che un distributore può fornire
 	// (anche se non è detto che lo faccia)	
-	private ArrayList<String> listNomiCategorieFornite;
+	private List<String> listNomiCategorieFornite;
 	// elenco dei prodotti forniti da un solo distributore
 	private ArrayList<ProdottiErogati> listProdottiErogati;
 	private ArrayList<String> listNomiQuantitaProdottiErogati;
@@ -64,7 +64,7 @@ public class ListDistributoriGestore extends ActionSupport{
 				//System.out.println("Ditributore: " + currentDistributore.getId() + " stato " + currentDistributore.getStato());
 				
 				try {
-					listNomiCategorieFornite = FactoryDao.getIstance().getCategorieForniteDao().GetNomiCategorieForniteByDistributore(currentDistributore.getId());
+					listNomiCategorieFornite = FactoryDao.getIstance().getCategorieForniteDao().getNomiCategorieForniteByDistributore(currentDistributore.getId());
 				} catch (Exception e) {
 					System.out.println("eccezione" + e.getLocalizedMessage());
 					
@@ -91,7 +91,9 @@ public class ListDistributoriGestore extends ActionSupport{
 					//System.out.println("Aggiunto : " + listNomiQuantitaProdottiErogati.get((listNomiQuantitaProdottiErogati.size() -1)));
 					
 				}
-				
+				//TODO: controllare presenza di null e impostare di conseguenza. parlarne con totu (succede alla riga:
+				//currentDistributoreModel.setDipendente(currentDistributore.getDipendente().getPersona());
+				// sicuramente nel fare il getPersona di un dipendente NULL (così si è verificato l'errore l'ultima volta
 				//System.out.println("prodotti erogati dal Distributore: " + listNomiQuantitaProdottiErogati.size());			
 				currentDistributoreModel.setId(currentDistributore.getId());
 				currentDistributoreModel.setIndirizzo(currentDistributore.getIndirizzo());

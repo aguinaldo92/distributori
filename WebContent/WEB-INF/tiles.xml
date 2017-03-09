@@ -54,6 +54,12 @@
 		<put-attribute name="body"
 			value="/views/gestore/dettaglioDistributore.jsp" />
 	</definition>
+	
+	<definition name="createDistributore" extends="baseLayoutGestore">
+		<put-attribute name="title" value="Nuovo Distributore" />
+		<put-attribute name="body"
+			value="/views/gestore/createDistributore.jsp" />
+	</definition>
 
 	<definition name="listDipendenti" extends="baseLayoutGestore">
 		<put-attribute name="title" value="Gestione Dipendenti" />

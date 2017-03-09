@@ -33,7 +33,7 @@ public class ListDistributoriDipendente extends ActionSupport implements Session
 	private List<Distributore> listDistributore ;
 	// elenco delle possibili categorie che un distributore può fornire
 	// (anche se non è detto che lo faccia)	
-	private ArrayList<String> listNomiCategorieFornite;
+	private List<String> listNomiCategorieFornite;
 	// elenco dei prodotti forniti da un solo distributore
 	private ArrayList<ProdottiErogati> listProdottiErogati;
 	private ArrayList<String> listNomiQuantitaProdottiErogati;
@@ -82,7 +82,7 @@ public class ListDistributoriDipendente extends ActionSupport implements Session
 				//System.out.println("Ditributore: " + currentDistributore.getId() + " stato " + currentDistributore.getStato());
 				
 				try {
-					listNomiCategorieFornite = FactoryDao.getIstance().getCategorieForniteDao().GetNomiCategorieForniteByDistributore(currentDistributore.getId());
+					listNomiCategorieFornite = FactoryDao.getIstance().getCategorieForniteDao().getNomiCategorieForniteByDistributore(currentDistributore.getId());
 				} catch (Exception e) {
 					//System.out.println("eccezione" + e.getLocalizedMessage());
 					// TODO Auto-generated catch block

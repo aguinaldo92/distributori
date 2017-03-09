@@ -18,21 +18,19 @@ import it.unisalento.distributori.domain.CategorieFornite;
  *
  */
 public class CategorieForniteDaoImpl extends BaseDaoImpl<CategorieFornite> implements CategorieForniteDao{
-	private ArrayList<CategorieFornite> listCategorieFornite;
-	private ArrayList<String> listNomiCategorieFornite;
-	
 	private Session session;
 	private Transaction tx;
 
 	@Override
-	public List<CategorieFornite> GetCategorieForniteByDistributore  (Integer idDistributore) {
+	public List<CategorieFornite> getCategorieForniteByDistributore  (Integer idDistributore) {
+		List<CategorieFornite> listCategorieFornite;
 		try {
 			session = sf.openSession();
 			tx = session.beginTransaction();
 			String hql = "from CategorieFornite CF inner join CF.categoria C where CF.distributore.id = :idDistributore order by C.nome" ;
 			Query query = session.createQuery(hql);
 			query.setInteger("idDistributore", idDistributore);
-			listCategorieFornite = (ArrayList<CategorieFornite>) query.list();
+			listCategorieFornite = (List<CategorieFornite>) query.list();
 			tx.commit();
 		}
 		catch (Exception e) {
@@ -45,14 +43,15 @@ public class CategorieForniteDaoImpl extends BaseDaoImpl<CategorieFornite> imple
 	}
 
 	@Override
-	public ArrayList<String> GetNomiCategorieForniteByDistributore(Integer idDistributore) {
+	public List<String> getNomiCategorieForniteByDistributore(Integer idDistributore) {
+		List<String> listNomiCategorieFornite;
 		try {
 			session = sf.openSession();
 			tx = session.beginTransaction();
 			String hql = "Select C.nome from CategorieFornite CF inner join CF.categoria C where CF.distributore.id = :idDistributore and C.nome != 'Generica' order by C.nome" ;
 			Query query = session.createQuery(hql);
 			query.setInteger("idDistributore", idDistributore);
-			listNomiCategorieFornite = (ArrayList<String>) query.list();
+			listNomiCategorieFornite = (List<String>) query.list();
 			tx.commit();
 		}
 		catch (Exception e) {
@@ -62,6 +61,27 @@ public class CategorieForniteDaoImpl extends BaseDaoImpl<CategorieFornite> imple
 		}
 		session.close();
 		return listNomiCategorieFornite;
+	}
+
+	@Override
+	public List<Integer> getIdsCategorieForniteByDistributore(Integer idDistributore) {
+		List<Integer> listIdsCategorieFornite;
+		try {
+			session = sf.openSession();
+			tx = session.beginTransaction();
+			String hql = "Select C.id from CategorieFornite CF inner join CF.categoria C where CF.distributore.id = :idDistributore and C.nome != 'Generica' order by C.nome" ;
+			Query query = session.createQuery(hql);
+			query.setInteger("idDistributore", idDistributore);
+			listIdsCategorieFornite = (List<Integer>) query.list();
+			tx.commit();
+		}
+		catch (Exception e) {
+			System.out.println("Impossibile ottenere lista degli ids delle categorie fornite dato un distributore:");
+			System.out.println(e.getLocalizedMessage());
+			return null;
+		} //TODO: finally session.close();
+		session.close();
+		return listIdsCategorieFornite;
 	}
 
 

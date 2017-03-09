@@ -91,5 +91,24 @@ public class ProdottoDaoImpl extends BaseDaoImpl<Prodotto> implements ProdottoDa
 		session.close();
 		return listProdottiCompatibili;
 	}
+
+		@Override
+		public Prodotto getProdottoVuoto() throws Exception{
+			
+			session = sf.openSession();
+	        tx = session.beginTransaction();
+	        Query query = session.createQuery("from Prodotto as P where P.nome = :vuoto");
+	        // hibernate non è case sensitive nelle clausole where 
+	        query.setString("vuoto", "Vuoto");
+	        
+	        Prodotto prodottoVuoto = new Prodotto();
+	        prodottoVuoto = (Prodotto) query.uniqueResult();
+	        
+	        tx.commit();
+	        session.close();
+			return prodottoVuoto;
+			
+		
+		}
 	
 }
