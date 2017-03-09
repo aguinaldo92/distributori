@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
 	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="src" path="test"/>
 	<classpathentry kind="src" path="WebContent/WEB-INF/lib"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/jre1.8.0_121">
 		<attributes>
@@ -44,5 +45,6 @@
 	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/struts2-jquery-plugin-3.7.1.jar"/>
 	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/struts2-json-plugin-2.3.28.jar"/>
 	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/struts2-bootstrap-plugin-2.5.0.jar"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/4"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>

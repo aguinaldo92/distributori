@@ -2,7 +2,6 @@ package it.unisalento.distributori.daoimpl;
 
 import it.unisalento.distributori.dao.BaseDao;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.ServletContext;
@@ -11,8 +10,6 @@ import org.apache.struts2.ServletActionContext;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
-import org.hibernate.annotations.Cascade;
-import org.hibernate.annotations.CascadeType;
 
 public class BaseDaoImpl<T> implements BaseDao<T> {
 
@@ -76,7 +73,7 @@ public class BaseDaoImpl<T> implements BaseDao<T> {
 	public List<T> getAllSortedBy(Class clazz, String column) {
 		Session session = sf.openSession();
 		Transaction tx = session.beginTransaction();
-		List<T> list= (List<T>)session.createQuery("from " + clazz.getName() + " order by " + clazz.getName() + "." + column).list();
+		List<T> list= (List<T>)session.createQuery("from " + clazz.getName() + " as T order by T." + column).list();
 		tx.commit();
 		session.close();
 		return list;

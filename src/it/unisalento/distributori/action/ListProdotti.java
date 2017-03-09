@@ -40,7 +40,7 @@ public class ListProdotti extends ActionSupport{
 	public String execute () {
 		
 		this.categorie=FactoryDao.getIstance().getCategoriaDao().getAllCategorie();
-		this.famiglie=FactoryDao.getIstance().getFamigliaDao().getAll(Famiglia.class);
+		this.famiglie=FactoryDao.getIstance().getFamigliaDao().getAllSortedBy(Famiglia.class, "nome");
 		
 		//ottenimento della lista dei prodotti in base alle condizioni di filtraggio
 		if(list_categorie_scelte!=null && list_famiglie_scelte!=null && (list_categorie_scelte.size()>0 || list_famiglie_scelte.size()>0)){

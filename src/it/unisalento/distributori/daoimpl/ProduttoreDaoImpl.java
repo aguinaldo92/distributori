@@ -42,7 +42,7 @@ public class ProduttoreDaoImpl extends BaseDaoImpl<Produttore> implements Produt
 	public List<Produttore> getAllProduttori(){
 		Session session = sf.openSession();
         Transaction tx = session.beginTransaction();
-        Query query = session.createQuery("from Produttore as P where P.nome IS NOT NULL order by P.nome");
+        Query query = session.createQuery("from Produttore as P where P.nome IS NOT NULL and nome != 'fittizio' order by P.nome");
         
         List<Produttore> list_prodotti = new ArrayList<Produttore>();
         list_prodotti=query.list();
