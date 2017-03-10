@@ -42,7 +42,7 @@ public class ProdottoDaoImpl extends BaseDaoImpl<Prodotto> implements ProdottoDa
 	public List<Prodotto> getAllProdottiFiltrati(List<String> list_fam_IDs, List<String> list_categ_IDs) {
 		session = HibernateUtil.getSession();
         tx = session.beginTransaction();
-        String querystring="select distinct P from Prodotto as P inner join P.categoria as C inner join C.prodottos as P inner join P.famiglieProdottos as F where ";
+        String querystring="select distinct P from Prodotto as P inner join P.categoria as C inner join C.prodottos as P inner join P.famiglieProdottos as F where P.nome != :vuoto and ";
         
         //aggiunta delle condizioni di filtraggio alla query
         String chiusura_cond_categ="";
@@ -64,6 +64,7 @@ public class ProdottoDaoImpl extends BaseDaoImpl<Prodotto> implements ProdottoDa
         querystring=querystring.concat(") order by P.nome");
         
         Query query = session.createQuery(querystring);
+        query.setString("vuoto", "Vuoto");
         
         List<Prodotto> list_prodotti = new ArrayList<Prodotto>();
         list_prodotti=query.list();
