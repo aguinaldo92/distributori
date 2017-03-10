@@ -27,6 +27,11 @@ import it.unisalento.distributori.model.ProdottoModel;
 
 public class ProdottoDetail extends ActionSupport implements Preparable{
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1036626887367377425L;
+
 	private int idProdotto;
 
 	private ProdottoModel prodotto = new ProdottoModel();

@@ -15,6 +15,10 @@ import it.unisalento.distributori.model.PersonaModel;
 
 public class DipendenteDetail extends ActionSupport implements SessionAware{
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 3730189551400817771L;
 	private int idDip;
 	private PersonaModel dipendente = new PersonaModel();
 	private SessionMap<String, Object> personaSession ;

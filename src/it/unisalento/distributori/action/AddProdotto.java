@@ -22,6 +22,10 @@ import it.unisalento.distributori.model.ProdottoModel;
 
 public class AddProdotto extends ActionSupport implements ModelDriven<ProdottoModel>{
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 7312599700878763788L;
 	private ProdottoModel prodotto_Form = new ProdottoModel();
 	private String famiglia_scelta;
 

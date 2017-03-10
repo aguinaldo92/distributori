@@ -23,7 +23,7 @@ public class FamiglieProdottoDaoImpl extends BaseDaoImpl<FamiglieProdotto> imple
 
 	@Override
 	public List<FamiglieProdotto> getFamiglieByProdotto(int prodotto_id) {
-		Session session = sf.openSession();
+		Session session = HibernateUtil.getSession();
         Transaction tx = session.beginTransaction();
         Query query = session.createQuery("select FP from FamiglieProdotto as FP inner join FP.prodotto as P where P.id=:id_prod");
         query.setInteger("id_prod", prodotto_id);

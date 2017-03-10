@@ -33,7 +33,7 @@ public class ProdottiErogatiDaoImpl extends BaseDaoImpl<ProdottiErogati> impleme
 	public ArrayList<ProdottiErogati> getProdottiScarseggiantiByDistributore(Integer idDistributore,
 			Integer quantitaMinima) {
 		try {
-			session = sf.openSession();
+			session = HibernateUtil.getSession();
 			tx = session.beginTransaction();
 			String hql = "select PE from ProdottiErogati PE inner join PE.prodotto as P where PE.distributore.id = :idDistributore and P.nome != 'vuoto' and PE.quantita < :quantitaMinima order by PE.quantita asc" ;
 			Query query = session.createQuery(hql);
@@ -61,7 +61,7 @@ public class ProdottiErogatiDaoImpl extends BaseDaoImpl<ProdottiErogati> impleme
 	@Override
 	public ArrayList<ProdottiErogati> getProdottiErogatiByDistributoreSortedByScaffalePosto(Integer idDistributore) {
 		try {
-			session = sf.openSession();
+			session = HibernateUtil.getSession();
 			tx = session.beginTransaction();
 			String hql = "from ProdottiErogati PE where PE.distributore.id = :idDistributore order by PE.scaffale, PE.posto asc" ;
 			Query query = session.createQuery(hql);

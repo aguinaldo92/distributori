@@ -17,6 +17,11 @@ import it.unisalento.distributori.factory.FactoryDao;
 
 public class UpdateImageProdotto extends ActionSupport{
    
+		/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1781554015029191455L;
+
 		private int idProdotto;
 
 		private String foto;

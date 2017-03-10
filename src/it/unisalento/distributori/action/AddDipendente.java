@@ -20,7 +20,11 @@ import it.unisalento.distributori.util.SendMailSSL;
  *	Per sfuttare l'interceptor ModelDriven la action deve implementare l'interfaccia ModelDriven
  */
 public class AddDipendente extends ActionSupport implements ModelDriven<PersonaModel>{
-		
+	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 2120311945916315868L;
 	private PersonaModel DipForm = new PersonaModel();
 	private Dipendente new_Dip = new Dipendente();
 	private Persona new_persona = new Persona();

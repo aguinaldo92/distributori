@@ -18,7 +18,7 @@ public class PersonaDaoImpl extends BaseDaoImpl<Persona> implements PersonaDao {
 
 	@Override
 	public Persona getPersonaByCredentials(String email, String password) {
-		Session session = sf.openSession();
+		Session session = HibernateUtil.getSession();
         Transaction tx = session.beginTransaction();
         Query query = session.createQuery("from Persona where email=:email and password=:password");
         query.setString("email", email); 
@@ -36,7 +36,7 @@ public class PersonaDaoImpl extends BaseDaoImpl<Persona> implements PersonaDao {
 
 	@Override
 	public boolean emailExists(String email, Integer my_ID) {
-		Session session = sf.openSession();
+		Session session = HibernateUtil.getSession();
         Transaction tx = session.beginTransaction();
         Query query;
         if(my_ID != null){

@@ -11,6 +11,10 @@ import it.unisalento.distributori.factory.FactoryDao;
 
 public class ListDipendenti extends ActionSupport{
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -5408667531361347560L;
 	private List<Dipendente> dipendenti = new ArrayList<Dipendente>();
     
 	public String execute () {

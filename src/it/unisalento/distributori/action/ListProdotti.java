@@ -15,6 +15,10 @@ import it.unisalento.distributori.factory.FactoryDao;
 
 public class ListProdotti extends ActionSupport{
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -6710858723062171092L;
 	private List<String> list_categorie_scelte = new ArrayList<String>();
 	private List<String> list_famiglie_scelte = new ArrayList<String>();
 	private List<Prodotto> prodotti = new ArrayList<Prodotto>();

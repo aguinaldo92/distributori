@@ -25,7 +25,7 @@ public class DistributoreDaoImpl extends BaseDaoImpl<Distributore> implements Di
 	@Override
 	public ArrayList<Distributore> getDistributoriByIdDipendenteSortedByStato(Integer idDipendente) {
 		try {
-			session = sf.openSession();
+			session = HibernateUtil.getSession();
 			tx = session.beginTransaction();
 			String hql = "from Distributore d where d.dipendente.id = :idDipendente" ;
 			Query query = session.createQuery(hql);
@@ -49,7 +49,7 @@ public class DistributoreDaoImpl extends BaseDaoImpl<Distributore> implements Di
 	public Long getNumDistributoriNonOk() {
 		Long numDistributoriNonOk;
 		try{
-			session = sf.openSession();
+			session = HibernateUtil.getSession();
 			tx = session.beginTransaction();
 			Query query = session.createQuery("select count(*) as num from Distributore as D where D.stato = 0 or D.stato = 1");
 			numDistributoriNonOk = (Long) query.uniqueResult();

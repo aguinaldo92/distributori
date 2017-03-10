@@ -27,7 +27,7 @@ public class CategorieForniteDaoImpl extends BaseDaoImpl<CategorieFornite> imple
 	@Override
 	public List<CategorieFornite> GetCategorieForniteByDistributore  (Integer idDistributore) {
 		try {
-			session = sf.openSession();
+			session = HibernateUtil.getSession();
 			tx = session.beginTransaction();
 			String hql = "from CategorieFornite CF inner join CF.categoria C where CF.distributore.id = :idDistributore order by C.nome" ;
 			Query query = session.createQuery(hql);
@@ -47,7 +47,7 @@ public class CategorieForniteDaoImpl extends BaseDaoImpl<CategorieFornite> imple
 	@Override
 	public ArrayList<String> GetNomiCategorieForniteByDistributore(Integer idDistributore) {
 		try {
-			session = sf.openSession();
+			session = HibernateUtil.getSession();
 			tx = session.beginTransaction();
 			String hql = "Select C.nome from CategorieFornite CF inner join CF.categoria C where CF.distributore.id = :idDistributore and C.nome != 'Generica' order by C.nome" ;
 			Query query = session.createQuery(hql);

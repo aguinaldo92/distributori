@@ -12,58 +12,36 @@ import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 
 public class BaseDaoImpl<T> implements BaseDao<T> {
-
-	protected SessionFactory sf;
-	private ServletContext ctx;
-	private Transaction tx;
-	private int id;
-	private Session session;
-
-	public BaseDaoImpl() {
-		this.ctx = ServletActionContext.getServletContext();
-		this.sf = (SessionFactory) ctx.getAttribute("SessionFactory");
-	}
-
 	@Override
 	public int set(T entity) {
-		System.out.println("BaseDaoImpl: set()");
-		try {
-			session = sf.openSession();
-			tx = session.beginTransaction();
-			id = (int) session.save(entity);
-			tx.commit();
-			System.out.println("try");
-			
-		}
-		catch (Exception e) {
-			System.out.println("catch");
-			if (tx != null) tx.rollback();
-			throw e;
-		}
-		 finally {
-				System.out.println("finally");
-		     session.close();
-		 }
-		System.out.println("return");
+		Session session = HibernateUtil.getSession();
+		Transaction tx = session.beginTransaction(); //inizio transazione
+		int id=(int)session.save(entity);
+		tx.commit(); //fine transazione
+		//CHIUDERE LA SESSIONE
+		HibernateUtil.closeSession(session);
 		return id;
 	}
 
-
 	@Override
-	public T get(int id, Class clazz) throws Exception{
-		Session session = sf.openSession();
+	public T get(int id, Class clazz){
+		Session session = HibernateUtil.getSession();
 		Transaction tx = session.beginTransaction();
-		T entity= (T)session.get(clazz, id);
+		//Per prendere un oggetto tramite id utilizzare il metodo get di session 
+		T entity = (T)session.get(clazz, id);
 		tx.commit();
-		session.close();
+		//CHIUDERE LA SESSIONE
+		HibernateUtil.closeSession(session);
 		return entity;
 	}
-
+	
 	@Override
-	public List<T> getAll(Class clazz) {
-		Session session = sf.openSession();
+	public List<T> getAll(Class clazz){
+		Session session = HibernateUtil.getSession();
 		Transaction tx = session.beginTransaction();
-		List<T> list= (List<T>)session.createQuery("from "+clazz.getName()).list();
+		@SuppressWarnings("unchecked")
+		List<T> list = (List<T>)session.createQuery("from "+clazz.getSimpleName()).list();
+		
 		tx.commit();
 		session.close();
 		return list;
@@ -71,19 +49,20 @@ public class BaseDaoImpl<T> implements BaseDao<T> {
 
 	@Override
 	public List<T> getAllSortedBy(Class clazz, String column) {
-		Session session = sf.openSession();
+		Session session = HibernateUtil.getSession();
 		Transaction tx = session.beginTransaction();
-		List<T> list= (List<T>)session.createQuery("from " + clazz.getName() + " as T order by T." + column).list();
+		@SuppressWarnings("unchecked")
+		List<T> list = (List<T>)session.createQuery("from "+clazz.getSimpleName()+" as T order by T."+column).list();
+		
 		tx.commit();
 		session.close();
 		return list;
 	}
-	
-	
+
 	@Override
 	public void update(T entity) throws Exception {
 		System.out.println("BaseDaoImpl: update()");
-		Session session = sf.openSession();
+		Session session = HibernateUtil.getSession();
 		Transaction tx = session.beginTransaction();
 		session.update(entity);
 		tx.commit();
@@ -93,11 +72,10 @@ public class BaseDaoImpl<T> implements BaseDao<T> {
 	@Override
 	public void delete(T entity) {
 		System.out.println("BaseDaoImpl: delete()");
-		Session session = sf.openSession();
+		Session session = HibernateUtil.getSession();
 		Transaction tx = session.beginTransaction();
 		session.delete(entity);
 		tx.commit();
 		session.close();
 	}
-
 }

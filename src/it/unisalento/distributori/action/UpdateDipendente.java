@@ -19,6 +19,10 @@ import it.unisalento.distributori.model.PersonaModel;
  */
 public class UpdateDipendente extends ActionSupport implements ModelDriven<PersonaModel>{
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -686794116834734106L;
 	private PersonaModel DipForm = new PersonaModel();
 	private Dipendente new_Dip = new Dipendente();
 	

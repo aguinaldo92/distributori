@@ -7,6 +7,10 @@ import it.unisalento.distributori.util.SendMailSSL;
 
 public class DeleteDipendente extends ActionSupport{
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 2709060132056466025L;
 	private int idDip;
 	private Persona new_persona = new Persona();
 

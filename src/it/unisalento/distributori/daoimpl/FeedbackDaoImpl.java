@@ -23,7 +23,7 @@ public class FeedbackDaoImpl extends BaseDaoImpl<Feedback> implements FeedbackDa
 	public Long getNumMessaggiNonLetti() {
 		Long numMessaggiNonLetti;
 		try{
-			session = sf.openSession();
+			session = HibernateUtil.getSession();
 			tx = session.beginTransaction();
 			Query query = session.createQuery("select count(*) from Feedback as F where F.letto = 0");
 			numMessaggiNonLetti = (Long) query.uniqueResult();

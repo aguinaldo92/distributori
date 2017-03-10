@@ -7,6 +7,10 @@ import it.unisalento.distributori.model.PersonaModel;
 
 public class EditDipendente extends ActionSupport{
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -6387264238919678425L;
 	private int idDip;
 	Dipendente dip;
 	private PersonaModel dipendente = new PersonaModel();

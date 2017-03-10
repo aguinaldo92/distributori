@@ -25,7 +25,7 @@ public class ProdottoDaoImpl extends BaseDaoImpl<Prodotto> implements ProdottoDa
 	
 	@Override
 	public List<Prodotto> getAllProdotti() {
-		session = sf.openSession();
+		session = HibernateUtil.getSession();
         tx = session.beginTransaction();
         Query query = session.createQuery("from Prodotto as P where P.nome!=:vuoto order by P.nome");
         query.setString("vuoto", "Vuoto");
@@ -40,7 +40,7 @@ public class ProdottoDaoImpl extends BaseDaoImpl<Prodotto> implements ProdottoDa
 
 	@Override
 	public List<Prodotto> getAllProdottiFiltrati(List<String> list_fam_IDs, List<String> list_categ_IDs) {
-		session = sf.openSession();
+		session = HibernateUtil.getSession();
         tx = session.beginTransaction();
         String querystring="select distinct P from Prodotto as P inner join P.categoria as C inner join C.prodottos as P inner join P.famiglieProdottos as F where ";
         
@@ -75,7 +75,7 @@ public class ProdottoDaoImpl extends BaseDaoImpl<Prodotto> implements ProdottoDa
 		@Override
 	public ArrayList<Prodotto> getProdottiCompatibiliByDistributore(Integer idDistributore) {
 		try {
-			session = sf.openSession();
+			session = HibernateUtil.getSession();
 			tx = session.beginTransaction();
 			String hql = "select P from Distributore as D inner join D.categorieFornites as CF inner join CF.categoria as C1 inner join C1.prodottos as P inner join P.categoria as C2 where D.id = :idDistributore and C1.id = C2.id  order by C1.nome, P.nome" ;
 			Query query = session.createQuery(hql);

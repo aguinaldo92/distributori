@@ -46,5 +46,6 @@
 	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/struts2-json-plugin-2.3.28.jar"/>
 	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/struts2-bootstrap-plugin-2.5.0.jar"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/4"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/org.mockito_1.9.5.v201605172210.jar"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>

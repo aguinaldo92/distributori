@@ -25,7 +25,7 @@ public class ProduttoreDaoImpl extends BaseDaoImpl<Produttore> implements Produt
 
 	@Override
 	public List<Stabilimento> getStabilimentiByProduttore(int id_produttore) {
-		Session session = sf.openSession();
+		Session session = HibernateUtil.getSession();
         Transaction tx = session.beginTransaction();
         Query query = session.createQuery("select S from Stabilimento as S inner join S.produttore as P where P.id=:id_prod");
         query.setInteger("id_prod", id_produttore);
@@ -40,7 +40,7 @@ public class ProduttoreDaoImpl extends BaseDaoImpl<Produttore> implements Produt
 
 	@Override
 	public List<Produttore> getAllProduttori(){
-		Session session = sf.openSession();
+		Session session = HibernateUtil.getSession();
         Transaction tx = session.beginTransaction();
         Query query = session.createQuery("from Produttore as P where P.nome IS NOT NULL and nome != 'fittizio' order by P.nome");
         
