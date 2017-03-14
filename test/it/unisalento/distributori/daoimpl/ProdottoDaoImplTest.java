@@ -2,18 +2,13 @@ package it.unisalento.distributori.daoimpl;
 
 import static org.junit.Assert.assertTrue;
 
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
-import java.util.Set;
-
 import org.junit.Test;
 
 import it.unisalento.distributori.domain.CategorieFornite;
 import it.unisalento.distributori.domain.Distributore;
-import it.unisalento.distributori.domain.Famiglia;
 import it.unisalento.distributori.domain.FamiglieProdotto;
 import it.unisalento.distributori.domain.Prodotto;
 import it.unisalento.distributori.factory.FactoryDao;

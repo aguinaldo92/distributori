@@ -4,13 +4,9 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 
-import java.util.List;
-
 import org.junit.FixMethodOrder;
 import org.junit.Test;
 import org.junit.runners.MethodSorters;
-
-import com.sun.jmx.remote.security.NotificationAccessController;
 
 import it.unisalento.distributori.dao.PersonaDao;
 import it.unisalento.distributori.domain.Persona;
