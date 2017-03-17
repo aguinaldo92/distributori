@@ -5,8 +5,6 @@ public class DettaglioDistributoreModel {
 	private Integer idProdottoErogato;
 	private String nomeProdottoErogato;
 	private Integer quantita;
-
-	
 	
 	public Integer getIdProdotto() {
 		return idProdotto;
