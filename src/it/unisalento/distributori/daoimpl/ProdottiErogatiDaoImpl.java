@@ -52,13 +52,6 @@ public class ProdottiErogatiDaoImpl extends BaseDaoImpl<ProdottiErogati> impleme
 	}
 
 	@Override
-	public ArrayList<String> getNomiProdottiScarseggiantiByDistributore(Integer idDistributore,
-			Integer quantitaMinima) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
 	public ArrayList<ProdottiErogati> getProdottiErogatiByDistributoreSortedByScaffalePosto(Integer idDistributore) {
 		try {
 			session = HibernateUtil.getSession();

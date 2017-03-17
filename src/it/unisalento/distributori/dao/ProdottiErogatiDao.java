@@ -14,6 +14,5 @@ public interface ProdottiErogatiDao extends BaseDao<ProdottiErogati>{
 	
 	public ArrayList<ProdottiErogati> getProdottiErogatiByDistributoreSortedByScaffalePosto(Integer idDistributore);
 	public ArrayList<ProdottiErogati> getProdottiScarseggiantiByDistributore(Integer idDistributore, Integer quantitaMinima);
-	public ArrayList<String> getNomiProdottiScarseggiantiByDistributore(Integer idDistributore, Integer quantitaMinima);
 
 }

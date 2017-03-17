@@ -10,7 +10,6 @@ import org.junit.FixMethodOrder;
 import org.junit.Test;
 import org.junit.runners.MethodSorters;
 
-import it.unisalento.distributori.dao.CategoriaDao;
 import it.unisalento.distributori.dao.CategorieForniteDao;
 import it.unisalento.distributori.domain.Categoria;
 import it.unisalento.distributori.domain.CategorieFornite;

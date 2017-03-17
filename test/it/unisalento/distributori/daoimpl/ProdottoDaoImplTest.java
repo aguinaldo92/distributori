@@ -1,24 +1,32 @@
 package it.unisalento.distributori.daoimpl;
 
+import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 
 import java.util.Arrays;
 import java.util.Iterator;
 import java.util.List;
-import org.junit.Test;
 
+import org.junit.FixMethodOrder;
+import org.junit.Test;
+import org.junit.runners.MethodSorters;
+
+import it.unisalento.distributori.dao.ProdottoDao;
 import it.unisalento.distributori.domain.CategorieFornite;
 import it.unisalento.distributori.domain.Distributore;
 import it.unisalento.distributori.domain.FamiglieProdotto;
 import it.unisalento.distributori.domain.Prodotto;
 import it.unisalento.distributori.factory.FactoryDao;
 
+@FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class ProdottoDaoImplTest {
 
+	ProdottoDao dao = FactoryDao.getIstance().getProdottoDao();
+	
 	@Test
 	public void testGetAllProdotti() throws Exception {
 		
-		List<Prodotto> prodotti = FactoryDao.getIstance().getProdottoDao().getAllProdotti();
+		List<Prodotto> prodotti = dao.getAllProdotti();
 		
 		boolean prodotto_vuoto = false;
 		String nome1;
@@ -44,7 +52,7 @@ public class ProdottoDaoImplTest {
 		List<String> fam_IDs = Arrays.asList("1","2");
 		List<String> categ_IDs = Arrays.asList("1", "3");
 		
-		List<Prodotto> prodotti = FactoryDao.getIstance().getProdottoDao().getAllProdottiFiltrati(fam_IDs, categ_IDs);
+		List<Prodotto> prodotti = dao.getAllProdottiFiltrati(fam_IDs, categ_IDs);
 		
 		boolean error_fam=false;
 		boolean error_categ=false;
@@ -71,7 +79,7 @@ public class ProdottoDaoImplTest {
 		
 		Distributore distributore=FactoryDao.getIstance().getDistributoreDao().get(1, Distributore.class);
 		
-		List<Prodotto> prodotti_compatibili = FactoryDao.getIstance().getProdottoDao().getProdottiCompatibiliByDistributore(distributore.getId());
+		List<Prodotto> prodotti_compatibili = dao.getProdottiCompatibiliByDistributore(distributore.getId());
 		
 		boolean error=false;
 		Prodotto prodotto = new Prodotto();
@@ -90,6 +98,49 @@ public class ProdottoDaoImplTest {
 		}
 		
 		assertTrue(!error);
+	}
+
+	@Test
+	public void testSet() throws Exception {
+		throw new RuntimeException("not yet implemented");
+	}
+
+	@Test
+	public void testGet() throws Exception {
+		throw new RuntimeException("not yet implemented");
+	}
+
+	@Test
+	public void testGetAll() throws Exception {
+		List<Prodotto> prodotti = dao.getAll(Prodotto.class);
+		
+		assertNotNull(prodotti);
+		assertTrue(prodotti.size()>0);
+	}
+
+	@Test
+	public void testGetAllSortedBy() throws Exception {
+		List<Prodotto> prodotti = dao.getAllSortedBy(Prodotto.class, "descrizione");
+		String descr1;
+		String descr2;
+		boolean error = false;
+		for(int i=1; i<prodotti.size() && !error; i++){
+			descr1 = prodotti.get(i-1).getDescrizione();
+			descr2 = prodotti.get(i).getDescrizione();
+			if(descr1.compareToIgnoreCase(descr2)>0)
+				error=true;
+		}
+		assertTrue(!error);
+	}
+	
+	@Test
+	public void testUpdate() throws Exception {
+		throw new RuntimeException("not yet implemented");
+	}
+
+	@Test
+	public void testDelete() throws Exception {
+		throw new RuntimeException("not yet implemented");
 	}
 
 }

@@ -11,7 +11,6 @@ import org.junit.Test;
 import org.junit.runners.MethodSorters;
 
 import it.unisalento.distributori.dao.DipendenteDao;
-import it.unisalento.distributori.dao.PersonaDao;
 import it.unisalento.distributori.domain.Dipendente;
 import it.unisalento.distributori.domain.Persona;
 import it.unisalento.distributori.factory.FactoryDao;
