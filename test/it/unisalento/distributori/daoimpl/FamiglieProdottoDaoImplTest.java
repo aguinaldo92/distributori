@@ -1,5 +1,6 @@
 package it.unisalento.distributori.daoimpl;
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 
@@ -10,6 +11,7 @@ import org.junit.Test;
 import org.junit.runners.MethodSorters;
 
 import it.unisalento.distributori.dao.FamiglieProdottoDao;
+import it.unisalento.distributori.domain.Famiglia;
 import it.unisalento.distributori.domain.FamiglieProdotto;
 import it.unisalento.distributori.domain.Prodotto;
 import it.unisalento.distributori.factory.FactoryDao;
@@ -18,6 +20,45 @@ import it.unisalento.distributori.factory.FactoryDao;
 public class FamiglieProdottoDaoImplTest {
 
 	FamiglieProdottoDao dao = FactoryDao.getIstance().getFamiglieProdottoDao();
+	
+	@Test
+	public void testCRUD() throws Exception {
+		
+		Integer id;
+		FamiglieProdotto prod_fam=new FamiglieProdotto();
+		
+		//set
+		Famiglia fam = FactoryDao.getIstance().getFamigliaDao().get(1, Famiglia.class);
+		Prodotto prodotto = FactoryDao.getIstance().getProdottoDao().get(1, Prodotto.class);
+		prod_fam.setFamiglia(fam);
+		prod_fam.setProdotto(prodotto);
+		prod_fam.setId(dao.set(prod_fam));
+		
+		id=prod_fam.getId();
+		
+		assertTrue(prod_fam.getId()>0);
+		
+		//get (by ID)
+		prod_fam=dao.get(id, FamiglieProdotto.class);
+		
+		assertNotNull(prod_fam);
+		assertEquals(id, prod_fam.getId());
+		
+		//update
+		prod_fam=dao.get(id, FamiglieProdotto.class);
+		prod_fam.setFamiglia(FactoryDao.getIstance().getFamigliaDao().get(2, Famiglia.class));
+		dao.update(prod_fam);
+		prod_fam=dao.get(id, FamiglieProdotto.class);
+		
+		assertEquals((Integer)2, prod_fam.getFamiglia().getId());
+		
+		//delete
+		prod_fam=dao.get(id, FamiglieProdotto.class);
+		dao.delete(prod_fam);
+		prod_fam=dao.get(id, FamiglieProdotto.class);
+		
+		assertEquals(null, prod_fam);
+	}
 	
 	@Test
 	public void testGetFamiglieByProdotto() throws Exception {
@@ -54,25 +95,6 @@ public class FamiglieProdottoDaoImplTest {
 			famiglia_prod=prod_families1.get(i);
 			dao.set(famiglia_prod);
 		}
-	}
-	@Test
-	public void test1() throws Exception {//set
-		throw new RuntimeException("not yet implemented");
-	}
-
-	@Test
-	public void test2() throws Exception {//get by id
-		throw new RuntimeException("not yet implemented");
-	}
-	
-	@Test
-	public void test3() throws Exception {//update
-		throw new RuntimeException("not yet implemented");
-	}
-
-	@Test
-	public void test4() throws Exception {//delete
-		throw new RuntimeException("not yet implemented");
 	}
 
 	@Test

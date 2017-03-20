@@ -20,42 +20,43 @@ public class CategoriaDaoImplTest {
 	CategoriaDao dao=FactoryDao.getIstance().getCategoriaDao();
 	
 	@Test
-	public void test1() throws Exception {//set
+	public void testCRUD() throws Exception {
+		
+		Integer id;
 		Categoria categoria=new Categoria();
+		
+		//set
 		categoria.setNome("Test JUnit");
 		
 		categoria.setId(dao.set(categoria));
 		
+		id=categoria.getId();
+		
 		assertTrue(categoria.getId()>0);
-	}
-
-	@Test
-	public void test2() throws Exception {//get by id
-		Categoria categoria=dao.get(1, Categoria.class);
+		
+		//get (by ID)
+		categoria=dao.get(id, Categoria.class);
 		
 		assertNotNull(categoria);
-		assertEquals((Integer)1, categoria.getId());
-	}
-	
-	@Test
-	public void test3() throws Exception {//update
-		Categoria categoria=dao.get(7, Categoria.class);
+		assertEquals(id, categoria.getId());
+		assertEquals("Test JUnit", categoria.getNome());
+		
+		//update
+		categoria=dao.get(id, Categoria.class);
 		categoria.setNome("Test update JUnit");
 		dao.update(categoria);
-		categoria=dao.get(7, Categoria.class);
+		categoria=dao.get(id, Categoria.class);
 		
 		assertEquals("Test update JUnit", categoria.getNome());
-	}
-
-	@Test
-	public void test4() throws Exception {//delete
-		Categoria categoria=dao.get(7, Categoria.class);
-		dao.delete(categoria);
-		categoria=dao.get(7, Categoria.class);
 		
-		assertEquals(null, categoria);
+		//delete
+		categoria=dao.get(id, Categoria.class);
+		dao.delete(categoria);
+		categoria=dao.get(id, Categoria.class);
+		
+		assertEquals(null, categoria);		
 	}
-
+	
 	@Test
 	public void testGetAll() throws Exception {
 		List<Categoria> categorie = dao.getAll(Categoria.class);

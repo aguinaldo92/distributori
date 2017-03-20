@@ -1,8 +1,10 @@
 package it.unisalento.distributori.daoimpl;
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 
+import java.math.BigDecimal;
 import java.util.Arrays;
 import java.util.Iterator;
 import java.util.List;
@@ -12,16 +14,61 @@ import org.junit.Test;
 import org.junit.runners.MethodSorters;
 
 import it.unisalento.distributori.dao.ProdottoDao;
+import it.unisalento.distributori.domain.Categoria;
 import it.unisalento.distributori.domain.CategorieFornite;
 import it.unisalento.distributori.domain.Distributore;
 import it.unisalento.distributori.domain.FamiglieProdotto;
 import it.unisalento.distributori.domain.Prodotto;
+import it.unisalento.distributori.domain.Stabilimento;
 import it.unisalento.distributori.factory.FactoryDao;
 
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class ProdottoDaoImplTest {
 
 	ProdottoDao dao = FactoryDao.getIstance().getProdottoDao();
+	
+	@Test
+	public void testCRUD() throws Exception {
+		
+		Integer id;
+		Prodotto prodotto=new Prodotto();
+		
+		//set
+		prodotto.setFoto("foto JUnit");
+		prodotto.setIngredienti("basta un poco di zucchero");
+		prodotto.setNome("prova");
+		prodotto.setPreparazione("preparazione JUnit");
+		prodotto.setPrezzo(BigDecimal.valueOf(0));
+		prodotto.setScontoUtenti(BigDecimal.valueOf(0.10));
+		prodotto.setStabilimento(FactoryDao.getIstance().getStabilimentoDao().get(1, Stabilimento.class));
+		prodotto.setCategoria(FactoryDao.getIstance().getCategoriaDao().get(1, Categoria.class));
+		
+		prodotto.setId(dao.set(prodotto));
+		id=prodotto.getId();
+		
+		assertTrue(prodotto.getId()>0);
+		
+		//get (by ID)
+		prodotto=dao.get(id, Prodotto.class);
+		
+		assertNotNull(prodotto);
+		assertEquals(id, prodotto.getId());
+		
+		//update
+		prodotto=dao.get(id, Prodotto.class);
+		prodotto.setNome("prova updated");
+		dao.update(prodotto);
+		prodotto=dao.get(id, Prodotto.class);
+		
+		assertEquals("prova updated", prodotto.getNome());
+		
+		//delete
+		prodotto=dao.get(id, Prodotto.class);
+		dao.delete(prodotto);
+		prodotto=dao.get(id, Prodotto.class);
+		
+		assertEquals(null, prodotto);
+	}
 	
 	@Test
 	public void testGetAllProdotti() throws Exception {
@@ -101,16 +148,6 @@ public class ProdottoDaoImplTest {
 	}
 
 	@Test
-	public void testSet() throws Exception {
-		throw new RuntimeException("not yet implemented");
-	}
-
-	@Test
-	public void testGet() throws Exception {
-		throw new RuntimeException("not yet implemented");
-	}
-
-	@Test
 	public void testGetAll() throws Exception {
 		List<Prodotto> prodotti = dao.getAll(Prodotto.class);
 		
@@ -131,16 +168,6 @@ public class ProdottoDaoImplTest {
 				error=true;
 		}
 		assertTrue(!error);
-	}
-	
-	@Test
-	public void testUpdate() throws Exception {
-		throw new RuntimeException("not yet implemented");
-	}
-
-	@Test
-	public void testDelete() throws Exception {
-		throw new RuntimeException("not yet implemented");
 	}
 
 }

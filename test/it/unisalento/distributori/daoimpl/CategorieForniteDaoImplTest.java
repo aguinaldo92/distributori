@@ -22,43 +22,43 @@ public class CategorieForniteDaoImplTest {
 	CategorieForniteDao dao=FactoryDao.getIstance().getCategorieForniteDao();
 	
 	@Test
-	public void test1() throws Exception {//set
+	public void testCRUD() throws Exception {
+		
+		Integer id;
 		CategorieFornite categ_fornita=new CategorieFornite();
+		
+		//set
 		Categoria categ = FactoryDao.getIstance().getCategoriaDao().get(1, Categoria.class);
 		Distributore distributore = FactoryDao.getIstance().getDistributoreDao().get(1, Distributore.class);
 		categ_fornita.setCategoria(categ);
 		categ_fornita.setDistributore(distributore);
 		categ_fornita.setId(dao.set(categ_fornita));
 		
-		assertTrue(categ_fornita.getId()>0);
-	}
-
-	@Test
-	public void test2() throws Exception {//get by id
-		CategorieFornite categoria=dao.get(1, CategorieFornite.class);
+		id=categ_fornita.getId();
 		
-		assertNotNull(categoria);
-		assertEquals((Integer)1, categoria.getId());
-	}
-	
-	@Test
-	public void test3() throws Exception {//update
-		CategorieFornite categ_fornita=dao.get(11, CategorieFornite.class);
-		Categoria categoria=FactoryDao.getIstance().getCategoriaDao().get(2, Categoria.class);
-		categ_fornita.setCategoria(categoria);
+		assertTrue(categ_fornita.getId()>0);
+		
+		//get (by ID)
+		categ_fornita=dao.get(id, CategorieFornite.class);
+		
+		assertNotNull(categ_fornita);
+		assertEquals(id, categ_fornita.getId());
+		
+		//update
+		categ_fornita=dao.get(id, CategorieFornite.class);
+		categ=FactoryDao.getIstance().getCategoriaDao().get(2, Categoria.class);
+		categ_fornita.setCategoria(categ);
 		dao.update(categ_fornita);
-		categ_fornita=dao.get(11, CategorieFornite.class);
+		categ_fornita=dao.get(id, CategorieFornite.class);
 		
 		assertEquals((Integer)2, categ_fornita.getCategoria().getId());
-	}
-
-	@Test
-	public void test4() throws Exception {//delete
-		CategorieFornite categ_fornite=dao.get(11, CategorieFornite.class);
-		dao.delete(categ_fornite);
-		categ_fornite=dao.get(8, CategorieFornite.class);
 		
-		assertEquals(null, categ_fornite);
+		//delete
+		categ_fornita=dao.get(id, CategorieFornite.class);
+		dao.delete(categ_fornita);
+		categ_fornita=dao.get(id, CategorieFornite.class);
+		
+		assertEquals(null, categ_fornita);		
 	}
 
 	@Test

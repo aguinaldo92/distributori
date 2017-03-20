@@ -1,5 +1,6 @@
 package it.unisalento.distributori.daoimpl;
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 
@@ -10,6 +11,7 @@ import org.junit.Test;
 import org.junit.runners.MethodSorters;
 
 import it.unisalento.distributori.dao.StabilimentoDao;
+import it.unisalento.distributori.domain.Produttore;
 import it.unisalento.distributori.domain.Stabilimento;
 import it.unisalento.distributori.factory.FactoryDao;
 
@@ -19,13 +21,43 @@ public class StabilimentoDaoImplTest {
 	StabilimentoDao dao = FactoryDao.getIstance().getStabilimentoDao();
 	
 	@Test
-	public void testSet() throws Exception {
-		throw new RuntimeException("not yet implemented");
-	}
-
-	@Test
-	public void testGet() throws Exception {
-		throw new RuntimeException("not yet implemented");
+	public void testCRUD() throws Exception {
+		
+		Integer id;
+		Stabilimento stabilimento=new Stabilimento();
+		
+		//set
+		stabilimento.setCitta("prova JUnit");
+		stabilimento.setProvincia("PR");
+		stabilimento.setProduttore(FactoryDao.getIstance().getProduttoreDao().get(1, Produttore.class));
+		
+		stabilimento.setId(dao.set(stabilimento));
+		
+		id=stabilimento.getId();
+		
+		assertTrue(stabilimento.getId()>0);
+		
+		//get (by ID)
+		stabilimento=dao.get(id, Stabilimento.class);
+		
+		assertNotNull(stabilimento);
+		assertEquals(id, stabilimento.getId());
+		assertEquals("prova JUnit", stabilimento.getCitta());
+		
+		//update
+		stabilimento=dao.get(id, Stabilimento.class);
+		stabilimento.setCitta("prova JUnit updated");
+		dao.update(stabilimento);
+		stabilimento=dao.get(id, Stabilimento.class);
+		
+		assertEquals("prova JUnit updated", stabilimento.getCitta());
+		
+		//delete
+		stabilimento=dao.get(id, Stabilimento.class);
+		dao.delete(stabilimento);
+		stabilimento=dao.get(id, Stabilimento.class);
+		
+		assertEquals(null, stabilimento);		
 	}
 
 	@Test
@@ -49,16 +81,6 @@ public class StabilimentoDaoImplTest {
 				error=true;
 		}
 		assertTrue(!error);
-	}
-
-	@Test
-	public void testUpdate() throws Exception {
-		throw new RuntimeException("not yet implemented");
-	}
-
-	@Test
-	public void testDelete() throws Exception {
-		throw new RuntimeException("not yet implemented");
 	}
 
 }

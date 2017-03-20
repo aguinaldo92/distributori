@@ -1,5 +1,6 @@
 package it.unisalento.distributori.daoimpl;
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 
@@ -10,13 +11,57 @@ import org.junit.Test;
 import org.junit.runners.MethodSorters;
 
 import it.unisalento.distributori.dao.ProdottiErogatiDao;
+import it.unisalento.distributori.domain.Distributore;
 import it.unisalento.distributori.domain.ProdottiErogati;
+import it.unisalento.distributori.domain.Prodotto;
 import it.unisalento.distributori.factory.FactoryDao;
 
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class ProdottiErogatiDaoImplTest {
 
 	ProdottiErogatiDao dao = FactoryDao.getIstance().getProdottiErogatiDao();
+	
+	@Test
+	public void testCRUD() throws Exception {
+		
+		Integer id;
+		ProdottiErogati prod_erogati=new ProdottiErogati();
+		
+		//set
+		Prodotto prodotto = FactoryDao.getIstance().getProdottoDao().get(1, Prodotto.class);
+		Distributore distributore=FactoryDao.getIstance().getDistributoreDao().get(1, Distributore.class);
+		prod_erogati.setDistributore(distributore);
+		prod_erogati.setProdotto(prodotto);
+		prod_erogati.setPosto(3);
+		prod_erogati.setQuantita(20);
+		prod_erogati.setScaffale(2);
+		
+		prod_erogati.setId(dao.set(prod_erogati));
+		id=prod_erogati.getId();
+		
+		assertTrue(prod_erogati.getId()>0);
+		
+		//get (by ID)
+		prod_erogati=dao.get(id, ProdottiErogati.class);
+		
+		assertNotNull(prod_erogati);
+		assertEquals(id, prod_erogati.getId());
+		
+		//update
+		prod_erogati=dao.get(id, ProdottiErogati.class);
+		prod_erogati.setQuantita(1);
+		dao.update(prod_erogati);
+		prod_erogati=dao.get(id, ProdottiErogati.class);
+		
+		assertEquals((Integer)1, prod_erogati.getQuantita());
+		
+		//delete
+		prod_erogati=dao.get(id, ProdottiErogati.class);
+		dao.delete(prod_erogati);
+		prod_erogati=dao.get(id, ProdottiErogati.class);
+		
+		assertEquals(null, prod_erogati);
+	}
 	
 	@Test
 	public void testGetProdottiScarseggiantiByDistributore() throws Exception {
@@ -51,16 +96,6 @@ public class ProdottiErogatiDaoImplTest {
 	}
 
 	@Test
-	public void testSet() throws Exception {
-		throw new RuntimeException("not yet implemented");
-	}
-
-	@Test
-	public void testGet() throws Exception {
-		throw new RuntimeException("not yet implemented");
-	}
-
-	@Test
 	public void testGetAll() throws Exception {
 		List<ProdottiErogati> prodotti = dao.getAll(ProdottiErogati.class);
 		
@@ -81,16 +116,6 @@ public class ProdottiErogatiDaoImplTest {
 				error=true;
 		}
 		assertTrue(!error);
-	}
-
-	@Test
-	public void testUpdate() throws Exception {
-		throw new RuntimeException("not yet implemented");
-	}
-
-	@Test
-	public void testDelete() throws Exception {
-		throw new RuntimeException("not yet implemented");
 	}
 
 }

@@ -21,6 +21,53 @@ public class DistributoreDaoImplTest {
 	DistributoreDao dao=FactoryDao.getIstance().getDistributoreDao();
 	
 	@Test
+	public void testCRUD() throws Exception {
+		
+		Integer id;
+		Distributore distributore=new Distributore();
+		
+		//set
+		distributore.setIndirizzo("indirizzo test JUnit");
+		distributore.setLat(BigDecimal.valueOf(0));
+		distributore.setLon(BigDecimal.valueOf(0));
+		distributore.setNumPosti(0);
+		distributore.setNumScaffali(0);
+		distributore.setPosizioneEdificio("posizione test JUnit");
+		distributore.setStato(0);
+		
+		distributore.setId(dao.set(distributore));
+		
+		id=distributore.getId();
+
+		assertTrue(distributore.getId()>0);
+		
+		//get (by ID)
+		distributore=dao.get(id, Distributore.class);
+		
+		assertNotNull(distributore);
+		assertEquals("indirizzo test JUnit", distributore.getIndirizzo());
+		
+		//update
+		distributore=dao.get(id, Distributore.class);
+		
+		distributore.setPosizioneEdificio("posizione test JUnit updated");
+		
+		dao.update(distributore);
+		
+		distributore=dao.get(id, Distributore.class);
+		
+		assertEquals("posizione test JUnit updated", distributore.getPosizioneEdificio());
+		
+		//delete
+		distributore=dao.get(id, Distributore.class);
+		dao.delete(distributore);
+		
+		distributore=dao.get(id, Distributore.class);
+		
+		assertEquals(null, distributore);	
+	}
+	
+	@Test
 	public void testGetDistributoriByIdDipendenteSortedByStato() throws Exception {
 		List<Distributore> distributori = dao.getDistributoriByIdDipendenteSortedByStato(9);
 		
@@ -33,56 +80,6 @@ public class DistributoreDaoImplTest {
 		Long n_distrib_noOK=dao.getNumDistributoriNonOk();
 		
 		assertTrue(n_distrib_noOK>=0);
-	}
-
-	@Test
-	public void test1() throws Exception {//set
-		Distributore distributore=new Distributore();
-		distributore.setIndirizzo("indirizzo test JUnit");
-		distributore.setLat(BigDecimal.valueOf(0));
-		distributore.setLon(BigDecimal.valueOf(0));
-		distributore.setNumPosti(0);
-		distributore.setNumScaffali(0);
-		distributore.setPosizioneEdificio("posizione test JUnit");
-		distributore.setStato(0);
-		
-		distributore.setId(dao.set(distributore));
-
-		assertTrue(distributore.getId()>0);
-	}
-
-	@Test
-	public void test2() throws Exception {//get by id
-		
-		Distributore distributore=dao.get(4, Distributore.class);
-		
-		assertNotNull(distributore);
-		assertEquals("indirizzo test JUnit", distributore.getIndirizzo());
-	}
-	
-	@Test
-	public void test3() throws Exception {//update
-		
-		Distributore distributore=dao.get(4, Distributore.class);
-		
-		distributore.setPosizioneEdificio("posizione test JUnit updated");
-		
-		dao.update(distributore);
-		
-		distributore=dao.get(distributore.getId(), Distributore.class);
-		
-		assertEquals("posizione test JUnit updated", distributore.getPosizioneEdificio());
-	}
-
-	@Test
-	public void test4() throws Exception {//delete
-		
-		Distributore distributore=dao.get(4, Distributore.class);
-		dao.delete(distributore);
-		
-		distributore=dao.get(distributore.getId(), Distributore.class);
-		
-		assertEquals(null, distributore);
 	}
 
 	@Test

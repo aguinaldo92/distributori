@@ -1,5 +1,6 @@
 package it.unisalento.distributori.daoimpl;
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 
@@ -18,6 +19,45 @@ import it.unisalento.distributori.factory.FactoryDao;
 public class ProduttoreDaoImplTest {
 
 	ProduttoreDao dao = FactoryDao.getIstance().getProduttoreDao();
+	
+	@Test
+	public void testCRUD() throws Exception {
+		
+		Integer id;
+		Produttore produttore=new Produttore();
+		
+		//set
+		produttore.setNome("JUnit Test");
+		produttore.setSede("prova");
+		
+		produttore.setId(dao.set(produttore));
+		
+		id=produttore.getId();
+		
+		assertTrue(produttore.getId()>0);
+		
+		//get (by ID)
+		produttore=dao.get(id, Produttore.class);
+		
+		assertNotNull(produttore);
+		assertEquals(id, produttore.getId());
+		assertEquals("JUnit Test", produttore.getNome());
+		
+		//update
+		produttore=dao.get(id, Produttore.class);
+		produttore.setNome("JUnit Test updated");
+		dao.update(produttore);
+		produttore=dao.get(id, Produttore.class);
+		
+		assertEquals("JUnit Test updated", produttore.getNome());
+		
+		//delete
+		produttore=dao.get(id, Produttore.class);
+		dao.delete(produttore);
+		produttore=dao.get(id, Produttore.class);
+		
+		assertEquals(null, produttore);		
+	}
 	
 	@Test
 	public void testGetStabilimentiByProduttore() throws Exception {
@@ -59,16 +99,6 @@ public class ProduttoreDaoImplTest {
 	}
 
 	@Test
-	public void testSet() throws Exception {
-		throw new RuntimeException("not yet implemented");
-	}
-
-	@Test
-	public void testGet() throws Exception {
-		throw new RuntimeException("not yet implemented");
-	}
-
-	@Test
 	public void testGetAll() throws Exception {
 		List<Produttore> produttori = dao.getAll(Produttore.class);
 		
@@ -89,16 +119,6 @@ public class ProduttoreDaoImplTest {
 				error=true;
 		}
 		assertTrue(!error);
-	}
-
-	@Test
-	public void testUpdate() throws Exception {
-		throw new RuntimeException("not yet implemented");
-	}
-
-	@Test
-	public void testDelete() throws Exception {
-		throw new RuntimeException("not yet implemented");
 	}
 
 }

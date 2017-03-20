@@ -17,6 +17,46 @@ public class PersonaDaoImplTest {
 	PersonaDao dao=FactoryDao.getIstance().getPersonaDao();
 	
 	@Test
+	public void testCRUD() throws Exception {
+		
+		Integer id;
+		Persona persona=new Persona();
+		
+		//set
+		persona.setCognome("Cesare");
+		persona.setEmail("dd@gg.tt");
+		persona.setNome("Giulio");
+		persona.setPassword("password");
+		persona.setRuolo(0);
+		
+		persona.setId(dao.set(persona));
+		id=persona.getId();
+		
+		assertTrue(persona.getId()>0);
+		
+		//get (by ID)
+		persona=dao.get(id, Persona.class);
+		
+		assertNotNull(persona);
+		assertEquals(id, persona.getId());
+		
+		//update
+		persona=dao.get(id, Persona.class);
+		persona.setNome("Giulietto");
+		dao.update(persona);
+		persona=dao.get(id, Persona.class);
+		
+		assertEquals("Giulietto", persona.getNome());
+		
+		//delete
+		persona=dao.get(id, Persona.class);
+		dao.delete(persona);
+		persona=dao.get(id, Persona.class);
+		
+		assertEquals(null, persona);
+	}
+	
+	@Test
 	public void testGetPersonaByCredentials() throws Exception {
 		
 		Persona persona=dao.getPersonaByCredentials("wifidrinksnacks@gmail.com", "admin");
@@ -35,16 +75,6 @@ public class PersonaDaoImplTest {
 		
 		assertTrue(!mymailexist);
 		assertTrue(notmineexists);
-	}
-
-	@Test
-	public void testSet() throws Exception {
-		throw new RuntimeException("not yet implemented");
-	}
-
-	@Test
-	public void testGet() throws Exception {
-		throw new RuntimeException("not yet implemented");
 	}
 
 	@Test
@@ -68,16 +98,6 @@ public class PersonaDaoImplTest {
 				error=true;
 		}
 		assertTrue(!error);
-	}
-
-	@Test
-	public void testUpdate() throws Exception {
-		throw new RuntimeException("not yet implemented");
-	}
-
-	@Test
-	public void testDelete() throws Exception {
-		throw new RuntimeException("not yet implemented");
 	}
 
 }

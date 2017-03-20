@@ -21,8 +21,12 @@ public class DipendenteDaoImplTest {
 	DipendenteDao dao=FactoryDao.getIstance().getDipendenteDao();
 	
 	@Test
-	public void test1() throws Exception {//set
+	public void testCRUD() throws Exception {
+		
+		Integer id;
 		Dipendente dipendente=new Dipendente();
+		
+		//set
 		dipendente.setTelefono("0000000000");
 		Persona persona = new Persona();
 		persona.setNome("Giacomo");
@@ -33,44 +37,38 @@ public class DipendenteDaoImplTest {
 		
 		dipendente.setPersona(persona);
 		dipendente.setPersonaId(dao.set(dipendente));
+		
+		id=dipendente.getPersonaId();
 
 		assertTrue(dipendente.getPersonaId()>0);
 		assertTrue(dipendente.getPersonaId()==persona.getId());
-	}
-
-	@Test
-	public void test2() throws Exception {//get by id
-		Persona persona=FactoryDao.getIstance().getPersonaDao().getPersonaByCredentials("dd@ff.it", "password");
 		
-		Dipendente dipendente=dao.get(persona.getId(), Dipendente.class);
-		
-		assertNotNull(dipendente);
-		assertTrue(persona.getId()==dipendente.getPersonaId());
-	}
-	
-	@Test
-	public void test3() throws Exception {//update
-		Persona persona=FactoryDao.getIstance().getPersonaDao().getPersonaByCredentials("dd@ff.it", "password");
-		Dipendente dipendente=dao.get(persona.getId(), Dipendente.class);
-		dipendente.setTelefono("0836333333");
-		dao.update(dipendente);
+		//get (by ID)
+		persona=FactoryDao.getIstance().getPersonaDao().getPersonaByCredentials("dd@ff.it", "password");
 		
 		dipendente=dao.get(persona.getId(), Dipendente.class);
 		
+		assertNotNull(dipendente);
+		assertTrue(persona.getId()==dipendente.getPersonaId());
+		
+		//update
+		dipendente=dao.get(id, Dipendente.class);
+		dipendente.setTelefono("0836333333");
+		dao.update(dipendente);
+		
+		dipendente=dao.get(id, Dipendente.class);
+		
 		assertEquals("0836333333", dipendente.getTelefono());
-	}
-
-	@Test
-	public void test4() throws Exception {//delete
-		Persona persona=FactoryDao.getIstance().getPersonaDao().getPersonaByCredentials("dd@ff.it", "password");
-		Dipendente dipendente=dao.get(persona.getId(), Dipendente.class);
+		
+		//delete
+		dipendente=dao.get(id, Dipendente.class);
 		dao.delete(dipendente);
 		
 		FactoryDao.getIstance().getPersonaDao().delete(persona);
 		
-		dipendente=dao.get(persona.getId(), Dipendente.class);
+		dipendente=dao.get(id, Dipendente.class);
 		
-		assertEquals(null, dipendente);
+		assertEquals(null, dipendente);		
 	}
 
 	@Test

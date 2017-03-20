@@ -20,38 +20,38 @@ public class FamigliaDaoImplTest {
 	FamigliaDao dao=FactoryDao.getIstance().getFamigliaDao();
 	
 	@Test
-	public void test1() throws Exception {//set
+	public void testCRUD() throws Exception {
+		
+		Integer id;
 		Famiglia famiglia=new Famiglia();
+		
+		//set
 		famiglia.setNome("Test JUnit");
 		
 		famiglia.setId(dao.set(famiglia));
 		
+		id=famiglia.getId();
+		
 		assertTrue(famiglia.getId()>0);
-	}
-
-	@Test
-	public void test2() throws Exception {//get by id
-		Famiglia famiglia=dao.get(8, Famiglia.class);
+		
+		//get (by ID)
+		famiglia=dao.get(id, Famiglia.class);
 		
 		assertNotNull(famiglia);
-		assertEquals((Integer)8, famiglia.getId());
-	}
-	
-	@Test
-	public void test3() throws Exception {//update
-		Famiglia famiglia=dao.get(8, Famiglia.class);
+		assertEquals(id, famiglia.getId());
+		
+		//update
+		famiglia=dao.get(id, Famiglia.class);
 		famiglia.setNome("Test update JUnit");
 		dao.update(famiglia);
-		famiglia=dao.get(8, Famiglia.class);
+		famiglia=dao.get(id, Famiglia.class);
 		
 		assertEquals("Test update JUnit", famiglia.getNome());
-	}
-
-	@Test
-	public void test4() throws Exception {//delete
-		Famiglia famiglia=dao.get(8, Famiglia.class);
+		
+		//delete
+		famiglia=dao.get(id, Famiglia.class);
 		dao.delete(famiglia);
-		famiglia=dao.get(8, Famiglia.class);
+		famiglia=dao.get(id, Famiglia.class);
 		
 		assertEquals(null, famiglia);
 	}
