@@ -15,8 +15,6 @@
 		</result-types>
 
 		<interceptors>
-			<interceptor name="myInterceptor"
-				class="it.unisalento.distributori.interceptor.MyInterceptor" />
 			<interceptor name="LoginInterceptor"
 				class="it.unisalento.distributori.interceptor.LoginInterceptor" />
 				
