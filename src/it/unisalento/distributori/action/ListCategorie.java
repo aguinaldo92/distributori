@@ -32,4 +32,13 @@ public class ListCategorie extends ActionSupport{
 		}
 	}
 
+	public List<Categoria> getCategorie() {
+		return categorie;
+	}
+
+	public void setCategorie(List<Categoria> categorie) {
+		this.categorie = categorie;
+	}
+	
+
 }

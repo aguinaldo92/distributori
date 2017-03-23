@@ -49,16 +49,22 @@
 		<put-attribute name="body" value="/views/gestore/gestioneDistributori.jsp" />
 	</definition>
 	
-	<definition name="dettaglioDistributoreGestore" extends="baseLayoutGestore">
-		<put-attribute name="title" value="Distributore" />
+	<definition name="prodottiDistributoreGestore" extends="baseLayoutGestore">
+		<put-attribute name="title" value="Prodotti del distributore" />
 		<put-attribute name="body"
-			value="/views/gestore/dettaglioDistributore.jsp" />
+			value="/views/gestore/prodottiDistributore.jsp" />
 	</definition>
 	
 	<definition name="createDistributore" extends="baseLayoutGestore">
 		<put-attribute name="title" value="Nuovo Distributore" />
 		<put-attribute name="body"
 			value="/views/gestore/createDistributore.jsp" />
+	</definition>
+	
+	<definition name="updateDistributore" extends="baseLayoutGestore">
+		<put-attribute name="title" value="Modifica Distributore" />
+		<put-attribute name="body"
+			value="/views/gestore/updateDistributore.jsp" />
 	</definition>
 
 	<definition name="listDipendenti" extends="baseLayoutGestore">
@@ -114,10 +120,10 @@
 		<put-attribute name="body" value="/views/dipendente/modificaPassword.jsp" />
 	</definition>
 	
-	<definition name="dettaglioDistributoreDipendente" extends="baseLayoutDipendente">
+	<definition name="prodottiDistributoreDipendente" extends="baseLayoutDipendente">
 		<put-attribute name="title" value="Distributore" />
 		<put-attribute name="body"
-			value="/views/dipendente/dettaglioDistributore.jsp" />
+			value="/views/dipendente/prodottiDistributore.jsp" />
 	</definition>
 	
 </tiles-definitions>

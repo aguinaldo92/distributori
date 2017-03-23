@@ -13,15 +13,10 @@ public class ListDipendenti extends ActionSupport{
 
 	private static final long serialVersionUID = -5408667531361347560L;
 	private List<Dipendente> dipendenti = new ArrayList<Dipendente>();
-    
+
 	public String execute () {
-		
 		this.dipendenti=FactoryDao.getIstance().getDipendenteDao().getAll(Dipendente.class);
-		
 		ServletActionContext.getRequest().setAttribute("dipendenti", dipendenti);
-		
-		System.out.println("Caricata la lista dei dipendenti. N° dipendenti: "+dipendenti.size());
-		
 		return SUCCESS;
 	}
 

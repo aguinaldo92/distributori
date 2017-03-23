@@ -65,6 +65,7 @@
 	<package name="common" extends="default" namespace="/">
 	
 		<action name="ListCategorie" class="it.unisalento.distributori.action.ListCategorie" />
+		<action name="ListStati" class="it.unisalento.distributori.action.ListStati" />
 
 		
 	</package>
@@ -92,8 +93,8 @@
 			<result name="input" type="tiles">profilo</result>
 		</action>
 
-		<action name="DettaglioDistributore" class="it.unisalento.distributori.action.DettaglioDistributore">
-			<result type="tiles">dettaglioDistributoreDipendente</result>
+		<action name="ProdottiDistributore" class="it.unisalento.distributori.action.ProdottiDistributore">
+			<result type="tiles">prodottiDistributoreDipendente</result>
 		</action>
 
 		<action name="UpdateQuantitaProdottiByDistributore" class="it.unisalento.distributori.action.UpdateQuantitaProdottiByDistributore">
@@ -131,9 +132,6 @@
 			<result type="tiles">createDipendente</result>
 		</action>
 
-		<action name="gotoCreateDistributore" class="it.unisalento.distributori.action.GotoCreateDistributore">
-			<result type="tiles">createDistributore</result>
-		</action>
 
 		<action name="showDipendenti">
 			<result type="tiles">listDipendenti</result>
@@ -200,16 +198,31 @@
 			<result name="success" type="tiles">gestioneDistributori</result>
 		</action>
 
-		<action name="DettaglioDistributoreGestore" class="it.unisalento.distributori.action.DettaglioDistributore">
-			<result type="tiles">dettaglioDistributoreGestore</result>
+		<action name="ProdottiDistributore" class="it.unisalento.distributori.action.ProdottiDistributore">
+			<result type="tiles">prodottiDistributoreGestore</result>
+		</action>
+		
+		<action name="goToCreateDistributore">
+			<result type="tiles">createDistributore</result>
 		</action>
 
 		<action name="CreateDistributore" class="it.unisalento.distributori.action.CreateDistributore">
 			<result name="success" type="redirectAction">
-				<param name="actionName">DettaglioDistributoreGestore</param>
+				<param name="actionName">ProdottiDistributoreGestore</param>
 				<param name="idDistributore">${idDistributore}</param>
 			</result>
 			<result name="input" type="tiles">createDistributore</result>
+		</action>
+		
+		<action name="DistributoreDetail" class="it.unisalento.distributori.action.DistributoreDetail">
+			<result name="success" type="tiles">updateDistributore</result>
+		</action>
+		
+		<action name="UpdateDistributore" class="it.unisalento.distributori.action.UpdateDistributore">
+			<result name="success" type="redirectAction">
+				<param name="actionName">ListDistributoriGestore</param>
+			</result>
+			<result name="input" type="tiles">updateDistributore</result>
 		</action>
 
 		<action name="FileUpload_editProdotto" class="it.unisalento.distributori.action.UpdateImageProdotto">

@@ -88,7 +88,6 @@ public class UpdateDipendente extends ActionSupport implements ModelDriven<Perso
 	
 	@Override
 	public PersonaModel getModel() {
-		// TODO Auto-generated method stub
 		return DipForm;
 	}
 

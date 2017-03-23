@@ -36,13 +36,13 @@
 							</thead>
 							<tbody>
 								<s:iterator value="#attr.listDistributoreModel" var="listDistrModel">
-									<s:url var="dettaglioDistributore" namespace="/gestore" action="DettaglioDistributoreGestore">
+									<s:url var="dettaglioDistributore" namespace="/gestore" action="DistributoreDetail">
 										<s:param name="idDistributore">
 											<s:property value="id" />
 										</s:param>
 									</s:url>
 									
-									<s:url var="gotoCreateDistributore" namespace="/gestore" action="gotoCreateDistributore">
+									<s:url var="prodottiDistributore" namespace="/gestore" action="ProdottiDistributore">
 										<s:param name="idDistributore">
 											<s:property value="id" />
 										</s:param>
@@ -52,8 +52,8 @@
 										<td><a href="${dettaglioDistributore}" class="compare-in">
 												<button class="btn btn-primary">Dettaglio</button>
 										</a>
-										<a href="${gotoCreateDistributore}" class="compare-in">
-												<button class="btn btn-success">Modifica</button>
+										<a href="${prodottiDistributore}" class="compare-in">
+												<button class="btn btn-success">Prodotti</button>
 										</a></td>
 										<td><img src="/distributori/images/stato-${stato}.ico" alt="Stato"></td>
 										<s:url var="editDip" action="DipendenteDetail">
