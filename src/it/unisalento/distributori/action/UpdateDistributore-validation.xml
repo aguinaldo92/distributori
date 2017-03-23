@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE validators PUBLIC "-//Apache Struts//XWork Validator 1.0.3//EN"
+ "http://struts.apache.org/dtds/xwork-validator-1.0.3.dtd">
+
+<validators>
+	<field name="distributoreModel.via">
+		<field-validator type="requiredstring">
+			<message>Via richiesta</message>
+		</field-validator>
+	</field>
+	<field name="distributoreModel.civico">
+		<field-validator type="required">
+			<message>Il numero civico è obbligatorio</message>
+		</field-validator>
+		<field-validator type="int">
+			<message>Il numero civico deve essere intero</message>
+		</field-validator>
+	</field>
+	<field name="distributoreModel.citta">
+		<field-validator type="requiredstring">
+			<message>Città richiesta</message>
+		</field-validator>
+	</field>
+	<field name="distributoreModel.provincia">
+		<field-validator type="requiredstring">
+			<message>Provincia richiesta</message>
+		</field-validator>
+		<field-validator type="regex">
+            <param name="regex">[A-Z][A-Z]</param>
+            <message>Formato Provincia non corretto, ES: MI</message>
+         </field-validator>
+	</field>
+	<field name="distributoreModel.numScaffali">
+		<field-validator type="required">
+			<message>Il numero di scaffali del distributore è obbligatorio</message>
+		</field-validator>
+		<field-validator type="int">
+			<message>Il numero di scaffali del distributore deve essere intero</message>
+		</field-validator>
+	</field>
+	<field name="distributoreModel.numPosti">
+		<field-validator type="required">
+			<message>Il numero di colonne del distributore è obbligatorio</message>
+		</field-validator>
+		<field-validator type="int">
+			<message>Il numero di colonne del distributore deve essere intero</message>
+		</field-validator>
+	</field>
+</validators>

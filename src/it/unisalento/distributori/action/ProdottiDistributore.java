@@ -20,7 +20,7 @@ import it.unisalento.distributori.model.DettaglioDistributoreModel;
  * @author aguinaldo
  *
  */
-public class DettaglioDistributore extends ActionSupport {
+public class ProdottiDistributore extends ActionSupport {
 	private static final long serialVersionUID = 3181980036211349123L;
 	private Integer idDistributore;
 	private Distributore distributore;

@@ -49,7 +49,7 @@
 												</s:url>
 												<td>
 												<s:hidden name="listIdsProdottiErogati" value="%{#listDettaglioDistributoreModel.idProdottoErogato}" />
-												<s:select list="prodottiCompatibili" listKey="id" listValue="nome" name="listIdsProdotti" value="%{#listDettaglioDistributoreModel.idProdotto}" />
+												<s:select class="form-control" list="prodottiCompatibili" listKey="id" listValue="nome" name="listIdsProdotti" value="%{#listDettaglioDistributoreModel.idProdotto}" />
 												<a href="${dettaglioProdotto}" class="btn btn-primary btn-xs">Dettaglio</a> 
 												</td>
 											</s:iterator>

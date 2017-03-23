@@ -34,15 +34,15 @@
 							</thead>
 							<tbody>
 								<s:iterator value="#attr.listDistributoreModel" var="listDistrModel">
-									<s:url var="dettaglioDistributore" namespace="/dipendente" action="DettaglioDistributore">
+									<s:url var="prodottiDistributore" namespace="/dipendente" action="ProdottiDistributore">
 										<s:param name="idDistributore">
 											<s:property value="id" />
 										</s:param>
 									</s:url>
 
 									<tr class="odd gradeA">
-										<td><a href="${dettaglioDistributore}" class="compare-in">
-												<button class="btn btn-primary">Dettaglio</button>
+										<td><a href="${prodottiDistributore}" class="compare-in">
+												<button class="btn btn-primary">Prodotti</button>
 										</a></td>
 										<td><img src="/distributori/images/stato-${stato}.ico" alt="Stato"></td>
 										<!--  mostro solo i prodotti non vuoti -->
