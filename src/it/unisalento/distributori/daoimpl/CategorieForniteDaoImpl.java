@@ -67,7 +67,7 @@ public class CategorieForniteDaoImpl extends BaseDaoImpl<CategorieFornite> imple
 	public List<Integer> getIdsCategorieForniteByDistributore(Integer idDistributore) {
 		List<Integer> listIdsCategorieFornite;
 		try {
-			session = sf.openSession();
+			session = HibernateUtil.getSession();
 			tx = session.beginTransaction();
 			String hql = "Select C.id from CategorieFornite CF inner join CF.categoria C where CF.distributore.id = :idDistributore and C.nome != 'Generica' order by C.nome" ;
 			Query query = session.createQuery(hql);

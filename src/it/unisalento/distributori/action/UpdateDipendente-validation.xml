@@ -22,6 +22,9 @@
          </field-validator>
      </field>
      <field name="telefono">
+      <field-validator type="required">
+             <message>telefono richiesto</message>
+         </field-validator>
          <field-validator type="regex">
             <param name="regex">[03][0-9]{9}</param>
             <message>Formato Telefono non corretto (10 cifre - es.: 3399900888 / 0832331100)</message>

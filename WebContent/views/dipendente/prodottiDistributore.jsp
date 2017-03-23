@@ -47,7 +47,7 @@
 															<s:property value="%{idProdotto}" />
 														</s:param>
 													</s:url>
-												<td><a href="${dettaglioProdotto}"> <s:property value="nomeProdottoErogato" /></a> 
+												<td><s:if test="nomeProdottoErogato != 'vuoto'"><a href="${dettaglioProdotto}"> <s:property value="nomeProdottoErogato" /></a></s:if><s:else> <s:property value="nomeProdottoErogato" /></s:else> 
 												<s:hidden name="ids" value="%{idProdottoErogato}" />
 													<div class="input-group">
 														<span class="input-group-btn">

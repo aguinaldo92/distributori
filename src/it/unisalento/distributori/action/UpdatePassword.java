@@ -54,7 +54,7 @@ public class UpdatePassword extends ActionSupport implements SessionAware{
 			errors = true;
 		}
 		System.out.println("UpdatePassword: fine validate");
-		if (errors) {
+		if (errors || hasFieldErrors()) {
 			System.out.println("UpdatePassword: presenti alcuni errori");
 			addActionError("Sono presenti errori all'interno del form");
 		}
@@ -68,8 +68,8 @@ public class UpdatePassword extends ActionSupport implements SessionAware{
 		}catch (Exception e){
 			System.out.println("Impossibile salvare la password nel DB: " + e.getLocalizedMessage());
 		}
-
-		System.out.println("PAssword Modificata");
+		addActionMessage("Password modificata con successo");
+		System.out.println("Password Modificata");
 		return SUCCESS;
 	}
 

@@ -3,7 +3,7 @@
     <%@ taglib prefix="s" uri="/struts-tags" %>
 <!DOCTYPE html>
 
-<s:action namespace="/gestore" name="PreloadedFieldsProdotto"/>
+<s:action namespace="/" name="PreloadedFieldsProdotto"/>
 
 <div id="wrapper">  
            

@@ -50,7 +50,7 @@
 				<p align="center">
 					<s:a action="ListDipendenti" class="btn btn-danger btn-lg">Annulla</s:a>
 					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-					<s:submit cssClass="btn btn-success btn-lg" name="edit_button" value="Modifica" />
+					<s:submit cssClass="btn btn-success btn-lg" value="Modifica" />
 				</p>
 				</div>
 			</s:form>

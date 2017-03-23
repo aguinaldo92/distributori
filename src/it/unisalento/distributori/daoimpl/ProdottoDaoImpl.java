@@ -96,7 +96,7 @@ public class ProdottoDaoImpl extends BaseDaoImpl<Prodotto> implements ProdottoDa
 		@Override
 		public Prodotto getProdottoVuoto() throws Exception{
 			
-			session = sf.openSession();
+			session = HibernateUtil.getSession();
 	        tx = session.beginTransaction();
 	        Query query = session.createQuery("from Prodotto as P where P.nome = :vuoto");
 	        // hibernate non è case sensitive nelle clausole where 

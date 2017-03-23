@@ -43,9 +43,7 @@
 				<div class="form-group">
                    <label>Contatti</label>
                	</div>
-				<div class=' form-group input-group input-group-lg <s:if test="hasActionErrors()">
-																		has-error
-																	</s:if>'>
+				<div class=' form-group input-group input-group-lg '>
   				<span class="input-group-addon">Email</span>
   				<s:textfield cssClass="form-control" cssStyle="width: 60%;" type="email" name="email"/>
   				</div>

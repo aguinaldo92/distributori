@@ -23,65 +23,74 @@ public class UpdateDipendente extends ActionSupport implements ModelDriven<Perso
 	 * 
 	 */
 	private static final long serialVersionUID = -686794116834734106L;
-	private PersonaModel DipForm = new PersonaModel();
-	private Dipendente new_Dip = new Dipendente();
-	
-	public Dipendente getNew_Dip() {
-		return new_Dip;
-	}
+	private PersonaModel dipendente = new PersonaModel();
+	private Dipendente dip = new Dipendente();
 
-	public void setNew_Dip(Dipendente new_Dip) {
-		this.new_Dip = new_Dip;
-	}
 
 	public String execute() {
 		
-		System.out.println("Sono entrato nella action UpdateDipendente - ID dipendente="+DipForm.getId());
+		System.out.println("Sono entrato nella action UpdateDipendente - ID dip="+dipendente.getId());
 				
-		//precarico i dati del dipendente
+		//precarico i dati del dip
 		try {
-			new_Dip=FactoryDao.getIstance().getDipendenteDao().get(DipForm.getId(), Dipendente.class);
+			dip=FactoryDao.getIstance().getDipendenteDao().get(dipendente.getId(), Dipendente.class);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		new_Dip.setTelefono(DipForm.getTelefono());//modifico con il dato del form
+		dip.setTelefono(dipendente.getTelefono());//modifico con il dato del form
 		
-		Persona new_persona = new_Dip.getPersona();//precarico i dati della persona
-		new_persona.setCognome(DipForm.getCognome());//modifico con quelli del form
-		new_persona.setNome(DipForm.getNome());
-		new_persona.setEmail(DipForm.getEmail());
+		Persona new_persona = dip.getPersona();//precarico i dati della persona
+		new_persona.setCognome(dipendente.getCognome());//modifico con quelli del form
+		new_persona.setNome(dipendente.getNome());
+		new_persona.setEmail(dipendente.getEmail());
 
-		//aggiorno persona e dipendente nel DB
+		//aggiorno persona e dip nel DB
 		try{
 			FactoryDao.getIstance().getPersonaDao().update(new_persona);
-			FactoryDao.getIstance().getDipendenteDao().update(new_Dip);
+			FactoryDao.getIstance().getDipendenteDao().update(dip);
 		}catch (Exception e){
 			System.out.println("La mail è già presente");
 			addActionError("Email già presente");
 			return INPUT;
 		}
-		System.out.println("Aggiornato il dipendente nel DB. ID USER="+new_Dip.getPersonaId());
+		System.out.println("Aggiornato il dip nel DB. ID USER="+dip.getPersonaId());
 		
-				
+		addActionMessage("Modifica completata con successo");
 		return SUCCESS;
 	}
 	
 	public void validate(){
-
-		ServletActionContext.getRequest().setAttribute("dipendente", DipForm);
+		Boolean errors = false;
+		ServletActionContext.getRequest().setAttribute("dipendente", dipendente);
 		
-		System.out.println("sono in validate() di UpdateDipendente: "+DipForm.getCognome()+" "+DipForm.getNome());
+		System.out.println("sono in validate() di UpdateDipendente: "+dipendente.getCognome()+" "+dipendente.getNome());
 		
-		if (FactoryDao.getIstance().getPersonaDao().emailExists(DipForm.getEmail(),DipForm.getId())){
+		if (FactoryDao.getIstance().getPersonaDao().emailExists(dipendente.getEmail(),dipendente.getId())){
 			System.out.println("La mail è già presente");
 			addFieldError("email_esistente", "Email già presente");
+			errors = true;
 		}
+		if (errors || hasFieldErrors()){
+			addActionError("Ci sono degli errori nell'aggiornamento delle info");
+		}
+		
 	}
 	
 	@Override
 	public PersonaModel getModel() {
-		return DipForm;
+		return dipendente;
 	}
+
+	public Dipendente getDip() {
+		return dip;
+	}
+
+	public void setDip(Dipendente dip) {
+		this.dip = dip;
+	}
+
+
+
 
 }

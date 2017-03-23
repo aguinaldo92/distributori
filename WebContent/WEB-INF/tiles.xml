@@ -126,4 +126,9 @@
 			value="/views/dipendente/prodottiDistributore.jsp" />
 	</definition>
 	
+		<definition name="prodottoDetail" extends="baseLayoutDipendente">
+		<put-attribute name="title" value="Dettagli Prodotto" />
+		<put-attribute name="body" value="/views/dipendente/prodottoDetail.jsp" />
+	</definition>
+	
 </tiles-definitions>

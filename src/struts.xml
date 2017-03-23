@@ -7,13 +7,13 @@
 	<constant name="struts.i18n.reload" value="false" />
 	<constant name="struts.configuration.xml.reload" value="false" />
 	<constant name="struts.ui.theme" value="simple" />
-	<constant name="struts.objectFactory" value="spring"/>
+<!-- 	<constant name="struts.objectFactory" value="spring"/> -->
 	
-    <package name="test" namespace="/test" extends="struts-default">
-        <action name="AddDipendenteTest" class="it.unisalento.distributori.action.AddDipendente">
-            <result type="freemarker">/template.ftl</result>
-        </action>
-    </package>
+<!--     <package name="test" namespace="/test" extends="struts-default"> -->
+<!--         <action name="AddDipendenteTest" class="it.unisalento.distributori.action.AddDipendente"> -->
+<!--             <result type="freemarker">/template.ftl</result> -->
+<!--         </action> -->
+<!--     </package> -->
 
 	<package name="default" extends="struts-default">
 		<result-types>
@@ -74,7 +74,7 @@
 	
 		<action name="ListCategorie" class="it.unisalento.distributori.action.ListCategorie" />
 		<action name="ListStati" class="it.unisalento.distributori.action.ListStati" />
-
+		<action name="PreloadedFieldsProdotto" class="it.unisalento.distributori.action.PreloadedFieldsProdotto"/>
 		
 	</package>
 
@@ -92,11 +92,15 @@
 		</action>
 		
 		<action name="UpdatePassword" class="it.unisalento.distributori.action.UpdatePassword" >
-			<result name="success" type="tiles">profilo</result>
+			<result name="success" type="redirectAction">DipendenteDetail</result>
 			<result name="input" type="tiles">modificaPassword</result>
 		</action>
 		
 		<action name="DipendenteDetail" class="it.unisalento.distributori.action.DipendenteDetail">
+			<result name="success" type="tiles">profilo</result>
+		</action>
+		
+		<action name="UpdateDipendente" class="it.unisalento.distributori.action.UpdateDipendente">
 			<result name="success" type="tiles">profilo</result>
 			<result name="input" type="tiles">profilo</result>
 		</action>
@@ -117,8 +121,7 @@
 		</action>
 		
 		<action name="ProdottoDetail" class="it.unisalento.distributori.action.ProdottoDetail">
-			<result name="success" type="tiles">editProdotto</result>
-<!-- 			<result name="input" type="tiles">editProdotto</result> -->
+			<result name="success" type="tiles">prodottoDetail</result>
 		</action>
 		
 	</package>
@@ -154,9 +157,6 @@
 			<result type="tiles">createProdotto</result>
 		</action>
 		
-		<action name="PreloadedFieldsProdotto" class="it.unisalento.distributori.action.PreloadedFieldsProdotto">
-			<result type="tiles">createProdotto</result>
-		</action>
 		
 		<action name="ListProdotti" class="it.unisalento.distributori.action.ListProdotti">
 			<result type="tiles">listProdotti</result>
