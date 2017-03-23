@@ -7,6 +7,13 @@
 	<constant name="struts.i18n.reload" value="false" />
 	<constant name="struts.configuration.xml.reload" value="false" />
 	<constant name="struts.ui.theme" value="simple" />
+	<constant name="struts.objectFactory" value="spring"/>
+	
+    <package name="test" namespace="/test" extends="struts-default">
+        <action name="AddDipendenteTest" class="it.unisalento.distributori.action.AddDipendente">
+            <result type="freemarker">/template.ftl</result>
+        </action>
+    </package>
 
 	<package name="default" extends="struts-default">
 		<result-types>
