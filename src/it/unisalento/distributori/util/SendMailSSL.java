@@ -11,7 +11,7 @@ import javax.mail.internet.MimeMessage;
 
 public class SendMailSSL {
 	
-	public void send(String email_To, String oggetto, String testo) {
+	public int send(String email_To, String oggetto, String testo) {
 		
 		System.out.println("Sono entrato in SendMailSSL");
 		
@@ -46,5 +46,7 @@ public class SendMailSSL {
 		} catch (MessagingException e) {
 			throw new RuntimeException(e);
 		}
+		
+		return 0;
 	}
 }

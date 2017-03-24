@@ -1,8 +1,6 @@
 package it.unisalento.distributori.daoimpl;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.*;
 
 import java.util.List;
 
@@ -63,6 +61,10 @@ public class PersonaDaoImplTest {
 		
 		assertNotNull(persona);
 		assertEquals("wifidrinksnacks@gmail.com", persona.getEmail());
+		
+		persona=dao.getPersonaByCredentials("email@inesistente.it", "pwd");
+		
+		assertNull(persona);
 	}
 
 	@Test
@@ -72,9 +74,11 @@ public class PersonaDaoImplTest {
 		
 		boolean mymailexist = dao.emailExists("wifidrinksnacks@gmail.com", id_test);
 		boolean notmineexists = dao.emailExists("sato89@hotmail.it", id_test);
+		boolean mailexists = dao.emailExists("sato89@hotmail.it", null);
 		
-		assertTrue(!mymailexist);
+		assertFalse(mymailexist);
 		assertTrue(notmineexists);
+		assertTrue(mailexists);
 	}
 
 	@Test
