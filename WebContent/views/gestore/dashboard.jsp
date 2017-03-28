@@ -17,8 +17,8 @@
 						<span class="icon-box bg-color-blue set-icon"> <i class="fa fa-envelope-o"></i>
 						</span>
 						<div class="text-box">
-							<p class="main-text"><s:a namespace="/gestore" action="ListaMessaggi"><s:property value="#attr.numMessaggiNonLetti"/> Nuovi</s:a></p>
-							<p class="text-muted">Messages</p>
+							<p class="main-text"><s:a namespace="/gestore" action="ShowFeedbacks"><s:property value="#attr.numMessaggiNonLetti"/> Nuovi</s:a></p>
+							<p class="text-muted">messaggi dagli utenti</p>
 						</div>
 					</div>
 				</div>
@@ -28,7 +28,7 @@
 						</span>
 						<div class="text-box">
 							<p class="main-text"><s:a namespace="/gestore" action="ListDistributoriGestore"><s:property value="#attr.numDistributoriNonOk"/> Distributori </s:a></p>
-							<p class="text-muted">Richiedono manutenzione</p>
+							<p class="text-muted">richiedono manutenzione</p>
 						</div>
 					</div>
 				</div>

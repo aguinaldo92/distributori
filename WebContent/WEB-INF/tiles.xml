@@ -104,6 +104,11 @@
 		<put-attribute name="body" value="/views/gestore/uploadfoto_newprodotto.jsp" />
 	</definition>
 	
+	<definition name="showFeedbacks" extends="baseLayoutGestore">
+		<put-attribute name="title" value="Elenco dei feedback" />
+		<put-attribute name="body" value="/views/gestore/showFeedbacks.jsp" />
+	</definition>
+	
 	<!-- Inizio elenco tiles del dipendente -->
 	<definition name="dashboardDipendente" extends="baseLayoutDipendente">
 		<put-attribute name="title" value="Dashboard" />

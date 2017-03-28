@@ -7,13 +7,6 @@
 	<constant name="struts.i18n.reload" value="false" />
 	<constant name="struts.configuration.xml.reload" value="false" />
 	<constant name="struts.ui.theme" value="simple" />
-<!-- 	<constant name="struts.objectFactory" value="spring"/> -->
-	
-<!--     <package name="test" namespace="/test" extends="struts-default"> -->
-<!--         <action name="AddDipendenteTest" class="it.unisalento.distributori.action.AddDipendente"> -->
-<!--             <result type="freemarker">/template.ftl</result> -->
-<!--         </action> -->
-<!--     </package> -->
 
 	<package name="default" extends="struts-default">
 		<result-types>
@@ -139,7 +132,9 @@
 			<result type="tiles">dashboardGestore</result>
 		</action>
 		
-		<action name="DashboardGestore" class="it.unisalento.distributori.action.DashboardGestore" ></action>
+		<action name="DashboardGestore" class="it.unisalento.distributori.action.DashboardGestore"/>
+		
+		<action name="ListFeedback" class="it.unisalento.distributori.action.ListFeedback"/>
 		
 		<action name="CreateDipendente">
 			<result type="tiles">createDipendente</result>
@@ -157,6 +152,9 @@
 			<result type="tiles">createProdotto</result>
 		</action>
 		
+		<action name="ShowFeedbacks">
+			<result type="tiles">showFeedbacks</result>
+		</action>
 		
 		<action name="ListProdotti" class="it.unisalento.distributori.action.ListProdotti">
 			<result type="tiles">listProdotti</result>
@@ -164,6 +162,10 @@
 		
 		<action name="ListDipendenti" class="it.unisalento.distributori.action.ListDipendenti">
 			<result type="tiles">listDipendenti</result>
+		</action>
+				
+		<action name="UpdateFeedback" class="it.unisalento.distributori.action.UpdateFeedback">
+			<result type="tiles">showFeedbacks</result>
 		</action>
 		
 		<action name="DeleteDipendente" class="it.unisalento.distributori.action.DeleteDipendente">
@@ -208,8 +210,7 @@
 			<result name="input" type="tiles">createProdotto</result>
 		</action>
 		
-		<action name="ListDistributoriGestore"
-			class="it.unisalento.distributori.action.ListDistributoriGestore">
+		<action name="ListDistributoriGestore" class="it.unisalento.distributori.action.ListDistributoriGestore">
 			<result name="success" type="tiles">gestioneDistributori</result>
 		</action>
 		
