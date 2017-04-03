@@ -113,6 +113,14 @@
 			<result type="tiles">listaInterventi</result>
 		</action>
 		
+		<action name="StartManutenzione" class="it.unisalento.distributori.action.StartManutenzione">
+			<result name="success" type="tiles">dashboardDipendente</result>
+		</action>
+		
+		<action name="EndManutenzione" class="it.unisalento.distributori.action.EndManutenzione">
+			<result name="success" type="tiles">dashboardDipendente</result>
+		</action>
+		
 		<action name="ProdottoDetail" class="it.unisalento.distributori.action.ProdottoDetail">
 			<result name="success" type="tiles">prodottoDetail</result>
 		</action>
