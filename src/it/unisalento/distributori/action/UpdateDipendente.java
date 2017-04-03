@@ -68,7 +68,7 @@ public class UpdateDipendente extends ActionSupport implements ModelDriven<Perso
 		
 		if (FactoryDao.getIstance().getPersonaDao().emailExists(dipendente.getEmail(),dipendente.getId())){
 			System.out.println("La mail è già presente");
-			addFieldError("email_esistente", "Email già presente");
+			addFieldError("email", "Email già presente");
 			errors = true;
 		}
 		if (errors || hasFieldErrors()){

@@ -15,17 +15,16 @@ import it.unisalento.distributori.domain.Persona;
 public class DistributoreModel {
 	private Integer id;
 	private Integer stato;
-	private String stato_String;
 	private String indirizzo;
 	private BigDecimal lat;
 	private BigDecimal lon;
 	private String via;
-	private Integer civico;
+	private String civico;
 	private String citta;
 	private String provincia;
 	private String posizioneEdificio;
-	private Integer numScaffali;
-	private Integer numPosti;
+	private String numScaffali;
+	private String numPosti;
 	private Persona dipendente;
 	private Integer idDipendente;
 	private ArrayList<?> categorieFornite;
@@ -56,12 +55,7 @@ public class DistributoreModel {
 	public void setVia(String via) {
 		this.via = via;
 	}
-	public Integer getCivico() {
-		return civico;
-	}
-	public void setCivico(Integer civico) {
-		this.civico = civico;
-	}
+
 	public String getCitta() {
 		return citta;
 	}
@@ -98,16 +92,23 @@ public class DistributoreModel {
 	public void setProdottiForniti(ArrayList<?> prodottiForniti) {
 		this.prodottiForniti = prodottiForniti;
 	}
-	public Integer getNumScaffali() {
+	
+	public String getCivico() {
+		return civico;
+	}
+	public void setCivico(String civico) {
+		this.civico = civico;
+	}
+	public String getNumScaffali() {
 		return numScaffali;
 	}
-	public void setNumScaffali(Integer numScaffali) {
+	public void setNumScaffali(String numScaffali) {
 		this.numScaffali = numScaffali;
 	}
-	public Integer getNumPosti() {
+	public String getNumPosti() {
 		return numPosti;
 	}
-	public void setNumPosti(Integer numPosti) {
+	public void setNumPosti(String numPosti) {
 		this.numPosti = numPosti;
 	}
 	public BigDecimal getLat() {
@@ -128,12 +129,7 @@ public class DistributoreModel {
 	public void setIdDipendente(Integer idDipendente) {
 		this.idDipendente = idDipendente;
 	}
-	public String getStato_String() {
-		return stato_String;
-	}
-	public void setStato_String(String stato_String) {
-		this.stato_String = stato_String;
-	}
+
 	
 	
 	

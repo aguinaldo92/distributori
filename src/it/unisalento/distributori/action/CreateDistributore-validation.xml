@@ -9,12 +9,13 @@
 		</field-validator>
 	</field>
 	<field name="civico">
-		<field-validator type="required">
+		<field-validator type="requiredstring">
 			<message>Il numero civico è obbligatorio</message>
 		</field-validator>
-		<field-validator type="int">
-			<message>Il numero civico deve essere intero</message>
-		</field-validator>
+		<field-validator type="regex">
+            <param name="regex">[1-9][0-9]*</param>
+            <message>Il numero civico deve essere un intero positivo</message>
+         </field-validator>
 	</field>
 	<field name="citta">
 		<field-validator type="requiredstring">
@@ -31,19 +32,27 @@
          </field-validator>
 	</field>
 	<field name="numScaffali">
-		<field-validator type="required">
+		<field-validator type="requiredstring">
 			<message>Il numero di scaffali del distributore è obbligatorio</message>
 		</field-validator>
-		<field-validator type="int">
-			<message>Il numero di scaffali del distributore deve essere intero</message>
-		</field-validator>
+		<field-validator type="regex">
+            <param name="regex">[1-9][0-9]*</param>
+            <message>Il numero di scaffali del distributore deve essere un intero maggiore di 1</message>
+         </field-validator>
 	</field>
 	<field name="numPosti">
 		<field-validator type="required">
 			<message>Il numero di colonne del distributore è obbligatorio</message>
 		</field-validator>
+		<field-validator type="regex">
+            <param name="regex">[1-9][0-9]*</param>
+            <message>Il numero di colonne del distributore deve essere un intero maggiore di 1</message>
+         </field-validator>
+	</field>
+		<field name="idDipendente">
 		<field-validator type="int">
-			<message>Il numero di colonne del distributore deve essere intero</message>
+			<param name="min">1</param>
+			<message>Devi scegliere obbligatoriamente un dipendente a cui assegnare il distributore</message>
 		</field-validator>
 	</field>
 </validators>

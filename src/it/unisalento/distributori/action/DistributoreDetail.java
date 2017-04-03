@@ -59,14 +59,14 @@ public class DistributoreDetail extends ActionSupport {
 			distributoreModel.setIdDipendente(distributore.getDipendente().getPersonaId());
 			distributoreModel.setProvincia(st[3].trim());
 			distributoreModel.setPosizioneEdificio(distributore.getPosizioneEdificio());
-			distributoreModel.setNumPosti(distributore.getNumPosti());
-			distributoreModel.setNumScaffali(distributore.getNumScaffali());
+			distributoreModel.setNumPosti(distributore.getNumPosti().toString());
+			distributoreModel.setNumScaffali(distributore.getNumScaffali().toString());
 			distributoreModel.setStato(distributore.getStato());
 			distributoreModel.setCitta(st[2].trim());
 			distributoreModel.setVia(st[0].trim());
 			distributoreModel.setLat(distributore.getLat());
 			distributoreModel.setLon(distributore.getLon());
-			distributoreModel.setCivico(Integer.parseInt(st[1].trim()));
+			distributoreModel.setCivico(st[1]);
 			distributoreModel.setCategorieFornite((ArrayList<?>) FactoryDao.getIstance().getCategorieForniteDao().getIdsCategorieForniteByDistributore(idDistributore));
 			
 		} catch (Exception e) {

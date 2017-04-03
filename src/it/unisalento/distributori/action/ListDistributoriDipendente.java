@@ -43,6 +43,7 @@ public class ListDistributoriDipendente extends ActionSupport implements Session
 	private SessionMap<String, Object> personaSession;
 	private Distributore currentDistributore;
 	private ProdottiErogati currentProdottoErogato;
+	private Integer quantitaMinima = 5;
 	
 	
 
@@ -59,7 +60,7 @@ public class ListDistributoriDipendente extends ActionSupport implements Session
 		Integer idDipendente = ((Persona) personaSession.get("persona")).getId();
 		listDistributoreModel = new ArrayList<DistributoreModel>();
 		// TODO: quantità minima da settare diversamente
-		Integer quantitaMinima = 10100;
+
 
 			try {
 			

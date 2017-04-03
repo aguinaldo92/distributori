@@ -23,6 +23,8 @@
 			<!-- La costruzione della tabella funziona -->
 			<div class="panel panel-default">
 				<div class="panel-body">
+				<s:if test="%{listProdottiErogatixScaffale.size() > 0}">
+			
 					<s:form name="update" namespace="/gestore" action="UpdateProdottiErogati" >
 						<s:hidden name="idDistributore" value="%{idDistributore}"/>	
 						<div class="table-responsive">
@@ -36,6 +38,7 @@
 									</tr>
 								</thead>
 								<tbody>
+									
 									<s:iterator value="listProdottiErogatixScaffale" var="listProdottiErogatixScaffale" status="rowStatus">
 										<tr class="odd gradeA">
 											<th><s:property value="#rowStatus.count" />° Scaffale</th>
@@ -50,7 +53,8 @@
 												<td>
 												<s:hidden name="listIdsProdottiErogati" value="%{#listDettaglioDistributoreModel.idProdottoErogato}" />
 												<s:select class="form-control" list="prodottiCompatibili" listKey="id" listValue="nome" name="listIdsProdotti" value="%{#listDettaglioDistributoreModel.idProdotto}" />
-												<a href="${dettaglioProdotto}" class="btn btn-primary btn-xs">Dettaglio</a> 
+												<a href="${dettaglioProdotto}" class="btn btn-primary btn-xs" <s:if test="%{#listDettaglioDistributoreModel.nomeProdottoErogato == 'vuoto' }"> disabled </s:if> >Dettaglio </a>
+												 
 												</td>
 											</s:iterator>
 										</tr>
@@ -60,6 +64,13 @@
 						</div>
 						<s:submit class="btn btn-success" value="Salva Modifiche" />
 					</s:form>
+
+				
+				</s:if><s:else>
+										<div>
+				<span>Nessun prodotto da visualizzare</span>
+				</div>
+					</s:else>
 				</div>
 			</div>
 

@@ -19,7 +19,7 @@
 					<s:if test="#updateBoolean"> Aggiornato!</s:if>
 					<div class="table-responsive">
 						<p align="right">
-							<s:a namespace="/gestore" action="gotoCreateDistributore" class="btn btn-success">Inserisci nuovo distributore</s:a>
+							<s:a namespace="/gestore" action="goToCreateDistributore" class="btn btn-success">Inserisci nuovo distributore</s:a>
 						</p>
 						<p></p>
 						<table class="table table-striped table-bordered table-hover" id="dataTables-example">

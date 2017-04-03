@@ -26,84 +26,94 @@
 			<!-- /. ROW  -->
 			<hr />
 			<s:form name="addDistributore" namespace="/gestore" action="CreateDistributore">
-				<div class=' form-group input-group input-group-lg <s:if test="hasActionErrors()">has-error</s:if>'>
+				<div class=' form-group input-group input-group-lg '>
 					<span class="input-group-addon">Via</span>
 					<s:textfield cssClass="form-control" cssStyle="width: 60%;" name="via" placeholder="Es: Via Aldo Moro" />
-					<s:if test="hasActionErrors()">
+				</div>
+				<s:if test="hasActionErrors()">
 						<div class="form-group" style="color: red;">
 							<label><s:fielderror fieldName="via" /></label>
 						</div>
 					</s:if>
-				</div>
-				<div class=' form-group input-group input-group-lg <s:if test="hasActionErrors()">has-error</s:if>'>
+				<div class=' form-group input-group input-group-lg '>
 					<span class="input-group-addon">Civico</span>
-					<s:textfield cssClass="form-control" cssStyle="width: 60%;" name="via" placeholder="Es: 177"  />
-					<s:if test="hasActionErrors()">
+					<s:textfield cssClass="form-control" cssStyle="width: 60%;" name="civico" placeholder="Es: 177" />
+					
+				</div>
+				<s:if test="hasActionErrors()">
 						<div class="form-group" style="color: red;">
 							<label><s:fielderror fieldName="civico" /></label>
 						</div>
 					</s:if>
-				</div>
-				<div class=' form-group input-group input-group-lg <s:if test="hasActionErrors()">has-error</s:if>'>
+				<div class=' form-group input-group input-group-lg '>
 					<span class="input-group-addon">Città</span>
 					<s:textfield cssClass="form-control" cssStyle="width: 60%;" name="citta" placeholder="Es: Milano" />
-					<s:if test="hasActionErrors()">
+				</div>
+				<s:if test="hasActionErrors()">
 						<div class="form-group" style="color: red;">
 							<label><s:fielderror fieldName="citta" /></label>
 						</div>
 					</s:if>
-				</div>
-				<div class=' form-group input-group input-group-lg <s:if test="hasActionErrors()">has-error</s:if>'>
+				<div class=' form-group input-group input-group-lg'>
 					<span class="input-group-addon">Provincia</span>
-					<s:textfield cssClass="form-control" cssStyle="width: 60%;" name="via" placeholder="Es: MI"  />
-					<s:if test="hasActionErrors()">
-						<div class="form-group" style="color: red;">
-							<label><s:fielderror fieldName="provincia" /></label>
-						</div>
-					</s:if>
+					<s:textfield cssClass="form-control" cssStyle="width: 60%;" name="provincia" placeholder="Es: MI" />
 				</div>
+				<s:if test="hasActionErrors()">
+					<div class="form-group" style="color: red;">
+						<label><s:fielderror fieldName="provincia" /></label>
+					</div>
+				</s:if>
 				<div class=" form-group input-group input-group-lg">
 					<span class="input-group-addon">Posizione nell'Edificio</span>
 					<s:textfield cssClass="form-control" cssStyle="width: 60%;" name="posizioneEdificio" placeholder="Es: Primo piano, atrio est" />
-					<s:if test="hasActionErrors()">
+				</div>
+				<s:if test="hasActionErrors()">
 						<div class="form-group" style="color: red;">
 							<label><s:fielderror fieldName="posizioneEdificio" /></label>
 						</div>
 					</s:if>
-				</div>
 				<div class=" form-group input-group input-group-lg">
 					<span class="input-group-addon">Numero Scaffali</span>
-					<s:textfield cssClass="form-control" cssStyle="width: 60%;" name="numScaffali"   />
-					<s:if test="hasActionErrors()">
+					<s:textfield cssClass="form-control" cssStyle="width: 60%;" name="numScaffali" placeholder="Numero di ripiani orizzontali, Es:7" />
+				</div>
+				<s:if test="hasActionErrors()">
 						<div class="form-group" style="color: red;">
 							<label><s:fielderror fieldName="numScaffali" /></label>
 						</div>
 					</s:if>
-				</div>
 				<div class=" form-group input-group input-group-lg">
 					<span class="input-group-addon">Numero posti per scaffale</span>
-					<s:textfield cssClass="form-control" cssStyle="width: 60%;" name="numPosti"  />
-					<s:if test="hasActionErrors()">
-						<div class="form-group" style="color: red;">
-							<label><s:fielderror fieldName="numPosti" /></label>
-						</div>
-					</s:if>
+					<s:textfield cssClass="form-control" cssStyle="width: 60%;" name="numPosti" placeholder="Numero di prodotti inseribili su ogni scaffale" />
 				</div>
+				<s:if test="hasActionErrors()">
+					<div class="form-group" style="color: red;">
+						<label><s:fielderror fieldName="numPosti" /></label>
+					</div>
+				</s:if>
 				<div class=" form-group input-group input-group-lg">
 					<span class="input-group-addon">Dipendente</span>
-					<s:select cssStyle="width: 60%;" class="form-control" 
-					 list="dipendenti" listKey="persona.id" listValue="%{persona.nome + ' ' + persona.cognome}"  />
-					 
+					<s:select cssStyle="width: 60%;" class="form-control" name="idDipendente" cssErrorClass="has-error" list="#attr.dipendenti" headerKey="-1" headerValue="Nome Cognome" listKey="persona.id" listValue="%{persona.nome + ' ' + persona.cognome}" />
+
 				</div>
+				<s:if test="hasActionErrors()">
+					<div class="form-group" style="color: red;">
+						<label><s:fielderror fieldName="idDipendente" /></label>
+					</div>
+				</s:if>
 				<div class=" form-group ">
 					<span class="input-group">Categorie Erogabili</span>
-					<s:checkboxlist  list="categorie" name="categorieErogabili" listKey="id" listValue="nome" />
+					<s:checkboxlist list="#attr.categorie" name="categorieFornite" listKey="id" listValue="nome" />
 				</div>
+				<s:if test="hasActionErrors()">
+					<div class="form-group" style="color: red;">
+						<label><s:fielderror fieldName="categorieFornite" /></label>
+					</div>
+				</s:if>
 				<br>
 				<br>
 
 				<p align="center">
-					<s:submit cssClass="btn btn-primary btn-lg" value="Inserisci" /> 
+					<s:submit cssClass="btn btn-primary btn-lg" value="Inserisci" />
 
 				</p>
 			</s:form>

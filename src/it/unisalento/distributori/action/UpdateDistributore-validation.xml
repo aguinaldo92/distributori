@@ -8,13 +8,14 @@
 			<message>Via richiesta</message>
 		</field-validator>
 	</field>
-	<field name="distributoreModel.civico">
-		<field-validator type="required">
+<field name="distributoreModel.civico">
+		<field-validator type="requiredstring">
 			<message>Il numero civico è obbligatorio</message>
 		</field-validator>
-		<field-validator type="int">
-			<message>Il numero civico deve essere intero</message>
-		</field-validator>
+		<field-validator type="regex">
+            <param name="regex">[1-9][0-9]*</param>
+            <message>Il numero civico deve essere un intero positivo</message>
+         </field-validator>
 	</field>
 	<field name="distributoreModel.citta">
 		<field-validator type="requiredstring">
@@ -30,20 +31,5 @@
             <message>Formato Provincia non corretto, ES: MI</message>
          </field-validator>
 	</field>
-	<field name="distributoreModel.numScaffali">
-		<field-validator type="required">
-			<message>Il numero di scaffali del distributore è obbligatorio</message>
-		</field-validator>
-		<field-validator type="int">
-			<message>Il numero di scaffali del distributore deve essere intero</message>
-		</field-validator>
-	</field>
-	<field name="distributoreModel.numPosti">
-		<field-validator type="required">
-			<message>Il numero di colonne del distributore è obbligatorio</message>
-		</field-validator>
-		<field-validator type="int">
-			<message>Il numero di colonne del distributore deve essere intero</message>
-		</field-validator>
-	</field>
+
 </validators>

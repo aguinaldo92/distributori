@@ -44,6 +44,7 @@
 		<global-results>
 			<result name="login" type="redirect">/index.action</result>
 			<result name="DENIED" type="redirect">/denied.action</result>
+			<result name="error" >error.action</result>
 			<result name="/dipendente" type="redirect">/dipendente/dashboard.action</result>
 			<result name="/gestore" type="redirect">/gestore/dashboard.action</result>
 		</global-results>
@@ -51,6 +52,10 @@
 		<action name="index">
 			<interceptor-ref name="homepageInterceptor" />
 			<result type="tiles">index</result>
+		</action>
+		
+		<action name="error">
+		<result type="tiles">error</result>
 		</action>
 
 		<action name="denied">
@@ -198,7 +203,9 @@
 		</action>
 		
 		<action name="UpdateProdottiErogati" class="it.unisalento.distributori.action.UpdateProdottiErogati">
-			<result name="success" type="tiles">dashboardGestore</result>
+			<result name="success" type="redirectAction">
+				<param name="actionName">ListDistributoriGestore</param>
+			</result>
 			<result name="input" type="tiles">dashboardGestore</result>
 		</action>
 		
@@ -223,7 +230,7 @@
 
 		<action name="CreateDistributore" class="it.unisalento.distributori.action.CreateDistributore">
 			<result name="success" type="redirectAction">
-				<param name="actionName">ProdottiDistributoreGestore</param>
+				<param name="actionName">ProdottiDistributore</param>
 				<param name="idDistributore">${idDistributore}</param>
 			</result>
 			<result name="input" type="tiles">createDistributore</result>

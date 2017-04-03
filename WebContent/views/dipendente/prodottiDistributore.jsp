@@ -54,7 +54,7 @@
 															<button type="button" class="btn btn-default" data-value="-1" data-target='#spinner<s:property value="#rowStatus.count"/>_<s:property value="#columnStatus.count"/>' data-toggle="spinner">
 																<span class="glyphicon glyphicon-minus"></span>
 															</button>
-														</span> <input type="text" name="quantita" data-ride="spinner" id='spinner<s:property value="#rowStatus.count"/>_<s:property value="#columnStatus.count"/>' class="form-control input-number" value='<s:property value="#listDettaglioDistributoreModel.quantita" />' data-min="1" data-max="1000"> <span class="input-group-btn">
+														</span> <input type="text" name="quantita" data-ride="spinner" id='spinner<s:property value="#rowStatus.count"/>_<s:property value="#columnStatus.count"/>' class="form-control input-number" value='<s:property value="#listDettaglioDistributoreModel.quantita" />' data-min="0" data-max="1000"> <span class="input-group-btn">
 															<button type="button" class="btn btn-default" data-value="1" data-target='#spinner<s:property value="#rowStatus.count"/>_<s:property value="#columnStatus.count"/>' data-toggle="spinner" data-on="mousehold">
 																<span class="glyphicon glyphicon-plus"></span>
 															</button>

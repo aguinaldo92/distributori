@@ -22,7 +22,7 @@
          </field-validator>
      </field>
      <field name="telefono">
-      <field-validator type="required">
+      <field-validator type="requiredstring">
              <message>telefono richiesto</message>
          </field-validator>
          <field-validator type="regex">

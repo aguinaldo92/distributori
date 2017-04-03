@@ -74,11 +74,11 @@
 				</s:if>
 				<br>
 				<br>
-				<div class="btn-group">
-					<s:a namespace="/dipendente" action="dashboard" class="btn navbar-btn btn-danger btn-lg">Annulla</s:a>
-					<s:submit cssClass="btn navbar-btn btn-success btn-lg col-lg-4" value="Modifica" />
-					<s:a namespace="/dipendente" action="goToModificaPassword" class="btn navbar-btn btn-primary btn-lg col-lg-4">Modifica Password</s:a>
-				</div>
+				<p align="center">
+					<s:a namespace="/dipendente" action="dashboard" class="btn  btn-danger btn-lg">Annulla</s:a>&nbsp;&nbsp;&nbsp;&nbsp;
+					<s:submit cssClass="btn  btn-success btn-lg " value="Modifica" />&nbsp;&nbsp;&nbsp;&nbsp;
+					<s:a namespace="/dipendente" action="goToModificaPassword" class="btn  btn-primary btn-lg">Modifica Password</s:a>
+					</p>
 			</s:form>
 
 

@@ -73,7 +73,11 @@ public abstract class AddressTranslation {
 		} catch (ClassCastException ce) {
 			ce.printStackTrace();
 			System.err.println(ce.getMessage());
-
+		} catch (IndexOutOfBoundsException iobe){
+			listLatLon.add(0,null);
+			listLatLon.add(1,null);
+			System.out.println(iobe.getMessage());
+			System.out.println("settati lat lon a null");
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
 		}

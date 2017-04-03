@@ -5,88 +5,79 @@ package it.unisalento.distributori.action;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
-import java.util.StringTokenizer;
-
 
 import com.opensymphony.xwork2.ActionSupport;
+import com.opensymphony.xwork2.ModelDriven;
 
 import it.unisalento.distributori.domain.Categoria;
+import it.unisalento.distributori.domain.CategorieFornite;
 import it.unisalento.distributori.domain.Dipendente;
 import it.unisalento.distributori.domain.Distributore;
 import it.unisalento.distributori.domain.ProdottiErogati;
 import it.unisalento.distributori.domain.Prodotto;
 import it.unisalento.distributori.factory.FactoryDao;
+import it.unisalento.distributori.model.DistributoreModel;
 import it.unisalento.distributori.util.AddressTranslation;
 
 /**
  * @author aguinaldo
  */
-public class CreateDistributore extends ActionSupport {
+public class CreateDistributore extends ActionSupport implements ModelDriven<DistributoreModel>{
 
-	private static final long serialVersionUID = -2021736949462407465L;
-	private BigDecimal lat;
-	private BigDecimal lon;
-	private String indirizzo;
-	private String via;
-	private Integer civico;
-	private String citta;
-	private String provincia;
-	private String posizioneEdificio;
-	private Integer numPosti;
-	private Integer numScaffali;
-	private List<Dipendente> dipendenti = new ArrayList<>();
-	private Integer idDipendente;
-	private HashSet<Categoria> categorieErogate;
-	private List<Categoria> categorie = new ArrayList<Categoria>();
-	private List<Integer> categorieFornite = new ArrayList<Integer>();
-	private String categorieErogabili;
-	private Distributore distributore;
-	private Set<ProdottiErogati> prodottiErogatiVuoti;
+	private DistributoreModel distributoreModel = new DistributoreModel();
+	private Distributore distributore = new Distributore();
 	private Prodotto prodottoVuoto;
 	private Integer idDistributore;
 	private Integer quantitaIniziale = 0;
 	private Integer statoAttesoRifornimento = 1;
+	private Integer idCatGenerica = 5;
+	private List<BigDecimal> listLatLon = new ArrayList<>();
 
+	public void validate(){
+		if (distributoreModel.getCategorieFornite().isEmpty()){
+			addFieldError("categorieFornite", "Il distributore deve erogare almeno una categoria");
+		}
+		if (hasFieldErrors()){
+			addActionError("Ci sono degli errori nell'aggiornamento delle info");
+		}
+	}
+	
+	
 	public String execute() {
 		try {
-			indirizzo = via + ", " + civico + ", " +  citta + ", " + provincia;
-			lat = AddressTranslation.getLatLonFromAddress(indirizzo).get(0);
-			lon = AddressTranslation.getLatLonFromAddress(indirizzo).get(1);
+			String indirizzo = distributoreModel.getVia() + ", " + distributoreModel.getCivico() + ", " + distributoreModel.getCitta() + ", " + distributoreModel.getProvincia();
+			distributore.setIndirizzo(indirizzo);
+			listLatLon = AddressTranslation.getLatLonFromAddress(indirizzo);
+			distributore.setLat(listLatLon.get(0));
+			distributore.setLon(listLatLon.get(1));
+			distributore.setDipendente(FactoryDao.getIstance().getDipendenteDao().get(distributoreModel.getIdDipendente(), Dipendente.class));
+			distributore.setPosizioneEdificio(distributoreModel.getPosizioneEdificio());
+			distributore.setStato(statoAttesoRifornimento);
+			distributore.setNumPosti(Integer.parseInt(distributoreModel.getNumPosti()));
+			distributore.setNumScaffali(Integer.parseInt(distributoreModel.getNumScaffali()));
+			idDistributore = FactoryDao.getIstance().getDistributoreDao().set(distributore);
+			distributore.setId(idDistributore);
 			
-			// inizio parsing checkboxlist (utile da mettere in un altro metodo)
-			categorieErogate = new HashSet<Categoria>();
-			StringTokenizer st = new StringTokenizer(categorieErogabili, ",");
-			while (st.hasMoreTokens()) {
-				Integer cat = Integer.parseInt(st.nextToken().trim());
-				categorieErogate.add(FactoryDao.getIstance().getCategoriaDao().get(cat, Categoria.class));
+			for (String idCategoria : (ArrayList<String>) distributoreModel.getCategorieFornite()) {
+				CategorieFornite categoriaFornita = new CategorieFornite();
+				categoriaFornita.setCategoria((FactoryDao.getIstance().getCategoriaDao().get(Integer.parseInt(idCategoria.trim()), Categoria.class)));
+				categoriaFornita.setDistributore(distributore);
+				FactoryDao.getIstance().getCategorieForniteDao().set(categoriaFornita);
 			}
+			// aggiungo categoria generica
+			CategorieFornite categoriaGenerica = new CategorieFornite();
+			categoriaGenerica.setDistributore(distributore);
+			categoriaGenerica.setCategoria(FactoryDao.getIstance().getCategoriaDao().get(idCatGenerica, Categoria.class));
+			FactoryDao.getIstance().getCategorieForniteDao().set(categoriaGenerica);
 			// fine parsing checkboxlist
 			
-			distributore = new Distributore();
-			distributore.setDipendente(FactoryDao.getIstance().getDipendenteDao().get(idDipendente, Dipendente.class));
-			distributore.setCategorieFornites((Set<Categoria>) categorieErogate);
-			distributore.setIndirizzo(indirizzo);
-			distributore.setPosizioneEdificio(posizioneEdificio);
-			distributore.setStato(statoAttesoRifornimento);
-			distributore.setLat(lat);
-			distributore.setLon(lon);
-			distributore.setNumPosti(numPosti);
-			distributore.setNumScaffali(numScaffali);
-			
-			idDistributore = (Integer) FactoryDao.getIstance().getDistributoreDao().set(distributore);
-			distributore.setId(idDistributore);
-
 			prodottoVuoto = FactoryDao.getIstance().getProdottoDao().getProdottoVuoto();
-			prodottiErogatiVuoti = new HashSet<ProdottiErogati>();
-			for (int i = 1; i <= numScaffali; i++) {
-				for (int j = 1; j <= numPosti; j++) {
-					prodottiErogatiVuoti.add(new ProdottiErogati(distributore, prodottoVuoto, i, j, quantitaIniziale));
+			for (int i = 1; i <= distributore.getNumScaffali(); i++) {
+				for (int j = 1; j <= distributore.getNumPosti(); j++) {
+					FactoryDao.getIstance().getProdottiErogatiDao().set(new ProdottiErogati(distributore, prodottoVuoto, i, j, quantitaIniziale));
 				}
 			}
-			distributore.setProdottiErogatis(prodottiErogatiVuoti);
 
 		} catch (ClassCastException ce) {
 			ce.printStackTrace();
@@ -97,55 +88,6 @@ public class CreateDistributore extends ActionSupport {
 		}
 		return SUCCESS;
 	}
-	
-
-	public String getPosizioneEdificio() {
-		return posizioneEdificio;
-	}
-
-	public void setPosizioneEdificio(String posizioneEdificio) {
-		this.posizioneEdificio = posizioneEdificio;
-	}
-
-	public Integer getNumPosti() {
-		return numPosti;
-	}
-
-	public void setNumPosti(Integer numPosti) {
-		this.numPosti = numPosti;
-	}
-
-	public Integer getNumScaffali() {
-		return numScaffali;
-	}
-
-	public void setNumScaffali(Integer numScaffali) {
-		this.numScaffali = numScaffali;
-	}
-
-	public BigDecimal getLat() {
-		return lat;
-	}
-
-	public void setLat(BigDecimal lat) {
-		this.lat = lat;
-	}
-
-	public BigDecimal getLon() {
-		return lon;
-	}
-
-	public void setLon(BigDecimal lon) {
-		this.lon = lon;
-	}
-
-	public String getCategorieErogabili() {
-		return categorieErogabili;
-	}
-
-	public void setCategorieErogabili(String categorieErogabili) {
-		this.categorieErogabili = categorieErogabili;
-	}
 
 	public Integer getIdDistributore() {
 		return idDistributore;
@@ -155,84 +97,9 @@ public class CreateDistributore extends ActionSupport {
 		this.idDistributore = idDistributore;
 	}
 
-	public Integer getIdDipendente() {
-		return idDipendente;
-	}
-
-	public void setIdDipendente(Integer idDipendente) {
-		this.idDipendente = idDipendente;
-	}
-	
-	public String getVia() {
-		return via;
-	}
-
-	public void setVia(String via) {
-		this.via = via;
-	}
-
-	public Integer getCivico() {
-		return civico;
-	}
-
-	public void setCivico(Integer civico) {
-		this.civico = civico;
-	}
-
-	public String getCitta() {
-		return citta;
-	}
-
-	public void setCitta(String citta) {
-		this.citta = citta;
-	}
-
-	public String getProvincia() {
-		return provincia;
-	}
-
-	public void setProvincia(String provincia) {
-		this.provincia = provincia;
-	}
-
-
-	public List<Dipendente> getDipendenti() {
-		return dipendenti;
-	}
-
-
-	public void setDipendenti(List<Dipendente> dipendenti) {
-		this.dipendenti = dipendenti;
-	}
-
-
-	public HashSet<Categoria> getCategorieErogate() {
-		return categorieErogate;
-	}
-
-
-	public void setCategorieErogate(HashSet<Categoria> categorieErogate) {
-		this.categorieErogate = categorieErogate;
-	}
-
-
-	public List<Categoria> getCategorie() {
-		return categorie;
-	}
-
-
-	public void setCategorie(List<Categoria> categorie) {
-		this.categorie = categorie;
-	}
-
-
-	public List<Integer> getCategorieFornite() {
-		return categorieFornite;
-	}
-
-
-	public void setCategorieFornite(List<Integer> categorieFornite) {
-		this.categorieFornite = categorieFornite;
+	@Override
+	public DistributoreModel getModel() {
+		return distributoreModel;
 	}
 
 	
