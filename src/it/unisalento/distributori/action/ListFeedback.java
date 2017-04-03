@@ -1,5 +1,6 @@
 package it.unisalento.distributori.action;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -20,7 +21,6 @@ public class ListFeedback  extends ActionSupport{
 	private Long numFeedbackNonLetti;
 	
 	public String execute() {
-		
 		feedbacks = FactoryDao.getIstance().getFeedbackDao().getAllSortedBy(Feedback.class, "data desc");
 		numFeedbackNonLetti=FactoryDao.getIstance().getFeedbackDao().getNumMessaggiNonLetti();
 		System.out.println("Numero feedbacks estratti: "+feedbacks.size());
