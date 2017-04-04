@@ -1,5 +1,6 @@
 package it.unisalento.distributori.action;
 
+import java.util.Date;
 import java.util.Map;
 
 import org.apache.struts2.dispatcher.SessionMap;
@@ -29,10 +30,9 @@ public class StartManutenzione extends ActionSupport implements SessionAware {
 		Distributore distributore = FactoryDao.getIstance().getDistributoreDao().get(idDistributore, Distributore.class);
 		
 		Manutiene manutenzione = new Manutiene();
-		//manutenzione.setDipendente(distributore.getDipendente());
-		manutenzione.setDipendente(FactoryDao.getIstance().getDipendenteDao().get(persona_loggata.getId(), Dipendente.class));/////////meglio forse prendere il dipendente dalla sessione
+		manutenzione.setDipendente(FactoryDao.getIstance().getDipendenteDao().get(persona_loggata.getId(), Dipendente.class));
 		manutenzione.setDistributore(distributore);
-		//la data è impostata automaticamente come CURRENT_TIME
+		manutenzione.setDataInizio(new Date());
 		manutenzione.setId(FactoryDao.getIstance().getManutieneDao().set(manutenzione));
 		
 		return SUCCESS;

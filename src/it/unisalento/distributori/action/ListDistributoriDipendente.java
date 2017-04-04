@@ -15,6 +15,7 @@ import org.apache.struts2.interceptor.SessionAware;
 
 import it.unisalento.distributori.domain.CategorieFornite;
 import it.unisalento.distributori.domain.Distributore;
+import it.unisalento.distributori.domain.Manutiene;
 import it.unisalento.distributori.factory.FactoryDao;
 import it.unisalento.distributori.model.DistributoreModel;
 import it.unisalento.distributori.domain.Persona;
@@ -117,6 +118,12 @@ public class ListDistributoriDipendente extends ActionSupport implements Session
 				currentDistributoreModel.setPosizioneEdificio(currentDistributore.getPosizioneEdificio());
 				currentDistributoreModel.setCategorieFornite((ArrayList<String>) listNomiCategorieFornite);
 				currentDistributoreModel.setProdottiForniti((ArrayList<String>) listNomiQuantitaProdottiErogati);
+				//controllo se c'è manutenzione pendente
+				Manutiene manut_pendente = FactoryDao.getIstance().getManutieneDao().getManutenzionePendenteByDistributore(currentDistributore.getId());
+				if (manut_pendente != null)
+					currentDistributoreModel.setInManutenzione(true);
+				else
+					currentDistributoreModel.setInManutenzione(false);
 				//System.out.println("popolato il DistributoreModel numero: " + count);
 				listDistributoreModel.add(currentDistributoreModel);
 				//System.out.println("aggiunto elemento alla lista dei models: " + currentDistributoreModel);

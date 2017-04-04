@@ -30,6 +30,7 @@ public class DistributoreModel {
 	private Integer idDipendente;
 	private ArrayList<?> categorieFornite;
 	private ArrayList<?> prodottiForniti;
+	private boolean inManutenzione;
 	
 	
 	public Integer getId() {
@@ -133,6 +134,12 @@ public class DistributoreModel {
 	}
 	public void setStato_String(String stato_String) {
 		this.stato_String = stato_String;
+	}
+	public boolean isInManutenzione() {
+		return inManutenzione;
+	}
+	public void setInManutenzione(boolean inManutenzione) {
+		this.inManutenzione = inManutenzione;
 	}
 	
 	
