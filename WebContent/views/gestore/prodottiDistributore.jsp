@@ -23,7 +23,7 @@
 			<!-- La costruzione della tabella funziona -->
 			<div class="panel panel-default">
 				<div class="panel-body">
-				<s:if test="%{listProdottiErogatixScaffale.size() > 0}">
+				<s:if test="%{listProdottiErogatixScaffale != null && listProdottiErogatixScaffale.size() > 0}">
 			
 					<s:form name="update" namespace="/gestore" action="UpdateProdottiErogati" >
 						<s:hidden name="idDistributore" value="%{idDistributore}"/>	

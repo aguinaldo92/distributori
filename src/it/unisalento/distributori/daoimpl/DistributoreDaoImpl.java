@@ -11,6 +11,7 @@ import org.hibernate.Transaction;
 
 import it.unisalento.distributori.dao.DistributoreDao;
 import it.unisalento.distributori.domain.Distributore;
+import it.unisalento.distributori.factory.FactoryDao;
 
 /**
  * @author aguinaldo
@@ -60,5 +61,20 @@ public class DistributoreDaoImpl extends BaseDaoImpl<Distributore> implements Di
 			System.out.println("IMpossibile ottenre numero distributori non ok (stato 0 o 1) : "+e.getMessage());
 			return null;
 		}
+	}
+
+
+	@Override
+	public Integer updateStato(Integer idDistributore) {
+		Integer stato =0;
+		try {
+			FactoryDao.getIstance().getDistributoreDao().get(idDistributore , Distributore.class);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return stato;
+		
+		
 	}
 }

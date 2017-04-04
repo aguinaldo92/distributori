@@ -14,7 +14,7 @@ import it.unisalento.distributori.domain.Distributore;
 import it.unisalento.distributori.domain.ProdottiErogati;
 import it.unisalento.distributori.domain.Prodotto;
 import it.unisalento.distributori.factory.FactoryDao;
-import it.unisalento.distributori.model.DettaglioDistributoreModel;
+import it.unisalento.distributori.model.ProdottiDistributoreModel;
 
 /**
  * @author aguinaldo
@@ -28,12 +28,13 @@ public class ProdottiDistributore extends ActionSupport {
 	private String posizioneEdificioDistributore;
 	private Integer scaffali;
 	private Integer posti;
+	private final String prodottoVuoto = "Vuoto";
 	private ArrayList<ProdottiErogati> listProdottiErogati;
 	private ArrayList<String> listNomiCategorieFornite;
-	private DettaglioDistributoreModel currentDettaglioDistributoreModel;
+	private ProdottiDistributoreModel currentProdottoErogatoByDistributoreModel;
 	private ProdottiErogati currentProdottiErogati;
-	private ArrayList<ArrayList<DettaglioDistributoreModel>> listProdottiErogatixScaffale;
-	private ArrayList<DettaglioDistributoreModel> listDettaglioDistributoreModel;
+	private ArrayList<ArrayList<ProdottiDistributoreModel>> listProdottiErogatixScaffale;
+	private ArrayList<ProdottiDistributoreModel> listDettaglioDistributoreModel;
 	private ArrayList<Prodotto> prodottiCompatibili;
 
 	// mi servono scaffale e posto, quantità , nome prodotto
@@ -47,22 +48,46 @@ public class ProdottiDistributore extends ActionSupport {
 			posti = distributore.getNumPosti();
 
 			prodottiCompatibili = FactoryDao.getIstance().getProdottoDao().getProdottiCompatibiliByDistributore(idDistributore);
-
 			listProdottiErogati = FactoryDao.getIstance().getProdottiErogatiDao().getProdottiErogatiByDistributoreSortedByScaffalePosto(idDistributore);
+			listProdottiErogatixScaffale = new ArrayList<ArrayList<ProdottiDistributoreModel>>();
 			Iterator<ProdottiErogati> prodottiErogatiIterator = listProdottiErogati.iterator();
 			if(prodottiErogatiIterator.hasNext()){
-				listProdottiErogatixScaffale = new ArrayList<ArrayList<DettaglioDistributoreModel>>();
-				for (Integer j = 1; j <= scaffali; j++) {
-					listDettaglioDistributoreModel = new ArrayList<DettaglioDistributoreModel>();
+				currentProdottiErogati = prodottiErogatiIterator.next();
+				
+				for (Integer scaffale = 1; scaffale <= scaffali; scaffale++) {
+					listDettaglioDistributoreModel = new ArrayList<ProdottiDistributoreModel>();
 
-					for (Integer i = 1; i <= posti; i++) {
+					for (Integer posto = 1; posto <= posti; posto++) {
+
+						currentProdottoErogatoByDistributoreModel = new ProdottiDistributoreModel();
 						currentProdottiErogati = prodottiErogatiIterator.next();
-						currentDettaglioDistributoreModel = new DettaglioDistributoreModel();
-						currentDettaglioDistributoreModel.setIdProdottoErogato(currentProdottiErogati.getId());
-						currentDettaglioDistributoreModel.setIdProdotto(currentProdottiErogati.getProdotto().getId());
-						currentDettaglioDistributoreModel.setNomeProdottoErogato(currentProdottiErogati.getProdotto().getNome());
-						currentDettaglioDistributoreModel.setQuantita(currentProdottiErogati.getQuantita());
-						listDettaglioDistributoreModel.add(currentDettaglioDistributoreModel);
+
+						if ( scaffale.equals(currentProdottiErogati.getScaffale()) && posto.equals(currentProdottiErogati.getPosto()) ) {
+
+							currentProdottoErogatoByDistributoreModel.setIdProdottoErogato(currentProdottiErogati.getId());
+							currentProdottoErogatoByDistributoreModel.setIdProdotto(currentProdottiErogati.getProdotto().getId());
+							currentProdottoErogatoByDistributoreModel.setNomeProdottoErogato(currentProdottiErogati.getProdotto().getNome());
+							currentProdottoErogatoByDistributoreModel.setQuantita(currentProdottiErogati.getQuantita());
+
+							currentProdottiErogati = prodottiErogatiIterator.next();
+						}
+						else {
+							currentProdottoErogatoByDistributoreModel.setNomeProdottoErogato(prodottoVuoto);
+							currentProdottoErogatoByDistributoreModel.setQuantita(0);
+						}
+						listDettaglioDistributoreModel.add(currentProdottoErogatoByDistributoreModel);
+					}
+					listProdottiErogatixScaffale.add(listDettaglioDistributoreModel);
+				}
+			} else {
+				for (Integer scaffale = 1; scaffale <= scaffali; scaffale++) {
+					listDettaglioDistributoreModel = new ArrayList<ProdottiDistributoreModel>();
+
+					for (Integer posto = 1; posto <= posti; posto++) {
+						ProdottiDistributoreModel currentProdottoVuotoByDistributoreModel = new ProdottiDistributoreModel();
+						currentProdottoVuotoByDistributoreModel.setNomeProdottoErogato(prodottoVuoto);
+						currentProdottoVuotoByDistributoreModel.setQuantita(0);
+						listDettaglioDistributoreModel.add( currentProdottoVuotoByDistributoreModel);
 					}
 					listProdottiErogatixScaffale.add(listDettaglioDistributoreModel);
 				}
@@ -100,21 +125,21 @@ public class ProdottiDistributore extends ActionSupport {
 		this.posizioneEdificioDistributore = posizioneEdificioDistributore;
 	}
 
-	public ArrayList<DettaglioDistributoreModel> getListDettaglioDistributoreModel() {
+	public ArrayList<ProdottiDistributoreModel> getListDettaglioDistributoreModel() {
 		return listDettaglioDistributoreModel;
 	}
 
 	public void setListDettaglioDistributoreModel(
-			ArrayList<DettaglioDistributoreModel> listDettaglioDistributoreModel) {
+			ArrayList<ProdottiDistributoreModel> listDettaglioDistributoreModel) {
 		this.listDettaglioDistributoreModel = listDettaglioDistributoreModel;
 	}
 
-	public ArrayList<ArrayList<DettaglioDistributoreModel>> getListProdottiErogatixScaffale() {
+	public ArrayList<ArrayList<ProdottiDistributoreModel>> getListProdottiErogatixScaffale() {
 		return listProdottiErogatixScaffale;
 	}
 
 	public void setListProdottiErogatixScaffale(
-			ArrayList<ArrayList<DettaglioDistributoreModel>> listProdottiErogatixScaffale) {
+			ArrayList<ArrayList<ProdottiDistributoreModel>> listProdottiErogatixScaffale) {
 		this.listProdottiErogatixScaffale = listProdottiErogatixScaffale;
 	}
 

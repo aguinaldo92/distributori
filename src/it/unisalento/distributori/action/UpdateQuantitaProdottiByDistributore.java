@@ -6,12 +6,12 @@ import com.opensymphony.xwork2.ActionSupport;
 
 import it.unisalento.distributori.domain.ProdottiErogati;
 import it.unisalento.distributori.factory.FactoryDao;
-import it.unisalento.distributori.model.DettaglioDistributoreModel;
+import it.unisalento.distributori.model.ProdottiDistributoreModel;
 
 public class UpdateQuantitaProdottiByDistributore extends ActionSupport {
 	private static final long serialVersionUID = 7327382666954167073L;
 
-	private DettaglioDistributoreModel currentDettaglioDistributoreModel;
+	private ProdottiDistributoreModel currentDettaglioDistributoreModel;
 	private ProdottiErogati prodottiErogatiUpdated;
 
 	private Boolean updateSuccess = false;
@@ -52,11 +52,11 @@ public class UpdateQuantitaProdottiByDistributore extends ActionSupport {
 		this.quantita = quantita;
 	}
 
-	public DettaglioDistributoreModel getCurrentDettaglioDistributoreModel() {
+	public ProdottiDistributoreModel getCurrentDettaglioDistributoreModel() {
 		return currentDettaglioDistributoreModel;
 	}
 
-	public void setCurrentDettaglioDistributoreModel(DettaglioDistributoreModel currentDettaglioDistributoreModel) {
+	public void setCurrentDettaglioDistributoreModel(ProdottiDistributoreModel currentDettaglioDistributoreModel) {
 		this.currentDettaglioDistributoreModel = currentDettaglioDistributoreModel;
 	}
 

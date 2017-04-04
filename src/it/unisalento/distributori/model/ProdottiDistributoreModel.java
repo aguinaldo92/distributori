@@ -1,6 +1,6 @@
 package it.unisalento.distributori.model;
 
-public class DettaglioDistributoreModel {
+public class ProdottiDistributoreModel {
 	private Integer idProdotto;
 	private Integer idProdottoErogato;
 	private String nomeProdottoErogato;

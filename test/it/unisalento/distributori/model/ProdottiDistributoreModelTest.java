@@ -4,9 +4,9 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
-public class DettaglioDistributoreModelTest {
+public class ProdottiDistributoreModelTest {
 
-	DettaglioDistributoreModel distrib_detail = new DettaglioDistributoreModel();
+	ProdottiDistributoreModel distrib_detail = new ProdottiDistributoreModel();
 	
 	@Test
 	public void testSetIdProdotto() throws Exception {

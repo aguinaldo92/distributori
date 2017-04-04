@@ -65,19 +65,21 @@ public class CreateDistributore extends ActionSupport implements ModelDriven<Dis
 				categoriaFornita.setDistributore(distributore);
 				FactoryDao.getIstance().getCategorieForniteDao().set(categoriaFornita);
 			}
+			//TODO: RIMOSSA CATEGORIA GENERICA
 			// aggiungo categoria generica
-			CategorieFornite categoriaGenerica = new CategorieFornite();
-			categoriaGenerica.setDistributore(distributore);
-			categoriaGenerica.setCategoria(FactoryDao.getIstance().getCategoriaDao().get(idCatGenerica, Categoria.class));
-			FactoryDao.getIstance().getCategorieForniteDao().set(categoriaGenerica);
+//			CategorieFornite categoriaGenerica = new CategorieFornite();
+//			categoriaGenerica.setDistributore(distributore);
+//			categoriaGenerica.setCategoria(FactoryDao.getIstance().getCategoriaDao().get(idCatGenerica, Categoria.class));
+//			FactoryDao.getIstance().getCategorieForniteDao().set(categoriaGenerica);
 			// fine parsing checkboxlist
 			
-			prodottoVuoto = FactoryDao.getIstance().getProdottoDao().getProdottoVuoto();
-			for (int i = 1; i <= distributore.getNumScaffali(); i++) {
-				for (int j = 1; j <= distributore.getNumPosti(); j++) {
-					FactoryDao.getIstance().getProdottiErogatiDao().set(new ProdottiErogati(distributore, prodottoVuoto, i, j, quantitaIniziale));
-				}
-			}
+			//TODO: RIMOSSO INSERIMENTO PRODOTTO VUOTO NEL DISTRIBUTORE (DATABASE, NON MODEL)
+//			prodottoVuoto = FactoryDao.getIstance().getProdottoDao().getProdottoVuoto();
+//			for (int i = 1; i <= distributore.getNumScaffali(); i++) {
+//				for (int j = 1; j <= distributore.getNumPosti(); j++) {
+//					FactoryDao.getIstance().getProdottiErogatiDao().set(new ProdottiErogati(distributore, prodottoVuoto, i, j, quantitaIniziale));
+//				}
+//			}
 
 		} catch (ClassCastException ce) {
 			ce.printStackTrace();
