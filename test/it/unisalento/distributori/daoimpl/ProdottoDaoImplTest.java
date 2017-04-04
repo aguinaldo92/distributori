@@ -169,5 +169,13 @@ public class ProdottoDaoImplTest {
 		}
 		assertTrue(!error);
 	}
+	
+	@Test
+	public void testGetProdottoVuoto() throws Exception{
+		Prodotto prodotto=dao.getProdottoVuoto();
+		
+		assertNotNull(prodotto);
+		assertEquals("vuoto", prodotto.getNome());
+	}
 
 }

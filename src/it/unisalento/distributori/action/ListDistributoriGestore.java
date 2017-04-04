@@ -45,7 +45,7 @@ public class ListDistributoriGestore extends ActionSupport{
 		Integer quantitaMinima = 10100;
 
 			try {
-			listDistributore = FactoryDao.getIstance().getDistributoreDao().getAll(Distributore.class);
+			listDistributore = FactoryDao.getIstance().getDistributoreDao().getAllSortedBy(Distributore.class, "stato");
 			} catch (Exception e) {
 				System.out.println("eccezione" + e.getLocalizedMessage());
 				return ERROR;

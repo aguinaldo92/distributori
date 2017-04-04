@@ -1,5 +1,7 @@
 package it.unisalento.distributori.util;
 
+import static org.junit.Assert.*;
+
 import org.junit.Test;
 
 public class SendMailSSLTest {
@@ -8,7 +10,9 @@ public class SendMailSSLTest {
 	
 	@Test
 	public void testSend() throws Exception {
-		mail_sender.send("sato89@hotmail.it", "mail da JUnit Test", "Test di JUnit.");
+		int result=mail_sender.send("wifidrinksnacks@gmail.com", "mail da JUnit Test", "Test di JUnit.");
+		
+		assertTrue(result==0);
 	}
 
 }

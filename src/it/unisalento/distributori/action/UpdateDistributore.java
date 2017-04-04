@@ -39,19 +39,19 @@ public class UpdateDistributore extends ActionSupport {
 			distributore.setDipendente(FactoryDao.getIstance().getDipendenteDao().get(distributoreModel.getIdDipendente(), Dipendente.class));
 			distributore.setPosizioneEdificio(distributoreModel.getPosizioneEdificio());
 			distributore.setStato(distributoreModel.getStato());
-			distributore.setNumPosti(Integer.parseInt(distributoreModel.getNumPosti()));
-			distributore.setNumScaffali(Integer.parseInt(distributoreModel.getNumScaffali()));
+//			distributore.setNumPosti(Integer.parseInt(distributoreModel.getNumPosti()));
+//			distributore.setNumScaffali(Integer.parseInt(distributoreModel.getNumScaffali()));
 			FactoryDao.getIstance().getDistributoreDao().update(distributore);
-			for (Iterator iterator = distributore.getCategorieFornites().iterator(); iterator.hasNext();) {
-				CategorieFornite categorieDaEliminare = (CategorieFornite) iterator.next();
-				FactoryDao.getIstance().getCategorieForniteDao().delete(categorieDaEliminare);
-			}
-			for (String idCategoria : (ArrayList<String>) distributoreModel.getCategorieFornite()) {
-				CategorieFornite categoriaFornita = new CategorieFornite();
-				categoriaFornita.setCategoria((FactoryDao.getIstance().getCategoriaDao().get(Integer.parseInt(idCategoria.trim()), Categoria.class)));
-				categoriaFornita.setDistributore(distributore);
-				FactoryDao.getIstance().getCategorieForniteDao().set(categoriaFornita);
-			}
+//			for (Iterator iterator = distributore.getCategorieFornites().iterator(); iterator.hasNext();) {
+//				CategorieFornite categorieDaEliminare = (CategorieFornite) iterator.next();
+//				FactoryDao.getIstance().getCategorieForniteDao().delete(categorieDaEliminare);
+//			}
+//			for (String idCategoria : (ArrayList<String>) distributoreModel.getCategorieFornite()) {
+//				CategorieFornite categoriaFornita = new CategorieFornite();
+//				categoriaFornita.setCategoria((FactoryDao.getIstance().getCategoriaDao().get(Integer.parseInt(idCategoria.trim()), Categoria.class)));
+//				categoriaFornita.setDistributore(distributore);
+//				FactoryDao.getIstance().getCategorieForniteDao().set(categoriaFornita);
+//			}
 
 		} catch (ClassCastException ce) {
 			ce.printStackTrace();
