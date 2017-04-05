@@ -2,8 +2,17 @@
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" id="WebApp_ID" version="3.0">
 
 	<error-page>
+    <location>/security/general_error.jsp</location>
+	</error-page>
+
+	<error-page>
         <error-code>404</error-code>
-        <location>/codici_errore/error404.jsp</location>
+        <location>/security/error404.jsp</location>
+    </error-page> 
+    
+    <error-page>
+        <error-code>500</error-code>
+        <location>/security/error500.jsp</location>
     </error-page> 
 
   	<display-name>distributori</display-name>
