@@ -67,14 +67,17 @@
 				                                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
 				                                            <h4 class="modal-title" id="myModalLabel">ELIMINAZIONE DIPENDENTE</h4>
 				                                        </div>
-				                                        <div class="modal-body">
-				                                            Attenzione. Questa operazione è irreversibile. Le informazioni eliminate non saranno recuperabili in alcun modo.
-				                                            <br>Si vuole, pertanto, confermare l'eliminazione del dipendente<b> ${persona.nome} ${persona.cognome}</b>?
-				                                        </div>
-				                                        <div class="modal-footer">
-				                                            <button type="button" class="btn btn-default" data-dismiss="modal">Annulla</button>
-				                                            <a href="${DelDip}" class="compare-in" ><button type="button" class="btn btn-primary">Conferma</button></a>
-				                                        </div>
+				                                        <s:form name="del_dipendente" namespace="/gestore" action="DeleteDipendente">
+				                                        	<div class="modal-body">
+				                                            	Attenzione. Questa operazione è irreversibile. Le informazioni eliminate non saranno recuperabili in alcun modo.
+				                                            	<br>Si vuole, pertanto, confermare l'eliminazione del dipendente<b> ${persona.nome} ${persona.cognome}</b>?
+				                                        		<s:hidden name="idDip" value="%{personaId}"/>
+				                                        	</div>
+				                                        	<div class="modal-footer">
+					                                        	<button type="button" class="btn btn-default" data-dismiss="modal">Annulla</button>
+					                                    		<s:submit id="delete_dip_submit" onClick="this.form.submit(); this.disabled=true; this.value='Attendi...';" cssClass="btn btn-primary" name="confirm_del_button" value="Conferma"/>
+					                                    	</div>
+					                                    </s:form>
 				                                    </div>
 				                                </div>
 				                            </div>
