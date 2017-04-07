@@ -41,70 +41,70 @@ public class FactoryDao {
 	}
 
 	public static FactoryDao getIstance(){
-		System.out.println("FactoryDao: getIstance()");
+		//System.out.println("FactoryDao: getIstance()");
 		return Holder.ISTANCE;
 	}
 
 	public PersonaDao getPersonaDao(){
-		System.out.println("FactoryDao: getPersonaDao");
+		//System.out.println("FactoryDao: getPersonaDao");
 		return new PersonaDaoImpl();
 	}
 
 	public DipendenteDao getDipendenteDao(){
-		System.out.println("FactoryDao: getDipendenteDao");
+		//System.out.println("FactoryDao: getDipendenteDao");
 		return new DipendenteDaoImpl();
 	}
 
 	public ProdottoDao getProdottoDao(){
-		System.out.println("FactoryDao: getProdottoDao");
+		//System.out.println("FactoryDao: getProdottoDao");
 		return new ProdottoDaoImpl();
 	}
 
 	public CategoriaDao getCategoriaDao(){
-		System.out.println("FactoryDao: getCategoriaDao");
+		//System.out.println("FactoryDao: getCategoriaDao");
 		return new CategoriaDaoImpl();
 	}
 
 	public FamigliaDao getFamigliaDao(){
-		System.out.println("FactoryDao: getFamigliaDao");
+		//System.out.println("FactoryDao: getFamigliaDao");
 		return new FamigliaDaoImpl();
 	}
 
 	public ProduttoreDao getProduttoreDao(){
-		System.out.println("FactoryDao: getProduttoreDao");
+		//System.out.println("FactoryDao: getProduttoreDao");
 		return new ProduttoreDaoImpl();
 	}
 	
 	public StabilimentoDao getStabilimentoDao(){
-		System.out.println("FactoryDao: getStabilimentoDao");
+		//System.out.println("FactoryDao: getStabilimentoDao");
 		return new StabilimentoDaoImpl();
 	}
 
 	public DistributoreDao getDistributoreDao(){
-		System.out.println("FactoryDao: getDistributoreDao");
+		//System.out.println("FactoryDao: getDistributoreDao");
 		return new DistributoreDaoImpl();
 	}
 
 	public CategorieForniteDao getCategorieForniteDao(){
-		System.out.println("FactoryDao: getCategorieForniteDao");
+		//System.out.println("FactoryDao: getCategorieForniteDao");
 		return new CategorieForniteDaoImpl();
 	}
 
 	public ProdottiErogatiDao getProdottiErogatiDao(){
-		System.out.println("FactoryDao: getProdottiErogatiDao");
+		//System.out.println("FactoryDao: getProdottiErogatiDao");
 		return new ProdottiErogatiDaoImpl();
 	}
 	
 	public FamiglieProdottoDao getFamiglieProdottoDao(){
-		System.out.println("FactoryDao: getFamiglieProdottoDao");
+		//System.out.println("FactoryDao: getFamiglieProdottoDao");
 		return new FamiglieProdottoDaoImpl();
 	}
 	public FeedbackDao getFeedbackDao(){
-		System.out.println("FactoryDao: getFeedbackDao");
+		//System.out.println("FactoryDao: getFeedbackDao");
 		return new FeedbackDaoImpl();
 	}
 	public ManutieneDao getManutieneDao(){
-		System.out.println("FactoryDao: getManutieneDao");
+		//System.out.println("FactoryDao: getManutieneDao");
 		return new ManutieneDaoImpl();
 	}
 }

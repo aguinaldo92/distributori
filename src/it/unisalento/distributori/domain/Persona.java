@@ -9,14 +9,15 @@ import java.util.Set;
  */
 public class Persona implements java.io.Serializable {
 
+	private static final long serialVersionUID = 4670447740131432214L;
 	private Integer id;
 	private String nome;
 	private String cognome;
 	private String email;
 	private String password;
 	private int ruolo;
-	private Set feedbacks = new HashSet(0);
-	private Set acquistas = new HashSet(0);
+	private Set<Feedback> feedbacks = new HashSet<Feedback>(0);
+	private Set<Acquista> acquistas = new HashSet<Acquista>(0);
 	private Dipendente dipendente;
 
 	public Persona() {
@@ -28,7 +29,7 @@ public class Persona implements java.io.Serializable {
 		this.ruolo = ruolo;
 	}
 
-	public Persona(String nome, String cognome, String email, String password, int ruolo, Set feedbacks, Set acquistas,
+	public Persona(String nome, String cognome, String email, String password, int ruolo, Set<Feedback> feedbacks, Set<Acquista> acquistas,
 			Dipendente dipendente) {
 		this.nome = nome;
 		this.cognome = cognome;
@@ -88,19 +89,19 @@ public class Persona implements java.io.Serializable {
 		this.ruolo = ruolo;
 	}
 
-	public Set getFeedbacks() {
+	public Set<Feedback> getFeedbacks() {
 		return this.feedbacks;
 	}
 
-	public void setFeedbacks(Set feedbacks) {
+	public void setFeedbacks(Set<Feedback> feedbacks) {
 		this.feedbacks = feedbacks;
 	}
 
-	public Set getAcquistas() {
+	public Set<Acquista> getAcquistas() {
 		return this.acquistas;
 	}
 
-	public void setAcquistas(Set acquistas) {
+	public void setAcquistas(Set<Acquista> acquistas) {
 		this.acquistas = acquistas;
 	}
 

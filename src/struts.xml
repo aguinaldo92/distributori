@@ -132,9 +132,6 @@
 		
 	</package>
 	
-	<package name="json" extends="default, json-default" namespace="/gestorejson">
-	
-	</package>
 
 	<package name="gestore" extends="default" namespace="/gestore">
 

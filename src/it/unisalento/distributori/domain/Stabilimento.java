@@ -9,11 +9,12 @@ import java.util.Set;
  */
 public class Stabilimento implements java.io.Serializable {
 
+	private static final long serialVersionUID = 5370919857244933600L;
 	private Integer id;
 	private Produttore produttore;
 	private String citta;
 	private String provincia;
-	private Set prodottos = new HashSet(0);
+	private Set<Prodotto> prodottos = new HashSet<Prodotto>(0);
 
 	public Stabilimento() {
 	}
@@ -22,7 +23,7 @@ public class Stabilimento implements java.io.Serializable {
 		this.produttore = produttore;
 	}
 
-	public Stabilimento(Produttore produttore, String citta, String provincia, Set prodottos) {
+	public Stabilimento(Produttore produttore, String citta, String provincia, Set<Prodotto> prodottos) {
 		this.produttore = produttore;
 		this.citta = citta;
 		this.provincia = provincia;
@@ -61,11 +62,11 @@ public class Stabilimento implements java.io.Serializable {
 		this.provincia = provincia;
 	}
 
-	public Set getProdottos() {
+	public Set<Prodotto> getProdottos() {
 		return this.prodottos;
 	}
 
-	public void setProdottos(Set prodottos) {
+	public void setProdottos(Set<Prodotto> prodottos) {
 		this.prodottos = prodottos;
 	}
 

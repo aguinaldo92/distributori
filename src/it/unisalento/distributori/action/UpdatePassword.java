@@ -2,6 +2,8 @@ package it.unisalento.distributori.action;
 
 import java.util.Map;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.apache.struts2.dispatcher.SessionMap;
 import org.apache.struts2.interceptor.SessionAware;
 
@@ -11,66 +13,50 @@ import it.unisalento.distributori.domain.Persona;
 import it.unisalento.distributori.factory.FactoryDao;
 
 public class UpdatePassword extends ActionSupport implements SessionAware{
-
 	/**
 	 * 
 	 */
-	private static final long serialVersionUID = 6555023403138012964L;
+	private static final long serialVersionUID = 6731743316457056842L;
 	private String confirmPassword, newPassword;
 	private SessionMap<String, Object> personaSession;
 	private Persona persona;
+	private Logger logger = LogManager.getLogger(this.getClass().getName());
 
-
-
-	public String getNewPassword() {
-		return newPassword;
-	}
-
-	public void setNewPassword(String newPassword) {
-		this.newPassword = newPassword;
-	}
-
-	public void setConfirmPassword(String confirmPassword) {
-		this.confirmPassword = confirmPassword;
-	}
-	
-
-	public String getConfirmPassword() {
-		return confirmPassword;
-	}
 
 	public void validate() {
-		persona = (Persona) personaSession.get("persona");
-		boolean errors = false;
-		System.out.println("UpdatePassword: validate()");
-		if (!newPassword.equals(confirmPassword)){
-			System.out.println("UpdatePassword: password inserite diverse");
-			addFieldError("confirmPassword", "Le password non combaciano");
-			errors = true;
-		}
-		if(newPassword.equals(persona.getPassword())){
-			System.out.println("UpdatePassword: password non cambiata");
-			addFieldError("newPassword", "La password scelta è la stessa già utilizzata, sceglierne una differente");
-			errors = true;
-		}
-		System.out.println("UpdatePassword: fine validate");
-		if (errors || hasFieldErrors()) {
-			System.out.println("UpdatePassword: presenti alcuni errori");
-			addActionError("Sono presenti errori all'interno del form");
+		try{
+			logger.trace("validate()");
+			persona = (Persona) personaSession.get("persona");
+			if (!newPassword.equals(confirmPassword)){
+				addFieldError("confirmPassword", "Le password non combaciano");
+			}
+			if(newPassword.equals(persona.getPassword())){
+				addFieldError("newPassword", "La password scelta è la stessa già utilizzata, sceglierne una differente");
+			}
+			if (hasFieldErrors()) {
+				addActionError("Sono presenti errori all'interno del form");
+			}
+		} catch (Exception e){
+			logger.error("Impossibile completare la validazione della password, sospetto errore nell'ottenere la persona dalla sessione",e);
+			addActionError("Impossibile caricare l'elenco dei Distributori");
 		}
 	}
 
+
 	public String execute(){
-		persona.setPassword(newPassword);
 		try{
+			logger.trace("execute()");
+			persona.setPassword(newPassword);
 			FactoryDao.getIstance().getPersonaDao().update(persona);
 			personaSession.replace("persona",persona);
-		}catch (Exception e){
-			System.out.println("Impossibile salvare la password nel DB: " + e.getLocalizedMessage());
+			addActionMessage("Password modificata con successo");
+			return SUCCESS;
+
+		} catch (Exception e){
+			logger.error("Impossibile salvare la password dell'utente con id: "+ persona.getId(),e);
+			addActionError("Impossibile salvare la nuova password");
+			return ERROR;
 		}
-		addActionMessage("Password modificata con successo");
-		System.out.println("Password Modificata");
-		return SUCCESS;
 	}
 
 	@Override
@@ -78,4 +64,17 @@ public class UpdatePassword extends ActionSupport implements SessionAware{
 		this.personaSession = (SessionMap<String, Object>) map;		
 	}
 
+
+	public String getNewPassword() {
+		return newPassword;
+	}
+	public void setNewPassword(String newPassword) {
+		this.newPassword = newPassword;
+	}
+	public void setConfirmPassword(String confirmPassword) {
+		this.confirmPassword = confirmPassword;
+	}
+	public String getConfirmPassword() {
+		return confirmPassword;
+	}
 }

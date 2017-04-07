@@ -8,6 +8,7 @@ import java.util.Date;
  */
 public class Feedback implements java.io.Serializable {
 
+	private static final long serialVersionUID = 2242851205266434433L;
 	private Integer id;
 	private Persona persona;
 	private String testo;

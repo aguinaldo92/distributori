@@ -1,6 +1,5 @@
 package it.unisalento.distributori.model;
 
-import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -79,6 +78,7 @@ public class ProdottoModel {
 	public void setIDsfamiglie(List<Integer> iDsfamiglie) {
 		IDsfamiglie = iDsfamiglie;
 	}
+	//TODO: io non ho avuto bisogno di fare tutto questo casino per leggere dalle checkboxlist, ma ho usato un arraylist<?> all'interno del distributoreModel. SIamo sicuri sia necessario tutto ciò?
 	public void setIDsfamiglie(String list_IDs) {
 		Scanner scan_fam = new Scanner(list_IDs.replace(", ", " "));
 		List<Integer> list_fam = new ArrayList<Integer>();

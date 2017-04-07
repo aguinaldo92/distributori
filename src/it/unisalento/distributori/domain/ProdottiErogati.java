@@ -6,6 +6,7 @@ package it.unisalento.distributori.domain;
  */
 public class ProdottiErogati implements java.io.Serializable {
 
+	private static final long serialVersionUID = -7146865291648744765L;
 	private Integer id;
 	private Distributore distributore;
 	private Prodotto prodotto;

@@ -7,6 +7,9 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import com.opensymphony.xwork2.ActionSupport;
 
 import it.unisalento.distributori.dao.DistributoreDao;
@@ -21,7 +24,11 @@ import it.unisalento.distributori.model.DettaglioDistributoreModel;
  *
  */
 public class ProdottiDistributore extends ActionSupport {
-	private static final long serialVersionUID = 3181980036211349123L;
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 3856111856787961276L;
 	private Integer idDistributore;
 	private Distributore distributore;
 	private String indirizzoDistributore;
@@ -35,11 +42,13 @@ public class ProdottiDistributore extends ActionSupport {
 	private ArrayList<ArrayList<DettaglioDistributoreModel>> listProdottiErogatixScaffale;
 	private ArrayList<DettaglioDistributoreModel> listDettaglioDistributoreModel;
 	private ArrayList<Prodotto> prodottiCompatibili;
+	private Logger logger = LogManager.getLogger(this.getClass().getName());
 
 	// mi servono scaffale e posto, quantità , nome prodotto
 	public String execute() {
 
 		try {
+			logger.trace("execute()");
 			distributore = FactoryDao.getIstance().getDistributoreDao().get(idDistributore, Distributore.class);
 			indirizzoDistributore = distributore.getIndirizzo();
 			posizioneEdificioDistributore = distributore.getPosizioneEdificio();
@@ -52,10 +61,10 @@ public class ProdottiDistributore extends ActionSupport {
 			Iterator<ProdottiErogati> prodottiErogatiIterator = listProdottiErogati.iterator();
 			if(prodottiErogatiIterator.hasNext()){
 				listProdottiErogatixScaffale = new ArrayList<ArrayList<DettaglioDistributoreModel>>();
-				for (Integer j = 1; j <= scaffali; j++) {
+				for (Integer scaffale = 1; scaffale <= scaffali; scaffale++) {
 					listDettaglioDistributoreModel = new ArrayList<DettaglioDistributoreModel>();
 
-					for (Integer i = 1; i <= posti; i++) {
+					for (Integer posto = 1; posto <= posti; posto++) {
 						currentProdottiErogati = prodottiErogatiIterator.next();
 						currentDettaglioDistributoreModel = new DettaglioDistributoreModel();
 						currentDettaglioDistributoreModel.setIdProdottoErogato(currentProdottiErogati.getId());
@@ -67,12 +76,13 @@ public class ProdottiDistributore extends ActionSupport {
 					listProdottiErogatixScaffale.add(listDettaglioDistributoreModel);
 				}
 			}
+
+			return SUCCESS;
 		} catch (Exception e) {
-			System.out.println(this.getClass() + e.getMessage());
+			logger.error("Impossibile caricare l'elenco dei prodotti erogati dal distributore selezionato",e);
+			addActionError("Impossibile caricare l'elenco dei prodotti erogati dal distributore selezionato");
 			return ERROR;
 		}
-
-		return SUCCESS;
 
 	}
 

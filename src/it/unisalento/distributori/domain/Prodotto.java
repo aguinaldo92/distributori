@@ -10,6 +10,7 @@ import java.util.Set;
  */
 public class Prodotto implements java.io.Serializable {
 
+	private static final long serialVersionUID = 4751307365786704104L;
 	private Integer id;
 	private Categoria categoria;
 	private Stabilimento stabilimento;
@@ -20,9 +21,9 @@ public class Prodotto implements java.io.Serializable {
 	private String foto;
 	private String preparazione;
 	private String ingredienti;
-	private Set famiglieProdottos = new HashSet(0);
-	private Set prodottiErogatis = new HashSet(0);
-	private Set acquistas = new HashSet(0);
+	private Set<FamiglieProdotto> famiglieProdottos = new HashSet<FamiglieProdotto>(0);
+	private Set<ProdottiErogati> prodottiErogatis = new HashSet<ProdottiErogati>(0);
+	private Set<Acquista> acquistas = new HashSet<Acquista>(0);
 
 	public Prodotto() {
 	}
@@ -35,8 +36,8 @@ public class Prodotto implements java.io.Serializable {
 	}
 
 	public Prodotto(Categoria categoria, Stabilimento stabilimento, String nome, String descrizione, BigDecimal prezzo,
-			BigDecimal scontoUtenti, String foto, String preparazione, String ingredienti, Set famiglieProdottos,
-			Set prodottiErogatis, Set acquistas) {
+			BigDecimal scontoUtenti, String foto, String preparazione, String ingredienti, Set<FamiglieProdotto> famiglieProdottos,
+			Set<ProdottiErogati> prodottiErogatis, Set<Acquista> acquistas) {
 		this.categoria = categoria;
 		this.stabilimento = stabilimento;
 		this.nome = nome;
@@ -123,27 +124,27 @@ public class Prodotto implements java.io.Serializable {
 		this.ingredienti = ingredienti;
 	}
 
-	public Set getFamiglieProdottos() {
+	public Set<FamiglieProdotto> getFamiglieProdottos() {
 		return this.famiglieProdottos;
 	}
 
-	public void setFamiglieProdottos(Set famiglieProdottos) {
+	public void setFamiglieProdottos(Set<FamiglieProdotto> famiglieProdottos) {
 		this.famiglieProdottos = famiglieProdottos;
 	}
 
-	public Set getProdottiErogatis() {
+	public Set<ProdottiErogati> getProdottiErogatis() {
 		return this.prodottiErogatis;
 	}
 
-	public void setProdottiErogatis(Set prodottiErogatis) {
+	public void setProdottiErogatis(Set<ProdottiErogati> prodottiErogatis) {
 		this.prodottiErogatis = prodottiErogatis;
 	}
 
-	public Set getAcquistas() {
+	public Set<Acquista> getAcquistas() {
 		return this.acquistas;
 	}
 
-	public void setAcquistas(Set acquistas) {
+	public void setAcquistas(Set<Acquista> acquistas) {
 		this.acquistas = acquistas;
 	}
 	public BigDecimal getScontoUtenti() {

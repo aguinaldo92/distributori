@@ -56,7 +56,6 @@ public class DistributoreModel {
 	public void setVia(String via) {
 		this.via = via;
 	}
-
 	public String getCitta() {
 		return citta;
 	}
@@ -93,7 +92,6 @@ public class DistributoreModel {
 	public void setProdottiForniti(ArrayList<?> prodottiForniti) {
 		this.prodottiForniti = prodottiForniti;
 	}
-	
 	public String getCivico() {
 		return civico;
 	}
@@ -130,15 +128,12 @@ public class DistributoreModel {
 	public void setIdDipendente(Integer idDipendente) {
 		this.idDipendente = idDipendente;
 	}
-
 	public boolean isInManutenzione() {
 		return inManutenzione;
 	}
 	public void setInManutenzione(boolean inManutenzione) {
 		this.inManutenzione = inManutenzione;
 	}
-	
-	
 	
 	
 }

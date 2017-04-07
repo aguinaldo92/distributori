@@ -9,15 +9,16 @@ import java.util.Set;
  */
 public class Produttore implements java.io.Serializable {
 
+	private static final long serialVersionUID = -2430193914507320040L;
 	private Integer id;
 	private String nome;
 	private String sede;
-	private Set stabilimentos = new HashSet(0);
+	private Set<Stabilimento> stabilimentos = new HashSet<Stabilimento>(0);
 
 	public Produttore() {
 	}
 
-	public Produttore(String nome, String sede, Set stabilimentos) {
+	public Produttore(String nome, String sede, Set<Stabilimento> stabilimentos) {
 		this.nome = nome;
 		this.sede = sede;
 		this.stabilimentos = stabilimentos;
@@ -47,11 +48,11 @@ public class Produttore implements java.io.Serializable {
 		this.sede = sede;
 	}
 
-	public Set getStabilimentos() {
+	public Set<Stabilimento> getStabilimentos() {
 		return this.stabilimentos;
 	}
 
-	public void setStabilimentos(Set stabilimentos) {
+	public void setStabilimentos(Set<Stabilimento> stabilimentos) {
 		this.stabilimentos = stabilimentos;
 	}
 

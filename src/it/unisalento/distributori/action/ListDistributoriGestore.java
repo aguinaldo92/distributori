@@ -2,8 +2,8 @@ package it.unisalento.distributori.action;
 
 import java.util.ArrayList;
 import java.util.Iterator;
-import java.util.List;
-
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import com.opensymphony.xwork2.ActionSupport;
 
@@ -13,103 +13,65 @@ import it.unisalento.distributori.factory.FactoryDao;
 import it.unisalento.distributori.model.DistributoreModel;
 
 public class ListDistributoriGestore extends ActionSupport{
-
-	private static final long serialVersionUID = -746929828565605153L;
-	private List<Distributore> listDistributore ;
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -6667941537054693949L;
+	private ArrayList<Distributore> listDistributore ;
 	// elenco delle possibili categorie che un distributore può fornire
 	// (anche se non è detto che lo faccia)	
-	private List<String> listNomiCategorieFornite;
+	private ArrayList<String> listNomiCategorieFornite;
 	// elenco dei prodotti forniti da un solo distributore
 	private ArrayList<ProdottiErogati> listProdottiErogati;
 	private ArrayList<String> listNomiQuantitaProdottiErogati;
-	// elenco dei distributori contentneti i prodotti in fine e le categorie che possono erogare
-	private List<DistributoreModel> listDistributoreModel ;
-	private DistributoreModel currentDistributoreModel;
-	private Distributore currentDistributore;
-	private ProdottiErogati currentProdottoErogato;
+	// elenco dei distributori contenenti i prodotti in fine e le categorie che possono erogare
+	private ArrayList<DistributoreModel> listDistributoreModel = new ArrayList<DistributoreModel>();
+	private Logger logger = LogManager.getLogger(this.getClass().getName());
 
-	
-	public List<DistributoreModel> getListDistributoreModel() {
-		return listDistributoreModel;
-	}
-
-	public void setListDistributoreModel(List<DistributoreModel> listDistributoreModel) {
-		this.listDistributoreModel = listDistributoreModel;
-	}
-	
 	public String execute() {
-		System.out.println("ListDistributoriDipendente.action:");
-		
-		listDistributoreModel = new ArrayList<DistributoreModel>();
-		// TODO: quantità minima da settare diversamente (così mostriamo tutti i prodotti erogati diversi da vuoto)
-		Integer quantitaMinima = 10100;
+		logger.trace("execute()");
 
-			try {
-			listDistributore = FactoryDao.getIstance().getDistributoreDao().getAllSortedBy(Distributore.class, "stato");
-			} catch (Exception e) {
-				System.out.println("eccezione" + e.getLocalizedMessage());
-				return ERROR;
-			}
+		try {
+			listDistributore = (ArrayList<Distributore>) FactoryDao.getIstance().getDistributoreDao().getAllSortedBy(Distributore.class, "stato");
 			// iteratore su tutti i distributori
-			Iterator<Distributore> distributoriIterator = listDistributore.iterator();
-			
-			System.out.println("numero di iterazioni da effettuare: "+ listDistributore.size());
-			while (distributoriIterator.hasNext()) {
+			for (Iterator<Distributore> distributoriIterator = listDistributore.iterator(); distributoriIterator.hasNext();) {
+				Distributore currentDistributore =  distributoriIterator.next();
 				// se non venisse ricreato ogni iterazione, verrebbe aggiunto più volte lo stesso model alla lista inserendo duplicati
-				listNomiQuantitaProdottiErogati = new ArrayList<String>();
-				currentDistributoreModel  = new DistributoreModel();
-				//System.out.println("iterazione: " + count);
-				//System.out.println("numero di iterazioni rimanenti: "+ (listDistributore.size() - count));
-				currentDistributore =  distributoriIterator.next();
-				//System.out.println("Ditributore: " + currentDistributore.getId() + " stato " + currentDistributore.getStato());
-				
-				try {
-					listNomiCategorieFornite = FactoryDao.getIstance().getCategorieForniteDao().getNomiCategorieForniteByDistributore(currentDistributore.getId());
-				} catch (Exception e) {
-					System.out.println("eccezione" + e.getLocalizedMessage());
-					
-					e.printStackTrace();
-				}
-				
-				//System.out.println("Categorie fornite dal Distributore: " + listNomiCategorieFornite.size());
-				
-				listProdottiErogati = FactoryDao.getIstance().getProdottiErogatiDao().getProdottiScarseggiantiByDistributore(currentDistributore.getId(), quantitaMinima);
-				
-				Iterator<ProdottiErogati> prodottiErogatiIterator = listProdottiErogati.iterator();
-				//System.out.println("Inizio iterator su prodotti");
-				while (prodottiErogatiIterator.hasNext()) {
-					currentProdottoErogato = prodottiErogatiIterator.next();
-					
-					try {
-						listNomiQuantitaProdottiErogati.add(currentProdottoErogato.getProdotto().getNome() + ": " + currentProdottoErogato.getQuantita());
-					} catch (Exception e) {
-						//System.out.println("eccezione in while prodotti erogoati iterator" + e.getLocalizedMessage());
-						// TODO Auto-generated catch block
-						e.printStackTrace();
-					}
-					
-					//System.out.println("Aggiunto : " + listNomiQuantitaProdottiErogati.get((listNomiQuantitaProdottiErogati.size() -1)));
-					
-				}
-				//TODO: controllare presenza di null e impostare di conseguenza. parlarne con totu (succede alla riga:
-				//currentDistributoreModel.setDipendente(currentDistributore.getDipendente().getPersona());
-				// sicuramente nel fare il getPersona di un dipendente NULL (così si è verificato l'errore l'ultima volta
-				//System.out.println("prodotti erogati dal Distributore: " + listNomiQuantitaProdottiErogati.size());			
+				DistributoreModel currentDistributoreModel  = new DistributoreModel();
 				currentDistributoreModel.setId(currentDistributore.getId());
 				currentDistributoreModel.setIndirizzo(currentDistributore.getIndirizzo());
 				currentDistributoreModel.setStato(currentDistributore.getStato());
 				currentDistributoreModel.setPosizioneEdificio(currentDistributore.getPosizioneEdificio());
 				currentDistributoreModel.setDipendente(currentDistributore.getDipendente().getPersona());
-				currentDistributoreModel.setCategorieFornite((ArrayList<String>) listNomiCategorieFornite);
-				currentDistributoreModel.setProdottiForniti((ArrayList<String>) listNomiQuantitaProdottiErogati);
-				//System.out.println("popolato il DistributoreModel numero: " + count);
-				listDistributoreModel.add(currentDistributoreModel);
-				System.out.println("aggiunto elemento alla lista dei models: " + currentDistributoreModel);
-				
+				listNomiCategorieFornite = (ArrayList<String>) FactoryDao.getIstance().getCategorieForniteDao().getNomiCategorieForniteByDistributore(currentDistributore.getId());
+				currentDistributoreModel.setCategorieFornite(listNomiCategorieFornite);
+
+				listProdottiErogati = FactoryDao.getIstance().getProdottiErogatiDao().getProdottiScarseggiantiByDistributore(currentDistributore.getId());
+				listNomiQuantitaProdottiErogati = new ArrayList<String>();
+				// iteratore su tutti i prodotti erogati da ogni distributore
+				for (Iterator<ProdottiErogati> prodottiErogatiIterator = listProdottiErogati.iterator(); prodottiErogatiIterator.hasNext();) {
+					ProdottiErogati currentProdottoErogato = prodottiErogatiIterator.next();
+					listNomiQuantitaProdottiErogati.add(currentProdottoErogato.getProdotto().getNome() + ": " + currentProdottoErogato.getQuantita());
 				}
+				currentDistributoreModel.setProdottiForniti(listNomiQuantitaProdottiErogati);
+				listDistributoreModel.add(currentDistributoreModel);
+			}
+			return SUCCESS;
 			
-		
-		return SUCCESS;
+		} catch (Exception e){
+			logger.error("Impossibile caricare l'elenco dei Distributori da parte del gestore",e);
+			addActionError("Impossibile caricare l'elenco dei Distributori");
+			return ERROR;
+		}
 
 	}
+
+
+	public ArrayList<DistributoreModel> getListDistributoreModel() {
+		return listDistributoreModel;
+	}
+	public void setListDistributoreModel(ArrayList<DistributoreModel> listDistributoreModel) {
+		this.listDistributoreModel = listDistributoreModel;
+	}
+
 }

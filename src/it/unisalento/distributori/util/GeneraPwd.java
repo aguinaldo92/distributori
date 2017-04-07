@@ -1,6 +1,6 @@
 package it.unisalento.distributori.util;
 
-import java.util.*;
+import java.util.Random;
 
 public class GeneraPwd {
 	
@@ -16,8 +16,6 @@ public class GeneraPwd {
     public String getPWD() {
 
         String pass="";
-        int num;
-        char alpha;
     	for(int i=0; i<dim; i++){
     		if(i%2==0)
     			pass+=String.valueOf(rnd.nextInt(10));

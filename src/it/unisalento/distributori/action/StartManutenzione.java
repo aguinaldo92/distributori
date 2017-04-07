@@ -3,6 +3,8 @@ package it.unisalento.distributori.action;
 import java.util.Date;
 import java.util.Map;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.apache.struts2.dispatcher.SessionMap;
 import org.apache.struts2.interceptor.SessionAware;
 
@@ -19,12 +21,13 @@ public class StartManutenzione extends ActionSupport implements SessionAware {
 	/**
 	 * 
 	 */
-	private static final long serialVersionUID = -4810546429218061600L;
+	private static final long serialVersionUID = -2457979825468224299L;
 	private int idDistributore;
 	private SessionMap<String, Object> personaSession;
+	private Logger logger = LogManager.getLogger(this.getClass().getName());
 
-	public String execute() throws Exception{
-		
+	public String execute() {
+		try{
 		Persona persona_loggata = (Persona) personaSession.get("persona");
 		
 		Distributore distributore = FactoryDao.getIstance().getDistributoreDao().get(idDistributore, Distributore.class);
@@ -36,6 +39,11 @@ public class StartManutenzione extends ActionSupport implements SessionAware {
 		manutenzione.setId(FactoryDao.getIstance().getManutieneDao().set(manutenzione));
 		
 		return SUCCESS;
+		} catch (Exception e){
+			logger.error("Impossibile far partire la manutenzione del distributore con ID: "+idDistributore,e);
+			addActionError("Impossibile far partire la manutenzione del distributore selezionato");
+			return ERROR;
+		}
 	}
 
 	public int getIdDistributore() {

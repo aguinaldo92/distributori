@@ -9,9 +9,10 @@ import java.util.Set;
  */
 public class Famiglia implements java.io.Serializable {
 
+	private static final long serialVersionUID = 4033202961174797198L;
 	private Integer id;
 	private String nome;
-	private Set famiglieProdottos = new HashSet(0);
+	private Set<FamiglieProdotto> famiglieProdottos = new HashSet<FamiglieProdotto>(0);
 
 	public Famiglia() {
 	}
@@ -20,7 +21,7 @@ public class Famiglia implements java.io.Serializable {
 		this.nome = nome;
 	}
 
-	public Famiglia(String nome, Set famiglieProdottos) {
+	public Famiglia(String nome, Set<FamiglieProdotto> famiglieProdottos) {
 		this.nome = nome;
 		this.famiglieProdottos = famiglieProdottos;
 	}
@@ -41,11 +42,11 @@ public class Famiglia implements java.io.Serializable {
 		this.nome = nome;
 	}
 
-	public Set getFamiglieProdottos() {
+	public Set<FamiglieProdotto> getFamiglieProdottos() {
 		return this.famiglieProdottos;
 	}
 
-	public void setFamiglieProdottos(Set famiglieProdottos) {
+	public void setFamiglieProdottos(Set<FamiglieProdotto> famiglieProdottos) {
 		this.famiglieProdottos = famiglieProdottos;
 	}
 

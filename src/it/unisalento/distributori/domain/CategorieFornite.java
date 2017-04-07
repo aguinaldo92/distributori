@@ -6,6 +6,10 @@ package it.unisalento.distributori.domain;
  */
 public class CategorieFornite implements java.io.Serializable {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 2395787557377258849L;
 	private Integer id;
 	private Categoria categoria;
 	private Distributore distributore;

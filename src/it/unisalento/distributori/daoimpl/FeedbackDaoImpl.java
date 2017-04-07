@@ -28,11 +28,9 @@ public class FeedbackDaoImpl extends BaseDaoImpl<Feedback> implements FeedbackDa
 			Query query = session.createQuery("select count(*) from Feedback as F where F.letto = 0");
 			numMessaggiNonLetti = (Long) query.uniqueResult();
 			tx.commit();
-			session.close();
 			return numMessaggiNonLetti;
-		} catch(Exception e){
-			System.out.println("IMpossibile ottenre numero messaggi non letti: "+e.getMessage());
-			return null;
+		} finally{
+			session.close();
 		}
 
 	}
