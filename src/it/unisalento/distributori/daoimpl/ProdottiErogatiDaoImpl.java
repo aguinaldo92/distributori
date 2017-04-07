@@ -51,6 +51,27 @@ public class ProdottiErogatiDaoImpl extends BaseDaoImpl<ProdottiErogati> impleme
 		return listProdottiErogatiScarseggianti;
 	}
 
+	@SuppressWarnings("unchecked")
+	@Override
+	public ArrayList<ProdottiErogati> getProdottiScarseggiantiByDistributore(Integer idDistributore) {
+		try {
+			Integer quantitaMinima = 5;
+			session = HibernateUtil.getSession();
+			tx = session.beginTransaction();
+			String hql = "select PE from ProdottiErogati PE inner join PE.prodotto as P where PE.distributore.id = :idDistributore and P.nome != 'vuoto' and PE.quantita < :quantitaMinima order by PE.quantita asc" ;
+			Query query = session.createQuery(hql);
+			query.setInteger("idDistributore", idDistributore);
+			query.setInteger("quantitaMinima", quantitaMinima);
+			ArrayList<ProdottiErogati> listProdottiErogatiScarseggianti = (ArrayList<ProdottiErogati>) query.list();
+			tx.commit();
+
+			return listProdottiErogatiScarseggianti;
+
+		} finally{
+			session.close();
+		}
+	}
+
 	@Override
 	public ArrayList<ProdottiErogati> getProdottiErogatiByDistributoreSortedByScaffalePosto(Integer idDistributore) {
 		try {

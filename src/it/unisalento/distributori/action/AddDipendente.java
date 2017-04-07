@@ -20,7 +20,7 @@ import it.unisalento.distributori.util.SendMailSSL;
  *	Per sfuttare l'interceptor ModelDriven la action deve implementare l'interfaccia ModelDriven
  */
 public class AddDipendente extends ActionSupport implements ModelDriven<PersonaModel>{
-	
+
 	/**
 	 * 
 	 */
@@ -28,7 +28,7 @@ public class AddDipendente extends ActionSupport implements ModelDriven<PersonaM
 	private PersonaModel DipForm = new PersonaModel();
 	private Dipendente new_Dip = new Dipendente();
 	private Persona new_persona = new Persona();
-	
+
 	public Persona getNew_persona() {
 		return new_persona;
 	}
@@ -46,13 +46,13 @@ public class AddDipendente extends ActionSupport implements ModelDriven<PersonaM
 	}
 
 	public String execute() {
-		
+
 		int new_id=-1;
 		int dim_pw=6;
 		GeneraPwd pw_generator = new GeneraPwd(dim_pw);//generatore di password lunghe 6 caratteri
-		
+
 		System.out.println("Sono entrato nella action AddDipendente - ID dipendente="+DipForm.getId());
-				
+
 		new_persona.setCognome(DipForm.getCognome());//modifico con quelli del form
 		new_persona.setNome(DipForm.getNome());
 		new_persona.setEmail(DipForm.getEmail());
@@ -63,33 +63,25 @@ public class AddDipendente extends ActionSupport implements ModelDriven<PersonaM
 
 		//inserisco persona e dipendente nel DB
 
-		try {
-			new_persona.setId(FactoryDao.getIstance().getPersonaDao().set(new_persona));
-		} catch (SQLException e1) {
-			e1.printStackTrace();
-		}
+		new_persona.setId(FactoryDao.getIstance().getPersonaDao().set(new_persona));
 		new_Dip.setPersona(new_persona);
-		try {
-			FactoryDao.getIstance().getDipendenteDao().set(new_Dip);
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
+		FactoryDao.getIstance().getDipendenteDao().set(new_Dip);
 
-		
+
 		SendMailSSL sending_mail=new SendMailSSL();
 		sending_mail.send(new_persona.getEmail(), "WiFi Drink&Snacks - NOTIFICA DI INSERIMENTO NEL GESTIONALE", "Gent.mo/a Sig./Sig.ra "+
-		new_persona.getNome()+" "+new_persona.getCognome()+
-		", la presente per notificarLe l'avvenuta registrazione nel gestionale aziendale "+
-		"del suo nominativo. Da questo momento potrà accedervi con le seguenti credenziali: username: "+
-		new_persona.getEmail()+" - password: "+new_persona.getPassword()+" ("+dim_pw+" caratteri)."+
-		" Buon lavoro!!!"+
-		" Cordialmente. Giovanni Rana");
-		
+				new_persona.getNome()+" "+new_persona.getCognome()+
+				", la presente per notificarLe l'avvenuta registrazione nel gestionale aziendale "+
+				"del suo nominativo. Da questo momento potrà accedervi con le seguenti credenziali: username: "+
+				new_persona.getEmail()+" - password: "+new_persona.getPassword()+" ("+dim_pw+" caratteri)."+
+				" Buon lavoro!!!"+
+				" Cordialmente. Giovanni Rana");
+
 		System.out.println("Inserito il dipendente nel DB. ID USER="+new_id);
-				
+
 		return SUCCESS;
 	}
-	
+
 	public void validate(){
 		if(DipForm.getEmail().length()>0){
 			if (FactoryDao.getIstance().getPersonaDao().emailExists(DipForm.getEmail(), null)){
@@ -98,7 +90,7 @@ public class AddDipendente extends ActionSupport implements ModelDriven<PersonaM
 			}
 		}
 	}
-	
+
 	@Override
 	public PersonaModel getModel() {
 		// TODO Auto-generated method stub

@@ -56,7 +56,7 @@ public class BaseDaoImpl<T> implements BaseDao<T> {
 	}
 
 	@Override
-	public void update(T entity) throws Exception {
+	public void update(T entity)  {
 		System.out.println("BaseDaoImpl: update()");
 		Session session = HibernateUtil.getSession();
 		Transaction tx = session.beginTransaction();
