@@ -35,7 +35,7 @@ public class AddProdotto extends ActionSupport implements ModelDriven<ProdottoMo
 
 	public String execute() {
 		try {
-			logger.trace("execute()");
+			logger.debug("execute()");
 			Prodotto new_prodotto=new Prodotto();
 			//settaggio caratteristiche prodotto
 			new_prodotto.setCategoria(FactoryDao.getIstance().getCategoriaDao().get(prodotto_Form.getCategoria().getId(), Categoria.class));
@@ -74,9 +74,9 @@ public class AddProdotto extends ActionSupport implements ModelDriven<ProdottoMo
 	}
 
 	public void validate(){
-		logger.trace("validate()");
+		logger.debug("validate()");
 		if(famiglia_scelta.length()==0){
-			logger.trace("AddProdotto: nessuna famiglia selezionata");
+			logger.debug("AddProdotto: nessuna famiglia selezionata");
 			addFieldError("nofamilyselected", "Selezionare ALMENO una famiglia di prodotti.");
 		}
 	}

@@ -27,7 +27,7 @@ public class ListCategorie extends ActionSupport{
 
 	public String execute(){
 		try{
-			logger.trace("execute()");
+			logger.debug("execute()");
 			categorie = FactoryDao.getIstance().getCategoriaDao().getAllCategorie();
 			ServletActionContext.getRequest().setAttribute("categorie", categorie);
 			return SUCCESS;

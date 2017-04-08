@@ -23,7 +23,7 @@ public class PreloadedFieldsProdotto extends ActionSupport{
 
 	public String execute() {
 		try{
-			logger.trace("execute()");
+			logger.debug("execute()");
 
 			//caricamento delle categorie e delle famiglie
 			all_categ = FactoryDao.getIstance().getCategoriaDao().getAllCategorie();

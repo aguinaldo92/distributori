@@ -28,7 +28,7 @@ public class EndManutenzione extends ActionSupport {
 		 * sia lo stesso dipendente che l'ha iniziata.
 		 */
 		try{
-			logger.trace("execute()");
+			logger.debug("execute()");
 			Manutiene manutenzione = FactoryDao.getIstance().getManutieneDao().getManutenzionePendenteByDistributore(idDistributore);
 			manutenzione.setDataFine(new Date());
 			FactoryDao.getIstance().getManutieneDao().update(manutenzione);

@@ -27,7 +27,7 @@ public class UpdateDistributore extends ActionSupport {
 
 	public String execute() {
 		try {
-			logger.trace("execute()");
+			logger.debug("execute()");
 			Distributore distributore = FactoryDao.getIstance().getDistributoreDao().get(idDistributore, Distributore.class);
 			String indirizzo = distributoreModel.getVia() + ", " + distributoreModel.getCivico() + ", " + distributoreModel.getCitta() + ", " + distributoreModel.getProvincia();
 			distributore.setIndirizzo(indirizzo);
@@ -47,7 +47,7 @@ public class UpdateDistributore extends ActionSupport {
 	
 	
 	public void validate(){
-		logger.trace("validate()");
+		logger.debug("validate()");
 		ServletActionContext.getRequest().setAttribute("distributoreModel", distributoreModel);
 		if (hasFieldErrors()){
 			addActionError("Ci sono degli errori nell'aggiornamento delle info");

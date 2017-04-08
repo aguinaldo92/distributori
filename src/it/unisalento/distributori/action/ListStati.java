@@ -26,7 +26,7 @@ public class ListStati extends ActionSupport{
 
 	public String execute(){
 		try{
-			logger.trace("execute()");
+			logger.debug("execute()");
 			stati.put(0, "Guasto");
 			stati.put(1, "Rifornimento atteso");
 			stati.put(2, "OK");

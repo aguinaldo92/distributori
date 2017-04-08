@@ -34,7 +34,7 @@ public class ListDistributoriDipendente extends ActionSupport implements Session
 
 	public String execute() {
 		try {
-			logger.trace("execute()");
+			logger.debug("execute()");
 			Integer idDipendente = ((Persona) personaSession.get("persona")).getId();
 			ArrayList<Distributore> listDistributore = FactoryDao.getIstance().getDistributoreDao().getDistributoriByIdDipendenteSortedByStato(idDipendente);
 			// iteratore su tutti i distributori

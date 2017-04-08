@@ -26,7 +26,7 @@ public class DashboardGestore extends ActionSupport {
 
 	public String execute(){
 		try{
-			logger.trace("execute()");
+			logger.debug("execute()");
 			numMessaggiNonLetti = FactoryDao.getIstance().getFeedbackDao().getNumMessaggiNonLetti();
 			numDistributoriNonOk = FactoryDao.getIstance().getDistributoreDao().getNumDistributoriNonOk();
 

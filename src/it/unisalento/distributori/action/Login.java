@@ -5,7 +5,7 @@ package it.unisalento.distributori.action;
 
 import it.unisalento.distributori.domain.Persona;
 import it.unisalento.distributori.factory.FactoryDao;
-import it.unisalento.distributori.model.PersonaModel;
+import it.unisalento.distributori.util.PasswordUtils;
 
 import java.util.Map;
 
@@ -15,7 +15,6 @@ import org.apache.struts2.dispatcher.SessionMap;
 import org.apache.struts2.interceptor.SessionAware;
 
 import com.opensymphony.xwork2.ActionSupport;
-import com.opensymphony.xwork2.ModelDriven;
 import com.opensymphony.xwork2.interceptor.ParameterNameAware;
 import com.opensymphony.xwork2.validator.annotations.RequiredStringValidator;
 
@@ -33,41 +32,44 @@ public class Login extends ActionSupport implements SessionAware, ParameterNameA
 
 	public String execute() {
 
-		logger.trace("execute()");
+		logger.debug("execute()");
 		Persona personaBySession = (Persona) personaSession.get("persona");
 		logger.debug("personaBySession.getNome(): "+personaBySession.getNome());
-		switch (personaBySession.getRuolo()) {
-		case 0:	return "gestore";
-		case 1: return "dipendente";
-
-		} 
-		return SUCCESS;
+		return ERROR;
+//		switch (personaBySession.getRuolo()) {
+//		case 0:	return "gestore";
+//		case 1: return "dipendente";
+//
+//		} 
+//		return ERROR;
 	}
 
 	public void validate() {
 		try {
-			logger.trace("validate()");
+			logger.debug("validate()");
 			boolean errors = false;
 			System.out.println("Sono entrato nel metodo validate della Login");
 			if (!(personaSession.containsKey("persona"))){
-				logger.trace("sono nell if persona: nessuna persona in personaSession");
+				logger.debug("sono nell if persona: nessuna persona in personaSession");
 				//controllo se la userSession è stata impostata
 
 				//ottengo anagrafica e indirizzi salvati dallo user loggato
-				Persona persona = FactoryDao.getIstance().getPersonaDao().getPersonaByCredentials(email, password);
+				String hashedPassword = PasswordUtils.getSha256(password);
+				logger.debug("hashedPassword = " + hashedPassword);
+				Persona persona = FactoryDao.getIstance().getPersonaDao().getPersonaByCredentials(email, hashedPassword);
 
 				if (persona != null ){
 					personaSession.put("persona", persona);
-					logger.trace("salvo persona nella sessione " + persona.getEmail());
+					logger.debug("salvo persona nella sessione " + persona.getEmail());
 				} else {
 					errors = true;
 					addFieldError("email", "Utente non presente nel sistema");
-					logger.trace("email non presente: " + persona.getEmail());
+					logger.debug("email non presente: " + email);
 
 				}
 				if (errors) {
 					addActionError("Email o Password errati");
-					logger.trace("aggiungo errori");
+					logger.debug("aggiungo errori");
 				}
 
 			} 		

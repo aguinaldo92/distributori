@@ -22,7 +22,7 @@ public class ListDipendenti extends ActionSupport{
 
 	public String execute () {
 		try{
-			logger.trace("execute()");
+			logger.debug("execute()");
 			this.dipendenti=FactoryDao.getIstance().getDipendenteDao().getAll(Dipendente.class);
 			ServletActionContext.getRequest().setAttribute("dipendenti", dipendenti);
 			return SUCCESS;

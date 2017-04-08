@@ -38,23 +38,23 @@ public class LoginInterceptor implements Interceptor {
 	@Override
 	public String intercept(ActionInvocation invocation) throws Exception {
 		personaSession = (SessionMap<String, Object>) invocation.getInvocationContext().getSession();
-		logger.trace("LoginInterceptor: intercept");
+		logger.debug("LoginInterceptor: intercept");
 
 		if (personaSession.containsKey("persona")) {
 			namespaceAction = invocation.getProxy().getNamespace();
 			nameAction = invocation.getProxy().getActionName();
-			logger.trace("LoginInterceptor: Namespace: " + namespaceAction + "; Action name:" + nameAction);
+			logger.debug("LoginInterceptor: Namespace: " + namespaceAction + "; Action name:" + nameAction);
 			
 			ruolo = ((Persona) personaSession.get("persona")).getRuolo();
 			if (ruolo_namespace.get(ruolo).equals(namespaceAction)) {
-				logger.trace("Permessi OK: sei nel namespace: " + namespaceAction + " action:  " + nameAction + " poichè hai il ruolo " + ruolo);
+				logger.debug("Permessi OK: sei nel namespace: " + namespaceAction + " action:  " + nameAction + " poichè hai il ruolo " + ruolo);
 				return invocation.invoke();
 			} else {
-				logger.trace("LoginInterceptor: permessi Insufficienti: hai provato ad entrare nel namespace " + namespaceAction + " action:  " + nameAction + " ma il tuo ruolo è" + ruolo);
+				logger.debug("LoginInterceptor: permessi Insufficienti: hai provato ad entrare nel namespace " + namespaceAction + " action:  " + nameAction + " ma il tuo ruolo è" + ruolo);
 				return Action.LOGIN;
 			}
 		} else {
-			logger.trace("L'utente deve essere loggato per arrivare alla pagina ");
+			logger.debug("L'utente deve essere loggato per arrivare alla pagina ");
 			return Action.LOGIN;
 		}
 

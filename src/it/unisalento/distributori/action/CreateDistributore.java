@@ -44,7 +44,7 @@ public class CreateDistributore extends ActionSupport implements ModelDriven<Dis
 
 	public String execute() {
 		try {
-			logger.trace("execute()");
+			logger.debug("execute()");
 			String indirizzo = distributoreModel.getVia() + ", " + distributoreModel.getCivico() + ", " + distributoreModel.getCitta() + ", " + distributoreModel.getProvincia();
 			distributore.setIndirizzo(indirizzo);
 			listLatLon = AddressTranslation.getLatLonFromAddress(indirizzo);
@@ -92,7 +92,7 @@ public class CreateDistributore extends ActionSupport implements ModelDriven<Dis
 	}
 
 	public void validate(){
-		logger.trace("validate()");
+		logger.debug("validate()");
 		if (distributoreModel.getCategorieFornite().isEmpty()){
 			addFieldError("categorieFornite", "Il distributore deve erogare almeno una categoria");
 		}

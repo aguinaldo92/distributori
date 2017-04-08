@@ -29,7 +29,7 @@ public class ListDistributoriGestore extends ActionSupport{
 	private Logger logger = LogManager.getLogger(this.getClass().getName());
 
 	public String execute() {
-		logger.trace("execute()");
+		logger.debug("execute()");
 
 		try {
 			listDistributore = (ArrayList<Distributore>) FactoryDao.getIstance().getDistributoreDao().getAllSortedBy(Distributore.class, "stato");

@@ -48,7 +48,7 @@ public class ProdottiDistributore extends ActionSupport {
 	public String execute() {
 
 		try {
-			logger.trace("execute()");
+			logger.debug("execute()");
 			distributore = FactoryDao.getIstance().getDistributoreDao().get(idDistributore, Distributore.class);
 			indirizzoDistributore = distributore.getIndirizzo();
 			posizioneEdificioDistributore = distributore.getPosizioneEdificio();

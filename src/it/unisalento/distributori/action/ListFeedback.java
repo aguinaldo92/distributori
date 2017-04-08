@@ -20,7 +20,7 @@ public class ListFeedback  extends ActionSupport{
 	
 	public String execute() {
 		try{
-		logger.trace("execute()");
+		logger.debug("execute()");
 		feedbacks = FactoryDao.getIstance().getFeedbackDao().getAllSortedBy(Feedback.class, "data desc");
 		numFeedbackNonLetti = FactoryDao.getIstance().getFeedbackDao().getNumMessaggiNonLetti();
 		ServletActionContext.getRequest().setAttribute("feedbacks", feedbacks);

@@ -8,6 +8,7 @@ import org.apache.logging.log4j.Logger;
 
 import com.opensymphony.xwork2.ActionSupport;
 
+import it.unisalento.distributori.domain.Distributore;
 import it.unisalento.distributori.domain.ProdottiErogati;
 import it.unisalento.distributori.factory.FactoryDao;
 
@@ -17,7 +18,6 @@ public class UpdateQuantitaProdottiByDistributore extends ActionSupport {
 	 */
 	private static final long serialVersionUID = -8514043373839582058L;
 
-	private ProdottiErogati prodottiErogatiUpdated;
 
 	private Integer idDistributore;
 	private List<Integer> ids;
@@ -26,17 +26,21 @@ public class UpdateQuantitaProdottiByDistributore extends ActionSupport {
 
 	public String execute() {
 		try {
-			logger.trace("execute()");
+			logger.debug("execute()");
 			System.out.println("idDistributore: " + idDistributore);
 			Iterator<Integer> idsIterator = ids.iterator();
 			Iterator<Integer> quantitaIterator = quantita.iterator();
 			/*** ids.size must be equal to quantita.size() */
 			while (idsIterator.hasNext()) {
 				Integer newQuantita = quantitaIterator.next();
-				prodottiErogatiUpdated = FactoryDao.getIstance().getProdottiErogatiDao().get(idsIterator.next(),ProdottiErogati.class);
+				ProdottiErogati prodottiErogatiUpdated = FactoryDao.getIstance().getProdottiErogatiDao().get(idsIterator.next(),ProdottiErogati.class);
 				if (!prodottiErogatiUpdated.getQuantita().equals(newQuantita)) {
 					prodottiErogatiUpdated.setQuantita(newQuantita);
 					FactoryDao.getIstance().getProdottiErogatiDao().update(prodottiErogatiUpdated);
+					Integer statoUpdated = FactoryDao.getIstance().getDistributoreDao().getUpdatedStato(idDistributore);
+					Distributore distributore = FactoryDao.getIstance().getDistributoreDao().get(idDistributore, Distributore.class);
+					distributore.setStato(statoUpdated);
+					FactoryDao.getIstance().getDistributoreDao().update(distributore);
 				}
 			}
 

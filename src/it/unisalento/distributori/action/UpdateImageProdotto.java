@@ -27,7 +27,7 @@ public class UpdateImageProdotto extends ActionSupport{
 	public String execute()  {
 
 		try{
-			logger.trace("execute()");
+			logger.debug("execute()");
 			Random random = new Random();//per garantire un nome diverso della nuova foto per agevolare il caricamento anche se la cache ha salvato la foto precedente
 
 			/* Copy file to a safe location */

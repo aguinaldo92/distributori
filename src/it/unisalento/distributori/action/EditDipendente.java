@@ -22,7 +22,7 @@ public class EditDipendente extends ActionSupport{
 
 	public String execute ()  {
 		try{
-			logger.trace("execute()");
+			logger.debug("execute()");
 			dip=FactoryDao.getIstance().getDipendenteDao().get(idDip, Dipendente.class);
 
 			dipendente.setCognome(dip.getPersona().getCognome());
@@ -30,7 +30,7 @@ public class EditDipendente extends ActionSupport{
 			dipendente.setEmail(dip.getPersona().getEmail());
 			dipendente.setId(dip.getPersonaId());
 			dipendente.setTelefono(dip.getTelefono());
-			logger.trace("Dipendente ottenuto: "+dipendente.getNome()+" "+dipendente.getCognome());
+			logger.debug("Dipendente ottenuto: "+dipendente.getNome()+" "+dipendente.getCognome());
 
 			return SUCCESS;
 

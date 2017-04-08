@@ -25,7 +25,7 @@ public class UpdateProdottiErogati extends ActionSupport {
 
 	public String execute() {
 		try {
-			logger.trace("execute()");
+			logger.debug("execute()");
 
 			// iteratore sulla lista degli id dei prodotti intesi come Prodotto
 			Iterator<Integer> idsProdottiIterator = listIdsProdotti.iterator();

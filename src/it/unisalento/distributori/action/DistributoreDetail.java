@@ -29,7 +29,7 @@ public class DistributoreDetail extends ActionSupport {
 	public String execute() {
 
 		try {
-			logger.trace("execute()");
+			logger.debug("execute()");
 			Distributore distributore = FactoryDao.getIstance().getDistributoreDao().get(idDistributore, Distributore.class);
 			String[] st = distributore.getIndirizzo().split(",");
 			

@@ -29,7 +29,7 @@ public class ListProdotti extends ActionSupport{
 
 	public String execute () {
 		try{
-		logger.trace("execute()");
+		logger.debug("execute()");
 		this.categorie = FactoryDao.getIstance().getCategoriaDao().getAllCategorie();
 		this.famiglie= FactoryDao.getIstance().getFamigliaDao().getAllSortedBy(Famiglia.class, "nome");
 

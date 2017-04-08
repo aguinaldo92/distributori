@@ -32,7 +32,7 @@ public class UpdateDipendente extends ActionSupport implements ModelDriven<Perso
 
 	public String execute() {
 		try {
-			logger.trace("execute()");
+			logger.debug("execute()");
 			dip = FactoryDao.getIstance().getDipendenteDao().get(dipendente.getId(), Dipendente.class);
 			dip.setTelefono(dipendente.getTelefono());//modifico con il dato del form
 			Persona new_persona = dip.getPersona();//precarico i dati della persona
@@ -55,7 +55,7 @@ public class UpdateDipendente extends ActionSupport implements ModelDriven<Perso
 	}
 
 	public void validate(){
-		logger.trace("validate()");
+		logger.debug("validate()");
 		ServletActionContext.getRequest().setAttribute("dipendente", dipendente);
 
 		if (FactoryDao.getIstance().getPersonaDao().emailExists(dipendente.getEmail(),dipendente.getId())){

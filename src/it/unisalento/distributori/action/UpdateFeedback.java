@@ -21,7 +21,7 @@ public class UpdateFeedback  extends ActionSupport{
 
 	public String execute() {
 		try{
-			logger.trace("execute()");
+			logger.debug("execute()");
 			Feedback feedback = FactoryDao.getIstance().getFeedbackDao().get(id, Feedback.class);
 
 			Byte letto=0;

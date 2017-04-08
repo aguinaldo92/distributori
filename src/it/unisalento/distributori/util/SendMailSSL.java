@@ -17,7 +17,7 @@ public class SendMailSSL {
 	
 	public int send(String email_To, String oggetto, String testo) {
 		
-		logger.trace("send()");
+		logger.debug("send()");
 		
 		Properties props = new Properties();
 		props.put("mail.smtp.host", "smtp.gmail.com");
@@ -45,7 +45,7 @@ public class SendMailSSL {
 
 			Transport.send(message);
 
-			logger.trace("Email inviata a "+email_To);
+			logger.debug("Email inviata a "+email_To);
 
 		} catch (MessagingException e) {
 			logger.error("Impossibile inviare la mail con oggetto: " + oggetto + " e testo: " + testo + " a " + email_To,e);

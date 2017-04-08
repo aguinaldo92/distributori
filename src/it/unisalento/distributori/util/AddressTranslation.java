@@ -28,9 +28,9 @@ public abstract class AddressTranslation {
 		List<BigDecimal> listLatLon = new ArrayList<>(2);
 		try{
 			String indirizzo_url = URLEncoder.encode(indirizzo, "UTF-8");
-			logger.trace(indirizzo_url);
+			logger.debug(indirizzo_url);
 			String urlMapsGeocodig = BASEURLGOOGLEMAPS + "address=" + indirizzo_url + "&key=" + APIKEYGOOGLEMAPS;
-			logger.trace(urlMapsGeocodig);
+			logger.debug(urlMapsGeocodig);
 			URL url = new URL(urlMapsGeocodig);
 			HttpURLConnection conn = (HttpURLConnection) url.openConnection();
 			conn.setRequestMethod("GET");
@@ -49,7 +49,7 @@ public abstract class AddressTranslation {
 				response.append(output);
 			}
 			JsonObject json = (JsonObject) new JsonParser().parse(response.toString());
-			logger.trace("json restituito da Maps API: "+json.toString());
+			logger.debug("json restituito da Maps API: "+json.toString());
 
 			JsonArray json_array_results = json.getAsJsonArray("results");
 			JsonObject json_object_0 = (JsonObject) json_array_results.get(0);

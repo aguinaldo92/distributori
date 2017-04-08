@@ -75,8 +75,8 @@ public class BaseDaoImpl<T> implements BaseDao<T> {
 	@Override
 	public void update(T entity) {
 		try{
-			Session session = HibernateUtil.getSession();
-			Transaction tx = session.beginTransaction();
+			session = HibernateUtil.getSession();
+			tx = session.beginTransaction();
 			session.update(entity);
 			tx.commit();
 		} catch (Exception e) {
@@ -90,8 +90,8 @@ public class BaseDaoImpl<T> implements BaseDao<T> {
 	@Override
 	public void delete(T entity) {
 		try{
-			Session session = HibernateUtil.getSession();
-			Transaction tx = session.beginTransaction();
+			session = HibernateUtil.getSession();
+			tx = session.beginTransaction();
 			session.delete(entity);
 			tx.commit();
 		} catch (Exception e) {

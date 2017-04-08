@@ -20,7 +20,7 @@ public class DeleteDipendente extends ActionSupport{
 
 	public String execute ()  {
 		try{
-			logger.trace("execute()");	
+			logger.debug("execute()");	
 			this.new_persona = FactoryDao.getIstance().getPersonaDao().get(idDip, Persona.class);
 			FactoryDao.getIstance().getPersonaDao().delete(new_persona);
 			SendMailSSL sending_mail = new SendMailSSL();

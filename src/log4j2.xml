@@ -4,7 +4,7 @@
 		<Console name="Console" target="SYSTEM_OUT">
 			<PatternLayout pattern="%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n" />
 		</Console>
-		<File name="LogFile" fileName="all.log" immediateFlush="false" append="false">
+		<File name="LogFile"  fileName="/Distributori/logs/debug_error_distributori.log" >
 			<PatternLayout pattern="%d{yyy-MM-dd HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n" />
 		</File>
 		<NoSql name="MongoAppender">
@@ -16,11 +16,10 @@
 			<AppenderRef ref="Console" />
 		</Root>
 		<logger name="it.unisalento.distributori" level="WARN">
-  			<AppenderRef ref="MongoAppender" />
-  			<AppenderRef ref="LogFile" />
-  		</logger>
+			<AppenderRef ref="MongoAppender" />
+		</logger>
 		<logger name="it.unisalento.distributori" level="DEBUG">
-  			<AppenderRef ref="Console" />
-  		</logger>
+			<AppenderRef ref="LogFile" />
+		</logger>
 	</Loggers>
 </Configuration>

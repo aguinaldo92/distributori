@@ -30,7 +30,7 @@ public class UpdateProdotto extends ActionSupport implements ModelDriven<Prodott
 
 	public String execute()  {
 		try{
-			logger.trace("execute()");
+			logger.debug("execute()");
 			prodotto_form.setIDsfamiglie(famiglia_scelta);
 			Prodotto newprodotto = FactoryDao.getIstance().getProdottoDao().get(idProdotto, Prodotto.class);
 			//aggiornamento del prodotto con le info del form
@@ -69,7 +69,7 @@ public class UpdateProdotto extends ActionSupport implements ModelDriven<Prodott
 
 	public void validate(){
 		try{
-			logger.trace("validate()");
+			logger.debug("validate()");
 			prodotto_form.setIDsfamiglie(famiglia_scelta);
 			ServletActionContext.getRequest().setAttribute("prodotto", prodotto_form);
 

@@ -13,6 +13,7 @@ import it.unisalento.distributori.domain.Persona;
 import it.unisalento.distributori.factory.FactoryDao;
 import it.unisalento.distributori.model.PersonaModel;
 import it.unisalento.distributori.util.GeneraPwd;
+import it.unisalento.distributori.util.PasswordUtils;
 import it.unisalento.distributori.util.SendMailSSL;
 
 /***
@@ -23,10 +24,7 @@ import it.unisalento.distributori.util.SendMailSSL;
  *	Per sfuttare l'interceptor ModelDriven la action deve implementare l'interfaccia ModelDriven
  */
 public class AddDipendente extends ActionSupport implements ModelDriven<PersonaModel>{
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = -6919327268875005143L;
+	private static final long serialVersionUID = -482775121433491172L;
 	private PersonaModel DipForm = new PersonaModel();
 	private Logger logger = LogManager.getLogger(this.getClass().getName());
 	private int dim_pw = 6;
@@ -34,13 +32,14 @@ public class AddDipendente extends ActionSupport implements ModelDriven<PersonaM
 
 	public String execute() {
 		try {
-			logger.trace("execute()");
+			logger.debug("execute()");
 			Persona new_persona = new Persona();
 			new_persona.setCognome(DipForm.getCognome());//modifico con quelli del form
 			new_persona.setNome(DipForm.getNome());
 			new_persona.setEmail(DipForm.getEmail());
 			GeneraPwd pw_generator = new GeneraPwd(dim_pw);//generatore di password lunghe 6 caratteri
-			new_persona.setPassword(pw_generator.getPWD());
+			String hashedPassword = PasswordUtils.getSha256(pw_generator.getPWD());
+			new_persona.setPassword(hashedPassword);
 			new_persona.setRuolo(ruoloDipendente);//ruolo 1 = dipendente
 			Dipendente new_Dip = new Dipendente();
 			new_Dip.setTelefono(DipForm.getTelefono());
@@ -70,7 +69,7 @@ public class AddDipendente extends ActionSupport implements ModelDriven<PersonaM
 	}
 
 	public void validate(){
-		logger.trace("validate()");
+		logger.debug("validate()");
 		if(FactoryDao.getIstance().getPersonaDao().emailExists(DipForm.getEmail())){
 			addFieldError("email_esistente", "Email già presente");
 		}

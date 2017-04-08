@@ -11,11 +11,9 @@ import com.opensymphony.xwork2.ActionSupport;
 
 import it.unisalento.distributori.domain.Persona;
 import it.unisalento.distributori.factory.FactoryDao;
+import it.unisalento.distributori.util.PasswordUtils;
 
 public class UpdatePassword extends ActionSupport implements SessionAware{
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 6731743316457056842L;
 	private String confirmPassword, newPassword;
 	private SessionMap<String, Object> personaSession;
@@ -25,12 +23,12 @@ public class UpdatePassword extends ActionSupport implements SessionAware{
 
 	public void validate() {
 		try{
-			logger.trace("validate()");
+			logger.debug("validate()");
 			persona = (Persona) personaSession.get("persona");
 			if (!newPassword.equals(confirmPassword)){
 				addFieldError("confirmPassword", "Le password non combaciano");
 			}
-			if(newPassword.equals(persona.getPassword())){
+			if(newPassword.equals(PasswordUtils.getSha256(persona.getPassword()))){
 				addFieldError("newPassword", "La password scelta è la stessa già utilizzata, sceglierne una differente");
 			}
 			if (hasFieldErrors()) {
@@ -45,8 +43,8 @@ public class UpdatePassword extends ActionSupport implements SessionAware{
 
 	public String execute(){
 		try{
-			logger.trace("execute()");
-			persona.setPassword(newPassword);
+			logger.debug("execute()");
+			persona.setPassword(PasswordUtils.getSha256(newPassword));
 			FactoryDao.getIstance().getPersonaDao().update(persona);
 			personaSession.replace("persona",persona);
 			addActionMessage("Password modificata con successo");

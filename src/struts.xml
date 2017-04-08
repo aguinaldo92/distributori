@@ -37,8 +37,8 @@
 		<global-results>
 			<result name="login" type="redirect">/index.action</result>
 			<result name="DENIED" type="redirect">/denied.action</result>
-			<result name="error" >error.action</result>
-			<result name="/dipendente" type="redirect">/dipendente/dashboard.action</result>
+			<result name="error" type="redirect" >error.action</result>
+			<result name="/dipendente" type="redirect" >/dipendente/dashboard.action</result>
 			<result name="/gestore" type="redirect">/gestore/dashboard.action</result>
 		</global-results>
 

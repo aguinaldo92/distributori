@@ -25,7 +25,7 @@ public class Logout extends ActionSupport {
 	@Override
 	public String execute(){
 		try{
-			logger.trace("execute()");
+			logger.debug("execute()");
 			personaSession=(SessionMap<String,Object>)ActionContext.getContext().getSession();
 			personaSession.invalidate();
 			return SUCCESS;

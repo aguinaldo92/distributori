@@ -42,7 +42,7 @@ public class ProdottoDetail extends ActionSupport implements Preparable{
 
 	public String execute () {
 		try{
-			logger.trace("execute()");		
+			logger.debug("execute()");		
 			Prodotto prod_scelto=FactoryDao.getIstance().getProdottoDao().get(idProdotto, Prodotto.class);
 			prodotto.setDescrizione(prod_scelto.getDescrizione());
 			prodotto.setFoto(prod_scelto.getFoto());

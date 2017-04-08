@@ -30,7 +30,7 @@ public class DipendenteDetail extends ActionSupport implements SessionAware{
 
 	public String execute () {
 		try{
-			logger.trace("execute()");
+			logger.debug("execute()");
 			if (((Persona)personaSession.get("persona")).getRuolo() != 0 ){
 				// l'amministratore può visualizzare tutti i dipendenti
 				this.idDip=((Persona)personaSession.get("persona")).getId();
@@ -43,7 +43,7 @@ public class DipendenteDetail extends ActionSupport implements SessionAware{
 			dipendente.setId(dip.getPersonaId());
 			dipendente.setTelefono(dip.getTelefono());
 
-			logger.trace("Dipendente ottenuto: "+dipendente.getNome()+" "+dipendente.getCognome());
+			logger.debug("Dipendente ottenuto: "+dipendente.getNome()+" "+dipendente.getCognome());
 
 			return SUCCESS;
 		}catch (NullPointerException ne){
