@@ -7,8 +7,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.hibernate.Query;
-import org.hibernate.Session;
-import org.hibernate.Transaction;
 
 import it.unisalento.distributori.dao.ProduttoreDao;
 import it.unisalento.distributori.domain.Produttore;
@@ -24,8 +22,8 @@ public class ProduttoreDaoImpl extends BaseDaoImpl<Produttore> implements Produt
 	@Override
 	public List<Stabilimento> getStabilimentiByProduttore(int id_produttore) {
 		try{
-			Session session = HibernateUtil.getSession();
-			Transaction tx = session.beginTransaction();
+			session = HibernateUtil.getSession();
+			tx = session.beginTransaction();
 			Query query = session.createQuery("select S from Stabilimento as S inner join S.produttore as P where P.id=:id_prod");
 			query.setInteger("id_prod", id_produttore);
 			List<Stabilimento> stabilimenti = new ArrayList<Stabilimento>();
@@ -41,8 +39,8 @@ public class ProduttoreDaoImpl extends BaseDaoImpl<Produttore> implements Produt
 	@Override
 	public List<Produttore> getAllProduttori(){
 		try{
-			Session session = HibernateUtil.getSession();
-			Transaction tx = session.beginTransaction();
+			session = HibernateUtil.getSession();
+			tx = session.beginTransaction();
 			Query query = session.createQuery("from Produttore as P where P.nome IS NOT NULL and nome != 'fittizio' order by P.nome");
 			List<Produttore> list_prodotti = new ArrayList<Produttore>();
 			list_prodotti=query.list();

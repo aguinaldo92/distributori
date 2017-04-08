@@ -6,8 +6,6 @@ package it.unisalento.distributori.daoimpl;
 import java.util.List;
 
 import org.hibernate.Query;
-import org.hibernate.Session;
-import org.hibernate.Transaction;
 
 import it.unisalento.distributori.dao.CategorieForniteDao;
 import it.unisalento.distributori.domain.CategorieFornite;
@@ -17,8 +15,6 @@ import it.unisalento.distributori.domain.CategorieFornite;
  *
  */
 public class CategorieForniteDaoImpl extends BaseDaoImpl<CategorieFornite> implements CategorieForniteDao{
-	private Session session;
-	private Transaction tx;
 
 	@SuppressWarnings("unchecked")
 	@Override

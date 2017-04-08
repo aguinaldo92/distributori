@@ -7,8 +7,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.hibernate.Query;
-import org.hibernate.Session;
-import org.hibernate.Transaction;
 
 import it.unisalento.distributori.dao.ProdottoDao;
 import it.unisalento.distributori.domain.Prodotto;
@@ -18,8 +16,6 @@ import it.unisalento.distributori.domain.Prodotto;
  *
  */
 public class ProdottoDaoImpl extends BaseDaoImpl<Prodotto> implements ProdottoDao {
-	private Session session;
-	private Transaction tx;
 
 	@SuppressWarnings("unchecked")
 	@Override

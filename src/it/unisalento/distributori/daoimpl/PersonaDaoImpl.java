@@ -7,8 +7,6 @@ import it.unisalento.distributori.dao.PersonaDao;
 import it.unisalento.distributori.domain.Persona;
 
 import org.hibernate.Query;
-import org.hibernate.Session;
-import org.hibernate.Transaction;
 
 /**
  * @author aguinaldo
@@ -19,8 +17,8 @@ public class PersonaDaoImpl extends BaseDaoImpl<Persona> implements PersonaDao {
 	@Override
 	public Persona getPersonaByCredentials(String email, String password) {
 		try{
-		Session session = HibernateUtil.getSession();
-		Transaction tx = session.beginTransaction();
+		session = HibernateUtil.getSession();
+		tx = session.beginTransaction();
 		Query query = session.createQuery("from Persona where email=:email and password=:password");
 		query.setString("email", email); 
 		query.setString("password", password);
@@ -40,8 +38,8 @@ public class PersonaDaoImpl extends BaseDaoImpl<Persona> implements PersonaDao {
 	@Override
 	public boolean emailExists(String email, Integer my_ID) {
 		try{
-			Session session = HibernateUtil.getSession();
-			Transaction tx = session.beginTransaction();
+			 session = HibernateUtil.getSession();
+			tx = session.beginTransaction();
 			Query query;
 			query = session.createQuery("from Persona where email=:email and id!=:id");
 			query.setString("id", my_ID.toString());
@@ -61,8 +59,8 @@ public class PersonaDaoImpl extends BaseDaoImpl<Persona> implements PersonaDao {
 	@Override
 	public boolean emailExists(String email) {
 		try{
-			Session session = HibernateUtil.getSession();
-			Transaction tx = session.beginTransaction();
+			session = HibernateUtil.getSession();
+			tx = session.beginTransaction();
 			Query query;
 			query = session.createQuery("from Persona where email=:email");
 			query.setString("email", email);

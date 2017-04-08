@@ -82,7 +82,7 @@
 					</div>
 				</s:if>
 				<div class=" form-group input-group input-group-lg">
-					<s:if test="%{lat != null}">
+					<s:if test="%{distributoreModel.lat != null}">
 						<div>ciao!</div>
 						<iframe width="470" height="310" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?q=<s:property value="lat"/>,<s:property value="lon"/>&mrt=loc&t=m&z=17&hl=it&output=embed"></iframe>
 					</s:if>

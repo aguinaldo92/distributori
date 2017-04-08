@@ -4,8 +4,6 @@
 package it.unisalento.distributori.daoimpl;
 
 import org.hibernate.Query;
-import org.hibernate.Session;
-import org.hibernate.Transaction;
 
 import it.unisalento.distributori.dao.ManutieneDao;
 import it.unisalento.distributori.domain.Manutiene;
@@ -15,8 +13,6 @@ import it.unisalento.distributori.domain.Manutiene;
  *
  */
 public class ManutieneDaoImpl extends BaseDaoImpl<Manutiene> implements ManutieneDao {
-	private Session session;
-	private Transaction tx;
 	
 	@Override
 	public Manutiene getManutenzionePendenteByDistributore(int idDistributore) {

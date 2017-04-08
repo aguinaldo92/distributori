@@ -5,8 +5,6 @@ package it.unisalento.distributori.daoimpl;
 
 import java.util.ArrayList;
 import org.hibernate.Query;
-import org.hibernate.Session;
-import org.hibernate.Transaction;
 
 import it.unisalento.distributori.dao.ProdottiErogatiDao;
 import it.unisalento.distributori.domain.ProdottiErogati;
@@ -17,8 +15,6 @@ import it.unisalento.distributori.domain.ProdottiErogati;
  *
  */
 public class ProdottiErogatiDaoImpl extends BaseDaoImpl<ProdottiErogati> implements ProdottiErogatiDao{
-	private Session session;
-	private Transaction tx;
 
 	/*
 	 * Il metodo fornisce l'elenco dei prodotti erogati da un singolo distributore (che appartiene al dipendente che lo sta visualizzando)

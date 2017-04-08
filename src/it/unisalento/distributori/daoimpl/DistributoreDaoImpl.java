@@ -6,8 +6,6 @@ package it.unisalento.distributori.daoimpl;
 import java.util.ArrayList;
 
 import org.hibernate.Query;
-import org.hibernate.Session;
-import org.hibernate.Transaction;
 
 import it.unisalento.distributori.dao.DistributoreDao;
 import it.unisalento.distributori.domain.Distributore;
@@ -18,15 +16,13 @@ import it.unisalento.distributori.factory.FactoryDao;
  *
  */
 public class DistributoreDaoImpl extends BaseDaoImpl<Distributore> implements DistributoreDao {
-	private Session session;
-	private Transaction tx;
 
 	@Override
 	public Integer getUpdatedStato(Integer idDistributore) {
 		Integer stato = 0;
 		try {
 			Distributore distributore = FactoryDao.getIstance().getDistributoreDao().get(idDistributore, Distributore.class);
-			Integer savedStato = distributore.getStato() == 0 ? 5 : 0; // se lo stato è 0 il sistema 
+			Integer savedStato = distributore.getStato() == 0 ? 5 : 0; // se lo stato è 0 il sistema è rosso
 			Integer inManutenzione = FactoryDao.getIstance().getManutieneDao().getManutenzionePendenteByDistributore(idDistributore) == null ? 0 : 1;
 			Integer prodottiScarseggianti = FactoryDao.getIstance().getProdottiErogatiDao().getProdottiScarseggiantiByDistributore(idDistributore).size() == 0 ? 0 : 2;
 

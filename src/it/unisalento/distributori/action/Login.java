@@ -9,6 +9,8 @@ import it.unisalento.distributori.model.PersonaModel;
 
 import java.util.Map;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.apache.struts2.dispatcher.SessionMap;
 import org.apache.struts2.interceptor.SessionAware;
 
@@ -24,63 +26,58 @@ import com.opensymphony.xwork2.validator.annotations.RequiredStringValidator;
  */
 public class Login extends ActionSupport implements SessionAware, ParameterNameAware {
 
-	private static final long serialVersionUID = 1L;
-	private Persona persona= new Persona();
-	private Persona personaBySession;
 	private SessionMap<String, Object> personaSession ;
-
 	private String email;
 	private String password;
+	private Logger logger = LogManager.getLogger(this.getClass().getName());
 
 	public String execute() {
-		
-		System.out.println("Sono entrato nel metodo execute della action Login");
-		
-		personaBySession = (Persona) personaSession.get("persona");
-		System.out.println("email: " + persona.getEmail());
-		System.out.println("email già salvata: " + personaBySession.getEmail());
-		System.out.println("ruolo: " + persona.getRuolo());
-		System.out.println("ruolo già salvato: " + personaBySession.getRuolo());
-		
+
+		logger.trace("execute()");
+		Persona personaBySession = (Persona) personaSession.get("persona");
+		logger.debug("personaBySession.getNome(): "+personaBySession.getNome());
 		switch (personaBySession.getRuolo()) {
-			case 0:	return "gestore";
-			case 1: return "dipendente";
-			
-			default: return SUCCESS;
+		case 0:	return "gestore";
+		case 1: return "dipendente";
+
 		} 
-		
+		return SUCCESS;
 	}
-	
+
 	public void validate() {
-		boolean errors = false;
-		System.out.println("Sono entrato nel metodo validate della Login");
-		if (!(personaSession.containsKey("persona"))){
-			System.out.println("sono nell if persona: nessuna persona in personaSession");
-			//controllo se la userSession è stata impostata
-			try {	 
+		try {
+			logger.trace("validate()");
+			boolean errors = false;
+			System.out.println("Sono entrato nel metodo validate della Login");
+			if (!(personaSession.containsKey("persona"))){
+				logger.trace("sono nell if persona: nessuna persona in personaSession");
+				//controllo se la userSession è stata impostata
+
 				//ottengo anagrafica e indirizzi salvati dallo user loggato
-				persona=FactoryDao.getIstance().getPersonaDao().getPersonaByCredentials(email, password);
-				
-				if (persona == null ){
+				Persona persona = FactoryDao.getIstance().getPersonaDao().getPersonaByCredentials(email, password);
+
+				if (persona != null ){
+					personaSession.put("persona", persona);
+					logger.trace("salvo persona nella sessione " + persona.getEmail());
+				} else {
 					errors = true;
 					addFieldError("email", "Utente non presente nel sistema");
-					System.out.println("email non presente: " + persona.getEmail());
-				} else {
-					personaSession.put("persona", persona);
-					System.out.println("salvo persona nella sessione " + persona.getEmail());
+					logger.trace("email non presente: " + persona.getEmail());
+
 				}
-				
-			} catch (Exception e){
-				System.out.println(e.getLocalizedMessage());
-				errors = true;
-			}
-		} 		
-		if (errors) {
-			addActionError("Email o Password errati");
-			System.out.println("aggiungo errori");
+				if (errors) {
+					addActionError("Email o Password errati");
+					logger.trace("aggiungo errori");
+				}
+
+			} 		
+
+		} catch (Exception e){
+			logger.error("Eccezione non prevista nella validate del login",e);
+			addActionError("Eccezione non prevista nella fase di login.");
 		}
 	}
-	
+
 	public String getEmail() {
 		return email;
 	}
@@ -96,9 +93,9 @@ public class Login extends ActionSupport implements SessionAware, ParameterNameA
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	
-	
-	
+
+
+
 	@Override
 	public boolean acceptableParameterName(String parameterName) {
 		boolean allowedParameterName = true ;
