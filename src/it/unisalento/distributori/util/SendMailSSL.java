@@ -44,6 +44,7 @@ public class SendMailSSL {
 			System.out.println("Email inviata a "+email_To);
 
 		} catch (MessagingException e) {
+			System.out.println("eccezione nell'invio della mail: "+e.toString());
 			throw new RuntimeException(e);
 		}
 		

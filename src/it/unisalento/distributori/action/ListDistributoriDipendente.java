@@ -5,7 +5,6 @@ package it.unisalento.distributori.action;
 
 import java.util.ArrayList;
 import java.util.Iterator;
-import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -13,17 +12,13 @@ import org.apache.struts2.ServletActionContext;
 import org.apache.struts2.dispatcher.SessionMap;
 import org.apache.struts2.interceptor.SessionAware;
 
-import it.unisalento.distributori.domain.CategorieFornite;
 import it.unisalento.distributori.domain.Distributore;
-import it.unisalento.distributori.domain.Manutiene;
 import it.unisalento.distributori.factory.FactoryDao;
 import it.unisalento.distributori.model.DistributoreModel;
 import it.unisalento.distributori.domain.Persona;
 import it.unisalento.distributori.domain.ProdottiErogati;
 
 import com.opensymphony.xwork2.ActionSupport;
-import com.opensymphony.xwork2.ModelDriven;
-import com.opensymphony.xwork2.Preparable;
 
 /**
  * @author aguinaldo
@@ -120,11 +115,11 @@ public class ListDistributoriDipendente extends ActionSupport implements Session
 				currentDistributoreModel.setCategorieFornite((ArrayList<String>) listNomiCategorieFornite);
 				currentDistributoreModel.setProdottiForniti((ArrayList<String>) listNomiQuantitaProdottiErogati);
 				//controllo se c'è manutenzione pendente
-				Manutiene manut_pendente = FactoryDao.getIstance().getManutieneDao().getManutenzionePendenteByDistributore(currentDistributore.getId());
-				if (manut_pendente != null)
-					currentDistributoreModel.setInManutenzione(true);
-				else
-					currentDistributoreModel.setInManutenzione(false);
+//				Manutiene manut_pendente = FactoryDao.getIstance().getManutieneDao().getManutenzionePendenteByDistributore(currentDistributore.getId());
+//				if (manut_pendente != null)
+//					currentDistributoreModel.setInManutenzione(true);
+//				else
+//					currentDistributoreModel.setInManutenzione(false);
 				//System.out.println("popolato il DistributoreModel numero: " + count);
 				listDistributoreModel.add(currentDistributoreModel);
 				//System.out.println("aggiunto elemento alla lista dei models: " + currentDistributoreModel);

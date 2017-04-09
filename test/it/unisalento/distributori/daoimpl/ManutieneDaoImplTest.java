@@ -22,9 +22,14 @@ public class ManutieneDaoImplTest {
 	
 	@Test
 	public void testGetManutenzionePendenteByDistributore() throws Exception {
+
 		Manutiene manutenzione = FactoryDao.getIstance().getManutieneDao().getManutenzionePendenteByDistributore(1);
 		
 		assertNull(manutenzione.getDataFine());
+		
+		manutenzione = FactoryDao.getIstance().getManutieneDao().getManutenzionePendenteByDistributore(0);
+		
+		assertNull(manutenzione);
 	}
 	
 	@Test

@@ -19,4 +19,8 @@ public class ImageModifier {
 
 	    return resizedImage;
 	}
+
+	public BufferedImage getOriginalImage() {
+		return originalImage;
+	}
 }

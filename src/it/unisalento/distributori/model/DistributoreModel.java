@@ -29,7 +29,7 @@ public class DistributoreModel {
 	private Integer idDipendente;
 	private ArrayList<?> categorieFornite;
 	private ArrayList<?> prodottiForniti;
-	private boolean inManutenzione;
+//	private boolean inManutenzione;
 	
 	
 	public Integer getId() {
@@ -131,12 +131,12 @@ public class DistributoreModel {
 		this.idDipendente = idDipendente;
 	}
 
-	public boolean isInManutenzione() {
-		return inManutenzione;
-	}
-	public void setInManutenzione(boolean inManutenzione) {
-		this.inManutenzione = inManutenzione;
-	}
+//	public boolean isInManutenzione() {
+//		return inManutenzione;
+//	}
+//	public void setInManutenzione(boolean inManutenzione) {
+//		this.inManutenzione = inManutenzione;
+//	}
 	
 	
 	
