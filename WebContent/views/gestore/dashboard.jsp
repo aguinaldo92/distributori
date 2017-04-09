@@ -28,7 +28,7 @@
 						</span>
 						<div class="text-box">
 							<p class="main-text"><s:a namespace="/gestore" action="ListDistributoriGestore"><s:property value="#attr.numDistributoriNonOk"/> Distributori </s:a></p>
-							<p class="text-muted">richiedono manutenzione</p>
+							<p class="text-muted">richiedono attenzione</p>
 						</div>
 					</div>
 				</div>

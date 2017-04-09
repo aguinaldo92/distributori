@@ -28,12 +28,15 @@ public class StartManutenzione extends ActionSupport implements SessionAware {
 		Persona persona_loggata = (Persona) personaSession.get("persona");
 		
 		Distributore distributore = FactoryDao.getIstance().getDistributoreDao().get(idDistributore, Distributore.class);
+		distributore.setStato(3);
 		
 		Manutiene manutenzione = new Manutiene();
 		manutenzione.setDipendente(FactoryDao.getIstance().getDipendenteDao().get(persona_loggata.getId(), Dipendente.class));
 		manutenzione.setDistributore(distributore);
 		manutenzione.setDataInizio(new Date());
 		manutenzione.setId(FactoryDao.getIstance().getManutieneDao().set(manutenzione));
+		
+		FactoryDao.getIstance().getDistributoreDao().update(distributore);
 		
 		return SUCCESS;
 	}

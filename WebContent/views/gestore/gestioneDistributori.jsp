@@ -49,12 +49,46 @@
 									</s:url>
 
 									<tr class="odd gradeA">
-										<td><a href="${dettaglioDistributore}" class="compare-in">
+										<td>
+										
+										<a href="${dettaglioDistributore}" class="compare-in">
 												<button class="btn btn-primary">Dettaglio</button>
 										</a>
 										<a href="${prodottiDistributore}" class="compare-in">
 												<button class="btn btn-success">Prodotti</button>
-										</a></td>
+										</a>
+										
+										<s:if test="stato != 0 && stato != 3">
+										<button class="btn btn-danger" data-toggle="modal" data-target="#${id}_guasto">Segnala guasto</button>
+								<!-- INIZIO FINESTRA MODALE DI CONFERMA GUASTO -->
+					                            <div class="modal fade" id="${id}_guasto" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+					                                <div class="modal-dialog">
+					                                    <div class="modal-content">
+					                                        <div class="modal-header">
+					                                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+					                                            <h4 class="modal-title" id="myModalLabel">SEGNALAZIONE DI GUASTO</h4>
+					                                        </div>
+					                                        <s:form name="distributore_guasto" namespace="/gestore" action="SetDistributoreGuasto">
+					                                        	<div class="modal-body">
+					                                            	Attenzione. Questa operazione è irreversibile.
+					                                            	<p align="center">
+					                                            		<b>Indirizzo distributore: <s:property value="indirizzo"/></b>
+					                                            	</p>
+					                                            	<br>Si vuole, pertanto, confermare la segnalazione di guasto?
+					                                        		<s:hidden name="idDistributore" value="%{id}"/>
+					                                        	</div>
+					                                        	<div class="modal-footer">
+						                                        	<button type="button" class="btn btn-default" data-dismiss="modal">Annulla</button>
+						                                    		<s:submit id="guasto_submit" onClick="this.form.submit(); this.disabled=true; this.value='Attendi...';" cssClass="btn btn-primary" name="confirm_guasto_button" value="Conferma"/>
+						                                    	</div>
+						                                    </s:form>
+					                                    </div>
+					                                </div>
+					                            </div>
+								<!-- FINE FINESTRA MODALE DI CONFERMA GUASTO -->
+											</s:if>								
+										
+										</td>
 										<td><img src="/distributori/images/stato-${stato}.ico" alt="Stato"></td>
 										<s:url var="editDip" action="DipendenteDetail">
 											<s:param name="idDip">

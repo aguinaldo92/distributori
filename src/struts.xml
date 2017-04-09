@@ -112,6 +112,10 @@
 			<result type="tiles">dashboardDipendente</result>
 			<result name="input" type="tiles">dashboardDipendente</result>
 		</action>
+		
+		<action name="SetDistributoreGuasto" class="it.unisalento.distributori.action.SetDistributoreGuasto">
+			<result name="success" type="tiles">dashboardDipendente</result>
+		</action>
 
 		<action name="listDistributoriDipendente"
 			class="it.unisalento.distributori.action.ListDistributoriDipendente">
@@ -218,7 +222,12 @@
 			</result>
 			<result name="input" type="tiles">dashboardGestore</result>
 		</action>
-		
+				
+		<action name="SetDistributoreGuasto" class="it.unisalento.distributori.action.SetDistributoreGuasto">
+			<result name="success" type="redirectAction">
+				<param name="actionName">ListDistributoriGestore</param>
+			</result>
+		</action>
 		
 		<action name="AddProdotto" class="it.unisalento.distributori.action.AddProdotto">
 			<result name="success" type="tiles">uploadFoto_newProdotto</result>

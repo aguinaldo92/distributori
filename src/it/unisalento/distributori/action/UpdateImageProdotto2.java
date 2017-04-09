@@ -19,7 +19,7 @@ import it.unisalento.distributori.domain.Prodotto;
 import it.unisalento.distributori.factory.FactoryDao;
 import it.unisalento.distributori.util.ImageModifier;
 
-public class UpdateImageProdotto extends ActionSupport{
+public class UpdateImageProdotto2 extends ActionSupport{
    
 		/**
 	 * 
@@ -32,17 +32,16 @@ public class UpdateImageProdotto extends ActionSupport{
 		private File file_foto;
 		private String myFileContentType;
 		private String myFileFileName;
-		private String myResizedFileName;
 		private String tomcat_destPath;
 		
 	   public String execute() throws Exception {
 		   
-		  Random random = new Random();//per garantire un nome diverso della nuova foto per agevolare il caricamento anche se la cache ha salvato la foto precedente
-		  
+		   Random random = new Random();//per garantire un nome diverso della nuova foto per agevolare il caricamento anche se la cache ha salvato la foto precedente
+		   
+	      /* Copy file to a safe location */
 	      file_foto=new File(foto);
 	      
 	      tomcat_destPath=System.getProperty("catalina.base")+"/webapps/distributori/images/";
-	      //tomcat_destPath="C:/Users/Salvatore/Documents/Università/Specialistica/A.A. 2014_2015/Software Engineering/Workspace2/distributori/WebContent/images";
 	      
 	      //ottengo il prodotto per comporre il nome del file di destinazione
 	      Prodotto prodotto=FactoryDao.getIstance().getProdottoDao().get(idProdotto, Prodotto.class);
@@ -77,19 +76,6 @@ public class UpdateImageProdotto extends ActionSupport{
 	    	 //aggiorno la foto nel database
 	    	 prodotto.setFoto("images/"+myFileFileName);
 	    	 FactoryDao.getIstance().getProdottoDao().update(prodotto);
-	    	 
-	    	 //salvo la versione ridotta 256x256 per la pagina di descrizione prodotto della App Android
-	    	 BufferedImage originalImage = ImageIO.read(destFile);
-	         int type = originalImage.getType() == 0 ? BufferedImage.TYPE_INT_ARGB : originalImage.getType();
-	         
-	         ImageModifier img_modifier = new ImageModifier(originalImage);
-	    	 BufferedImage resizedImageJpg_256x256 = img_modifier.resizeImage(type, 256, 256);
-	    	 myResizedFileName = myFileFileName.replace(".jpg", "_256sizes.jpg");
-	         ImageIO.write(resizedImageJpg_256x256, "jpg", new File(tomcat_destPath, myResizedFileName));
-	         //...e la 64x64 per l'icona di elenco prodotti del distributore della App Android
-	         BufferedImage resizedImageJpg_64x64 = img_modifier.resizeImage(type, 64, 64);
-	    	 myResizedFileName = myFileFileName.replace(".jpg", "_64sizes.jpg");
-	         ImageIO.write(resizedImageJpg_64x64, "jpg", new File(tomcat_destPath, myResizedFileName));
 	  
 	      }catch(IOException e){
 	         e.printStackTrace();
