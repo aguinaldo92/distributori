@@ -81,7 +81,7 @@
 											  					<s:select class="form-control" list="#attr.all_categ" name="categoria.id" value="prodotto.categoria.id" listKey="id" listValue="nome" disabled="true" />
 					                                            </div>
 					                                        </div>
-						                                    <label><h4>Famiglie:</h4></label>&nbsp;&nbsp;&nbsp;               
+						                                   <h4> Famiglie:</h4>&nbsp;&nbsp;&nbsp;               
 						                                    <s:checkboxlist list="#attr.famiglie" name="famiglia_scelta" listKey="id" listValue="nome" value="prodotto.IDsfamiglie" disabled="true"/>
 															<p></p>
 					                                        <div class="form-group input-group input-group-lg">

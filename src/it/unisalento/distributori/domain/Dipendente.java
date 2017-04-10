@@ -9,12 +9,13 @@ import java.util.Set;
  */
 public class Dipendente implements java.io.Serializable {
 
+	private static final long serialVersionUID = 6780999211943973792L;
 	private int personaId;
 	private Persona persona;
 	private String telefono;
-	private Set rifornisces = new HashSet(0);
-	private Set manutienes = new HashSet(0);
-	private Set distributores = new HashSet(0);
+	private Set<Rifornisce> rifornisces = new HashSet<Rifornisce>(0);
+	private Set<Manutiene> manutienes = new HashSet<Manutiene>(0);
+	private Set<Distributore> distributores = new HashSet<Distributore>(0);
 
 	public Dipendente() {
 	}
@@ -23,7 +24,7 @@ public class Dipendente implements java.io.Serializable {
 		this.persona = persona;
 	}
 
-	public Dipendente(Persona persona, String telefono, Set rifornisces, Set manutienes, Set distributores) {
+	public Dipendente(Persona persona, String telefono, Set<Rifornisce> rifornisces, Set<Manutiene> manutienes, Set<Distributore> distributores) {
 		this.persona = persona;
 		this.telefono = telefono;
 		this.rifornisces = rifornisces;
@@ -55,27 +56,27 @@ public class Dipendente implements java.io.Serializable {
 		this.telefono = telefono;
 	}
 
-	public Set getRifornisces() {
+	public Set<Rifornisce> getRifornisces() {
 		return this.rifornisces;
 	}
 
-	public void setRifornisces(Set rifornisces) {
+	public void setRifornisces(Set<Rifornisce> rifornisces) {
 		this.rifornisces = rifornisces;
 	}
 
-	public Set getManutienes() {
+	public Set<Manutiene> getManutienes() {
 		return this.manutienes;
 	}
 
-	public void setManutienes(Set manutienes) {
+	public void setManutienes(Set<Manutiene> manutienes) {
 		this.manutienes = manutienes;
 	}
 
-	public Set getDistributores() {
+	public Set<Distributore> getDistributores() {
 		return this.distributores;
 	}
 
-	public void setDistributores(Set distributores) {
+	public void setDistributores(Set<Distributore> distributores) {
 		this.distributores = distributores;
 	}
 

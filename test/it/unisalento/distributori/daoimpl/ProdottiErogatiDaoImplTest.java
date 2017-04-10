@@ -65,13 +65,13 @@ public class ProdottiErogatiDaoImplTest {
 	
 	@Test
 	public void testGetProdottiScarseggiantiByDistributore() throws Exception {
-		List<ProdottiErogati> prodotti = dao.getProdottiScarseggiantiByDistributore(1, 10);
+		List<ProdottiErogati> prodotti = dao.getProdottiScarseggiantiByDistributore(1);
 		
 		assertNotNull(prodotti);
 		
 		boolean error=false;
 		for (int i=0; i<prodotti.size() && !error; i++){
-			if(prodotti.get(i).getQuantita()>10 || prodotti.get(i).getDistributore().getId()!=1)
+			if(prodotti.get(i).getQuantita()>5 || prodotti.get(i).getDistributore().getId()!=1)
 				error=true;
 		}
 		

@@ -9,6 +9,10 @@ import java.util.Date;
  */
 public class Acquista implements java.io.Serializable {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 7512369770278417651L;
 	private Integer id;
 	private Distributore distributore;
 	private Persona persona;

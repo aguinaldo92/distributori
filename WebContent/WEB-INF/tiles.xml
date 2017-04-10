@@ -18,7 +18,17 @@
 	
 	<definition name="error" extends="index">
 		<put-attribute name="title" value="Error" />
-		<put-attribute name="body" value="/views/error.jsp" />
+		<put-attribute name="body" value="/views/codici_errore/general_error.jsp" />
+	</definition>
+	
+	<definition name="error404" extends="index">
+		<put-attribute name="title" value="Error 404" />
+		<put-attribute name="body" value="/views/codici_errore/error404.jsp" />
+	</definition>
+	
+		<definition name="error505" extends="index">
+		<put-attribute name="title" value="Error 505" />
+		<put-attribute name="body" value="/views/codici_errore/error500.jsp" />
 	</definition>
 
 	<!-- Layout di base da ereditare -->

@@ -6,10 +6,6 @@ import it.unisalento.distributori.domain.Distributore;
 import it.unisalento.distributori.factory.FactoryDao;
 
 public class SetDistributoreGuasto extends ActionSupport  {
-
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 2478815811199367680L;
 	private int idDistributore;
 	

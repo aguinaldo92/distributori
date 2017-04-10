@@ -82,9 +82,8 @@
 					</div>
 				</s:if>
 				<div class=" form-group input-group input-group-lg">
-					<s:if test="%{lat != null}">
-						<div>ciao!</div>
-						<iframe width="470" height="310" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?q=<s:property value="lat"/>,<s:property value="lon"/>&mrt=loc&t=m&z=17&hl=it&output=embed"></iframe>
+					<s:if test="%{distributoreModel.lat != null}">
+						<iframe width="470" height="310" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?q=<s:property value="distributoreModel.lat"/>,<s:property value="distributoreModel.lon"/>&mrt=loc&t=m&z=17&hl=it&output=embed"></iframe>
 					</s:if>
 				</div>
 				<div class=" form-group input-group input-group-lg">
@@ -109,7 +108,7 @@
 				</s:if>
 				<div class=" form-group input-group input-group-lg">
 					<span class="input-group-addon">Stato funzionamento</span>
-					<s:select cssStyle="width: 60%;" class="form-control" list="#attr.stati" name="distributoreModel.stato" value="%{#attr.distributoreModel.stato}" />
+					<s:select cssStyle="width: 60%;" class="form-control" list="#attr.stati" name="distributoreModel.stato" value="%{#attr.distributoreModel.stato}" disabled="true" />
 				</div>
 				<div class=" form-group input-group input-group-lg">
 					<span class="input-group-addon">Dipendente</span>

@@ -9,11 +9,15 @@ import javax.mail.Transport;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 public class SendMailSSL {
+	private Logger logger = LogManager.getLogger(this.getClass().getName());
 	
 	public int send(String email_To, String oggetto, String testo) {
 		
-		System.out.println("Sono entrato in SendMailSSL");
+		logger.debug("send()");
 		
 		Properties props = new Properties();
 		props.put("mail.smtp.host", "smtp.gmail.com");
@@ -41,10 +45,10 @@ public class SendMailSSL {
 
 			Transport.send(message);
 
-			System.out.println("Email inviata a "+email_To);
+			logger.debug("Email inviata a "+email_To);
 
 		} catch (MessagingException e) {
-			System.out.println("eccezione nell'invio della mail: "+e.toString());
+			logger.error("Impossibile inviare la mail con oggetto: " + oggetto + " e testo: " + testo + " a " + email_To,e);
 			throw new RuntimeException(e);
 		}
 		

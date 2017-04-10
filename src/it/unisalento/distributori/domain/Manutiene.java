@@ -8,6 +8,7 @@ import java.util.Date;
  */
 public class Manutiene implements java.io.Serializable {
 
+	private static final long serialVersionUID = -786133973074890454L;
 	private Integer id;
 	private Dipendente dipendente;
 	private Distributore distributore;

@@ -8,6 +8,7 @@ import java.util.Date;
  */
 public class Rifornisce implements java.io.Serializable {
 
+	private static final long serialVersionUID = 4150194456431141439L;
 	private Integer id;
 	private Dipendente dipendente;
 	private Distributore distributore;

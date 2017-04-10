@@ -10,6 +10,7 @@ import java.util.Set;
  */
 public class Distributore implements java.io.Serializable {
 
+	private static final long serialVersionUID = -4052653545614640103L;
 	private Integer id;
 	private Dipendente dipendente;
 	private BigDecimal lat;
@@ -19,11 +20,11 @@ public class Distributore implements java.io.Serializable {
 	private Integer stato;
 	private Integer numScaffali;
 	private Integer numPosti;
-	private Set acquistas = new HashSet(0);
-	private Set categorieFornites = new HashSet(0);
-	private Set prodottiErogatis = new HashSet(0);
-	private Set manutienes = new HashSet(0);
-	private Set rifornisces = new HashSet(0);
+	private Set<Acquista> acquistas = new HashSet<Acquista>(0);
+	private Set<CategorieFornite> categorieFornites = new HashSet<CategorieFornite>(0);
+	private Set<ProdottiErogati> prodottiErogatis = new HashSet<ProdottiErogati>(0);
+	private Set<Manutiene> manutienes = new HashSet<Manutiene>(0);
+	private Set<Rifornisce> rifornisces = new HashSet<Rifornisce>(0);
 
 	public Distributore() {
 	}
@@ -34,8 +35,8 @@ public class Distributore implements java.io.Serializable {
 	}
 
 	public Distributore(Dipendente dipendente, BigDecimal lat, BigDecimal lon, String indirizzo,
-			String posizioneEdificio, Integer stato, Integer numScaffali, Integer numPosti, Set acquistas,
-			Set categorieFornites, Set prodottiErogatis, Set manutienes, Set rifornisces) {
+			String posizioneEdificio, Integer stato, Integer numScaffali, Integer numPosti, Set<Acquista> acquistas,
+			Set<CategorieFornite> categorieFornites, Set<ProdottiErogati> prodottiErogatis, Set<Manutiene> manutienes, Set<Rifornisce> rifornisces) {
 		this.dipendente = dipendente;
 		this.lat = lat;
 		this.lon = lon;
@@ -123,43 +124,43 @@ public class Distributore implements java.io.Serializable {
 		this.numPosti = numPosti;
 	}
 
-	public Set getAcquistas() {
+	public Set<Acquista> getAcquistas() {
 		return this.acquistas;
 	}
 
-	public void setAcquistas(Set acquistas) {
+	public void setAcquistas(Set<Acquista> acquistas) {
 		this.acquistas = acquistas;
 	}
 
-	public Set getCategorieFornites() {
+	public Set<CategorieFornite> getCategorieFornites() {
 		return this.categorieFornites;
 	}
 
-	public void setCategorieFornites(Set categorieFornites) {
+	public void setCategorieFornites(Set<CategorieFornite> categorieFornites) {
 		this.categorieFornites = categorieFornites;
 	}
 
-	public Set getProdottiErogatis() {
+	public Set<ProdottiErogati> getProdottiErogatis() {
 		return this.prodottiErogatis;
 	}
 
-	public void setProdottiErogatis(Set prodottiErogatis) {
+	public void setProdottiErogatis(Set<ProdottiErogati> prodottiErogatis) {
 		this.prodottiErogatis = prodottiErogatis;
 	}
 
-	public Set getManutienes() {
+	public Set<Manutiene> getManutienes() {
 		return this.manutienes;
 	}
 
-	public void setManutienes(Set manutienes) {
+	public void setManutienes(Set<Manutiene> manutienes) {
 		this.manutienes = manutienes;
 	}
 
-	public Set getRifornisces() {
+	public Set<Rifornisce> getRifornisces() {
 		return this.rifornisces;
 	}
 
-	public void setRifornisces(Set rifornisces) {
+	public void setRifornisces(Set<Rifornisce> rifornisces) {
 		this.rifornisces = rifornisces;
 	}
 
