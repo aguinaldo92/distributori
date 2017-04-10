@@ -5,6 +5,8 @@ package it.unisalento.distributori.interceptor;
 
 import java.util.HashMap;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.apache.struts2.dispatcher.SessionMap;
 
 import com.opensymphony.xwork2.ActionInvocation;
@@ -23,6 +25,7 @@ public class HomepageInterceptor implements Interceptor {
 	private Integer ruolo;
 	private PermissionsHashMap permissionsHashMap = new PermissionsHashMap();
 	private HashMap<Integer, String> ruolo_namespace;
+	private Logger logger = LogManager.getLogger(HomepageInterceptor.class.getName());
 
 	@Override
 	public void destroy() {
@@ -36,10 +39,11 @@ public class HomepageInterceptor implements Interceptor {
 
 	@Override
 	public String intercept(ActionInvocation invocation) throws Exception {
+		logger.debug("intercept");
 		personaSession = (SessionMap<String, Object>) invocation.getInvocationContext().getSession();
 		if (personaSession.containsKey("persona")) {
 			ruolo_namespace = permissionsHashMap.getRuolo_namespace();
-			System.out.println("HomepageInterceptor: chiamata action dashboard");
+			logger.debug("chiamata action dashboard");
 			ruolo = ((Persona) personaSession.get("persona")).getRuolo();
 			return ruolo_namespace.get(ruolo);
 		}

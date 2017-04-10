@@ -35,20 +35,18 @@ public class Login extends ActionSupport implements SessionAware, ParameterNameA
 		logger.debug("execute()");
 		Persona personaBySession = (Persona) personaSession.get("persona");
 		logger.debug("personaBySession.getNome(): "+personaBySession.getNome());
-		return ERROR;
-//		switch (personaBySession.getRuolo()) {
-//		case 0:	return "gestore";
-//		case 1: return "dipendente";
-//
-//		} 
-//		return ERROR;
+		switch (personaBySession.getRuolo()) {
+		case 0:	return "gestore";
+		case 1: return "dipendente";
+
+		} 
+		return SUCCESS;
 	}
 
 	public void validate() {
 		try {
 			logger.debug("validate()");
 			boolean errors = false;
-			System.out.println("Sono entrato nel metodo validate della Login");
 			if (!(personaSession.containsKey("persona"))){
 				logger.debug("sono nell if persona: nessuna persona in personaSession");
 				//controllo se la userSession è stata impostata
