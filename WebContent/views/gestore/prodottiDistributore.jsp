@@ -49,14 +49,14 @@
 												<s:iterator value="#listProdottiErogatixScaffale" var="listDettaglioDistributoreModel" status="columnStatus">
 													<s:url var="dettaglioProdotto" namespace="/gestore" action="ProdottoDetail">
 														<s:param name="idProdotto">
-															<s:property value="%{#listDettaglioDistributoreModel.idProdotto}" />
+															<s:property value="" />
 														</s:param>
 													</s:url>
 													<td><s:hidden name="listIdsProdottiErogati" value="%{#listDettaglioDistributoreModel.idProdottoErogato}" /> 
 													<s:select id="select_%{#rowStatus.count}_%{#columnStatus.count}" class="form-control" list="prodottiCompatibili" listKey="id" listValue="nome" name="listIdsProdotti"
-													 value="%{#listDettaglioDistributoreModel.idProdotto}" onchange="setDetails(this, dettaglio_%{#rowStatus.count}_%{#columnStatus.count})" />
+													 value="%{#listDettaglioDistributoreModel.idProdotto}" onchange="setDetails(this, dettaglio_%{#rowStatus.count}_%{#columnStatus.count}, link_%{#rowStatus.count}_%{#columnStatus.count});" />
 													 <div id="dettaglio_<s:property value="#rowStatus.count"/>_<s:property value="#columnStatus.count"/>" <s:if test="%{#listDettaglioDistributoreModel.nomeProdottoErogato == 'vuoto' }">  style="display: none;"  </s:if>  >
-													  <s:a  href="%{dettaglioProdotto}"   class="btn btn-primary btn-xs" > Dettaglio </s:a>
+													  <s:a id="link_%{#rowStatus.count}_%{#columnStatus.count}" href="%{dettaglioProdotto}"   class="btn btn-primary btn-xs" > Dettaglio </s:a>
 													 </div>
 													  </td>
 												</s:iterator>
@@ -88,9 +88,12 @@
 <!--
 
 //-->
-function setDetails(select,detail) {
+function setDetails(select,detail,link) {
+	var regex = /\d*$/;
+	var replaced = link.href.replace(regex, "" );
+	//var concatenata = link.href.concat("=");
+	link.href = replaced.concat(select.options[select.selectedIndex].value);
 if (select.options[select.selectedIndex].text == 'vuoto') {
-	
     detail.style.display="none";
  } else {
     detail.style.display=""; 

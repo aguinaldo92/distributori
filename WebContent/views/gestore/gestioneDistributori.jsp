@@ -25,6 +25,7 @@
 						<table class="table table-striped table-bordered table-hover" id="dataTables-example">
 							<thead>
 								<tr align="center">
+									<th>ID</th>
 									<th>Azioni</th>
 									<th>Stato</th>
 									<th>Manutentore</th>
@@ -49,6 +50,7 @@
 									</s:url>
 
 									<tr class="odd gradeA">
+									<td><s:property value="id" /></td>
 										<td>
 										
 										<a href="${dettaglioDistributore}" class="compare-in">
@@ -97,16 +99,16 @@
 										</s:url>
 										<td><a href="${editDip}" class="compare-in">${dipendente.nome}</a></td>
 										<!--  mostro solo i prodotti non vuoti -->
-										<td><ul>
+										<td><ul class="list-group">
 												<s:iterator value="#listDistrModel.prodottiForniti" var="prodotti">
-													<li><s:property value="prodotti" /></li>
+													<li class="list-group-item"><s:property value="prodotti" /></li>
 												</s:iterator>
 											</ul></td>
-										<td><s:property value="indirizzo" /></td>
+										<td> <a href="https://maps.google.com/?q=${indirizzo}" target="_blank"><s:property value="indirizzo"/> </a></td>
 										<td><s:property value="posizioneEdificio" /></td>
-										<td><ul>
+										<td><ul class="list-group">
 												<s:iterator value="#listDistrModel.categorieFornite" var="categorieFornite">
-													<li><s:property /></li>
+													<li class="list-group-item"><s:property /></li>
 												</s:iterator>
 											</ul></td>
 									</tr>

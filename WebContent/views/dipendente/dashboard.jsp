@@ -107,11 +107,11 @@
 													<li class="list-group-item"><s:property value="prodotti" /></li>
 												</s:iterator>
 											</ul></td>
-										<td><s:property value="indirizzo" /></td>
+										<td> <a href="https://maps.google.com/?q=${indirizzo}" target="_blank"><s:property value="indirizzo"/> </a></td>
 										<td><s:property value="posizioneEdificio" /></td>
-										<td><ul>
+										<td><ul class="list-group">
 												<s:iterator value="#listDistrModel.categorieFornite" var="categorieFornite">
-													<li><s:property /></li>
+													<li class="list-group-item"><s:property /></li>
 												</s:iterator>
 											</ul></td>
 									</tr>
