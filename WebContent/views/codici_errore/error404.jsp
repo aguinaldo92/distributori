@@ -13,7 +13,7 @@
 </head>
 <body style="background-color: #202020;">
 	<p align="center">
-		<img src="../../images/error404.png" align="middle"> <br> Ci dispiace ma la pagina cercata non esiste!
+		<img src="/distributori/images/error404.png" align="middle"> <br> Ci dispiace ma la pagina cercata non esiste!
 	</p>
 		<div class="row">
 		<div class="col-md-12">

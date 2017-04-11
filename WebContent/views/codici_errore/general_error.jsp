@@ -13,7 +13,7 @@
 </head>
 <body style="background-color: #c90000;">
 	<p align="center">
-		<img src="../../images/general_error.png" align="middle"> <br> Ci scusiamo, ma qualcosa non è andato come avrebbe dovuto!
+		<img src="/distributori/images/general_error.png" align="middle"> <br> Ci scusiamo, ma qualcosa non è andato come avrebbe dovuto!
 	</p>
 	<div class="row">
 		<div class="col-md-12">

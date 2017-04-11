@@ -13,7 +13,7 @@
 </head>
 <body style="background-color: #f44321;">
 	<p align="center">
-		<img src="../../images/error500.png" align="middle"> <br> Ci sono stati dei problemi con la connessione al server!
+		<img src="/distributori/images/error500.png" align="middle"> <br> Ci sono stati dei problemi con la connessione al server!
 	</p>
 		<div class="row">
 		<div class="col-md-12">
