@@ -46,6 +46,7 @@
 	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/struts2-json-plugin-2.3.28.jar"/>
 	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/struts2-bootstrap-plugin-2.5.0.jar"/>
 	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/gson-2.8.0-javadoc.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/mongo-java-driver-3.4.2.jar"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/4"/>
 	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/struts2-junit-plugin-2.5.10.1.jar"/>
 	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/gson-2.8.0.jar"/>
@@ -54,6 +55,5 @@
 	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/log4j-core-2.8.1.jar"/>
 	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/log4j-nosql-2.8.1.jar"/>
 	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/log4j-web-2.8.1.jar"/>
-	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/mongo-java-driver-3.4.2.jar"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>

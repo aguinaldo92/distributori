@@ -15,6 +15,7 @@ import it.unisalento.distributori.dao.PersonaDao;
 import it.unisalento.distributori.dao.ProdottiErogatiDao;
 import it.unisalento.distributori.dao.ProdottoDao;
 import it.unisalento.distributori.dao.ProduttoreDao;
+import it.unisalento.distributori.dao.RifornisceDao;
 import it.unisalento.distributori.dao.StabilimentoDao;
 
 public class FactoryDaoTest {
@@ -90,6 +91,12 @@ public class FactoryDaoTest {
 	@Test
 	public void testGetFeedbackDao() throws Exception {
 		FeedbackDao dao = istance.getFeedbackDao(); 
+		assertNotNull(dao);
+	}
+
+	@Test
+	public void testGetRifornisceDao() throws Exception {
+		RifornisceDao dao = istance.getRifornisceDao(); 
 		assertNotNull(dao);
 	}
 

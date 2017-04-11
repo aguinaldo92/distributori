@@ -19,7 +19,7 @@
 		<div class="col-md-12">
 
 			<p align="center">
-				<s:a href="javascript:history.back()" class="btn btn-danger btn-lg">Indietro</s:a>
+				<s:a href="javascript:history.back()" class="btn btn-danger  square-btn-adjust">Indietro</s:a>
 				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a href="/distributori" class="btn btn-primary square-btn-adjust">Torna alla HOMEPAGE</a>
 			</p>
 		</div>

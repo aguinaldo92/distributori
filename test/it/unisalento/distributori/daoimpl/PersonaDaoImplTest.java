@@ -57,7 +57,7 @@ public class PersonaDaoImplTest {
 	@Test
 	public void testGetPersonaByCredentials() throws Exception {
 		
-		Persona persona=dao.getPersonaByCredentials("wifidrinksnacks@gmail.com", "admin");
+		Persona persona=dao.getPersonaByCredentials("wifidrinksnacks@gmail.com", "8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918");
 		
 		assertNotNull(persona);
 		assertEquals("wifidrinksnacks@gmail.com", persona.getEmail());
@@ -65,20 +65,6 @@ public class PersonaDaoImplTest {
 		persona=dao.getPersonaByCredentials("email@inesistente.it", "pwd");
 		
 		assertNull(persona);
-	}
-
-	@Test
-	public void testEmailExists() throws Exception {
-		
-		int id_test = (dao.getPersonaByCredentials("wifidrinksnacks@gmail.com", "admin")).getId();
-		
-		boolean mymailexist = dao.emailExists("wifidrinksnacks@gmail.com", id_test);
-		boolean notmineexists = dao.emailExists("sato89@hotmail.it", id_test);
-		boolean mailexists = dao.emailExists("sato89@hotmail.it", null);
-		
-		assertFalse(mymailexist);
-		assertTrue(notmineexists);
-		assertTrue(mailexists);
 	}
 
 	@Test
@@ -102,6 +88,25 @@ public class PersonaDaoImplTest {
 				error=true;
 		}
 		assertTrue(!error);
+	}
+
+	@Test
+	public void testEmailExistsStringInteger() throws Exception {
+		
+		int id_test = (dao.getPersonaByCredentials("wifidrinksnacks@gmail.com", "8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918")).getId();
+		
+		boolean mymailexist = dao.emailExists("wifidrinksnacks@gmail.com", id_test);
+		boolean notmineexists = dao.emailExists("sato89@hotmail.it", id_test);
+		
+		assertFalse(mymailexist);
+		assertTrue(notmineexists);
+	}
+
+	@Test
+	public void testEmailExistsString() throws Exception {
+		
+		boolean mailexists = dao.emailExists("sato89@hotmail.it");
+		assertTrue(mailexists);
 	}
 
 }
