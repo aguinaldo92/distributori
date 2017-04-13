@@ -97,7 +97,7 @@
 												<s:property value="dipendente.id" />
 											</s:param>
 										</s:url>
-										<td><a href="${editDip}" class="compare-in">${dipendente.nome}</a></td>
+										<td><a href="${editDip}" class="compare-in">${dipendente.nome} ${dipendente.cognome}</a></td>
 										<!--  mostro solo i prodotti non vuoti -->
 										<td><ul class="list-group">
 												<s:iterator value="#listDistrModel.prodottiForniti" var="prodotti">
