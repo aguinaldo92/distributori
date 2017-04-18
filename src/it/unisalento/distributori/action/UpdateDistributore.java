@@ -34,7 +34,7 @@ public class UpdateDistributore extends ActionSupport {
 			distributore.setLon(AddressTranslation.getLatLonFromAddress(distributore.getIndirizzo()).get(1));
 			distributore.setDipendente(FactoryDao.getIstance().getDipendenteDao().get(distributoreModel.getIdDipendente(), Dipendente.class));
 			distributore.setPosizioneEdificio(distributoreModel.getPosizioneEdificio());
-			distributore.setStato(distributoreModel.getStato());
+			//distributore.setStato(distributoreModel.getStato());
 			FactoryDao.getIstance().getDistributoreDao().update(distributore);
 
 		} catch (Exception e) {

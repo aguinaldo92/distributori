@@ -33,6 +33,10 @@ public class UpdateQuantitaProdottiByDistributore extends ActionSupport implemen
 			System.out.println("idDistributore: " + idDistributore);
 			Iterator<Integer> idsIterator = ids.iterator();
 			Iterator<Integer> quantitaIterator = quantita.iterator();
+			Distributore distributore = FactoryDao.getIstance().getDistributoreDao().get(idDistributore, Distributore.class);
+			Persona personaBySession = (Persona) session.get("persona");
+			Dipendente dipendente = FactoryDao.getIstance().getDipendenteDao().get(personaBySession.getId(), Dipendente.class);
+			
 			/*** ids.size must be equal to quantita.size() */
 			while (idsIterator.hasNext()) {
 				Integer newQuantita = quantitaIterator.next();
@@ -40,20 +44,18 @@ public class UpdateQuantitaProdottiByDistributore extends ActionSupport implemen
 				if (!prodottiErogatiUpdated.getQuantita().equals(newQuantita)) {
 					prodottiErogatiUpdated.setQuantita(newQuantita);
 					FactoryDao.getIstance().getProdottiErogatiDao().update(prodottiErogatiUpdated);
-					Distributore distributore = FactoryDao.getIstance().getDistributoreDao().get(idDistributore, Distributore.class);
 					Integer statoOk = 2;
 					Integer statoRichiestoRifornimento = 1;
 					if (FactoryDao.getIstance().getProdottiErogatiDao().getProdottiScarseggiantiByDistributore(idDistributore).isEmpty())
 						distributore.setStato(statoOk);
 					else 
 						distributore.setStato(statoRichiestoRifornimento);
-					Persona personaBySession = (Persona) session.get("persona");
-					Dipendente dipendente = FactoryDao.getIstance().getDipendenteDao().get(personaBySession.getId(), Dipendente.class);
-					Rifornisce rifornisce = new Rifornisce(dipendente,distributore,new Date());
 					FactoryDao.getIstance().getDistributoreDao().update(distributore);
-					FactoryDao.getIstance().getRifornisceDao().set(rifornisce);
 				}
 			}
+			
+			Rifornisce rifornisce = new Rifornisce(dipendente,distributore,new Date());
+			FactoryDao.getIstance().getRifornisceDao().set(rifornisce);
 
 			return SUCCESS;
 
