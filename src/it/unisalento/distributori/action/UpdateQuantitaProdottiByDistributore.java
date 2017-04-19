@@ -41,7 +41,7 @@ public class UpdateQuantitaProdottiByDistributore extends ActionSupport implemen
 			while (idsIterator.hasNext()) {
 				Integer newQuantita = quantitaIterator.next();
 				ProdottiErogati prodottiErogatiUpdated = FactoryDao.getIstance().getProdottiErogatiDao().get(idsIterator.next(),ProdottiErogati.class);
-				if (!prodottiErogatiUpdated.getQuantita().equals(newQuantita)) {
+				if (!prodottiErogatiUpdated.getQuantita().equals(newQuantita) && !prodottiErogatiUpdated.getProdotto().getNome().equals("vuoto")) {
 					prodottiErogatiUpdated.setQuantita(newQuantita);
 					FactoryDao.getIstance().getProdottiErogatiDao().update(prodottiErogatiUpdated);
 					Integer statoOk = 2;

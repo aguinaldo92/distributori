@@ -9,9 +9,6 @@
 		</field-validator>
 	</field>
 <field name="distributoreModel.civico">
-		<field-validator type="requiredstring">
-			<message>Il numero civico è obbligatorio</message>
-		</field-validator>
 		<field-validator type="regex">
             <param name="regex">[1-9][0-9]*</param>
             <message>Il numero civico deve essere un intero positivo</message>
