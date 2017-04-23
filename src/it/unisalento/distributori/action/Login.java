@@ -39,7 +39,8 @@ public class Login extends ActionSupport implements SessionAware, ParameterNameA
 		case 0:	return "gestore";
 		case 1: return "dipendente";
 
-		} 
+		}
+		
 		return SUCCESS;
 	}
 
