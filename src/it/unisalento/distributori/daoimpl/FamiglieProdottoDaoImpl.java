@@ -7,6 +7,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.hibernate.Query;
+import org.hibernate.Session;
+import org.hibernate.Transaction;
 
 import it.unisalento.distributori.dao.FamiglieProdottoDao;
 import it.unisalento.distributori.domain.FamiglieProdotto;
@@ -20,20 +22,18 @@ public class FamiglieProdottoDaoImpl extends BaseDaoImpl<FamiglieProdotto> imple
 	@SuppressWarnings("unchecked")
 	@Override
 	public List<FamiglieProdotto> getFamiglieByProdotto(int prodotto_id) {
+		Session session = null;
 		try{
 			session = HibernateUtil.getSession();
-			tx = session.beginTransaction();
+			Transaction tx = session.beginTransaction();
 			Query query = session.createQuery("select FP from FamiglieProdotto as FP inner join FP.prodotto as P where P.id=:id_prod");
 			query.setInteger("id_prod", prodotto_id);
-
 			List<FamiglieProdotto> fams_prod = new ArrayList<FamiglieProdotto>();
 			fams_prod=query.list();
 			tx.commit();
-
 			return fams_prod;
-			
 		} finally{
-			session.close();
+			HibernateUtil.closeSession(session);
 		}
 	}
 

@@ -6,6 +6,8 @@ package it.unisalento.distributori.daoimpl;
 import java.util.List;
 
 import org.hibernate.Query;
+import org.hibernate.Session;
+import org.hibernate.Transaction;
 
 import it.unisalento.distributori.dao.CategorieForniteDao;
 import it.unisalento.distributori.domain.CategorieFornite;
@@ -20,9 +22,10 @@ public class CategorieForniteDaoImpl extends BaseDaoImpl<CategorieFornite> imple
 	@Override
 	public List<CategorieFornite> getCategorieForniteByDistributore  (Integer idDistributore) {
 		List<CategorieFornite> listCategorieFornite;
+		Session session = null;
 		try {
 			session = HibernateUtil.getSession();
-			tx = session.beginTransaction();
+			Transaction tx = session.beginTransaction();
 			String hql = "from CategorieFornite CF inner join CF.categoria C where CF.distributore.id = :idDistributore order by C.nome" ;
 			Query query = session.createQuery(hql);
 			query.setInteger("idDistributore", idDistributore);
@@ -30,7 +33,7 @@ public class CategorieForniteDaoImpl extends BaseDaoImpl<CategorieFornite> imple
 			tx.commit();
 			return listCategorieFornite;
 		} finally{
-			session.close();
+			HibernateUtil.closeSession(session);
 		}
 	}
 
@@ -38,9 +41,10 @@ public class CategorieForniteDaoImpl extends BaseDaoImpl<CategorieFornite> imple
 	@Override
 	public List<String> getNomiCategorieForniteByDistributore(Integer idDistributore) {
 		List<String> listNomiCategorieFornite;
+		Session session = null;
 		try {
 			session = HibernateUtil.getSession();
-			tx = session.beginTransaction();
+			Transaction tx = session.beginTransaction();
 			String hql = "Select C.nome from CategorieFornite CF inner join CF.categoria C where CF.distributore.id = :idDistributore and C.nome != 'Generica' order by C.nome" ;
 			Query query = session.createQuery(hql);
 			query.setInteger("idDistributore", idDistributore);
@@ -49,7 +53,7 @@ public class CategorieForniteDaoImpl extends BaseDaoImpl<CategorieFornite> imple
 			return listNomiCategorieFornite;
 			
 		} finally{
-			session.close();
+			HibernateUtil.closeSession(session);
 		}
 	}
 
@@ -57,9 +61,10 @@ public class CategorieForniteDaoImpl extends BaseDaoImpl<CategorieFornite> imple
 	@Override
 	public List<Integer> getIdsCategorieForniteByDistributore(Integer idDistributore) {
 		List<Integer> listIdsCategorieFornite;
+		Session session = null;
 		try {
 			session = HibernateUtil.getSession();
-			tx = session.beginTransaction();
+			Transaction tx = session.beginTransaction();
 			String hql = "Select C.id from CategorieFornite CF inner join CF.categoria C where CF.distributore.id = :idDistributore and C.nome != 'Generica' order by C.nome" ;
 			Query query = session.createQuery(hql);
 			query.setInteger("idDistributore", idDistributore);
@@ -68,7 +73,7 @@ public class CategorieForniteDaoImpl extends BaseDaoImpl<CategorieFornite> imple
 			return listIdsCategorieFornite;
 			
 		} finally{
-			session.close();
+			HibernateUtil.closeSession(session);
 		}
 	}
 

@@ -8,11 +8,12 @@ import org.hibernate.Session;
 import org.hibernate.Transaction;
 
 public class BaseDaoImpl<T> implements BaseDao<T> {
-	Session session;
-	Transaction tx;
+
 
 	@Override
 	public int set(T entity) {
+		Session session = null;
+		Transaction tx = null;
 		try{
 			session = HibernateUtil.getSession();
 			tx = session.beginTransaction(); //inizio transazione
@@ -24,15 +25,16 @@ public class BaseDaoImpl<T> implements BaseDao<T> {
 			tx.rollback();
 			throw e;
 		} finally{
-			session.close();
+			HibernateUtil.closeSession(session);
 		}
 	}
 
 	@Override
 	public T get(int id, @SuppressWarnings("rawtypes") Class clazz){
+		Session session = null;
 		try{
 			session = HibernateUtil.getSession();
-			tx = session.beginTransaction();
+			Transaction tx = session.beginTransaction();
 			//Per prendere un oggetto tramite id utilizzare il metodo get di session 
 			@SuppressWarnings("unchecked")
 			T entity = (T)session.get(clazz, id);
@@ -40,40 +42,44 @@ public class BaseDaoImpl<T> implements BaseDao<T> {
 			//CHIUDERE LA SESSIONE
 			return entity;
 		}finally{
-			session.close();
+			HibernateUtil.closeSession(session);
 		}
 	}
 
 	@Override
 	public List<T> getAll(@SuppressWarnings("rawtypes") Class clazz){
+		Session session = null;
 		try{
 			session = HibernateUtil.getSession();
-			tx = session.beginTransaction();
+			Transaction tx = session.beginTransaction();
 			@SuppressWarnings("unchecked")
 			List<T> list = (List<T>)session.createQuery("from "+clazz.getSimpleName()).list();
 			tx.commit();
 			return list;
 		} finally{
-			session.close();
+			HibernateUtil.closeSession(session);
 		}
 	}
 
 	@Override
 	public List<T> getAllSortedBy(@SuppressWarnings("rawtypes") Class clazz, String column) {
+		Session session = null;
 		try{
 			session = HibernateUtil.getSession();
-			tx = session.beginTransaction();
+			Transaction tx = session.beginTransaction();
 			@SuppressWarnings("unchecked")
 			List<T> list = (List<T>)session.createQuery("from "+clazz.getSimpleName()+" as T order by T."+column).list();
 			tx.commit();
 			return list;
 		} finally{
-			session.close();
+			HibernateUtil.closeSession(session);
 		}
 	}
 
 	@Override
 	public void update(T entity) {
+		Session session = null;
+		Transaction tx = null;
 		try{
 			session = HibernateUtil.getSession();
 			tx = session.beginTransaction();
@@ -83,12 +89,14 @@ public class BaseDaoImpl<T> implements BaseDao<T> {
 			tx.rollback();
 			throw e;
 		} finally{
-			session.close();
+			HibernateUtil.closeSession(session);
 		}
 	}
 
 	@Override
 	public void delete(T entity) {
+		Session session = null;
+		Transaction tx = null;
 		try{
 			session = HibernateUtil.getSession();
 			tx = session.beginTransaction();
@@ -98,7 +106,7 @@ public class BaseDaoImpl<T> implements BaseDao<T> {
 			tx.rollback();
 			throw e;
 		} finally{
-			session.close();
+			HibernateUtil.closeSession(session);
 		}
 	}
 }

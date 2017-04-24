@@ -58,7 +58,12 @@ public class HibernateUtil {
 	}
 
 	public static void closeSession(Session session){
-		session.close();
+		try{
+			session.close();
+		} catch (NullPointerException ne){
+			logger.error("Impossibile chiudere la sessione con il database, sessione nulla",ne);
+			throw ne;
+		}
 	}
 
 }
