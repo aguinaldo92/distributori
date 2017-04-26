@@ -1,8 +1,10 @@
 package it.unisalento.distributori.util;
 
 import java.io.OutputStreamWriter;
+import java.io.UnsupportedEncodingException;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.text.Normalizer;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -28,9 +30,13 @@ public class FCMSender{
 	}
 	
 	public FCMSender(String FCMtopic, String APIkey, String testo, String titolo) {
+		
+		//gestione dell'invio dei caratteri accentati (da "à" a "a'")
+		String testo_temp = Normalizer.normalize(testo, Normalizer.Form.NFD);
+		this.testo = testo_temp.replaceAll("\\p{InCombiningDiacriticalMarks}+", "'");
+		
 		this.FCMtopic=FCMtopic;
 		this.APIkey=APIkey;
-		this.testo=testo;
 		this.titolo=titolo;
 	}
 	
@@ -57,6 +63,7 @@ public class FCMSender{
 	    	    	conn.setDoOutput(true);
 	    	    	conn.setDoInput(true);
 	    	    	conn.setUseCaches(false);
+	    	    	conn.setConnectTimeout(15000);
 	    	    	conn.setRequestMethod("POST");
 	    	    	conn.setRequestProperty("Content-Type", content_type);
 	    	    	conn.setRequestProperty("Authorization", "key="+APIkey);
@@ -118,7 +125,10 @@ public class FCMSender{
 	}
 
 	public void setTesto(String testo) {
-		this.testo = testo;
+		
+		//gestione dell'invio dei caratteri accentati (da "à" a "a'")
+		String testo_temp = Normalizer.normalize(testo, Normalizer.Form.NFD);
+		this.testo = testo_temp.replaceAll("\\p{InCombiningDiacriticalMarks}+", "'");
 	}
 
 	public String getUrl() {

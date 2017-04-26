@@ -18,6 +18,7 @@ import it.unisalento.distributori.domain.Persona;
 import it.unisalento.distributori.domain.ProdottiErogati;
 import it.unisalento.distributori.domain.Rifornisce;
 import it.unisalento.distributori.factory.FactoryDao;
+import it.unisalento.distributori.util.FCMSender;
 
 public class UpdateQuantitaProdottiByDistributore extends ActionSupport implements SessionAware{
 	private static final long serialVersionUID = -1064172065932355077L;
@@ -26,6 +27,8 @@ public class UpdateQuantitaProdottiByDistributore extends ActionSupport implemen
 	private SessionMap<String, Object> session;
 	private List<Integer> quantita;
 	private Logger logger = LogManager.getLogger(this.getClass().getName());
+	
+	private final String FCM_APIkey="AIzaSyD4Mo-F-jgzBEkodP_pquU5z34DDw7ZWy4";
 
 	public String execute() {
 		try {
@@ -41,7 +44,9 @@ public class UpdateQuantitaProdottiByDistributore extends ActionSupport implemen
 			while (idsIterator.hasNext()) {
 				Integer newQuantita = quantitaIterator.next();
 				ProdottiErogati prodottiErogatiUpdated = FactoryDao.getIstance().getProdottiErogatiDao().get(idsIterator.next(),ProdottiErogati.class);
-				if (!prodottiErogatiUpdated.getQuantita().equals(newQuantita) && !prodottiErogatiUpdated.getProdotto().getNome().equals("vuoto")) {
+				
+				 Integer old_Quantita = prodottiErogatiUpdated.getQuantita();
+				if (!old_Quantita.equals(newQuantita) && !prodottiErogatiUpdated.getProdotto().getNome().equals("vuoto")) {
 					prodottiErogatiUpdated.setQuantita(newQuantita);
 					FactoryDao.getIstance().getProdottiErogatiDao().update(prodottiErogatiUpdated);
 					Integer statoOk = 2;
@@ -51,6 +56,17 @@ public class UpdateQuantitaProdottiByDistributore extends ActionSupport implemen
 					else 
 						distributore.setStato(statoRichiestoRifornimento);
 					FactoryDao.getIstance().getDistributoreDao().update(distributore);
+					
+					if(old_Quantita==0){
+						//invio il messaggio a Firebase per notificare 
+						//all'utente la associazione del nuovo prodotto
+						FCMSender sender = new FCMSender("distributore_"+idDistributore, FCM_APIkey, 
+								"Distributore di "+prodottiErogatiUpdated.getDistributore().getIndirizzo()+": "+
+								"disponibile "+prodottiErogatiUpdated.getProdotto().getNome(), 
+								"DrinkSnacks");
+						String FCMresult = sender.sendPOST();
+					}
+					
 				}
 			}
 			
