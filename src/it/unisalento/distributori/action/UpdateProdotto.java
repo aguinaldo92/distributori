@@ -78,12 +78,6 @@ public class UpdateProdotto extends ActionSupport implements ModelDriven<Prodott
 		}
 	}
 
-	@Override
-	public ProdottoModel getModel() {
-		return prodotto_form;
-	}
-
-
 	public Integer getIdProdotto() {
 		return idProdotto;
 	}
@@ -95,6 +89,10 @@ public class UpdateProdotto extends ActionSupport implements ModelDriven<Prodott
 	}
 	public void setFamiglia_scelta(String famiglia_scelta) {
 		this.famiglia_scelta = famiglia_scelta;
+	}
+
+	public ProdottoModel getModel() {
+		return prodotto_form;
 	}
 
 }

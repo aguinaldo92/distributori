@@ -53,10 +53,8 @@ public class StartManutenzione extends ActionSupport implements SessionAware {
 		this.idDistributore = idDistributore;
 	}
 
-	@Override
 	public void setSession(Map<String, Object> map) {
 		this.personaSession = (SessionMap<String, Object>) map;
-		
 	}
 	
 }

@@ -57,12 +57,6 @@ public class UpdatePassword extends ActionSupport implements SessionAware{
 		}
 	}
 
-	@Override
-	public void setSession(Map<String, Object> map) {
-		this.personaSession = (SessionMap<String, Object>) map;		
-	}
-
-
 	public String getNewPassword() {
 		return newPassword;
 	}
@@ -74,5 +68,10 @@ public class UpdatePassword extends ActionSupport implements SessionAware{
 	}
 	public String getConfirmPassword() {
 		return confirmPassword;
+	}
+
+
+	public void setSession(Map<String, Object> map) {
+		this.personaSession = (SessionMap<String, Object>) map;	
 	}
 }

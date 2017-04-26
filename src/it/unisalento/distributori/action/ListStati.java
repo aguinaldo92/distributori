@@ -18,7 +18,7 @@ import com.opensymphony.xwork2.ActionSupport;
  */
 public class ListStati extends ActionSupport{
 	private static final long serialVersionUID = -2053438643831871071L;
-	private HashMap<Integer,String> stati = new HashMap<>();
+	private HashMap<Integer,String> stati = new HashMap<Integer,String>();
 	private Logger logger = LogManager.getLogger(this.getClass().getName());
 
 	public String execute(){

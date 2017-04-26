@@ -6,6 +6,8 @@ import org.junit.Test;
 
 public class FCMSenderTest {
 	
+	FCMSender sendertest = new FCMSender();
+	
 	@Test
 	public void testFCMSender() throws Exception {
 
@@ -52,22 +54,26 @@ public class FCMSenderTest {
 
 	@Test
 	public void testSetFCMtopic() throws Exception {
-	}
-
-	@Test
-	public void testSetContent_type() throws Exception {
+		sendertest.setFCMtopic("topic");
+		assertTrue(sendertest.getFCMtopic().compareTo("topic")==0);
 	}
 
 	@Test
 	public void testSetAPIkey() throws Exception {
+		sendertest.setAPIkey("key");
+		assertTrue(sendertest.getAPIkey().compareTo("key")==0);
 	}
 
 	@Test
 	public void testSetTitolo() throws Exception {
+		sendertest.setTitolo("titolo");
+		assertTrue(sendertest.getTitolo().compareTo("titolo")==0);
 	}
 
 	@Test
 	public void testSetTesto() throws Exception {
+		sendertest.setTesto("testo");
+		assertTrue(sendertest.getTesto().compareTo("testo")==0);
 	}
 
 }

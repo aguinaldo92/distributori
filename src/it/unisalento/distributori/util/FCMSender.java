@@ -13,25 +13,21 @@ import com.google.gson.JsonObject;
  * La seguente classe ha bisogno della libreria httpcore-4.4.6.jar
  */
 
-public class FCMSender {
+public class FCMSender{
 
 	private Logger logger = LogManager.getLogger(this.getClass().getName());
-	private String url;
+	private String url="https://fcm.googleapis.com/fcm/send";
+	private String content_type="application/json";
 	private String FCMtopic;
-	private String content_type;
 	private String APIkey;
 	private String testo;
 	private String titolo;
 	private JsonObject messaggioJSON;
 
 	public FCMSender(){
-		this.url="https://fcm.googleapis.com/fcm/send";
-		this.content_type="application/json";
 	}
 	
 	public FCMSender(String FCMtopic, String APIkey, String testo, String titolo) {
-		this.url="https://fcm.googleapis.com/fcm/send";
-		this.content_type="application/json";
 		this.FCMtopic=FCMtopic;
 		this.APIkey=APIkey;
 		this.testo=testo;
@@ -53,24 +49,42 @@ public class FCMSender {
 
 		componi_messaggioJSON();
 		
-	    try {
-	    	URL http= new URL(url);
-	    	HttpURLConnection conn = (HttpURLConnection) http.openConnection();
-	    	conn.setDoOutput(true);
-	    	conn.setDoInput(true);
-	    	conn.setUseCaches(false);
-	    	conn.setRequestMethod("POST");
-	    	conn.setRequestProperty("Content-Type", content_type);
-	    	conn.setRequestProperty("Authorization", "key="+APIkey);
-	    	
-	    	OutputStreamWriter wr = new OutputStreamWriter(conn.getOutputStream());
-	    	wr.write(messaggioJSON.toString());
-	    	wr.flush();
-	    	conn.getInputStream();
-	    } catch (Exception e) {
-	    	logger.error("Impossibile inviare la notifica HTTP a Firebase ",e);
-	    	return "error";
-	    }
+		Runnable codice_backgr = new Runnable() {
+			public void run() {
+				try{
+					URL http= new URL(url);
+	    	    	HttpURLConnection conn = (HttpURLConnection) http.openConnection();
+	    	    	conn.setDoOutput(true);
+	    	    	conn.setDoInput(true);
+	    	    	conn.setUseCaches(false);
+	    	    	conn.setRequestMethod("POST");
+	    	    	conn.setRequestProperty("Content-Type", content_type);
+	    	    	conn.setRequestProperty("Authorization", "key="+APIkey);
+	    	    	
+	    	    	System.out.println("Parametri di connessione Firebase creati.");
+	    	    	
+	    	    	OutputStreamWriter wr = new OutputStreamWriter(conn.getOutputStream());
+	    	    	wr.write(messaggioJSON.toString());
+	    	    	wr.flush();
+	    	    	conn.getInputStream();
+	    	    	System.out.println("Messaggio inviato a Firebase.");
+				}catch (Exception e){
+					logger.error("Impossibile inviare la notifica HTTP a Firebase ",e);
+					System.out.println("Problemi all'invio della notifica a Firebase: "+e);
+				}
+			}
+		};
+ 
+		Thread thread = new Thread(codice_backgr);
+		thread.start(); // avvia il codice in background
+		
+		//thread.run(); 
+		/*
+		*	decommentare in caso di JUnit test se si vuole testare la avvenuta ricezione
+		*	e commentare il rigo thread.start()
+		*/
+		
+		System.out.println("FCMSender: Fine metodo sendPOST().");
 		
 		return "success";
 	}

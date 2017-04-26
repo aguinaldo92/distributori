@@ -52,11 +52,6 @@ public class DipendenteDetail extends ActionSupport implements SessionAware{
 		}
 	}
 
-	@Override
-	public void setSession(Map<String, Object> map) {
-		this.personaSession = (SessionMap<String,Object>) map;
-	}
-
 	public PersonaModel getDipendente() {
 		return dipendente;
 	}
@@ -68,5 +63,9 @@ public class DipendenteDetail extends ActionSupport implements SessionAware{
 	}
 	public void setIdDip(int idDip) {
 		this.idDip = idDip;
+	}
+
+	public void setSession(Map<String, Object> map) {
+		this.personaSession = (SessionMap<String,Object>) map;
 	}
 }

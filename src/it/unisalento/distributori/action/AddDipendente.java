@@ -76,8 +76,6 @@ public class AddDipendente extends ActionSupport implements ModelDriven<PersonaM
 		}
 	}
 
-
-	@Override
 	public PersonaModel getModel() {
 		return DipForm;
 	}

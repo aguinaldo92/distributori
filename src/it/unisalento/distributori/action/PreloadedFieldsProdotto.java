@@ -16,7 +16,7 @@ import it.unisalento.distributori.factory.FactoryDao;
 
 public class PreloadedFieldsProdotto extends ActionSupport{
 	private static final long serialVersionUID = 6255011883759782290L;
-	Map<Produttore,List<Stabilimento>> select_mapping = new HashMap<>();
+	Map<Produttore,List<Stabilimento>> select_mapping = new HashMap<Produttore,List<Stabilimento>>();
 	private List<Categoria> all_categ = new ArrayList<Categoria>();
 	private List<Famiglia> famiglie = new ArrayList<Famiglia>();
 	private Logger logger = LogManager.getLogger(this.getClass().getName());
