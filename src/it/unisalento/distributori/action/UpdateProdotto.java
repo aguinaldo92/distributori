@@ -91,6 +91,7 @@ public class UpdateProdotto extends ActionSupport implements ModelDriven<Prodott
 		this.famiglia_scelta = famiglia_scelta;
 	}
 
+	@Override
 	public ProdottoModel getModel() {
 		return prodotto_form;
 	}

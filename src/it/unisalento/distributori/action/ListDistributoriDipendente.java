@@ -66,8 +66,10 @@ public class ListDistributoriDipendente extends ActionSupport implements Session
 	public void setListDistributoreModel(List<DistributoreModel> listDistributoreModel) {
 		this.listDistributoreModel = listDistributoreModel;
 	}
+	@Override
 	public void setSession(Map<String, Object> map) {
 		this.personaSession = (SessionMap<String, Object>) map;
 	}
+	
 
 }

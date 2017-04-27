@@ -99,6 +99,7 @@ public class UpdateQuantitaProdottiByDistributore extends ActionSupport implemen
 		this.quantita = quantita;
 	}
 
+	@Override
 	public void setSession(Map<String, Object> map) {
 		this.session =  (SessionMap<String, Object>) map;
 	}

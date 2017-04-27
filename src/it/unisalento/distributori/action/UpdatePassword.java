@@ -71,6 +71,7 @@ public class UpdatePassword extends ActionSupport implements SessionAware{
 	}
 
 
+	@Override
 	public void setSession(Map<String, Object> map) {
 		this.personaSession = (SessionMap<String, Object>) map;	
 	}

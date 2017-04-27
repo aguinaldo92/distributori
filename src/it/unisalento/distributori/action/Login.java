@@ -95,10 +95,12 @@ public class Login extends ActionSupport implements SessionAware, ParameterNameA
 		this.password = password;
 	}
 
+	@Override
 	public void setSession(Map<String, Object> map) {
 		this.personaSession = (SessionMap<String,Object>)map;
 	}
 
+	@Override
 	public boolean acceptableParameterName(String parameterName) {
 		boolean allowedParameterName = true ;
 

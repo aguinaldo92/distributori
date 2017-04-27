@@ -71,6 +71,7 @@ public class UpdateDipendente extends ActionSupport implements ModelDriven<Perso
 		this.dip = dip;
 	}
 
+	@Override
 	public PersonaModel getModel() {
 		return dipendente;
 	}

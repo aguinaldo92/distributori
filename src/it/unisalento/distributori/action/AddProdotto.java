@@ -100,6 +100,7 @@ public class AddProdotto extends ActionSupport implements ModelDriven<ProdottoMo
 		this.famiglie = famiglie;
 	}
 
+	@Override
 	public ProdottoModel getModel() {
 		return prodotto_Form;
 	}

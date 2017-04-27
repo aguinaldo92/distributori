@@ -106,6 +106,7 @@ public class CreateDistributore extends ActionSupport implements ModelDriven<Dis
 		this.idDistributore = idDistributore;
 	}
 
+	@Override
 	public DistributoreModel getModel() {
 		return distributoreModel;
 	}
