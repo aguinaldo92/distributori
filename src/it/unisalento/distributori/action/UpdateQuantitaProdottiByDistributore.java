@@ -27,8 +27,6 @@ public class UpdateQuantitaProdottiByDistributore extends ActionSupport implemen
 	private SessionMap<String, Object> session;
 	private List<Integer> quantita;
 	private Logger logger = LogManager.getLogger(this.getClass().getName());
-	
-	private final String FCM_APIkey="AIzaSyD4Mo-F-jgzBEkodP_pquU5z34DDw7ZWy4";
 
 	public String execute() {
 		try {
@@ -60,7 +58,7 @@ public class UpdateQuantitaProdottiByDistributore extends ActionSupport implemen
 					if(old_Quantita==0){
 						//invio il messaggio a Firebase per notificare 
 						//all'utente la associazione del nuovo prodotto
-						FCMSender sender = new FCMSender("distributore_"+idDistributore, FCM_APIkey, 
+						FCMSender sender = new FCMSender("distributore_"+idDistributore, 
 								"Distributore di "+prodottiErogatiUpdated.getDistributore().getIndirizzo()+": "+
 								"disponibile "+prodottiErogatiUpdated.getProdotto().getNome(), 
 								"DrinkSnacks");

@@ -1,7 +1,6 @@
 package it.unisalento.distributori.util;
 
 import java.io.OutputStreamWriter;
-import java.io.UnsupportedEncodingException;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.text.Normalizer;
@@ -17,11 +16,11 @@ import com.google.gson.JsonObject;
 
 public class FCMSender{
 
+	private String APIkey="AIzaSyBKPo4o3R7onSgNzvI6LX2WM-5fQYpDc0s";
 	private Logger logger = LogManager.getLogger(this.getClass().getName());
 	private String url="https://fcm.googleapis.com/fcm/send";
 	private String content_type="application/json";
 	private String FCMtopic;
-	private String APIkey;
 	private String testo;
 	private String titolo;
 	private JsonObject messaggioJSON;
@@ -29,14 +28,13 @@ public class FCMSender{
 	public FCMSender(){
 	}
 	
-	public FCMSender(String FCMtopic, String APIkey, String testo, String titolo) {
+	public FCMSender(String FCMtopic, String testo, String titolo) {
 		
 		//gestione dell'invio dei caratteri accentati (da "à" a "a'")
 		String testo_temp = Normalizer.normalize(testo, Normalizer.Form.NFD);
 		this.testo = testo_temp.replaceAll("\\p{InCombiningDiacriticalMarks}+", "'");
 		
 		this.FCMtopic=FCMtopic;
-		this.APIkey=APIkey;
 		this.titolo=titolo;
 	}
 	
