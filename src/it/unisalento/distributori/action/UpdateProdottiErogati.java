@@ -11,6 +11,7 @@ import com.opensymphony.xwork2.ActionSupport;
 import it.unisalento.distributori.domain.ProdottiErogati;
 import it.unisalento.distributori.domain.Prodotto;
 import it.unisalento.distributori.factory.FactoryDao;
+import it.unisalento.distributori.util.FCMSender;
 
 public class UpdateProdottiErogati extends ActionSupport {
 	private static final long serialVersionUID = -4192123385276698863L;

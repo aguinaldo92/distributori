@@ -60,16 +60,14 @@ public class ListDistributoriDipendente extends ActionSupport implements Session
 			return ERROR;
 		}
 	}
-
-	@Override
-	public void setSession(Map<String, Object> map) {
-		this.personaSession = (SessionMap<String, Object>) map;
-	}
 	public List<DistributoreModel> getListDistributoreModel() {
 		return listDistributoreModel;
 	}
 	public void setListDistributoreModel(List<DistributoreModel> listDistributoreModel) {
 		this.listDistributoreModel = listDistributoreModel;
+	}
+	public void setSession(Map<String, Object> map) {
+		this.personaSession = (SessionMap<String, Object>) map;
 	}
 
 }

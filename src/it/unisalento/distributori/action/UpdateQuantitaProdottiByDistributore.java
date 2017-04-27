@@ -18,6 +18,7 @@ import it.unisalento.distributori.domain.Persona;
 import it.unisalento.distributori.domain.ProdottiErogati;
 import it.unisalento.distributori.domain.Rifornisce;
 import it.unisalento.distributori.factory.FactoryDao;
+import it.unisalento.distributori.util.FCMSender;
 
 public class UpdateQuantitaProdottiByDistributore extends ActionSupport implements SessionAware{
 	private static final long serialVersionUID = -1064172065932355077L;
@@ -41,7 +42,9 @@ public class UpdateQuantitaProdottiByDistributore extends ActionSupport implemen
 			while (idsIterator.hasNext()) {
 				Integer newQuantita = quantitaIterator.next();
 				ProdottiErogati prodottiErogatiUpdated = FactoryDao.getIstance().getProdottiErogatiDao().get(idsIterator.next(),ProdottiErogati.class);
-				if (!prodottiErogatiUpdated.getQuantita().equals(newQuantita) && !prodottiErogatiUpdated.getProdotto().getNome().equals("vuoto")) {
+				
+				 Integer old_Quantita = prodottiErogatiUpdated.getQuantita();
+				if (!old_Quantita.equals(newQuantita) && !prodottiErogatiUpdated.getProdotto().getNome().equals("vuoto")) {
 					prodottiErogatiUpdated.setQuantita(newQuantita);
 					FactoryDao.getIstance().getProdottiErogatiDao().update(prodottiErogatiUpdated);
 					Integer statoOk = 2;
@@ -51,6 +54,17 @@ public class UpdateQuantitaProdottiByDistributore extends ActionSupport implemen
 					else 
 						distributore.setStato(statoRichiestoRifornimento);
 					FactoryDao.getIstance().getDistributoreDao().update(distributore);
+					
+					if(old_Quantita==0){
+						//invio il messaggio a Firebase per notificare 
+						//all'utente la associazione del nuovo prodotto
+						FCMSender sender = new FCMSender("distributore_"+idDistributore, 
+								"Distributore di "+prodottiErogatiUpdated.getDistributore().getIndirizzo()+": "+
+								"disponibile "+prodottiErogatiUpdated.getProdotto().getNome(), 
+								"DrinkSnacks");
+						String FCMresult = sender.sendPOST();
+					}
+					
 				}
 			}
 			
@@ -85,10 +99,8 @@ public class UpdateQuantitaProdottiByDistributore extends ActionSupport implemen
 		this.quantita = quantita;
 	}
 
-	@Override
 	public void setSession(Map<String, Object> map) {
 		this.session =  (SessionMap<String, Object>) map;
-		
 	}
 
 }

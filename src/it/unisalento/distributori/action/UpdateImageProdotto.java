@@ -41,7 +41,7 @@ public class UpdateImageProdotto extends ActionSupport{
 			//tomcat_destPath="C:/Users/Salvatore/Documents/Università/Specialistica/A.A. 2014_2015/Software Engineering/Workspace2/distributori/WebContent/images";
 
 			//ottengo il prodotto per comporre il nome del file di destinazione
-			Prodotto prodotto=FactoryDao.getIstance().getProdottoDao().get(idProdotto, Prodotto.class);
+			final Prodotto prodotto=FactoryDao.getIstance().getProdottoDao().get(idProdotto, Prodotto.class);
 			myFileFileName=prodotto.getId().toString()+"_"+random.nextInt(100)+".jpg";
 
 			logger.debug("Src File name: " + foto);

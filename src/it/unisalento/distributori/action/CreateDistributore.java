@@ -35,7 +35,7 @@ public class CreateDistributore extends ActionSupport implements ModelDriven<Dis
 	private Integer quantitaIniziale = 0;
 	private Integer statoAttesoRifornimento = 1;
 	private Integer idCategoriaProdottoVuoto = 5;
-	private List<BigDecimal> listLatLon = new ArrayList<>();
+	private List<BigDecimal> listLatLon = new ArrayList<BigDecimal>();
 	private Logger logger = LogManager.getLogger(this.getClass().getName());
 
 	@SuppressWarnings("unchecked")
@@ -106,18 +106,8 @@ public class CreateDistributore extends ActionSupport implements ModelDriven<Dis
 		this.idDistributore = idDistributore;
 	}
 
-	@Override
 	public DistributoreModel getModel() {
 		return distributoreModel;
 	}
-
-
-
-
-
-
-
-
-
 
 }

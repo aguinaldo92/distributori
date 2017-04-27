@@ -73,11 +73,6 @@ public class AddProdotto extends ActionSupport implements ModelDriven<ProdottoMo
 		}
 	}
 
-	@Override
-	public ProdottoModel getModel() {
-		return prodotto_Form;
-	}
-
 
 	// getters and setters
 
@@ -103,5 +98,9 @@ public class AddProdotto extends ActionSupport implements ModelDriven<ProdottoMo
 
 	public void setFamiglie(ArrayList<Famiglia> famiglie) {
 		this.famiglie = famiglie;
+	}
+
+	public ProdottoModel getModel() {
+		return prodotto_Form;
 	}
 }
