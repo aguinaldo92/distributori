@@ -16,7 +16,7 @@ import com.google.gson.JsonObject;
 
 public class FCMSender{
 
-	private String APIkey="AIzaSyBKPo4o3R7onSgNzvI6LX2WM-5fQYpDc0s";
+	private String ServerKey="AIzaSyD4uOmklDmojlgUTq5DNliSNAaottNcEsY";
 	private Logger logger = LogManager.getLogger(this.getClass().getName());
 	private String url="https://fcm.googleapis.com/fcm/send";
 	private String content_type="application/json";
@@ -64,7 +64,7 @@ public class FCMSender{
 	    	    	conn.setConnectTimeout(15000);
 	    	    	conn.setRequestMethod("POST");
 	    	    	conn.setRequestProperty("Content-Type", content_type);
-	    	    	conn.setRequestProperty("Authorization", "key="+APIkey);
+	    	    	conn.setRequestProperty("Authorization", "key="+ServerKey);
 	    	    	
 	    	    	System.out.println("Parametri di connessione Firebase creati.");
 	    	    	
@@ -102,14 +102,6 @@ public class FCMSender{
 		FCMtopic = fCMtopic;
 	}
 
-	public String getAPIkey() {
-		return APIkey;
-	}
-
-	public void setAPIkey(String aPIkey) {
-		APIkey = aPIkey;
-	}
-
 	public String getTitolo() {
 		return titolo;
 	}
@@ -135,6 +127,14 @@ public class FCMSender{
 
 	public String getContent_type() {
 		return content_type;
+	}
+
+	public String getServerKey() {
+		return ServerKey;
+	}
+
+	public void setServerKey(String serverKey) {
+		ServerKey = serverKey;
 	}
 	
 	

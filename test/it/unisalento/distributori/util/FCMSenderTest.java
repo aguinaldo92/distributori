@@ -59,8 +59,8 @@ public class FCMSenderTest {
 
 	@Test
 	public void testSetAPIkey() throws Exception {
-		sendertest.setAPIkey("key");
-		assertTrue(sendertest.getAPIkey().compareTo("key")==0);
+		sendertest.setServerKey("key");
+		assertTrue(sendertest.getServerKey().compareTo("key")==0);
 	}
 
 	@Test
