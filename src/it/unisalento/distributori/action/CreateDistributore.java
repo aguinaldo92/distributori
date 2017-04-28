@@ -22,6 +22,7 @@ import it.unisalento.distributori.domain.Prodotto;
 import it.unisalento.distributori.factory.FactoryDao;
 import it.unisalento.distributori.model.DistributoreModel;
 import it.unisalento.distributori.util.AddressTranslation;
+import it.unisalento.distributori.util.FCMSender;
 
 /**
  * @author aguinaldo
@@ -74,6 +75,13 @@ public class CreateDistributore extends ActionSupport implements ModelDriven<Dis
 					FactoryDao.getIstance().getProdottiErogatiDao().set(new ProdottiErogati(distributore, prodottoVuoto, scaffale, posto, quantitaIniziale));
 				}
 			}
+			
+			//invio il messaggio a Firebase per notificare 
+			//a tutti gli utenti la creazione del nuovo distributore
+			FCMSender sender = new FCMSender("DrinksSnacks", 
+					"Nuovo distributore in "+distributore.getIndirizzo(), 
+					"DrinksSnacks");
+			String FCMresult = sender.sendPOST();
 			
 			return SUCCESS;
 

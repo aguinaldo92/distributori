@@ -61,7 +61,7 @@ public class UpdateQuantitaProdottiByDistributore extends ActionSupport implemen
 						FCMSender sender = new FCMSender("distributore_"+idDistributore, 
 								"Distributore di "+prodottiErogatiUpdated.getDistributore().getIndirizzo()+": "+
 								"disponibile "+prodottiErogatiUpdated.getProdotto().getNome(), 
-								"DrinkSnacks");
+								"DrinksSnacks");
 						String FCMresult = sender.sendPOST();
 					}
 					

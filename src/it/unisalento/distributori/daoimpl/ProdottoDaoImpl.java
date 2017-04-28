@@ -37,7 +37,6 @@ public class ProdottoDaoImpl extends BaseDaoImpl<Prodotto> implements ProdottoDa
 		}
 	}
 
-	//TODO: migliorare cmposizione query.
 	@SuppressWarnings("unchecked")
 	@Override
 	public List<Prodotto> getAllProdottiFiltrati(List<String> list_fam_IDs, List<String> list_categ_IDs) {
