@@ -10,12 +10,12 @@ public class ProdottiErogatiTest {
 
 	@Test
 	public void testProdottiErogatiDistributoreProdotto() throws Exception {
-		ProdottiErogati prod_erog = new ProdottiErogati(FactoryDao.getIstance().getDistributoreDao().get(1, Distributore.class), 
-				FactoryDao.getIstance().getProdottoDao().get(1, Prodotto.class));
+		ProdottiErogati prod_erog = new ProdottiErogati(FactoryDao.getIstance().getDistributoreDao().get(3, Distributore.class), 
+				FactoryDao.getIstance().getProdottoDao().get(3, Prodotto.class));
 		
 		assertNotNull(prod_erog);
-		assertEquals("Kinder Delice", prod_erog.getProdotto().getNome());
-		assertEquals((Integer)1, prod_erog.getDistributore().getId());
+		assertEquals("Caffè", prod_erog.getProdotto().getNome());
+		assertEquals((Integer)3, prod_erog.getDistributore().getId());
 	}
 
 	@Test

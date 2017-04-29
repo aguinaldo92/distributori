@@ -66,10 +66,10 @@ public class DistributoreModelTest {
 
 	@Test
 	public void testSetDipendente() throws Exception {
-		distributore.setDipendente(FactoryDao.getIstance().getPersonaDao().get(8, Persona.class));
+		distributore.setDipendente(FactoryDao.getIstance().getPersonaDao().get(1, Persona.class));
 		
 		assertNotNull(distributore.getDipendente());
-		assertEquals("Salvatore", distributore.getDipendente().getNome());
+		assertEquals("Giovanni", distributore.getDipendente().getNome());
 	}
 
 	@Test

@@ -32,7 +32,7 @@ public class RifornisceDaoImplTest {
 		//set
 		rifornisce.setData(data);
 		rifornisce.setDipendente(FactoryDao.getIstance().getDipendenteDao().get(19, Dipendente.class));
-		rifornisce.setDistributore(FactoryDao.getIstance().getDistributoreDao().get(1, Distributore.class));
+		rifornisce.setDistributore(FactoryDao.getIstance().getDistributoreDao().get(3, Distributore.class));
 		
 		rifornisce.setId(dao.set(rifornisce));
 		

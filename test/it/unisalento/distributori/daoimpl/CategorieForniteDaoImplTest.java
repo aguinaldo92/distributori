@@ -29,7 +29,7 @@ public class CategorieForniteDaoImplTest {
 		
 		//set
 		Categoria categ = FactoryDao.getIstance().getCategoriaDao().get(1, Categoria.class);
-		Distributore distributore = FactoryDao.getIstance().getDistributoreDao().get(1, Distributore.class);
+		Distributore distributore = FactoryDao.getIstance().getDistributoreDao().get(3, Distributore.class);
 		categ_fornita.setCategoria(categ);
 		categ_fornita.setDistributore(distributore);
 		categ_fornita.setId(dao.set(categ_fornita));
@@ -86,7 +86,7 @@ public class CategorieForniteDaoImplTest {
 	
 	@Test
 	public void testGetCategorieForniteByDistributore() throws Exception {
-		List<CategorieFornite> id_categs = dao.getCategorieForniteByDistributore(1);
+		List<CategorieFornite> id_categs = dao.getCategorieForniteByDistributore(3);
 		
 		assertNotNull(id_categs);
 		assertTrue(id_categs.size()>0);
@@ -94,8 +94,8 @@ public class CategorieForniteDaoImplTest {
 
 	@Test
 	public void testGetNomiCategorieForniteByDistributore() throws Exception {
-		List<String> nomi_categs = dao.getNomiCategorieForniteByDistributore(1);
-		List<CategorieFornite> id_categs = dao.getCategorieForniteByDistributore(1);
+		List<String> nomi_categs = dao.getNomiCategorieForniteByDistributore(3);
+		List<CategorieFornite> id_categs = dao.getCategorieForniteByDistributore(3);
 		
 		assertNotNull(nomi_categs);
 		assertTrue((nomi_categs.size() + 1)==id_categs.size()); //+1 per la categoria "Generica" che nei nomi è esclusa
@@ -103,7 +103,7 @@ public class CategorieForniteDaoImplTest {
 
 	@Test
 	public void testGetIdsCategorieForniteByDistributore() throws Exception {
-		List<Integer> IDs_categ = dao.getIdsCategorieForniteByDistributore(1);
+		List<Integer> IDs_categ = dao.getIdsCategorieForniteByDistributore(3);
 		
 		assertNotNull(IDs_categ);
 		assertTrue(IDs_categ.size()==2);

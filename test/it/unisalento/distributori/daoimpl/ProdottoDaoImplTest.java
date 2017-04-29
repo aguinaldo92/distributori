@@ -1,8 +1,6 @@
 package it.unisalento.distributori.daoimpl;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.*;
 
 import java.math.BigDecimal;
 import java.util.Arrays;
@@ -83,7 +81,7 @@ public class ProdottoDaoImplTest {
 		for(int i=1; i<prodotti.size() && sorted_prodotti && !prodotto_vuoto; i++){
 			nome1 = prodotti.get(i-1).getNome();
 			nome2 = prodotti.get(i).getNome();
-			if(nome1.compareTo(nome2)>0)
+			if(nome1.compareToIgnoreCase(nome2)>0)
 				sorted_prodotti=false;
 			if(nome1.compareToIgnoreCase("Vuoto")==0 || nome2.compareToIgnoreCase("Vuoto")==0)
 				prodotto_vuoto=true;
@@ -97,34 +95,37 @@ public class ProdottoDaoImplTest {
 	public void testGetAllProdottiFiltrati() throws Exception {
 		//primo test
 		List<String> fam_IDs = Arrays.asList("1","2");
-		List<String> categ_IDs = Arrays.asList("1", "3");
+		List<String> categ_IDs = Arrays.asList("1","3");
 		
 		List<Prodotto> prodotti = dao.getAllProdottiFiltrati(fam_IDs, categ_IDs);
 		
-		boolean error_fam=false;
+		boolean error_fam=true;
 		boolean error_categ=false;
 		FamiglieProdotto t_fam = new FamiglieProdotto();
 		Iterator<FamiglieProdotto> iter_fams;
 		
-		for (int i=0; i<prodotti.size() && !error_categ && !error_fam; i++){
+		for (int i=0; i<prodotti.size() && !error_categ; i++){
 			if(prodotti.get(i).getCategoria().getId()!=1 && prodotti.get(i).getCategoria().getId()!=3)
 				error_categ=true;
+			
 			iter_fams = prodotti.get(i).getFamiglieProdottos().iterator();
-			while(iter_fams.hasNext() && !error_fam){
+			while(iter_fams.hasNext()){
 				t_fam = iter_fams.next();
-				if(t_fam.getFamiglia().getId()!=1 && t_fam.getFamiglia().getId() != 2)
-					error_fam=true;
+				if(t_fam.getFamiglia().getId()==1 || t_fam.getFamiglia().getId() == 2)
+					error_fam=false;
 			}
+			if(error_fam)
+				break;
 		}
 		
-		assertTrue(!error_fam);
-		assertTrue(!error_categ);
+		assertFalse(error_fam);
+		assertFalse(error_categ);
 	}
 
 	@Test
 	public void testGetProdottiCompatibiliByDistributore() throws Exception {
 		
-		Distributore distributore=FactoryDao.getIstance().getDistributoreDao().get(1, Distributore.class);
+		Distributore distributore=FactoryDao.getIstance().getDistributoreDao().get(3, Distributore.class);
 		
 		List<Prodotto> prodotti_compatibili = dao.getProdottiCompatibiliByDistributore(distributore.getId());
 		

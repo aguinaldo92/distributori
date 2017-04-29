@@ -12,21 +12,21 @@ public class ManutieneTest {
 
 	@Test
 	public void testManutieneDistributore() throws Exception {
-		Manutiene manutiene = new Manutiene(FactoryDao.getIstance().getDistributoreDao().get(1, Distributore.class));
+		Manutiene manutiene = new Manutiene(FactoryDao.getIstance().getDistributoreDao().get(3, Distributore.class));
 		
 		assertNotNull(manutiene);
-		assertEquals((Integer)1, manutiene.getDistributore().getId());
+		assertEquals((Integer)3, manutiene.getDistributore().getId());
 	}
 
 	@Test
 	public void testManutieneDipendenteDistributoreDateDate() throws Exception {
-		Manutiene manutiene = new Manutiene(FactoryDao.getIstance().getDipendenteDao().get(9, Dipendente.class), 
-				FactoryDao.getIstance().getDistributoreDao().get(1, Distributore.class), 
+		Manutiene manutiene = new Manutiene(FactoryDao.getIstance().getDipendenteDao().get(19, Dipendente.class), 
+				FactoryDao.getIstance().getDistributoreDao().get(3, Distributore.class), 
 				new Date(), null);
 		
 		assertNotNull(manutiene);
-		assertEquals("Licastro",manutiene.getDipendente().getPersona().getCognome());
-		assertEquals((Integer)1, manutiene.getDistributore().getId());
+		assertEquals("Muscatello",manutiene.getDipendente().getPersona().getCognome());
+		assertEquals((Integer)3, manutiene.getDistributore().getId());
 	}
 
 	@Test
@@ -42,7 +42,7 @@ public class ManutieneTest {
 	public void testSetDipendente() throws Exception {
 		Manutiene manutiene = new Manutiene();
 		
-		manutiene.setDipendente(FactoryDao.getIstance().getDipendenteDao().get(8, Dipendente.class));
+		manutiene.setDipendente(FactoryDao.getIstance().getDipendenteDao().get(19, Dipendente.class));
 		
 		assertNotNull(manutiene.getDipendente());
 		assertEquals("Salvatore", manutiene.getDipendente().getPersona().getNome());
@@ -70,10 +70,10 @@ public class ManutieneTest {
 	public void testSetDistributore() throws Exception {
 		Manutiene manutiene = new Manutiene();
 		
-		manutiene.setDistributore(FactoryDao.getIstance().getDistributoreDao().get(1, Distributore.class));
+		manutiene.setDistributore(FactoryDao.getIstance().getDistributoreDao().get(3, Distributore.class));
 		
 		assertNotNull(manutiene.getDistributore());
-		assertEquals("Via Esempio", manutiene.getDistributore().getIndirizzo());
+		assertEquals("Via IV Novembre, 9, Bagnolo del Salento, LE", manutiene.getDistributore().getIndirizzo());
 	}
 
 }

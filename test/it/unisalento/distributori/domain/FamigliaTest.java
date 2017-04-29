@@ -22,8 +22,8 @@ public class FamigliaTest {
 	@Test
 	public void testFamigliaStringSet() throws Exception {
 		Set<FamiglieProdotto> famiglieProdottos = new HashSet<FamiglieProdotto>();
-		famiglieProdottos.add(FactoryDao.getIstance().getFamiglieProdottoDao().get(1, FamiglieProdotto.class));
-		famiglieProdottos.add(FactoryDao.getIstance().getFamiglieProdottoDao().get(3, FamiglieProdotto.class));
+		famiglieProdottos.add(FactoryDao.getIstance().getFamiglieProdottoDao().get(224, FamiglieProdotto.class));
+		famiglieProdottos.add(FactoryDao.getIstance().getFamiglieProdottoDao().get(226, FamiglieProdotto.class));
 		
 		Famiglia famiglia = new Famiglia("Prova JUnit", famiglieProdottos);
 		

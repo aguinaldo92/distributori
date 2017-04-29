@@ -12,11 +12,11 @@ public class RifornisceTest {
 	
 	@Test
 	public void testRifornisceDipendenteDistributoreDate() throws Exception {
-		Rifornisce rifornisce = new Rifornisce(FactoryDao.getIstance().getDipendenteDao().get(8, Dipendente.class), 
-				FactoryDao.getIstance().getDistributoreDao().get(1, Distributore.class), new Date());
+		Rifornisce rifornisce = new Rifornisce(FactoryDao.getIstance().getDipendenteDao().get(19, Dipendente.class), 
+				FactoryDao.getIstance().getDistributoreDao().get(3, Distributore.class), new Date());
 		
 		assertNotNull(rifornisce);
-		assertTrue(rifornisce.getDipendente().getPersonaId()==8);
+		assertTrue(rifornisce.getDipendente().getPersonaId()==19);
 	}
 	
 	@Test
@@ -32,7 +32,7 @@ public class RifornisceTest {
 	public void testSetDipendente() throws Exception {
 		Rifornisce rifornisce = new Rifornisce();
 		
-		rifornisce.setDipendente(FactoryDao.getIstance().getDipendenteDao().get(8, Dipendente.class));
+		rifornisce.setDipendente(FactoryDao.getIstance().getDipendenteDao().get(19, Dipendente.class));
 		
 		assertNotNull(rifornisce.getDipendente());
 		assertEquals("Salvatore", rifornisce.getDipendente().getPersona().getNome());
@@ -42,7 +42,7 @@ public class RifornisceTest {
 	public void testSetDistributore() throws Exception {
 		Rifornisce rifornisce = new Rifornisce();
 		
-		rifornisce.setDistributore(FactoryDao.getIstance().getDistributoreDao().get(1, Distributore.class));
+		rifornisce.setDistributore(FactoryDao.getIstance().getDistributoreDao().get(3, Distributore.class));
 		
 		assertNotNull(rifornisce.getDistributore());
 		assertEquals((Integer)2, rifornisce.getDistributore().getNumScaffali());
@@ -61,7 +61,7 @@ public class RifornisceTest {
 
 	@Test
 	public void testRifornisceDistributore() throws Exception {
-		Rifornisce rifornisce = new Rifornisce(FactoryDao.getIstance().getDistributoreDao().get(1, Distributore.class));
+		Rifornisce rifornisce = new Rifornisce(FactoryDao.getIstance().getDistributoreDao().get(3, Distributore.class));
 		
 		assertNotNull(rifornisce);
 		assertNotNull(rifornisce.getDistributore());

@@ -24,15 +24,15 @@ public class AcquistaTest {
 	@Test
 	public void testAcquistaDistributorePersonaProdottoDateIntegerBigDecimal() throws Exception {
 		Date data=new Date();
-		Acquista acq = new Acquista(FactoryDao.getIstance().getDistributoreDao().get(1, Distributore.class), 
+		Acquista acq = new Acquista(FactoryDao.getIstance().getDistributoreDao().get(3, Distributore.class), 
 				FactoryDao.getIstance().getPersonaDao().get(1, Persona.class), 
-				FactoryDao.getIstance().getProdottoDao().get(1, Prodotto.class), 
+				FactoryDao.getIstance().getProdottoDao().get(3, Prodotto.class), 
 				data, 3, BigDecimal.valueOf(12.40));
 		
 		assertNotNull(acq);
-		assertEquals((Integer)1, acq.getDistributore().getId());
+		assertEquals((Integer)3, acq.getDistributore().getId());
 		assertEquals((Integer)1, acq.getPersona().getId());
-		assertEquals((Integer)1, acq.getProdotto().getId());
+		assertEquals((Integer)3, acq.getProdotto().getId());
 		assertEquals((Integer)3, acq.getQuantita());
 		assertEquals(BigDecimal.valueOf(12.40), acq.getTotaleSpesa());
 		assertEquals(data, acq.getData());
@@ -53,14 +53,14 @@ public class AcquistaTest {
 
 	@Test
 	public void testSetPersona() throws Exception {
-		acq.setPersona(FactoryDao.getIstance().getPersonaDao().get(10, Persona.class));
-		assertEquals((Integer)10, acq.getPersona().getId());
+		acq.setPersona(FactoryDao.getIstance().getPersonaDao().get(1, Persona.class));
+		assertEquals((Integer)1, acq.getPersona().getId());
 	}
 
 	@Test
 	public void testSetProdotto() throws Exception {
-		acq.setProdotto(FactoryDao.getIstance().getProdottoDao().get(2, Prodotto.class));
-		assertEquals((Integer)2, acq.getProdotto().getId());
+		acq.setProdotto(FactoryDao.getIstance().getProdottoDao().get(3, Prodotto.class));
+		assertEquals((Integer)3, acq.getProdotto().getId());
 	}
 
 	@Test

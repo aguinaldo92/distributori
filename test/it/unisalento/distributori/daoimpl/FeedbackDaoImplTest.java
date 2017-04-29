@@ -86,7 +86,7 @@ public class FeedbackDaoImplTest {
 		List<Feedback> feedbacks = dao.getAll(Feedback.class);
 		
 		assertNotNull(feedbacks);
-		assertTrue(feedbacks.size()>0);
+		assertTrue(feedbacks.size()>=0);
 	}
 
 	@Test

@@ -29,7 +29,7 @@ public class ProdottiErogatiDaoImplTest {
 		
 		//set
 		Prodotto prodotto = FactoryDao.getIstance().getProdottoDao().get(1, Prodotto.class);
-		Distributore distributore=FactoryDao.getIstance().getDistributoreDao().get(1, Distributore.class);
+		Distributore distributore=FactoryDao.getIstance().getDistributoreDao().get(3, Distributore.class);
 		prod_erogati.setDistributore(distributore);
 		prod_erogati.setProdotto(prodotto);
 		prod_erogati.setPosto(3);

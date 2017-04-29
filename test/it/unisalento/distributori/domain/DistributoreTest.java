@@ -30,13 +30,13 @@ public class DistributoreTest {
 		Set<Manutiene> manutienes = new HashSet<Manutiene>(0);
 		Set<Rifornisce> rifornisces = new HashSet<Rifornisce>(0);
 		
-		acquistas.add(new Acquista(FactoryDao.getIstance().getProdottoDao().get(1, Prodotto.class)));
-		categorieFornites.add(FactoryDao.getIstance().getCategorieForniteDao().get(1, CategorieFornite.class));
-		categorieFornites.add(FactoryDao.getIstance().getCategorieForniteDao().get(2, CategorieFornite.class));
-		prodottiErogatis.add(FactoryDao.getIstance().getProdottiErogatiDao().get(1, ProdottiErogati.class));
+		acquistas.add(new Acquista(FactoryDao.getIstance().getProdottoDao().get(3, Prodotto.class)));
+		categorieFornites.add(FactoryDao.getIstance().getCategorieForniteDao().get(6, CategorieFornite.class));
+		categorieFornites.add(FactoryDao.getIstance().getCategorieForniteDao().get(7, CategorieFornite.class));
 		prodottiErogatis.add(FactoryDao.getIstance().getProdottiErogatiDao().get(5, ProdottiErogati.class));
+		prodottiErogatis.add(FactoryDao.getIstance().getProdottiErogatiDao().get(6, ProdottiErogati.class));
 		
-		Distributore distributore = new Distributore(FactoryDao.getIstance().getDipendenteDao().get(8, Dipendente.class), 
+		Distributore distributore = new Distributore(FactoryDao.getIstance().getDipendenteDao().get(19, Dipendente.class), 
 				BigDecimal.valueOf(80), BigDecimal.valueOf(90), "Indirizzo di prova JUnit", "Piano 3", 
 				0, 10, 5, acquistas, categorieFornites, prodottiErogatis, manutienes, rifornisces);
 		

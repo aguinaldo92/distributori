@@ -23,11 +23,11 @@ public class ManutieneDaoImplTest {
 	@Test
 	public void testGetManutenzionePendenteByDistributore() throws Exception {
 
-		Manutiene manutenzione = FactoryDao.getIstance().getManutieneDao().getManutenzionePendenteByDistributore(1);
+		Manutiene manutenzione = FactoryDao.getIstance().getManutieneDao().getManutenzionePendenteByDistributore(3);
 		
 		assertNull(manutenzione.getDataFine());
 		
-		manutenzione = FactoryDao.getIstance().getManutieneDao().getManutenzionePendenteByDistributore(0);
+		manutenzione = FactoryDao.getIstance().getManutieneDao().getManutenzionePendenteByDistributore(1);
 		
 		assertNull(manutenzione);
 	}
@@ -39,8 +39,8 @@ public class ManutieneDaoImplTest {
 		Manutiene manutenzione=new Manutiene();
 		
 		//set
-		manutenzione.setDipendente(FactoryDao.getIstance().getDipendenteDao().get(8, Dipendente.class));
-		manutenzione.setDistributore(FactoryDao.getIstance().getDistributoreDao().get(1, Distributore.class));
+		manutenzione.setDipendente(FactoryDao.getIstance().getDipendenteDao().get(19, Dipendente.class));
+		manutenzione.setDistributore(FactoryDao.getIstance().getDistributoreDao().get(3, Distributore.class));
 		manutenzione.setDataInizio(new Date());
 		manutenzione.setDataFine(null);
 		

@@ -66,7 +66,7 @@ public class ProdottoDaoImpl extends BaseDaoImpl<Prodotto> implements ProdottoDa
 			querystring=querystring.concat(") order by P.nome");
 
 			Query query = session.createQuery(querystring);
-			query.setString("vuoto", "Vuoto");
+			query.setString("vuoto", "vuoto");
 
 			List<Prodotto> list_prodotti = new ArrayList<Prodotto>();
 			list_prodotti=query.list();
