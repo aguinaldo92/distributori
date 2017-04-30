@@ -2,6 +2,7 @@ package it.unisalento.distributori.daoimpl;
 
 import static org.junit.Assert.*;
 
+import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.service.ServiceRegistry;
 import org.junit.Test;
@@ -26,6 +27,17 @@ public class HibernateUtilTest {
 		ServiceRegistry reg = HibernateUtil.getServiceRegistry();
 		
 		assertNotNull(reg);
+	}
+	
+	@Test
+	public void testGetSession() throws Exception {
+		Session session = it.unisalento.distributori.daoimpl.HibernateUtil.getSession();
+		
+		assertNotNull(session);
+		
+		it.unisalento.distributori.daoimpl.HibernateUtil.closeSession(session);
+		
+		assertFalse(session.isOpen());
 	}
 
 }
