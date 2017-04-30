@@ -33,8 +33,9 @@ public class FCMSenderTest {
 
 	@Test
 	public void testSendPOST_topic1() throws Exception {
-		FCMSender sender = new FCMSender("DrinksSnacks", 
-										"Notifica di test JUnit sul topic distributore_3", "Notifica JUnit");
+		FCMSender sender = new FCMSender("JUnit1", 
+										"Notifica di test JUnit sul topic JUnit1", "Notifica JUnit");
+		sender.setServerKey("AIzaSyD4Mo-F-jgzBEkodP_pquU5z34DDw7ZWy4");
 		String result = sender.sendPOST();
 		
 		assertTrue(result.compareTo("success")==0);
@@ -43,8 +44,9 @@ public class FCMSenderTest {
 	
 	@Test
 	public void testSendPOST_topic2() throws Exception {
-		FCMSender sender = new FCMSender("DrinksSnacks", 
-										"Notifica di test JUnit sul topic distributore_4", "Notifica JUnit");
+		FCMSender sender = new FCMSender("JUnit2", 
+										"Notifica di test JUnit sul topic JUnit2", "Notifica JUnit");
+		sender.setServerKey("AIzaSyD4Mo-F-jgzBEkodP_pquU5z34DDw7ZWy4");
 		String result = sender.sendPOST();
 		
 		assertTrue(result.compareTo("success")==0);

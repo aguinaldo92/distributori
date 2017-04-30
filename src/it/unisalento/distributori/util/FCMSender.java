@@ -16,7 +16,9 @@ import com.google.gson.JsonObject;
 
 public class FCMSender{
 
+	//ServerKey della sezione cloud messaging della console di firebase (codice univoco di questo progetto per le notifiche)
 	private String ServerKey="AIzaSyD4uOmklDmojlgUTq5DNliSNAaottNcEsY";
+	
 	private Logger logger = LogManager.getLogger(this.getClass().getName());
 	private String url="https://fcm.googleapis.com/fcm/send";
 	private String content_type="application/json";
