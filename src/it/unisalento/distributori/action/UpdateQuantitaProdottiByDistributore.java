@@ -62,7 +62,7 @@ public class UpdateQuantitaProdottiByDistributore extends ActionSupport implemen
 								"Distributore di "+prodottiErogatiUpdated.getDistributore().getIndirizzo()+": "+
 								"disponibile "+prodottiErogatiUpdated.getProdotto().getNome(), 
 								"DrinksSnacks");
-						String FCMresult = sender.sendPOST();
+						sender.sendPOST();
 					}
 					
 				}

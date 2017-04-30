@@ -81,9 +81,9 @@ public class FCMSender{
 		};
  
 		Thread thread = new Thread(codice_backgr);
-		thread.start(); // avvia il codice in background
+//		thread.start(); // avvia il codice in background
 		
-		//thread.run(); 
+		thread.run(); 
 		/*
 		*	decommentare in caso di JUnit test se si vuole testare la avvenuta ricezione
 		*	e commentare il rigo thread.start()

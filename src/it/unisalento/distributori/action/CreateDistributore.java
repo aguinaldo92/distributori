@@ -81,7 +81,7 @@ public class CreateDistributore extends ActionSupport implements ModelDriven<Dis
 			FCMSender sender = new FCMSender("DrinksSnacks", 
 					"Nuovo distributore in "+distributore.getIndirizzo(), 
 					"DrinksSnacks");
-			String FCMresult = sender.sendPOST();
+			sender.sendPOST();
 			
 			return SUCCESS;
 
