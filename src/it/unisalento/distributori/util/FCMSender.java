@@ -26,6 +26,7 @@ public class FCMSender{
 	private String testo;
 	private String titolo;
 	private JsonObject messaggioJSON;
+	private boolean JUnit_test=false;
 
 	public FCMSender(){
 	}
@@ -38,6 +39,17 @@ public class FCMSender{
 		
 		this.FCMtopic=FCMtopic;
 		this.titolo=titolo;
+	}
+	
+	public FCMSender(String FCMtopic, String testo, String titolo, boolean JUnit_test) {
+		
+		//gestione dell'invio dei caratteri accentati (da "à" a "a'")
+		String testo_temp = Normalizer.normalize(testo, Normalizer.Form.NFD);
+		this.testo = testo_temp.replaceAll("\\p{InCombiningDiacriticalMarks}+", "'");
+		
+		this.FCMtopic=FCMtopic;
+		this.titolo=titolo;
+		this.JUnit_test=JUnit_test;
 	}
 	
 	private void componi_messaggioJSON(){
@@ -83,13 +95,10 @@ public class FCMSender{
 		};
  
 		Thread thread = new Thread(codice_backgr);
-//		thread.start(); // avvia il codice in background
-		
-		thread.run(); 
-		/*
-		*	decommentare in caso di JUnit test se si vuole testare la avvenuta ricezione
-		*	e commentare il rigo thread.start()
-		*/
+		if (!JUnit_test)
+			thread.start(); // avvia il codice in background
+		else
+			thread.run(); //in caso di JUnit test
 		
 		System.out.println("FCMSender: Fine metodo sendPOST().");
 		
@@ -137,6 +146,14 @@ public class FCMSender{
 
 	public void setServerKey(String serverKey) {
 		ServerKey = serverKey;
+	}
+
+	public boolean isJUnit_test() {
+		return JUnit_test;
+	}
+
+	public void setJUnit_test(boolean jUnit_test) {
+		JUnit_test = jUnit_test;
 	}
 	
 	
