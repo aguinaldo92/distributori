@@ -1,0 +1,2552 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix atxa-jdt: <http://www.architexa.com/rdf/jdt#> .
+@prefix atxa-rse-eclipse: <http://www.architexa.com/rdf/rse-eclipse#> .
+@prefix atxa-core: <http://www.architexa.com/rdf/core#> .
+@prefix atxa: <http://www.architexa.com/rdf/> .
+@prefix atxa-jdt-wkspc: <http://www.architexa.com/rdf/jdt-wkspc#> .
+
+<http://www.architexa.com/rdf/rse-eclipse#UML_slClassDiagramDomain.atxa> a atxa-core:reloFile .
+
+atxa:DetailNode atxa-core:detailLevel "1" .
+
+atxa-core:docRoot atxa-core:browseModel "com.architexa.diagrams.relo.jdt/com.architexa.diagrams.relo.jdt.browse.ClassStrucBrowseModel" ;
+	atxa-core:contains _:node1bfmomevkx3581 .
+
+_:node1bfmomevkx3581 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain> ;
+	atxa-core:posX "20" ;
+	atxa-core:posY "-3407" .
+
+<http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain> atxa-core:contains <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Dipendente> , <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Manutiene> , <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Rifornisce> , <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Persona> , <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Feedback> , <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Distributore> , <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Acquista> , <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Prodotto> , <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$ProdottiErogati> , <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Categoria> , <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$CategorieFornite> , <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$FamiglieProdotto> , <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Famiglia> , <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Stabilimento> , <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Produttore> .
+
+_:node1bfmomevkx3581 atxa-core:contains _:node1bfmomevkx3582 .
+
+_:node1bfmomevkx3582 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Dipendente> ;
+	atxa-core:posX "39" ;
+	atxa-core:posY "-3375" .
+
+<http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Dipendente> atxa-core:contains <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Dipendente.Dipendente()> , <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Dipendente.Dipendente(Persona,String,Set,Set,Set,)> , <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Dipendente.Dipendente(Persona,)> , <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Dipendente.distributores> , <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Dipendente.getDistributores()> , <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Dipendente.getManutienes()> , <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Dipendente.getPersona()> , <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Dipendente.getPersonaId()> , <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Dipendente.getRifornisces()> , <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Dipendente.getTelefono()> , <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Dipendente.manutienes> , <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Dipendente.persona> , <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Dipendente.personaId> , <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Dipendente.rifornisces> , <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Dipendente.serialVersionUID> , <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Dipendente.setDistributores(Set,)> , <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Dipendente.setManutienes(Set,)> , <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Dipendente.setPersona(Persona,)> , <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Dipendente.setPersonaId(int,)> , <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Dipendente.setRifornisces(Set,)> , <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Dipendente.setTelefono(String,)> , <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Dipendente.telefono> .
+
+_:node1bfmomevkx3582 atxa-core:contains _:node1bfmomevkx3583 .
+
+_:node1bfmomevkx3583 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Dipendente.Dipendente()> ;
+	atxa-core:posX "40" ;
+	atxa-core:posY "-3245" .
+
+_:node1bfmomevkx3582 atxa-core:contains _:node1bfmomevkx3584 .
+
+_:node1bfmomevkx3584 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Dipendente.Dipendente(Persona,String,Set,Set,Set,)> ;
+	atxa-core:posX "40" ;
+	atxa-core:posY "-3229" .
+
+_:node1bfmomevkx3582 atxa-core:contains _:node1bfmomevkx3585 .
+
+_:node1bfmomevkx3585 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Dipendente.Dipendente(Persona,)> ;
+	atxa-core:posX "40" ;
+	atxa-core:posY "-3213" .
+
+_:node1bfmomevkx3582 atxa-core:contains _:node1bfmomevkx3586 .
+
+_:node1bfmomevkx3586 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Dipendente.distributores> ;
+	atxa-core:posX "40" ;
+	atxa-core:posY "-3357" .
+
+_:node1bfmomevkx3582 atxa-core:contains _:node1bfmomevkx3587 .
+
+_:node1bfmomevkx3587 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Dipendente.getDistributores()> ;
+	atxa-core:posX "40" ;
+	atxa-core:posY "-3197" .
+
+_:node1bfmomevkx3582 atxa-core:contains _:node1bfmomevkx3588 .
+
+_:node1bfmomevkx3588 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Dipendente.getManutienes()> ;
+	atxa-core:posX "40" ;
+	atxa-core:posY "-3181" .
+
+_:node1bfmomevkx3582 atxa-core:contains _:node1bfmomevkx3589 .
+
+_:node1bfmomevkx3589 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Dipendente.getPersona()> ;
+	atxa-core:posX "40" ;
+	atxa-core:posY "-3165" .
+
+_:node1bfmomevkx3582 atxa-core:contains _:node1bfmomevkx3590 .
+
+_:node1bfmomevkx3590 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Dipendente.getPersonaId()> ;
+	atxa-core:posX "40" ;
+	atxa-core:posY "-3149" .
+
+_:node1bfmomevkx3582 atxa-core:contains _:node1bfmomevkx3591 .
+
+_:node1bfmomevkx3591 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Dipendente.getRifornisces()> ;
+	atxa-core:posX "40" ;
+	atxa-core:posY "-3133" .
+
+_:node1bfmomevkx3582 atxa-core:contains _:node1bfmomevkx3592 .
+
+_:node1bfmomevkx3592 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Dipendente.getTelefono()> ;
+	atxa-core:posX "40" ;
+	atxa-core:posY "-3117" .
+
+_:node1bfmomevkx3582 atxa-core:contains _:node1bfmomevkx3593 .
+
+_:node1bfmomevkx3593 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Dipendente.manutienes> ;
+	atxa-core:posX "40" ;
+	atxa-core:posY "-3341" .
+
+_:node1bfmomevkx3582 atxa-core:contains _:node1bfmomevkx3594 .
+
+_:node1bfmomevkx3594 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Dipendente.persona> ;
+	atxa-core:posX "40" ;
+	atxa-core:posY "-3325" .
+
+_:node1bfmomevkx3560 a atxa-core:link ;
+	atxa-core:model atxa-jdt:refType ;
+	rdf:subject _:node1bfmomevkx3594 ;
+	rdf:object _:node1bfmomevkx3595 .
+
+_:node1bfmomevkx3582 atxa-core:contains _:node1bfmomevkx3596 .
+
+_:node1bfmomevkx3596 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Dipendente.personaId> ;
+	atxa-core:posX "40" ;
+	atxa-core:posY "-3309" .
+
+_:node1bfmomevkx3582 atxa-core:contains _:node1bfmomevkx3597 .
+
+_:node1bfmomevkx3597 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Dipendente.rifornisces> ;
+	atxa-core:posX "40" ;
+	atxa-core:posY "-3293" .
+
+_:node1bfmomevkx3582 atxa-core:contains _:node1bfmomevkx3598 .
+
+_:node1bfmomevkx3598 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Dipendente.serialVersionUID> ;
+	atxa-core:posX "40" ;
+	atxa-core:posY "-3277" .
+
+_:node1bfmomevkx3582 atxa-core:contains _:node1bfmomevkx3599 .
+
+_:node1bfmomevkx3599 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Dipendente.setDistributores(Set,)> ;
+	atxa-core:posX "40" ;
+	atxa-core:posY "-3101" .
+
+_:node1bfmomevkx3582 atxa-core:contains _:node1bfmomevkx3600 .
+
+_:node1bfmomevkx3600 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Dipendente.setManutienes(Set,)> ;
+	atxa-core:posX "40" ;
+	atxa-core:posY "-3085" .
+
+_:node1bfmomevkx3582 atxa-core:contains _:node1bfmomevkx3601 .
+
+_:node1bfmomevkx3601 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Dipendente.setPersona(Persona,)> ;
+	atxa-core:posX "40" ;
+	atxa-core:posY "-3069" .
+
+_:node1bfmomevkx3582 atxa-core:contains _:node1bfmomevkx3602 .
+
+_:node1bfmomevkx3602 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Dipendente.setPersonaId(int,)> ;
+	atxa-core:posX "40" ;
+	atxa-core:posY "-3053" .
+
+_:node1bfmomevkx3582 atxa-core:contains _:node1bfmomevkx3603 .
+
+_:node1bfmomevkx3603 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Dipendente.setRifornisces(Set,)> ;
+	atxa-core:posX "40" ;
+	atxa-core:posY "-3037" .
+
+_:node1bfmomevkx3582 atxa-core:contains _:node1bfmomevkx3604 .
+
+_:node1bfmomevkx3604 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Dipendente.setTelefono(String,)> ;
+	atxa-core:posX "40" ;
+	atxa-core:posY "-3021" .
+
+_:node1bfmomevkx3582 atxa-core:contains _:node1bfmomevkx3605 .
+
+_:node1bfmomevkx3605 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Dipendente.telefono> ;
+	atxa-core:posX "40" ;
+	atxa-core:posY "-3261" .
+
+_:node1bfmomevkx3581 atxa-core:contains _:node1bfmomevkx3606 .
+
+_:node1bfmomevkx3606 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Manutiene> ;
+	atxa-core:posX "401" ;
+	atxa-core:posY "-2731" .
+
+<http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Manutiene> atxa-core:contains <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Manutiene.dataFine> , <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Manutiene.dataInizio> , <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Manutiene.dipendente> , <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Manutiene.distributore> , <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Manutiene.getDataFine()> , <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Manutiene.getDataInizio()> , <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Manutiene.getDipendente()> , <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Manutiene.getDistributore()> , <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Manutiene.getId()> , <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Manutiene.id> , <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Manutiene.Manutiene()> , <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Manutiene.Manutiene(Dipendente,Distributore,Date,Date,)> , <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Manutiene.Manutiene(Distributore,)> , <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Manutiene.serialVersionUID> , <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Manutiene.setDataFine(Date,)> , <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Manutiene.setDataInizio(Date,)> , <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Manutiene.setDipendente(Dipendente,)> , <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Manutiene.setDistributore(Distributore,)> , <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Manutiene.setId(Integer,)> .
+
+_:node1bfmomevkx3606 atxa-core:contains _:node1bfmomevkx3607 .
+
+_:node1bfmomevkx3607 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Manutiene.dataFine> ;
+	atxa-core:posX "402" ;
+	atxa-core:posY "-2713" .
+
+_:node1bfmomevkx3606 atxa-core:contains _:node1bfmomevkx3608 .
+
+_:node1bfmomevkx3608 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Manutiene.dataInizio> ;
+	atxa-core:posX "402" ;
+	atxa-core:posY "-2697" .
+
+_:node1bfmomevkx3606 atxa-core:contains _:node1bfmomevkx3609 .
+
+_:node1bfmomevkx3609 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Manutiene.dipendente> ;
+	atxa-core:posX "402" ;
+	atxa-core:posY "-2681" .
+
+_:node1bfmomevkx3566 a atxa-core:link ;
+	atxa-core:model atxa-jdt:refType ;
+	rdf:subject _:node1bfmomevkx3609 ;
+	rdf:object _:node1bfmomevkx3582 .
+
+_:node1bfmomevkx3606 atxa-core:contains _:node1bfmomevkx3610 .
+
+_:node1bfmomevkx3610 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Manutiene.distributore> ;
+	atxa-core:posX "402" ;
+	atxa-core:posY "-2665" .
+
+_:node1bfmomevkx3567 a atxa-core:link ;
+	atxa-core:model atxa-jdt:refType ;
+	rdf:subject _:node1bfmomevkx3610 ;
+	rdf:object _:node1bfmomevkx3611 .
+
+_:node1bfmomevkx3606 atxa-core:contains _:node1bfmomevkx3612 .
+
+_:node1bfmomevkx3612 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Manutiene.getDataFine()> ;
+	atxa-core:posX "402" ;
+	atxa-core:posY "-2617" .
+
+_:node1bfmomevkx3606 atxa-core:contains _:node1bfmomevkx3613 .
+
+_:node1bfmomevkx3613 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Manutiene.getDataInizio()> ;
+	atxa-core:posX "402" ;
+	atxa-core:posY "-2601" .
+
+_:node1bfmomevkx3606 atxa-core:contains _:node1bfmomevkx3614 .
+
+_:node1bfmomevkx3614 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Manutiene.getDipendente()> ;
+	atxa-core:posX "402" ;
+	atxa-core:posY "-2585" .
+
+_:node1bfmomevkx3606 atxa-core:contains _:node1bfmomevkx3615 .
+
+_:node1bfmomevkx3615 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Manutiene.getDistributore()> ;
+	atxa-core:posX "402" ;
+	atxa-core:posY "-2569" .
+
+_:node1bfmomevkx3606 atxa-core:contains _:node1bfmomevkx3616 .
+
+_:node1bfmomevkx3616 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Manutiene.getId()> ;
+	atxa-core:posX "402" ;
+	atxa-core:posY "-2553" .
+
+_:node1bfmomevkx3606 atxa-core:contains _:node1bfmomevkx3617 .
+
+_:node1bfmomevkx3617 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Manutiene.id> ;
+	atxa-core:posX "402" ;
+	atxa-core:posY "-2649" .
+
+_:node1bfmomevkx3606 atxa-core:contains _:node1bfmomevkx3618 .
+
+_:node1bfmomevkx3618 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Manutiene.Manutiene()> ;
+	atxa-core:posX "402" ;
+	atxa-core:posY "-2537" .
+
+_:node1bfmomevkx3606 atxa-core:contains _:node1bfmomevkx3619 .
+
+_:node1bfmomevkx3619 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Manutiene.Manutiene(Dipendente,Distributore,Date,Date,)> ;
+	atxa-core:posX "402" ;
+	atxa-core:posY "-2521" .
+
+_:node1bfmomevkx3606 atxa-core:contains _:node1bfmomevkx3620 .
+
+_:node1bfmomevkx3620 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Manutiene.Manutiene(Distributore,)> ;
+	atxa-core:posX "402" ;
+	atxa-core:posY "-2505" .
+
+_:node1bfmomevkx3606 atxa-core:contains _:node1bfmomevkx3621 .
+
+_:node1bfmomevkx3621 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Manutiene.serialVersionUID> ;
+	atxa-core:posX "402" ;
+	atxa-core:posY "-2633" .
+
+_:node1bfmomevkx3606 atxa-core:contains _:node1bfmomevkx3622 .
+
+_:node1bfmomevkx3622 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Manutiene.setDataFine(Date,)> ;
+	atxa-core:posX "402" ;
+	atxa-core:posY "-2489" .
+
+_:node1bfmomevkx3606 atxa-core:contains _:node1bfmomevkx3623 .
+
+_:node1bfmomevkx3623 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Manutiene.setDataInizio(Date,)> ;
+	atxa-core:posX "402" ;
+	atxa-core:posY "-2473" .
+
+_:node1bfmomevkx3606 atxa-core:contains _:node1bfmomevkx3624 .
+
+_:node1bfmomevkx3624 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Manutiene.setDipendente(Dipendente,)> ;
+	atxa-core:posX "402" ;
+	atxa-core:posY "-2457" .
+
+_:node1bfmomevkx3606 atxa-core:contains _:node1bfmomevkx3625 .
+
+_:node1bfmomevkx3625 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Manutiene.setDistributore(Distributore,)> ;
+	atxa-core:posX "402" ;
+	atxa-core:posY "-2441" .
+
+_:node1bfmomevkx3606 atxa-core:contains _:node1bfmomevkx3626 .
+
+_:node1bfmomevkx3626 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Manutiene.setId(Integer,)> ;
+	atxa-core:posX "402" ;
+	atxa-core:posY "-2425" .
+
+_:node1bfmomevkx3581 atxa-core:contains _:node1bfmomevkx3627 .
+
+_:node1bfmomevkx3627 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Rifornisce> ;
+	atxa-core:posX "26" ;
+	atxa-core:posY "-2616" .
+
+<http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Rifornisce> atxa-core:contains <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Rifornisce.data> , <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Rifornisce.dipendente> , <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Rifornisce.distributore> , <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Rifornisce.getData()> , <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Rifornisce.getDipendente()> , <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Rifornisce.getDistributore()> , <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Rifornisce.getId()> , <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Rifornisce.id> , <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Rifornisce.Rifornisce()> , <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Rifornisce.Rifornisce(Dipendente,Distributore,Date,)> , <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Rifornisce.Rifornisce(Distributore,)> , <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Rifornisce.serialVersionUID> , <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Rifornisce.setData(Date,)> , <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Rifornisce.setDipendente(Dipendente,)> , <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Rifornisce.setDistributore(Distributore,)> , <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Rifornisce.setId(Integer,)> .
+
+_:node1bfmomevkx3627 atxa-core:contains _:node1bfmomevkx3628 .
+
+_:node1bfmomevkx3628 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Rifornisce.data> ;
+	atxa-core:posX "27" ;
+	atxa-core:posY "-2598" .
+
+_:node1bfmomevkx3627 atxa-core:contains _:node1bfmomevkx3629 .
+
+_:node1bfmomevkx3629 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Rifornisce.dipendente> ;
+	atxa-core:posX "27" ;
+	atxa-core:posY "-2582" .
+
+_:node1bfmomevkx3564 a atxa-core:link ;
+	atxa-core:model atxa-jdt:refType ;
+	rdf:subject _:node1bfmomevkx3629 ;
+	rdf:object _:node1bfmomevkx3582 .
+
+_:node1bfmomevkx3627 atxa-core:contains _:node1bfmomevkx3630 .
+
+_:node1bfmomevkx3630 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Rifornisce.distributore> ;
+	atxa-core:posX "27" ;
+	atxa-core:posY "-2566" .
+
+_:node1bfmomevkx3565 a atxa-core:link ;
+	atxa-core:model atxa-jdt:refType ;
+	rdf:subject _:node1bfmomevkx3630 ;
+	rdf:object _:node1bfmomevkx3611 .
+
+_:node1bfmomevkx3627 atxa-core:contains _:node1bfmomevkx3631 .
+
+_:node1bfmomevkx3631 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Rifornisce.getData()> ;
+	atxa-core:posX "27" ;
+	atxa-core:posY "-2518" .
+
+_:node1bfmomevkx3627 atxa-core:contains _:node1bfmomevkx3632 .
+
+_:node1bfmomevkx3632 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Rifornisce.getDipendente()> ;
+	atxa-core:posX "27" ;
+	atxa-core:posY "-2502" .
+
+_:node1bfmomevkx3627 atxa-core:contains _:node1bfmomevkx3633 .
+
+_:node1bfmomevkx3633 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Rifornisce.getDistributore()> ;
+	atxa-core:posX "27" ;
+	atxa-core:posY "-2486" .
+
+_:node1bfmomevkx3627 atxa-core:contains _:node1bfmomevkx3634 .
+
+_:node1bfmomevkx3634 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Rifornisce.getId()> ;
+	atxa-core:posX "27" ;
+	atxa-core:posY "-2470" .
+
+_:node1bfmomevkx3627 atxa-core:contains _:node1bfmomevkx3635 .
+
+_:node1bfmomevkx3635 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Rifornisce.id> ;
+	atxa-core:posX "27" ;
+	atxa-core:posY "-2550" .
+
+_:node1bfmomevkx3627 atxa-core:contains _:node1bfmomevkx3636 .
+
+_:node1bfmomevkx3636 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Rifornisce.Rifornisce()> ;
+	atxa-core:posX "27" ;
+	atxa-core:posY "-2454" .
+
+_:node1bfmomevkx3627 atxa-core:contains _:node1bfmomevkx3637 .
+
+_:node1bfmomevkx3637 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Rifornisce.Rifornisce(Dipendente,Distributore,Date,)> ;
+	atxa-core:posX "27" ;
+	atxa-core:posY "-2438" .
+
+_:node1bfmomevkx3627 atxa-core:contains _:node1bfmomevkx3638 .
+
+_:node1bfmomevkx3638 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Rifornisce.Rifornisce(Distributore,)> ;
+	atxa-core:posX "27" ;
+	atxa-core:posY "-2422" .
+
+_:node1bfmomevkx3627 atxa-core:contains _:node1bfmomevkx3639 .
+
+_:node1bfmomevkx3639 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Rifornisce.serialVersionUID> ;
+	atxa-core:posX "27" ;
+	atxa-core:posY "-2534" .
+
+_:node1bfmomevkx3627 atxa-core:contains _:node1bfmomevkx3640 .
+
+_:node1bfmomevkx3640 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Rifornisce.setData(Date,)> ;
+	atxa-core:posX "27" ;
+	atxa-core:posY "-2406" .
+
+_:node1bfmomevkx3627 atxa-core:contains _:node1bfmomevkx3641 .
+
+_:node1bfmomevkx3641 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Rifornisce.setDipendente(Dipendente,)> ;
+	atxa-core:posX "27" ;
+	atxa-core:posY "-2390" .
+
+_:node1bfmomevkx3627 atxa-core:contains _:node1bfmomevkx3642 .
+
+_:node1bfmomevkx3642 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Rifornisce.setDistributore(Distributore,)> ;
+	atxa-core:posX "27" ;
+	atxa-core:posY "-2374" .
+
+_:node1bfmomevkx3627 atxa-core:contains _:node1bfmomevkx3643 .
+
+_:node1bfmomevkx3643 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Rifornisce.setId(Integer,)> ;
+	atxa-core:posX "27" ;
+	atxa-core:posY "-2358" .
+
+_:node1bfmomevkx3581 atxa-core:contains _:node1bfmomevkx3595 .
+
+_:node1bfmomevkx3595 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Persona> ;
+	atxa-core:posX "627" ;
+	atxa-core:posY "-3382" .
+
+<http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Persona> atxa-core:contains <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Persona.acquistas> , <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Persona.cognome> , <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Persona.dipendente> , <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Persona.email> , <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Persona.feedbacks> , <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Persona.getAcquistas()> , <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Persona.getCognome()> , <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Persona.getDipendente()> , <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Persona.getEmail()> , <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Persona.getFeedbacks()> , <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Persona.getId()> , <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Persona.getNome()> , <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Persona.getPassword()> , <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Persona.getRuolo()> , <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Persona.id> , <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Persona.nome> , <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Persona.password> , <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Persona.Persona()> , <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Persona.Persona(String,String,int,)> , <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Persona.Persona(String,String,String,String,int,Set,Set,Dipendente,)> , <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Persona.ruolo> , <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Persona.serialVersionUID> , <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Persona.setAcquistas(Set,)> , <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Persona.setCognome(String,)> , <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Persona.setDipendente(Dipendente,)> , <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Persona.setEmail(String,)> , <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Persona.setFeedbacks(Set,)> , <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Persona.setId(Integer,)> , <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Persona.setNome(String,)> , <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Persona.setPassword(String,)> , <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Persona.setRuolo(int,)> .
+
+_:node1bfmomevkx3595 atxa-core:contains _:node1bfmomevkx3644 .
+
+_:node1bfmomevkx3644 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Persona.acquistas> ;
+	atxa-core:posX "628" ;
+	atxa-core:posY "-3364" .
+
+_:node1bfmomevkx3595 atxa-core:contains _:node1bfmomevkx3645 .
+
+_:node1bfmomevkx3645 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Persona.cognome> ;
+	atxa-core:posX "628" ;
+	atxa-core:posY "-3348" .
+
+_:node1bfmomevkx3595 atxa-core:contains _:node1bfmomevkx3646 .
+
+_:node1bfmomevkx3646 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Persona.dipendente> ;
+	atxa-core:posX "628" ;
+	atxa-core:posY "-3332" .
+
+_:node1bfmomevkx3595 atxa-core:contains _:node1bfmomevkx3647 .
+
+_:node1bfmomevkx3647 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Persona.email> ;
+	atxa-core:posX "628" ;
+	atxa-core:posY "-3316" .
+
+_:node1bfmomevkx3595 atxa-core:contains _:node1bfmomevkx3648 .
+
+_:node1bfmomevkx3648 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Persona.feedbacks> ;
+	atxa-core:posX "628" ;
+	atxa-core:posY "-3300" .
+
+_:node1bfmomevkx3595 atxa-core:contains _:node1bfmomevkx3649 .
+
+_:node1bfmomevkx3649 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Persona.getAcquistas()> ;
+	atxa-core:posX "628" ;
+	atxa-core:posY "-3204" .
+
+_:node1bfmomevkx3595 atxa-core:contains _:node1bfmomevkx3650 .
+
+_:node1bfmomevkx3650 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Persona.getCognome()> ;
+	atxa-core:posX "628" ;
+	atxa-core:posY "-3188" .
+
+_:node1bfmomevkx3595 atxa-core:contains _:node1bfmomevkx3651 .
+
+_:node1bfmomevkx3651 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Persona.getDipendente()> ;
+	atxa-core:posX "628" ;
+	atxa-core:posY "-3172" .
+
+_:node1bfmomevkx3595 atxa-core:contains _:node1bfmomevkx3652 .
+
+_:node1bfmomevkx3652 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Persona.getEmail()> ;
+	atxa-core:posX "628" ;
+	atxa-core:posY "-3156" .
+
+_:node1bfmomevkx3595 atxa-core:contains _:node1bfmomevkx3653 .
+
+_:node1bfmomevkx3653 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Persona.getFeedbacks()> ;
+	atxa-core:posX "628" ;
+	atxa-core:posY "-3140" .
+
+_:node1bfmomevkx3595 atxa-core:contains _:node1bfmomevkx3654 .
+
+_:node1bfmomevkx3654 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Persona.getId()> ;
+	atxa-core:posX "628" ;
+	atxa-core:posY "-3124" .
+
+_:node1bfmomevkx3595 atxa-core:contains _:node1bfmomevkx3655 .
+
+_:node1bfmomevkx3655 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Persona.getNome()> ;
+	atxa-core:posX "628" ;
+	atxa-core:posY "-3108" .
+
+_:node1bfmomevkx3595 atxa-core:contains _:node1bfmomevkx3656 .
+
+_:node1bfmomevkx3656 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Persona.getPassword()> ;
+	atxa-core:posX "628" ;
+	atxa-core:posY "-3092" .
+
+_:node1bfmomevkx3595 atxa-core:contains _:node1bfmomevkx3657 .
+
+_:node1bfmomevkx3657 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Persona.getRuolo()> ;
+	atxa-core:posX "628" ;
+	atxa-core:posY "-3076" .
+
+_:node1bfmomevkx3595 atxa-core:contains _:node1bfmomevkx3658 .
+
+_:node1bfmomevkx3658 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Persona.id> ;
+	atxa-core:posX "628" ;
+	atxa-core:posY "-3284" .
+
+_:node1bfmomevkx3595 atxa-core:contains _:node1bfmomevkx3659 .
+
+_:node1bfmomevkx3659 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Persona.nome> ;
+	atxa-core:posX "628" ;
+	atxa-core:posY "-3268" .
+
+_:node1bfmomevkx3595 atxa-core:contains _:node1bfmomevkx3660 .
+
+_:node1bfmomevkx3660 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Persona.password> ;
+	atxa-core:posX "628" ;
+	atxa-core:posY "-3252" .
+
+_:node1bfmomevkx3595 atxa-core:contains _:node1bfmomevkx3661 .
+
+_:node1bfmomevkx3661 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Persona.Persona()> ;
+	atxa-core:posX "628" ;
+	atxa-core:posY "-3060" .
+
+_:node1bfmomevkx3595 atxa-core:contains _:node1bfmomevkx3662 .
+
+_:node1bfmomevkx3662 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Persona.Persona(String,String,int,)> ;
+	atxa-core:posX "628" ;
+	atxa-core:posY "-3044" .
+
+_:node1bfmomevkx3595 atxa-core:contains _:node1bfmomevkx3663 .
+
+_:node1bfmomevkx3663 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Persona.Persona(String,String,String,String,int,Set,Set,Dipendente,)> ;
+	atxa-core:posX "628" ;
+	atxa-core:posY "-3028" .
+
+_:node1bfmomevkx3595 atxa-core:contains _:node1bfmomevkx3664 .
+
+_:node1bfmomevkx3664 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Persona.ruolo> ;
+	atxa-core:posX "628" ;
+	atxa-core:posY "-3236" .
+
+_:node1bfmomevkx3595 atxa-core:contains _:node1bfmomevkx3665 .
+
+_:node1bfmomevkx3665 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Persona.serialVersionUID> ;
+	atxa-core:posX "628" ;
+	atxa-core:posY "-3220" .
+
+_:node1bfmomevkx3595 atxa-core:contains _:node1bfmomevkx3666 .
+
+_:node1bfmomevkx3666 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Persona.setAcquistas(Set,)> ;
+	atxa-core:posX "628" ;
+	atxa-core:posY "-3012" .
+
+_:node1bfmomevkx3595 atxa-core:contains _:node1bfmomevkx3667 .
+
+_:node1bfmomevkx3667 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Persona.setCognome(String,)> ;
+	atxa-core:posX "628" ;
+	atxa-core:posY "-2996" .
+
+_:node1bfmomevkx3595 atxa-core:contains _:node1bfmomevkx3668 .
+
+_:node1bfmomevkx3668 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Persona.setDipendente(Dipendente,)> ;
+	atxa-core:posX "628" ;
+	atxa-core:posY "-2980" .
+
+_:node1bfmomevkx3595 atxa-core:contains _:node1bfmomevkx3669 .
+
+_:node1bfmomevkx3669 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Persona.setEmail(String,)> ;
+	atxa-core:posX "628" ;
+	atxa-core:posY "-2964" .
+
+_:node1bfmomevkx3595 atxa-core:contains _:node1bfmomevkx3670 .
+
+_:node1bfmomevkx3670 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Persona.setFeedbacks(Set,)> ;
+	atxa-core:posX "628" ;
+	atxa-core:posY "-2948" .
+
+_:node1bfmomevkx3595 atxa-core:contains _:node1bfmomevkx3671 .
+
+_:node1bfmomevkx3671 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Persona.setId(Integer,)> ;
+	atxa-core:posX "628" ;
+	atxa-core:posY "-2932" .
+
+_:node1bfmomevkx3595 atxa-core:contains _:node1bfmomevkx3672 .
+
+_:node1bfmomevkx3672 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Persona.setNome(String,)> ;
+	atxa-core:posX "628" ;
+	atxa-core:posY "-2916" .
+
+_:node1bfmomevkx3595 atxa-core:contains _:node1bfmomevkx3673 .
+
+_:node1bfmomevkx3673 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Persona.setPassword(String,)> ;
+	atxa-core:posX "628" ;
+	atxa-core:posY "-2900" .
+
+_:node1bfmomevkx3595 atxa-core:contains _:node1bfmomevkx3674 .
+
+_:node1bfmomevkx3674 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Persona.setRuolo(int,)> ;
+	atxa-core:posX "628" ;
+	atxa-core:posY "-2884" .
+
+_:node1bfmomevkx3581 atxa-core:contains _:node1bfmomevkx3675 .
+
+_:node1bfmomevkx3675 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Feedback> ;
+	atxa-core:posX "1301" ;
+	atxa-core:posY "-3380" .
+
+<http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Feedback> atxa-core:contains <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Feedback.data> , <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Feedback.Feedback()> , <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Feedback.Feedback(Persona,String,Date,Byte,)> , <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Feedback.Feedback(String,)> , <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Feedback.getData()> , <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Feedback.getId()> , <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Feedback.getLetto()> , <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Feedback.getPersona()> , <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Feedback.getTesto()> , <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Feedback.id> , <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Feedback.letto> , <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Feedback.persona> , <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Feedback.serialVersionUID> , <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Feedback.setData(Date,)> , <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Feedback.setId(Integer,)> , <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Feedback.setLetto(Byte,)> , <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Feedback.setPersona(Persona,)> , <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Feedback.setTesto(String,)> , <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Feedback.testo> .
+
+_:node1bfmomevkx3675 atxa-core:contains _:node1bfmomevkx3676 .
+
+_:node1bfmomevkx3676 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Feedback.data> ;
+	atxa-core:posX "1302" ;
+	atxa-core:posY "-3362" .
+
+_:node1bfmomevkx3675 atxa-core:contains _:node1bfmomevkx3677 .
+
+_:node1bfmomevkx3677 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Feedback.Feedback()> ;
+	atxa-core:posX "1302" ;
+	atxa-core:posY "-3266" .
+
+_:node1bfmomevkx3675 atxa-core:contains _:node1bfmomevkx3678 .
+
+_:node1bfmomevkx3678 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Feedback.Feedback(Persona,String,Date,Byte,)> ;
+	atxa-core:posX "1302" ;
+	atxa-core:posY "-3250" .
+
+_:node1bfmomevkx3675 atxa-core:contains _:node1bfmomevkx3679 .
+
+_:node1bfmomevkx3679 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Feedback.Feedback(String,)> ;
+	atxa-core:posX "1302" ;
+	atxa-core:posY "-3234" .
+
+_:node1bfmomevkx3675 atxa-core:contains _:node1bfmomevkx3680 .
+
+_:node1bfmomevkx3680 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Feedback.getData()> ;
+	atxa-core:posX "1302" ;
+	atxa-core:posY "-3218" .
+
+_:node1bfmomevkx3675 atxa-core:contains _:node1bfmomevkx3681 .
+
+_:node1bfmomevkx3681 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Feedback.getId()> ;
+	atxa-core:posX "1302" ;
+	atxa-core:posY "-3202" .
+
+_:node1bfmomevkx3675 atxa-core:contains _:node1bfmomevkx3682 .
+
+_:node1bfmomevkx3682 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Feedback.getLetto()> ;
+	atxa-core:posX "1302" ;
+	atxa-core:posY "-3186" .
+
+_:node1bfmomevkx3675 atxa-core:contains _:node1bfmomevkx3683 .
+
+_:node1bfmomevkx3683 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Feedback.getPersona()> ;
+	atxa-core:posX "1302" ;
+	atxa-core:posY "-3170" .
+
+_:node1bfmomevkx3675 atxa-core:contains _:node1bfmomevkx3684 .
+
+_:node1bfmomevkx3684 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Feedback.getTesto()> ;
+	atxa-core:posX "1302" ;
+	atxa-core:posY "-3154" .
+
+_:node1bfmomevkx3675 atxa-core:contains _:node1bfmomevkx3685 .
+
+_:node1bfmomevkx3685 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Feedback.id> ;
+	atxa-core:posX "1302" ;
+	atxa-core:posY "-3346" .
+
+_:node1bfmomevkx3675 atxa-core:contains _:node1bfmomevkx3686 .
+
+_:node1bfmomevkx3686 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Feedback.letto> ;
+	atxa-core:posX "1302" ;
+	atxa-core:posY "-3330" .
+
+_:node1bfmomevkx3675 atxa-core:contains _:node1bfmomevkx3687 .
+
+_:node1bfmomevkx3687 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Feedback.persona> ;
+	atxa-core:posX "1302" ;
+	atxa-core:posY "-3314" .
+
+_:node1bfmomevkx3571 a atxa-core:link ;
+	atxa-core:model atxa-jdt:refType ;
+	rdf:subject _:node1bfmomevkx3687 ;
+	rdf:object _:node1bfmomevkx3595 .
+
+_:node1bfmomevkx3675 atxa-core:contains _:node1bfmomevkx3688 .
+
+_:node1bfmomevkx3688 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Feedback.serialVersionUID> ;
+	atxa-core:posX "1302" ;
+	atxa-core:posY "-3298" .
+
+_:node1bfmomevkx3675 atxa-core:contains _:node1bfmomevkx3689 .
+
+_:node1bfmomevkx3689 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Feedback.setData(Date,)> ;
+	atxa-core:posX "1302" ;
+	atxa-core:posY "-3138" .
+
+_:node1bfmomevkx3675 atxa-core:contains _:node1bfmomevkx3690 .
+
+_:node1bfmomevkx3690 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Feedback.setId(Integer,)> ;
+	atxa-core:posX "1302" ;
+	atxa-core:posY "-3122" .
+
+_:node1bfmomevkx3675 atxa-core:contains _:node1bfmomevkx3691 .
+
+_:node1bfmomevkx3691 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Feedback.setLetto(Byte,)> ;
+	atxa-core:posX "1302" ;
+	atxa-core:posY "-3106" .
+
+_:node1bfmomevkx3675 atxa-core:contains _:node1bfmomevkx3692 .
+
+_:node1bfmomevkx3692 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Feedback.setPersona(Persona,)> ;
+	atxa-core:posX "1302" ;
+	atxa-core:posY "-3090" .
+
+_:node1bfmomevkx3675 atxa-core:contains _:node1bfmomevkx3693 .
+
+_:node1bfmomevkx3693 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Feedback.setTesto(String,)> ;
+	atxa-core:posX "1302" ;
+	atxa-core:posY "-3074" .
+
+_:node1bfmomevkx3675 atxa-core:contains _:node1bfmomevkx3694 .
+
+_:node1bfmomevkx3694 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Feedback.testo> ;
+	atxa-core:posX "1302" ;
+	atxa-core:posY "-3282" .
+
+_:node1bfmomevkx3581 atxa-core:contains _:node1bfmomevkx3611 .
+
+_:node1bfmomevkx3611 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Distributore> ;
+	atxa-core:posX "323" ;
+	atxa-core:posY "-2241" .
+
+<http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Distributore> atxa-core:contains <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Distributore.acquistas> , <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Distributore.categorieFornites> , <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Distributore.dipendente> , <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Distributore.Distributore()> , <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Distributore.Distributore(BigDecimal,BigDecimal,)> , <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Distributore.getAcquistas()> , <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Distributore.getCategorieFornites()> , <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Distributore.getDipendente()> , <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Distributore.getId()> , <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Distributore.getIndirizzo()> , <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Distributore.getLat()> , <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Distributore.getLon()> , <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Distributore.getManutienes()> , <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Distributore.getNumPosti()> , <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Distributore.getNumScaffali()> , <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Distributore.getPosizioneEdificio()> , <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Distributore.getProdottiErogatis()> , <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Distributore.getRifornisces()> , <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Distributore.getStato()> , <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Distributore.id> , <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Distributore.indirizzo> , <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Distributore.lat> , <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Distributore.lon> , <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Distributore.manutienes> , <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Distributore.numPosti> , <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Distributore.numScaffali> , <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Distributore.posizioneEdificio> , <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Distributore.prodottiErogatis> , <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Distributore.rifornisces> , <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Distributore.serialVersionUID> , <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Distributore.setAcquistas(Set,)> , <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Distributore.setCategorieFornites(Set,)> , <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Distributore.setDipendente(Dipendente,)> , <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Distributore.setId(Integer,)> , <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Distributore.setIndirizzo(String,)> , <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Distributore.setLat(BigDecimal,)> , <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Distributore.setLon(BigDecimal,)> , <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Distributore.setManutienes(Set,)> , <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Distributore.setNumPosti(Integer,)> , <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Distributore.setNumScaffali(Integer,)> , <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Distributore.setPosizioneEdificio(String,)> , <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Distributore.setProdottiErogatis(Set,)> , <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Distributore.setRifornisces(Set,)> , <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Distributore.setStato(Integer,)> , <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Distributore.stato> .
+
+_:node1bfmomevkx3611 atxa-core:contains _:node1bfmomevkx3695 .
+
+_:node1bfmomevkx3695 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Distributore.acquistas> ;
+	atxa-core:posX "324" ;
+	atxa-core:posY "-2223" .
+
+_:node1bfmomevkx3611 atxa-core:contains _:node1bfmomevkx3696 .
+
+_:node1bfmomevkx3696 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Distributore.categorieFornites> ;
+	atxa-core:posX "324" ;
+	atxa-core:posY "-2207" .
+
+_:node1bfmomevkx3611 atxa-core:contains _:node1bfmomevkx3697 .
+
+_:node1bfmomevkx3697 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Distributore.dipendente> ;
+	atxa-core:posX "324" ;
+	atxa-core:posY "-2191" .
+
+_:node1bfmomevkx3611 atxa-core:contains _:node1bfmomevkx3698 .
+
+_:node1bfmomevkx3698 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Distributore.Distributore()> ;
+	atxa-core:posX "324" ;
+	atxa-core:posY "-1983" .
+
+_:node1bfmomevkx3611 atxa-core:contains _:node1bfmomevkx3699 .
+
+_:node1bfmomevkx3699 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Distributore.Distributore(BigDecimal,BigDecimal,)> ;
+	atxa-core:posX "324" ;
+	atxa-core:posY "-1967" .
+
+_:node1bfmomevkx3611 atxa-core:contains _:node1bfmomevkx3700 .
+
+_:node1bfmomevkx3700 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Distributore.getAcquistas()> ;
+	atxa-core:posX "324" ;
+	atxa-core:posY "-1951" .
+
+_:node1bfmomevkx3611 atxa-core:contains _:node1bfmomevkx3701 .
+
+_:node1bfmomevkx3701 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Distributore.getCategorieFornites()> ;
+	atxa-core:posX "324" ;
+	atxa-core:posY "-1935" .
+
+_:node1bfmomevkx3611 atxa-core:contains _:node1bfmomevkx3702 .
+
+_:node1bfmomevkx3702 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Distributore.getDipendente()> ;
+	atxa-core:posX "324" ;
+	atxa-core:posY "-1919" .
+
+_:node1bfmomevkx3611 atxa-core:contains _:node1bfmomevkx3703 .
+
+_:node1bfmomevkx3703 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Distributore.getId()> ;
+	atxa-core:posX "324" ;
+	atxa-core:posY "-1903" .
+
+_:node1bfmomevkx3611 atxa-core:contains _:node1bfmomevkx3704 .
+
+_:node1bfmomevkx3704 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Distributore.getIndirizzo()> ;
+	atxa-core:posX "324" ;
+	atxa-core:posY "-1887" .
+
+_:node1bfmomevkx3611 atxa-core:contains _:node1bfmomevkx3705 .
+
+_:node1bfmomevkx3705 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Distributore.getLat()> ;
+	atxa-core:posX "324" ;
+	atxa-core:posY "-1871" .
+
+_:node1bfmomevkx3611 atxa-core:contains _:node1bfmomevkx3706 .
+
+_:node1bfmomevkx3706 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Distributore.getLon()> ;
+	atxa-core:posX "324" ;
+	atxa-core:posY "-1855" .
+
+_:node1bfmomevkx3611 atxa-core:contains _:node1bfmomevkx3707 .
+
+_:node1bfmomevkx3707 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Distributore.getManutienes()> ;
+	atxa-core:posX "324" ;
+	atxa-core:posY "-1839" .
+
+_:node1bfmomevkx3611 atxa-core:contains _:node1bfmomevkx3708 .
+
+_:node1bfmomevkx3708 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Distributore.getNumPosti()> ;
+	atxa-core:posX "324" ;
+	atxa-core:posY "-1823" .
+
+_:node1bfmomevkx3611 atxa-core:contains _:node1bfmomevkx3709 .
+
+_:node1bfmomevkx3709 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Distributore.getNumScaffali()> ;
+	atxa-core:posX "324" ;
+	atxa-core:posY "-1807" .
+
+_:node1bfmomevkx3611 atxa-core:contains _:node1bfmomevkx3710 .
+
+_:node1bfmomevkx3710 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Distributore.getPosizioneEdificio()> ;
+	atxa-core:posX "324" ;
+	atxa-core:posY "-1791" .
+
+_:node1bfmomevkx3611 atxa-core:contains _:node1bfmomevkx3711 .
+
+_:node1bfmomevkx3711 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Distributore.getProdottiErogatis()> ;
+	atxa-core:posX "324" ;
+	atxa-core:posY "-1775" .
+
+_:node1bfmomevkx3611 atxa-core:contains _:node1bfmomevkx3712 .
+
+_:node1bfmomevkx3712 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Distributore.getRifornisces()> ;
+	atxa-core:posX "324" ;
+	atxa-core:posY "-1759" .
+
+_:node1bfmomevkx3611 atxa-core:contains _:node1bfmomevkx3713 .
+
+_:node1bfmomevkx3713 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Distributore.getStato()> ;
+	atxa-core:posX "324" ;
+	atxa-core:posY "-1743" .
+
+_:node1bfmomevkx3611 atxa-core:contains _:node1bfmomevkx3714 .
+
+_:node1bfmomevkx3714 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Distributore.id> ;
+	atxa-core:posX "324" ;
+	atxa-core:posY "-2175" .
+
+_:node1bfmomevkx3611 atxa-core:contains _:node1bfmomevkx3715 .
+
+_:node1bfmomevkx3715 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Distributore.indirizzo> ;
+	atxa-core:posX "324" ;
+	atxa-core:posY "-2159" .
+
+_:node1bfmomevkx3611 atxa-core:contains _:node1bfmomevkx3716 .
+
+_:node1bfmomevkx3716 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Distributore.lat> ;
+	atxa-core:posX "324" ;
+	atxa-core:posY "-2143" .
+
+_:node1bfmomevkx3611 atxa-core:contains _:node1bfmomevkx3717 .
+
+_:node1bfmomevkx3717 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Distributore.lon> ;
+	atxa-core:posX "324" ;
+	atxa-core:posY "-2127" .
+
+_:node1bfmomevkx3611 atxa-core:contains _:node1bfmomevkx3718 .
+
+_:node1bfmomevkx3718 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Distributore.manutienes> ;
+	atxa-core:posX "324" ;
+	atxa-core:posY "-2111" .
+
+_:node1bfmomevkx3611 atxa-core:contains _:node1bfmomevkx3719 .
+
+_:node1bfmomevkx3719 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Distributore.numPosti> ;
+	atxa-core:posX "324" ;
+	atxa-core:posY "-2095" .
+
+_:node1bfmomevkx3611 atxa-core:contains _:node1bfmomevkx3720 .
+
+_:node1bfmomevkx3720 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Distributore.numScaffali> ;
+	atxa-core:posX "324" ;
+	atxa-core:posY "-2079" .
+
+_:node1bfmomevkx3611 atxa-core:contains _:node1bfmomevkx3721 .
+
+_:node1bfmomevkx3721 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Distributore.posizioneEdificio> ;
+	atxa-core:posX "324" ;
+	atxa-core:posY "-2063" .
+
+_:node1bfmomevkx3611 atxa-core:contains _:node1bfmomevkx3722 .
+
+_:node1bfmomevkx3722 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Distributore.prodottiErogatis> ;
+	atxa-core:posX "324" ;
+	atxa-core:posY "-2047" .
+
+_:node1bfmomevkx3611 atxa-core:contains _:node1bfmomevkx3723 .
+
+_:node1bfmomevkx3723 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Distributore.rifornisces> ;
+	atxa-core:posX "324" ;
+	atxa-core:posY "-2031" .
+
+_:node1bfmomevkx3611 atxa-core:contains _:node1bfmomevkx3724 .
+
+_:node1bfmomevkx3724 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Distributore.serialVersionUID> ;
+	atxa-core:posX "324" ;
+	atxa-core:posY "-2015" .
+
+_:node1bfmomevkx3611 atxa-core:contains _:node1bfmomevkx3725 .
+
+_:node1bfmomevkx3725 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Distributore.setAcquistas(Set,)> ;
+	atxa-core:posX "324" ;
+	atxa-core:posY "-1727" .
+
+_:node1bfmomevkx3611 atxa-core:contains _:node1bfmomevkx3726 .
+
+_:node1bfmomevkx3726 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Distributore.setCategorieFornites(Set,)> ;
+	atxa-core:posX "324" ;
+	atxa-core:posY "-1711" .
+
+_:node1bfmomevkx3611 atxa-core:contains _:node1bfmomevkx3727 .
+
+_:node1bfmomevkx3727 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Distributore.setDipendente(Dipendente,)> ;
+	atxa-core:posX "324" ;
+	atxa-core:posY "-1695" .
+
+_:node1bfmomevkx3611 atxa-core:contains _:node1bfmomevkx3728 .
+
+_:node1bfmomevkx3728 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Distributore.setId(Integer,)> ;
+	atxa-core:posX "324" ;
+	atxa-core:posY "-1679" .
+
+_:node1bfmomevkx3611 atxa-core:contains _:node1bfmomevkx3729 .
+
+_:node1bfmomevkx3729 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Distributore.setIndirizzo(String,)> ;
+	atxa-core:posX "324" ;
+	atxa-core:posY "-1663" .
+
+_:node1bfmomevkx3611 atxa-core:contains _:node1bfmomevkx3730 .
+
+_:node1bfmomevkx3730 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Distributore.setLat(BigDecimal,)> ;
+	atxa-core:posX "324" ;
+	atxa-core:posY "-1647" .
+
+_:node1bfmomevkx3611 atxa-core:contains _:node1bfmomevkx3731 .
+
+_:node1bfmomevkx3731 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Distributore.setLon(BigDecimal,)> ;
+	atxa-core:posX "324" ;
+	atxa-core:posY "-1631" .
+
+_:node1bfmomevkx3611 atxa-core:contains _:node1bfmomevkx3732 .
+
+_:node1bfmomevkx3732 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Distributore.setManutienes(Set,)> ;
+	atxa-core:posX "324" ;
+	atxa-core:posY "-1615" .
+
+_:node1bfmomevkx3611 atxa-core:contains _:node1bfmomevkx3733 .
+
+_:node1bfmomevkx3733 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Distributore.setNumPosti(Integer,)> ;
+	atxa-core:posX "324" ;
+	atxa-core:posY "-1599" .
+
+_:node1bfmomevkx3611 atxa-core:contains _:node1bfmomevkx3734 .
+
+_:node1bfmomevkx3734 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Distributore.setNumScaffali(Integer,)> ;
+	atxa-core:posX "324" ;
+	atxa-core:posY "-1583" .
+
+_:node1bfmomevkx3611 atxa-core:contains _:node1bfmomevkx3735 .
+
+_:node1bfmomevkx3735 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Distributore.setPosizioneEdificio(String,)> ;
+	atxa-core:posX "324" ;
+	atxa-core:posY "-1567" .
+
+_:node1bfmomevkx3611 atxa-core:contains _:node1bfmomevkx3736 .
+
+_:node1bfmomevkx3736 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Distributore.setProdottiErogatis(Set,)> ;
+	atxa-core:posX "324" ;
+	atxa-core:posY "-1551" .
+
+_:node1bfmomevkx3611 atxa-core:contains _:node1bfmomevkx3737 .
+
+_:node1bfmomevkx3737 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Distributore.setRifornisces(Set,)> ;
+	atxa-core:posX "324" ;
+	atxa-core:posY "-1535" .
+
+_:node1bfmomevkx3611 atxa-core:contains _:node1bfmomevkx3738 .
+
+_:node1bfmomevkx3738 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Distributore.setStato(Integer,)> ;
+	atxa-core:posX "324" ;
+	atxa-core:posY "-1519" .
+
+_:node1bfmomevkx3611 atxa-core:contains _:node1bfmomevkx3739 .
+
+_:node1bfmomevkx3739 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Distributore.stato> ;
+	atxa-core:posX "324" ;
+	atxa-core:posY "-1999" .
+
+_:node1bfmomevkx3581 atxa-core:contains _:node1bfmomevkx3740 .
+
+_:node1bfmomevkx3740 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Acquista> ;
+	atxa-core:posX "872" ;
+	atxa-core:posY "-2729" .
+
+<http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Acquista> atxa-core:contains <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Acquista.Acquista()> , <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Acquista.Acquista(Distributore,Persona,Prodotto,Date,Integer,BigDecimal,)> , <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Acquista.Acquista(Prodotto,)> , <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Acquista.data> , <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Acquista.distributore> , <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Acquista.getData()> , <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Acquista.getDistributore()> , <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Acquista.getId()> , <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Acquista.getPersona()> , <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Acquista.getProdotto()> , <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Acquista.getQuantita()> , <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Acquista.getTotaleSpesa()> , <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Acquista.id> , <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Acquista.persona> , <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Acquista.prodotto> , <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Acquista.quantita> , <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Acquista.serialVersionUID> , <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Acquista.setData(Date,)> , <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Acquista.setDistributore(Distributore,)> , <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Acquista.setId(Integer,)> , <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Acquista.setPersona(Persona,)> , <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Acquista.setProdotto(Prodotto,)> , <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Acquista.setQuantita(Integer,)> , <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Acquista.setTotaleSpesa(BigDecimal,)> , <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Acquista.totaleSpesa> .
+
+_:node1bfmomevkx3740 atxa-core:contains _:node1bfmomevkx3741 .
+
+_:node1bfmomevkx3741 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Acquista.Acquista()> ;
+	atxa-core:posX "873" ;
+	atxa-core:posY "-2583" .
+
+_:node1bfmomevkx3740 atxa-core:contains _:node1bfmomevkx3742 .
+
+_:node1bfmomevkx3742 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Acquista.Acquista(Distributore,Persona,Prodotto,Date,Integer,BigDecimal,)> ;
+	atxa-core:posX "873" ;
+	atxa-core:posY "-2567" .
+
+_:node1bfmomevkx3740 atxa-core:contains _:node1bfmomevkx3743 .
+
+_:node1bfmomevkx3743 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Acquista.Acquista(Prodotto,)> ;
+	atxa-core:posX "873" ;
+	atxa-core:posY "-2551" .
+
+_:node1bfmomevkx3740 atxa-core:contains _:node1bfmomevkx3744 .
+
+_:node1bfmomevkx3744 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Acquista.data> ;
+	atxa-core:posX "873" ;
+	atxa-core:posY "-2711" .
+
+_:node1bfmomevkx3740 atxa-core:contains _:node1bfmomevkx3745 .
+
+_:node1bfmomevkx3745 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Acquista.distributore> ;
+	atxa-core:posX "873" ;
+	atxa-core:posY "-2695" .
+
+_:node1bfmomevkx3578 a atxa-core:link ;
+	atxa-core:model atxa-jdt:refType ;
+	rdf:subject _:node1bfmomevkx3745 ;
+	rdf:object _:node1bfmomevkx3611 .
+
+_:node1bfmomevkx3740 atxa-core:contains _:node1bfmomevkx3746 .
+
+_:node1bfmomevkx3746 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Acquista.getData()> ;
+	atxa-core:posX "873" ;
+	atxa-core:posY "-2535" .
+
+_:node1bfmomevkx3740 atxa-core:contains _:node1bfmomevkx3747 .
+
+_:node1bfmomevkx3747 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Acquista.getDistributore()> ;
+	atxa-core:posX "873" ;
+	atxa-core:posY "-2519" .
+
+_:node1bfmomevkx3740 atxa-core:contains _:node1bfmomevkx3748 .
+
+_:node1bfmomevkx3748 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Acquista.getId()> ;
+	atxa-core:posX "873" ;
+	atxa-core:posY "-2503" .
+
+_:node1bfmomevkx3740 atxa-core:contains _:node1bfmomevkx3749 .
+
+_:node1bfmomevkx3749 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Acquista.getPersona()> ;
+	atxa-core:posX "873" ;
+	atxa-core:posY "-2487" .
+
+_:node1bfmomevkx3740 atxa-core:contains _:node1bfmomevkx3750 .
+
+_:node1bfmomevkx3750 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Acquista.getProdotto()> ;
+	atxa-core:posX "873" ;
+	atxa-core:posY "-2471" .
+
+_:node1bfmomevkx3740 atxa-core:contains _:node1bfmomevkx3751 .
+
+_:node1bfmomevkx3751 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Acquista.getQuantita()> ;
+	atxa-core:posX "873" ;
+	atxa-core:posY "-2455" .
+
+_:node1bfmomevkx3740 atxa-core:contains _:node1bfmomevkx3752 .
+
+_:node1bfmomevkx3752 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Acquista.getTotaleSpesa()> ;
+	atxa-core:posX "873" ;
+	atxa-core:posY "-2439" .
+
+_:node1bfmomevkx3740 atxa-core:contains _:node1bfmomevkx3753 .
+
+_:node1bfmomevkx3753 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Acquista.id> ;
+	atxa-core:posX "873" ;
+	atxa-core:posY "-2679" .
+
+_:node1bfmomevkx3740 atxa-core:contains _:node1bfmomevkx3754 .
+
+_:node1bfmomevkx3754 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Acquista.persona> ;
+	atxa-core:posX "873" ;
+	atxa-core:posY "-2663" .
+
+_:node1bfmomevkx3579 a atxa-core:link ;
+	atxa-core:model atxa-jdt:refType ;
+	rdf:subject _:node1bfmomevkx3754 ;
+	rdf:object _:node1bfmomevkx3595 .
+
+_:node1bfmomevkx3740 atxa-core:contains _:node1bfmomevkx3755 .
+
+_:node1bfmomevkx3755 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Acquista.prodotto> ;
+	atxa-core:posX "873" ;
+	atxa-core:posY "-2647" .
+
+_:node1bfmomevkx3580 a atxa-core:link ;
+	atxa-core:model atxa-jdt:refType ;
+	rdf:subject _:node1bfmomevkx3755 ;
+	rdf:object _:node1bfmomevkx3756 .
+
+_:node1bfmomevkx3740 atxa-core:contains _:node1bfmomevkx3757 .
+
+_:node1bfmomevkx3757 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Acquista.quantita> ;
+	atxa-core:posX "873" ;
+	atxa-core:posY "-2631" .
+
+_:node1bfmomevkx3740 atxa-core:contains _:node1bfmomevkx3758 .
+
+_:node1bfmomevkx3758 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Acquista.serialVersionUID> ;
+	atxa-core:posX "873" ;
+	atxa-core:posY "-2615" .
+
+_:node1bfmomevkx3740 atxa-core:contains _:node1bfmomevkx3759 .
+
+_:node1bfmomevkx3759 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Acquista.setData(Date,)> ;
+	atxa-core:posX "873" ;
+	atxa-core:posY "-2423" .
+
+_:node1bfmomevkx3740 atxa-core:contains _:node1bfmomevkx3760 .
+
+_:node1bfmomevkx3760 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Acquista.setDistributore(Distributore,)> ;
+	atxa-core:posX "873" ;
+	atxa-core:posY "-2407" .
+
+_:node1bfmomevkx3740 atxa-core:contains _:node1bfmomevkx3761 .
+
+_:node1bfmomevkx3761 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Acquista.setId(Integer,)> ;
+	atxa-core:posX "873" ;
+	atxa-core:posY "-2391" .
+
+_:node1bfmomevkx3740 atxa-core:contains _:node1bfmomevkx3762 .
+
+_:node1bfmomevkx3762 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Acquista.setPersona(Persona,)> ;
+	atxa-core:posX "873" ;
+	atxa-core:posY "-2375" .
+
+_:node1bfmomevkx3740 atxa-core:contains _:node1bfmomevkx3763 .
+
+_:node1bfmomevkx3763 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Acquista.setProdotto(Prodotto,)> ;
+	atxa-core:posX "873" ;
+	atxa-core:posY "-2359" .
+
+_:node1bfmomevkx3740 atxa-core:contains _:node1bfmomevkx3764 .
+
+_:node1bfmomevkx3764 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Acquista.setQuantita(Integer,)> ;
+	atxa-core:posX "873" ;
+	atxa-core:posY "-2343" .
+
+_:node1bfmomevkx3740 atxa-core:contains _:node1bfmomevkx3765 .
+
+_:node1bfmomevkx3765 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Acquista.setTotaleSpesa(BigDecimal,)> ;
+	atxa-core:posX "873" ;
+	atxa-core:posY "-2327" .
+
+_:node1bfmomevkx3740 atxa-core:contains _:node1bfmomevkx3766 .
+
+_:node1bfmomevkx3766 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Acquista.totaleSpesa> ;
+	atxa-core:posX "873" ;
+	atxa-core:posY "-2599" .
+
+_:node1bfmomevkx3581 atxa-core:contains _:node1bfmomevkx3756 .
+
+_:node1bfmomevkx3756 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Prodotto> ;
+	atxa-core:posX "1383" ;
+	atxa-core:posY "-2424" .
+
+<http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Prodotto> atxa-core:contains <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Prodotto.acquistas> , <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Prodotto.categoria> , <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Prodotto.descrizione> , <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Prodotto.famiglieProdottos> , <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Prodotto.foto> , <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Prodotto.getAcquistas()> , <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Prodotto.getCategoria()> , <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Prodotto.getDescrizione()> , <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Prodotto.getFamiglieProdottos()> , <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Prodotto.getFoto()> , <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Prodotto.getId()> , <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Prodotto.getIngredienti()> , <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Prodotto.getNome()> , <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Prodotto.getPreparazione()> , <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Prodotto.getPrezzo()> , <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Prodotto.getProdottiErogatis()> , <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Prodotto.getScontoUtenti()> , <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Prodotto.getStabilimento()> , <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Prodotto.id> , <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Prodotto.ingredienti> , <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Prodotto.nome> , <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Prodotto.preparazione> , <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Prodotto.prezzo> , <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Prodotto.prodottiErogatis> , <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Prodotto.Prodotto()> , <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Prodotto.Prodotto(Categoria,Stabilimento,String,BigDecimal,)> , <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Prodotto.scontoUtenti> , <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Prodotto.serialVersionUID> , <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Prodotto.setAcquistas(Set,)> , <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Prodotto.setCategoria(Categoria,)> , <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Prodotto.setDescrizione(String,)> , <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Prodotto.setFamiglieProdottos(Set,)> , <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Prodotto.setFoto(String,)> , <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Prodotto.setId(Integer,)> , <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Prodotto.setIngredienti(String,)> , <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Prodotto.setNome(String,)> , <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Prodotto.setPreparazione(String,)> , <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Prodotto.setPrezzo(BigDecimal,)> , <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Prodotto.setProdottiErogatis(Set,)> , <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Prodotto.setScontoUtenti(BigDecimal,)> , <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Prodotto.setStabilimento(Stabilimento,)> , <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Prodotto.stabilimento> .
+
+_:node1bfmomevkx3756 atxa-core:contains _:node1bfmomevkx3767 .
+
+_:node1bfmomevkx3767 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Prodotto.acquistas> ;
+	atxa-core:posX "1384" ;
+	atxa-core:posY "-2406" .
+
+_:node1bfmomevkx3756 atxa-core:contains _:node1bfmomevkx3768 .
+
+_:node1bfmomevkx3768 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Prodotto.categoria> ;
+	atxa-core:posX "1384" ;
+	atxa-core:posY "-2390" .
+
+_:node1bfmomevkx3570 a atxa-core:link ;
+	atxa-core:model atxa-jdt:refType ;
+	rdf:subject _:node1bfmomevkx3768 ;
+	rdf:object _:node1bfmomevkx3769 .
+
+_:node1bfmomevkx3756 atxa-core:contains _:node1bfmomevkx3770 .
+
+_:node1bfmomevkx3770 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Prodotto.descrizione> ;
+	atxa-core:posX "1384" ;
+	atxa-core:posY "-2374" .
+
+_:node1bfmomevkx3756 atxa-core:contains _:node1bfmomevkx3771 .
+
+_:node1bfmomevkx3771 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Prodotto.famiglieProdottos> ;
+	atxa-core:posX "1384" ;
+	atxa-core:posY "-2358" .
+
+_:node1bfmomevkx3756 atxa-core:contains _:node1bfmomevkx3772 .
+
+_:node1bfmomevkx3772 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Prodotto.foto> ;
+	atxa-core:posX "1384" ;
+	atxa-core:posY "-2342" .
+
+_:node1bfmomevkx3756 atxa-core:contains _:node1bfmomevkx3773 .
+
+_:node1bfmomevkx3773 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Prodotto.getAcquistas()> ;
+	atxa-core:posX "1384" ;
+	atxa-core:posY "-2182" .
+
+_:node1bfmomevkx3756 atxa-core:contains _:node1bfmomevkx3774 .
+
+_:node1bfmomevkx3774 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Prodotto.getCategoria()> ;
+	atxa-core:posX "1384" ;
+	atxa-core:posY "-2166" .
+
+_:node1bfmomevkx3756 atxa-core:contains _:node1bfmomevkx3775 .
+
+_:node1bfmomevkx3775 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Prodotto.getDescrizione()> ;
+	atxa-core:posX "1384" ;
+	atxa-core:posY "-2150" .
+
+_:node1bfmomevkx3756 atxa-core:contains _:node1bfmomevkx3776 .
+
+_:node1bfmomevkx3776 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Prodotto.getFamiglieProdottos()> ;
+	atxa-core:posX "1384" ;
+	atxa-core:posY "-2134" .
+
+_:node1bfmomevkx3756 atxa-core:contains _:node1bfmomevkx3777 .
+
+_:node1bfmomevkx3777 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Prodotto.getFoto()> ;
+	atxa-core:posX "1384" ;
+	atxa-core:posY "-2118" .
+
+_:node1bfmomevkx3756 atxa-core:contains _:node1bfmomevkx3778 .
+
+_:node1bfmomevkx3778 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Prodotto.getId()> ;
+	atxa-core:posX "1384" ;
+	atxa-core:posY "-2102" .
+
+_:node1bfmomevkx3756 atxa-core:contains _:node1bfmomevkx3779 .
+
+_:node1bfmomevkx3779 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Prodotto.getIngredienti()> ;
+	atxa-core:posX "1384" ;
+	atxa-core:posY "-2086" .
+
+_:node1bfmomevkx3756 atxa-core:contains _:node1bfmomevkx3780 .
+
+_:node1bfmomevkx3780 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Prodotto.getNome()> ;
+	atxa-core:posX "1384" ;
+	atxa-core:posY "-2070" .
+
+_:node1bfmomevkx3756 atxa-core:contains _:node1bfmomevkx3781 .
+
+_:node1bfmomevkx3781 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Prodotto.getPreparazione()> ;
+	atxa-core:posX "1384" ;
+	atxa-core:posY "-2054" .
+
+_:node1bfmomevkx3756 atxa-core:contains _:node1bfmomevkx3782 .
+
+_:node1bfmomevkx3782 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Prodotto.getPrezzo()> ;
+	atxa-core:posX "1384" ;
+	atxa-core:posY "-2038" .
+
+_:node1bfmomevkx3756 atxa-core:contains _:node1bfmomevkx3783 .
+
+_:node1bfmomevkx3783 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Prodotto.getProdottiErogatis()> ;
+	atxa-core:posX "1384" ;
+	atxa-core:posY "-2022" .
+
+_:node1bfmomevkx3756 atxa-core:contains _:node1bfmomevkx3784 .
+
+_:node1bfmomevkx3784 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Prodotto.getScontoUtenti()> ;
+	atxa-core:posX "1384" ;
+	atxa-core:posY "-2006" .
+
+_:node1bfmomevkx3756 atxa-core:contains _:node1bfmomevkx3785 .
+
+_:node1bfmomevkx3785 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Prodotto.getStabilimento()> ;
+	atxa-core:posX "1384" ;
+	atxa-core:posY "-1990" .
+
+_:node1bfmomevkx3756 atxa-core:contains _:node1bfmomevkx3786 .
+
+_:node1bfmomevkx3786 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Prodotto.id> ;
+	atxa-core:posX "1384" ;
+	atxa-core:posY "-2326" .
+
+_:node1bfmomevkx3756 atxa-core:contains _:node1bfmomevkx3787 .
+
+_:node1bfmomevkx3787 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Prodotto.ingredienti> ;
+	atxa-core:posX "1384" ;
+	atxa-core:posY "-2310" .
+
+_:node1bfmomevkx3756 atxa-core:contains _:node1bfmomevkx3788 .
+
+_:node1bfmomevkx3788 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Prodotto.nome> ;
+	atxa-core:posX "1384" ;
+	atxa-core:posY "-2294" .
+
+_:node1bfmomevkx3756 atxa-core:contains _:node1bfmomevkx3789 .
+
+_:node1bfmomevkx3789 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Prodotto.preparazione> ;
+	atxa-core:posX "1384" ;
+	atxa-core:posY "-2278" .
+
+_:node1bfmomevkx3756 atxa-core:contains _:node1bfmomevkx3790 .
+
+_:node1bfmomevkx3790 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Prodotto.prezzo> ;
+	atxa-core:posX "1384" ;
+	atxa-core:posY "-2262" .
+
+_:node1bfmomevkx3756 atxa-core:contains _:node1bfmomevkx3791 .
+
+_:node1bfmomevkx3791 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Prodotto.prodottiErogatis> ;
+	atxa-core:posX "1384" ;
+	atxa-core:posY "-2246" .
+
+_:node1bfmomevkx3756 atxa-core:contains _:node1bfmomevkx3792 .
+
+_:node1bfmomevkx3792 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Prodotto.Prodotto()> ;
+	atxa-core:posX "1384" ;
+	atxa-core:posY "-1974" .
+
+_:node1bfmomevkx3756 atxa-core:contains _:node1bfmomevkx3793 .
+
+_:node1bfmomevkx3793 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Prodotto.Prodotto(Categoria,Stabilimento,String,BigDecimal,)> ;
+	atxa-core:posX "1384" ;
+	atxa-core:posY "-1958" .
+
+_:node1bfmomevkx3756 atxa-core:contains _:node1bfmomevkx3794 .
+
+_:node1bfmomevkx3794 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Prodotto.scontoUtenti> ;
+	atxa-core:posX "1384" ;
+	atxa-core:posY "-2230" .
+
+_:node1bfmomevkx3756 atxa-core:contains _:node1bfmomevkx3795 .
+
+_:node1bfmomevkx3795 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Prodotto.serialVersionUID> ;
+	atxa-core:posX "1384" ;
+	atxa-core:posY "-2214" .
+
+_:node1bfmomevkx3756 atxa-core:contains _:node1bfmomevkx3796 .
+
+_:node1bfmomevkx3796 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Prodotto.setAcquistas(Set,)> ;
+	atxa-core:posX "1384" ;
+	atxa-core:posY "-1942" .
+
+_:node1bfmomevkx3756 atxa-core:contains _:node1bfmomevkx3797 .
+
+_:node1bfmomevkx3797 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Prodotto.setCategoria(Categoria,)> ;
+	atxa-core:posX "1384" ;
+	atxa-core:posY "-1926" .
+
+_:node1bfmomevkx3756 atxa-core:contains _:node1bfmomevkx3798 .
+
+_:node1bfmomevkx3798 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Prodotto.setDescrizione(String,)> ;
+	atxa-core:posX "1384" ;
+	atxa-core:posY "-1910" .
+
+_:node1bfmomevkx3756 atxa-core:contains _:node1bfmomevkx3799 .
+
+_:node1bfmomevkx3799 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Prodotto.setFamiglieProdottos(Set,)> ;
+	atxa-core:posX "1384" ;
+	atxa-core:posY "-1894" .
+
+_:node1bfmomevkx3756 atxa-core:contains _:node1bfmomevkx3800 .
+
+_:node1bfmomevkx3800 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Prodotto.setFoto(String,)> ;
+	atxa-core:posX "1384" ;
+	atxa-core:posY "-1878" .
+
+_:node1bfmomevkx3756 atxa-core:contains _:node1bfmomevkx3801 .
+
+_:node1bfmomevkx3801 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Prodotto.setId(Integer,)> ;
+	atxa-core:posX "1384" ;
+	atxa-core:posY "-1862" .
+
+_:node1bfmomevkx3756 atxa-core:contains _:node1bfmomevkx3802 .
+
+_:node1bfmomevkx3802 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Prodotto.setIngredienti(String,)> ;
+	atxa-core:posX "1384" ;
+	atxa-core:posY "-1846" .
+
+_:node1bfmomevkx3756 atxa-core:contains _:node1bfmomevkx3803 .
+
+_:node1bfmomevkx3803 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Prodotto.setNome(String,)> ;
+	atxa-core:posX "1384" ;
+	atxa-core:posY "-1830" .
+
+_:node1bfmomevkx3756 atxa-core:contains _:node1bfmomevkx3804 .
+
+_:node1bfmomevkx3804 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Prodotto.setPreparazione(String,)> ;
+	atxa-core:posX "1384" ;
+	atxa-core:posY "-1814" .
+
+_:node1bfmomevkx3756 atxa-core:contains _:node1bfmomevkx3805 .
+
+_:node1bfmomevkx3805 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Prodotto.setPrezzo(BigDecimal,)> ;
+	atxa-core:posX "1384" ;
+	atxa-core:posY "-1798" .
+
+_:node1bfmomevkx3756 atxa-core:contains _:node1bfmomevkx3806 .
+
+_:node1bfmomevkx3806 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Prodotto.setProdottiErogatis(Set,)> ;
+	atxa-core:posX "1384" ;
+	atxa-core:posY "-1782" .
+
+_:node1bfmomevkx3756 atxa-core:contains _:node1bfmomevkx3807 .
+
+_:node1bfmomevkx3807 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Prodotto.setScontoUtenti(BigDecimal,)> ;
+	atxa-core:posX "1384" ;
+	atxa-core:posY "-1766" .
+
+_:node1bfmomevkx3756 atxa-core:contains _:node1bfmomevkx3808 .
+
+_:node1bfmomevkx3808 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Prodotto.setStabilimento(Stabilimento,)> ;
+	atxa-core:posX "1384" ;
+	atxa-core:posY "-1750" .
+
+_:node1bfmomevkx3756 atxa-core:contains _:node1bfmomevkx3809 .
+
+_:node1bfmomevkx3809 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Prodotto.stabilimento> ;
+	atxa-core:posX "1384" ;
+	atxa-core:posY "-2198" .
+
+_:node1bfmomevkx3573 a atxa-core:link ;
+	atxa-core:model atxa-jdt:refType ;
+	rdf:subject _:node1bfmomevkx3809 ;
+	rdf:object _:node1bfmomevkx3810 .
+
+_:node1bfmomevkx3581 atxa-core:contains _:node1bfmomevkx3811 .
+
+_:node1bfmomevkx3811 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$ProdottiErogati> ;
+	atxa-core:posX "851" ;
+	atxa-core:posY "-2196" .
+
+<http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$ProdottiErogati> atxa-core:contains <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$ProdottiErogati.distributore> , <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$ProdottiErogati.getDistributore()> , <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$ProdottiErogati.getId()> , <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$ProdottiErogati.getPosto()> , <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$ProdottiErogati.getProdotto()> , <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$ProdottiErogati.getQuantita()> , <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$ProdottiErogati.getScaffale()> , <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$ProdottiErogati.id> , <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$ProdottiErogati.posto> , <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$ProdottiErogati.ProdottiErogati()> , <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$ProdottiErogati.ProdottiErogati(Distributore,Prodotto,Integer,Integer,Integer,)> , <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$ProdottiErogati.ProdottiErogati(Distributore,Prodotto,)> , <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$ProdottiErogati.prodotto> , <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$ProdottiErogati.quantita> , <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$ProdottiErogati.scaffale> , <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$ProdottiErogati.serialVersionUID> , <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$ProdottiErogati.setDistributore(Distributore,)> , <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$ProdottiErogati.setId(Integer,)> , <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$ProdottiErogati.setPosto(Integer,)> , <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$ProdottiErogati.setProdotto(Prodotto,)> , <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$ProdottiErogati.setQuantita(Integer,)> , <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$ProdottiErogati.setScaffale(Integer,)> .
+
+_:node1bfmomevkx3811 atxa-core:contains _:node1bfmomevkx3812 .
+
+_:node1bfmomevkx3812 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$ProdottiErogati.distributore> ;
+	atxa-core:posX "852" ;
+	atxa-core:posY "-2178" .
+
+_:node1bfmomevkx3568 a atxa-core:link ;
+	atxa-core:model atxa-jdt:refType ;
+	rdf:subject _:node1bfmomevkx3812 ;
+	rdf:object _:node1bfmomevkx3611 .
+
+_:node1bfmomevkx3811 atxa-core:contains _:node1bfmomevkx3813 .
+
+_:node1bfmomevkx3813 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$ProdottiErogati.getDistributore()> ;
+	atxa-core:posX "852" ;
+	atxa-core:posY "-2066" .
+
+_:node1bfmomevkx3811 atxa-core:contains _:node1bfmomevkx3814 .
+
+_:node1bfmomevkx3814 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$ProdottiErogati.getId()> ;
+	atxa-core:posX "852" ;
+	atxa-core:posY "-2050" .
+
+_:node1bfmomevkx3811 atxa-core:contains _:node1bfmomevkx3815 .
+
+_:node1bfmomevkx3815 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$ProdottiErogati.getPosto()> ;
+	atxa-core:posX "852" ;
+	atxa-core:posY "-2034" .
+
+_:node1bfmomevkx3811 atxa-core:contains _:node1bfmomevkx3816 .
+
+_:node1bfmomevkx3816 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$ProdottiErogati.getProdotto()> ;
+	atxa-core:posX "852" ;
+	atxa-core:posY "-2018" .
+
+_:node1bfmomevkx3811 atxa-core:contains _:node1bfmomevkx3817 .
+
+_:node1bfmomevkx3817 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$ProdottiErogati.getQuantita()> ;
+	atxa-core:posX "852" ;
+	atxa-core:posY "-2002" .
+
+_:node1bfmomevkx3811 atxa-core:contains _:node1bfmomevkx3818 .
+
+_:node1bfmomevkx3818 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$ProdottiErogati.getScaffale()> ;
+	atxa-core:posX "852" ;
+	atxa-core:posY "-1986" .
+
+_:node1bfmomevkx3811 atxa-core:contains _:node1bfmomevkx3819 .
+
+_:node1bfmomevkx3819 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$ProdottiErogati.id> ;
+	atxa-core:posX "852" ;
+	atxa-core:posY "-2162" .
+
+_:node1bfmomevkx3811 atxa-core:contains _:node1bfmomevkx3820 .
+
+_:node1bfmomevkx3820 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$ProdottiErogati.posto> ;
+	atxa-core:posX "852" ;
+	atxa-core:posY "-2146" .
+
+_:node1bfmomevkx3811 atxa-core:contains _:node1bfmomevkx3821 .
+
+_:node1bfmomevkx3821 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$ProdottiErogati.ProdottiErogati()> ;
+	atxa-core:posX "852" ;
+	atxa-core:posY "-1970" .
+
+_:node1bfmomevkx3811 atxa-core:contains _:node1bfmomevkx3822 .
+
+_:node1bfmomevkx3822 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$ProdottiErogati.ProdottiErogati(Distributore,Prodotto,Integer,Integer,Integer,)> ;
+	atxa-core:posX "852" ;
+	atxa-core:posY "-1954" .
+
+_:node1bfmomevkx3811 atxa-core:contains _:node1bfmomevkx3823 .
+
+_:node1bfmomevkx3823 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$ProdottiErogati.ProdottiErogati(Distributore,Prodotto,)> ;
+	atxa-core:posX "852" ;
+	atxa-core:posY "-1938" .
+
+_:node1bfmomevkx3811 atxa-core:contains _:node1bfmomevkx3824 .
+
+_:node1bfmomevkx3824 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$ProdottiErogati.prodotto> ;
+	atxa-core:posX "852" ;
+	atxa-core:posY "-2130" .
+
+_:node1bfmomevkx3569 a atxa-core:link ;
+	atxa-core:model atxa-jdt:refType ;
+	rdf:subject _:node1bfmomevkx3824 ;
+	rdf:object _:node1bfmomevkx3756 .
+
+_:node1bfmomevkx3811 atxa-core:contains _:node1bfmomevkx3825 .
+
+_:node1bfmomevkx3825 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$ProdottiErogati.quantita> ;
+	atxa-core:posX "852" ;
+	atxa-core:posY "-2114" .
+
+_:node1bfmomevkx3811 atxa-core:contains _:node1bfmomevkx3826 .
+
+_:node1bfmomevkx3826 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$ProdottiErogati.scaffale> ;
+	atxa-core:posX "852" ;
+	atxa-core:posY "-2098" .
+
+_:node1bfmomevkx3811 atxa-core:contains _:node1bfmomevkx3827 .
+
+_:node1bfmomevkx3827 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$ProdottiErogati.serialVersionUID> ;
+	atxa-core:posX "852" ;
+	atxa-core:posY "-2082" .
+
+_:node1bfmomevkx3811 atxa-core:contains _:node1bfmomevkx3828 .
+
+_:node1bfmomevkx3828 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$ProdottiErogati.setDistributore(Distributore,)> ;
+	atxa-core:posX "852" ;
+	atxa-core:posY "-1922" .
+
+_:node1bfmomevkx3811 atxa-core:contains _:node1bfmomevkx3829 .
+
+_:node1bfmomevkx3829 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$ProdottiErogati.setId(Integer,)> ;
+	atxa-core:posX "852" ;
+	atxa-core:posY "-1906" .
+
+_:node1bfmomevkx3811 atxa-core:contains _:node1bfmomevkx3830 .
+
+_:node1bfmomevkx3830 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$ProdottiErogati.setPosto(Integer,)> ;
+	atxa-core:posX "852" ;
+	atxa-core:posY "-1890" .
+
+_:node1bfmomevkx3811 atxa-core:contains _:node1bfmomevkx3831 .
+
+_:node1bfmomevkx3831 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$ProdottiErogati.setProdotto(Prodotto,)> ;
+	atxa-core:posX "852" ;
+	atxa-core:posY "-1874" .
+
+_:node1bfmomevkx3811 atxa-core:contains _:node1bfmomevkx3832 .
+
+_:node1bfmomevkx3832 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$ProdottiErogati.setQuantita(Integer,)> ;
+	atxa-core:posX "852" ;
+	atxa-core:posY "-1858" .
+
+_:node1bfmomevkx3811 atxa-core:contains _:node1bfmomevkx3833 .
+
+_:node1bfmomevkx3833 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$ProdottiErogati.setScaffale(Integer,)> ;
+	atxa-core:posX "852" ;
+	atxa-core:posY "-1842" .
+
+_:node1bfmomevkx3581 atxa-core:contains _:node1bfmomevkx3769 .
+
+_:node1bfmomevkx3769 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Categoria> ;
+	atxa-core:posX "1451" ;
+	atxa-core:posY "-1683" .
+
+<http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Categoria> atxa-core:contains <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Categoria.Categoria()> , <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Categoria.Categoria(String,Set,Set,)> , <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Categoria.Categoria(String,)> , <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Categoria.categorieFornites> , <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Categoria.getCategorieFornites()> , <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Categoria.getId()> , <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Categoria.getNome()> , <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Categoria.getProdottos()> , <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Categoria.id> , <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Categoria.nome> , <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Categoria.prodottos> , <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Categoria.serialVersionUID> , <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Categoria.setCategorieFornites(Set,)> , <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Categoria.setId(Integer,)> , <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Categoria.setNome(String,)> , <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Categoria.setProdottos(Set,)> .
+
+_:node1bfmomevkx3769 atxa-core:contains _:node1bfmomevkx3834 .
+
+_:node1bfmomevkx3834 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Categoria.Categoria()> ;
+	atxa-core:posX "1452" ;
+	atxa-core:posY "-1585" .
+
+_:node1bfmomevkx3769 atxa-core:contains _:node1bfmomevkx3835 .
+
+_:node1bfmomevkx3835 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Categoria.Categoria(String,Set,Set,)> ;
+	atxa-core:posX "1452" ;
+	atxa-core:posY "-1569" .
+
+_:node1bfmomevkx3769 atxa-core:contains _:node1bfmomevkx3836 .
+
+_:node1bfmomevkx3836 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Categoria.Categoria(String,)> ;
+	atxa-core:posX "1452" ;
+	atxa-core:posY "-1553" .
+
+_:node1bfmomevkx3769 atxa-core:contains _:node1bfmomevkx3837 .
+
+_:node1bfmomevkx3837 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Categoria.categorieFornites> ;
+	atxa-core:posX "1452" ;
+	atxa-core:posY "-1665" .
+
+_:node1bfmomevkx3769 atxa-core:contains _:node1bfmomevkx3838 .
+
+_:node1bfmomevkx3838 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Categoria.getCategorieFornites()> ;
+	atxa-core:posX "1452" ;
+	atxa-core:posY "-1537" .
+
+_:node1bfmomevkx3769 atxa-core:contains _:node1bfmomevkx3839 .
+
+_:node1bfmomevkx3839 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Categoria.getId()> ;
+	atxa-core:posX "1452" ;
+	atxa-core:posY "-1521" .
+
+_:node1bfmomevkx3769 atxa-core:contains _:node1bfmomevkx3840 .
+
+_:node1bfmomevkx3840 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Categoria.getNome()> ;
+	atxa-core:posX "1452" ;
+	atxa-core:posY "-1505" .
+
+_:node1bfmomevkx3769 atxa-core:contains _:node1bfmomevkx3841 .
+
+_:node1bfmomevkx3841 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Categoria.getProdottos()> ;
+	atxa-core:posX "1452" ;
+	atxa-core:posY "-1489" .
+
+_:node1bfmomevkx3769 atxa-core:contains _:node1bfmomevkx3842 .
+
+_:node1bfmomevkx3842 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Categoria.id> ;
+	atxa-core:posX "1452" ;
+	atxa-core:posY "-1649" .
+
+_:node1bfmomevkx3769 atxa-core:contains _:node1bfmomevkx3843 .
+
+_:node1bfmomevkx3843 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Categoria.nome> ;
+	atxa-core:posX "1452" ;
+	atxa-core:posY "-1633" .
+
+_:node1bfmomevkx3769 atxa-core:contains _:node1bfmomevkx3844 .
+
+_:node1bfmomevkx3844 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Categoria.prodottos> ;
+	atxa-core:posX "1452" ;
+	atxa-core:posY "-1617" .
+
+_:node1bfmomevkx3769 atxa-core:contains _:node1bfmomevkx3845 .
+
+_:node1bfmomevkx3845 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Categoria.serialVersionUID> ;
+	atxa-core:posX "1452" ;
+	atxa-core:posY "-1601" .
+
+_:node1bfmomevkx3769 atxa-core:contains _:node1bfmomevkx3846 .
+
+_:node1bfmomevkx3846 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Categoria.setCategorieFornites(Set,)> ;
+	atxa-core:posX "1452" ;
+	atxa-core:posY "-1473" .
+
+_:node1bfmomevkx3769 atxa-core:contains _:node1bfmomevkx3847 .
+
+_:node1bfmomevkx3847 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Categoria.setId(Integer,)> ;
+	atxa-core:posX "1452" ;
+	atxa-core:posY "-1457" .
+
+_:node1bfmomevkx3769 atxa-core:contains _:node1bfmomevkx3848 .
+
+_:node1bfmomevkx3848 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Categoria.setNome(String,)> ;
+	atxa-core:posX "1452" ;
+	atxa-core:posY "-1441" .
+
+_:node1bfmomevkx3769 atxa-core:contains _:node1bfmomevkx3849 .
+
+_:node1bfmomevkx3849 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Categoria.setProdottos(Set,)> ;
+	atxa-core:posX "1452" ;
+	atxa-core:posY "-1425" .
+
+_:node1bfmomevkx3581 atxa-core:contains _:node1bfmomevkx3850 .
+
+_:node1bfmomevkx3850 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$CategorieFornite> ;
+	atxa-core:posX "883" ;
+	atxa-core:posY "-1721" .
+
+<http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$CategorieFornite> atxa-core:contains <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$CategorieFornite.categoria> , <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$CategorieFornite.CategorieFornite()> , <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$CategorieFornite.CategorieFornite(Categoria,Distributore,)> , <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$CategorieFornite.distributore> , <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$CategorieFornite.getCategoria()> , <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$CategorieFornite.getDistributore()> , <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$CategorieFornite.getId()> , <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$CategorieFornite.id> , <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$CategorieFornite.serialVersionUID> , <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$CategorieFornite.setCategoria(Categoria,)> , <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$CategorieFornite.setDistributore(Distributore,)> , <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$CategorieFornite.setId(Integer,)> .
+
+_:node1bfmomevkx3850 atxa-core:contains _:node1bfmomevkx3851 .
+
+_:node1bfmomevkx3851 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$CategorieFornite.categoria> ;
+	atxa-core:posX "884" ;
+	atxa-core:posY "-1703" .
+
+_:node1bfmomevkx3577 a atxa-core:link ;
+	atxa-core:model atxa-jdt:refType ;
+	rdf:subject _:node1bfmomevkx3851 ;
+	rdf:object _:node1bfmomevkx3769 .
+
+_:node1bfmomevkx3850 atxa-core:contains _:node1bfmomevkx3852 .
+
+_:node1bfmomevkx3852 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$CategorieFornite.CategorieFornite()> ;
+	atxa-core:posX "884" ;
+	atxa-core:posY "-1639" .
+
+_:node1bfmomevkx3850 atxa-core:contains _:node1bfmomevkx3853 .
+
+_:node1bfmomevkx3853 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$CategorieFornite.CategorieFornite(Categoria,Distributore,)> ;
+	atxa-core:posX "884" ;
+	atxa-core:posY "-1623" .
+
+_:node1bfmomevkx3850 atxa-core:contains _:node1bfmomevkx3854 .
+
+_:node1bfmomevkx3854 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$CategorieFornite.distributore> ;
+	atxa-core:posX "884" ;
+	atxa-core:posY "-1687" .
+
+_:node1bfmomevkx3576 a atxa-core:link ;
+	atxa-core:model atxa-jdt:refType ;
+	rdf:subject _:node1bfmomevkx3854 ;
+	rdf:object _:node1bfmomevkx3611 .
+
+_:node1bfmomevkx3850 atxa-core:contains _:node1bfmomevkx3855 .
+
+_:node1bfmomevkx3855 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$CategorieFornite.getCategoria()> ;
+	atxa-core:posX "884" ;
+	atxa-core:posY "-1607" .
+
+_:node1bfmomevkx3850 atxa-core:contains _:node1bfmomevkx3856 .
+
+_:node1bfmomevkx3856 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$CategorieFornite.getDistributore()> ;
+	atxa-core:posX "884" ;
+	atxa-core:posY "-1591" .
+
+_:node1bfmomevkx3850 atxa-core:contains _:node1bfmomevkx3857 .
+
+_:node1bfmomevkx3857 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$CategorieFornite.getId()> ;
+	atxa-core:posX "884" ;
+	atxa-core:posY "-1575" .
+
+_:node1bfmomevkx3850 atxa-core:contains _:node1bfmomevkx3858 .
+
+_:node1bfmomevkx3858 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$CategorieFornite.id> ;
+	atxa-core:posX "884" ;
+	atxa-core:posY "-1671" .
+
+_:node1bfmomevkx3850 atxa-core:contains _:node1bfmomevkx3859 .
+
+_:node1bfmomevkx3859 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$CategorieFornite.serialVersionUID> ;
+	atxa-core:posX "884" ;
+	atxa-core:posY "-1655" .
+
+_:node1bfmomevkx3850 atxa-core:contains _:node1bfmomevkx3860 .
+
+_:node1bfmomevkx3860 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$CategorieFornite.setCategoria(Categoria,)> ;
+	atxa-core:posX "884" ;
+	atxa-core:posY "-1559" .
+
+_:node1bfmomevkx3850 atxa-core:contains _:node1bfmomevkx3861 .
+
+_:node1bfmomevkx3861 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$CategorieFornite.setDistributore(Distributore,)> ;
+	atxa-core:posX "884" ;
+	atxa-core:posY "-1543" .
+
+_:node1bfmomevkx3850 atxa-core:contains _:node1bfmomevkx3862 .
+
+_:node1bfmomevkx3862 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$CategorieFornite.setId(Integer,)> ;
+	atxa-core:posX "884" ;
+	atxa-core:posY "-1527" .
+
+_:node1bfmomevkx3581 atxa-core:contains _:node1bfmomevkx3863 .
+
+_:node1bfmomevkx3863 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$FamiglieProdotto> ;
+	atxa-core:posX "1414" ;
+	atxa-core:posY "-2775" .
+
+<http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$FamiglieProdotto> atxa-core:contains <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$FamiglieProdotto.famiglia> , <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$FamiglieProdotto.FamiglieProdotto()> , <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$FamiglieProdotto.FamiglieProdotto(Famiglia,Prodotto,)> , <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$FamiglieProdotto.getFamiglia()> , <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$FamiglieProdotto.getId()> , <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$FamiglieProdotto.getProdotto()> , <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$FamiglieProdotto.id> , <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$FamiglieProdotto.prodotto> , <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$FamiglieProdotto.serialVersionUID> , <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$FamiglieProdotto.setFamiglia(Famiglia,)> , <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$FamiglieProdotto.setId(Integer,)> , <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$FamiglieProdotto.setProdotto(Prodotto,)> .
+
+_:node1bfmomevkx3863 atxa-core:contains _:node1bfmomevkx3864 .
+
+_:node1bfmomevkx3864 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$FamiglieProdotto.famiglia> ;
+	atxa-core:posX "1415" ;
+	atxa-core:posY "-2757" .
+
+_:node1bfmomevkx3575 a atxa-core:link ;
+	atxa-core:model atxa-jdt:refType ;
+	rdf:subject _:node1bfmomevkx3864 ;
+	rdf:object _:node1bfmomevkx3865 .
+
+_:node1bfmomevkx3863 atxa-core:contains _:node1bfmomevkx3866 .
+
+_:node1bfmomevkx3866 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$FamiglieProdotto.FamiglieProdotto()> ;
+	atxa-core:posX "1415" ;
+	atxa-core:posY "-2693" .
+
+_:node1bfmomevkx3863 atxa-core:contains _:node1bfmomevkx3867 .
+
+_:node1bfmomevkx3867 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$FamiglieProdotto.FamiglieProdotto(Famiglia,Prodotto,)> ;
+	atxa-core:posX "1415" ;
+	atxa-core:posY "-2677" .
+
+_:node1bfmomevkx3863 atxa-core:contains _:node1bfmomevkx3868 .
+
+_:node1bfmomevkx3868 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$FamiglieProdotto.getFamiglia()> ;
+	atxa-core:posX "1415" ;
+	atxa-core:posY "-2661" .
+
+_:node1bfmomevkx3863 atxa-core:contains _:node1bfmomevkx3869 .
+
+_:node1bfmomevkx3869 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$FamiglieProdotto.getId()> ;
+	atxa-core:posX "1415" ;
+	atxa-core:posY "-2645" .
+
+_:node1bfmomevkx3863 atxa-core:contains _:node1bfmomevkx3870 .
+
+_:node1bfmomevkx3870 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$FamiglieProdotto.getProdotto()> ;
+	atxa-core:posX "1415" ;
+	atxa-core:posY "-2629" .
+
+_:node1bfmomevkx3863 atxa-core:contains _:node1bfmomevkx3871 .
+
+_:node1bfmomevkx3871 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$FamiglieProdotto.id> ;
+	atxa-core:posX "1415" ;
+	atxa-core:posY "-2741" .
+
+_:node1bfmomevkx3863 atxa-core:contains _:node1bfmomevkx3872 .
+
+_:node1bfmomevkx3872 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$FamiglieProdotto.prodotto> ;
+	atxa-core:posX "1415" ;
+	atxa-core:posY "-2725" .
+
+_:node1bfmomevkx3574 a atxa-core:link ;
+	atxa-core:model atxa-jdt:refType ;
+	rdf:subject _:node1bfmomevkx3872 ;
+	rdf:object _:node1bfmomevkx3756 .
+
+_:node1bfmomevkx3863 atxa-core:contains _:node1bfmomevkx3873 .
+
+_:node1bfmomevkx3873 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$FamiglieProdotto.serialVersionUID> ;
+	atxa-core:posX "1415" ;
+	atxa-core:posY "-2709" .
+
+_:node1bfmomevkx3863 atxa-core:contains _:node1bfmomevkx3874 .
+
+_:node1bfmomevkx3874 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$FamiglieProdotto.setFamiglia(Famiglia,)> ;
+	atxa-core:posX "1415" ;
+	atxa-core:posY "-2613" .
+
+_:node1bfmomevkx3863 atxa-core:contains _:node1bfmomevkx3875 .
+
+_:node1bfmomevkx3875 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$FamiglieProdotto.setId(Integer,)> ;
+	atxa-core:posX "1415" ;
+	atxa-core:posY "-2597" .
+
+_:node1bfmomevkx3863 atxa-core:contains _:node1bfmomevkx3876 .
+
+_:node1bfmomevkx3876 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$FamiglieProdotto.setProdotto(Prodotto,)> ;
+	atxa-core:posX "1415" ;
+	atxa-core:posY "-2581" .
+
+_:node1bfmomevkx3581 atxa-core:contains _:node1bfmomevkx3865 .
+
+_:node1bfmomevkx3865 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Famiglia> ;
+	atxa-core:posX "1632" ;
+	atxa-core:posY "-3092" .
+
+<http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Famiglia> atxa-core:contains <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Famiglia.Famiglia()> , <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Famiglia.Famiglia(String,Set,)> , <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Famiglia.Famiglia(String,)> , <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Famiglia.famiglieProdottos> , <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Famiglia.getFamiglieProdottos()> , <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Famiglia.getId()> , <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Famiglia.getNome()> , <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Famiglia.id> , <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Famiglia.nome> , <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Famiglia.serialVersionUID> , <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Famiglia.setFamiglieProdottos(Set,)> , <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Famiglia.setId(Integer,)> , <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Famiglia.setNome(String,)> .
+
+_:node1bfmomevkx3865 atxa-core:contains _:node1bfmomevkx3877 .
+
+_:node1bfmomevkx3877 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Famiglia.Famiglia()> ;
+	atxa-core:posX "1633" ;
+	atxa-core:posY "-3010" .
+
+_:node1bfmomevkx3865 atxa-core:contains _:node1bfmomevkx3878 .
+
+_:node1bfmomevkx3878 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Famiglia.Famiglia(String,Set,)> ;
+	atxa-core:posX "1633" ;
+	atxa-core:posY "-2994" .
+
+_:node1bfmomevkx3865 atxa-core:contains _:node1bfmomevkx3879 .
+
+_:node1bfmomevkx3879 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Famiglia.Famiglia(String,)> ;
+	atxa-core:posX "1633" ;
+	atxa-core:posY "-2978" .
+
+_:node1bfmomevkx3865 atxa-core:contains _:node1bfmomevkx3880 .
+
+_:node1bfmomevkx3880 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Famiglia.famiglieProdottos> ;
+	atxa-core:posX "1633" ;
+	atxa-core:posY "-3074" .
+
+_:node1bfmomevkx3865 atxa-core:contains _:node1bfmomevkx3881 .
+
+_:node1bfmomevkx3881 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Famiglia.getFamiglieProdottos()> ;
+	atxa-core:posX "1633" ;
+	atxa-core:posY "-2962" .
+
+_:node1bfmomevkx3865 atxa-core:contains _:node1bfmomevkx3882 .
+
+_:node1bfmomevkx3882 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Famiglia.getId()> ;
+	atxa-core:posX "1633" ;
+	atxa-core:posY "-2946" .
+
+_:node1bfmomevkx3865 atxa-core:contains _:node1bfmomevkx3883 .
+
+_:node1bfmomevkx3883 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Famiglia.getNome()> ;
+	atxa-core:posX "1633" ;
+	atxa-core:posY "-2930" .
+
+_:node1bfmomevkx3865 atxa-core:contains _:node1bfmomevkx3884 .
+
+_:node1bfmomevkx3884 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Famiglia.id> ;
+	atxa-core:posX "1633" ;
+	atxa-core:posY "-3058" .
+
+_:node1bfmomevkx3865 atxa-core:contains _:node1bfmomevkx3885 .
+
+_:node1bfmomevkx3885 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Famiglia.nome> ;
+	atxa-core:posX "1633" ;
+	atxa-core:posY "-3042" .
+
+_:node1bfmomevkx3865 atxa-core:contains _:node1bfmomevkx3886 .
+
+_:node1bfmomevkx3886 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Famiglia.serialVersionUID> ;
+	atxa-core:posX "1633" ;
+	atxa-core:posY "-3026" .
+
+_:node1bfmomevkx3865 atxa-core:contains _:node1bfmomevkx3887 .
+
+_:node1bfmomevkx3887 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Famiglia.setFamiglieProdottos(Set,)> ;
+	atxa-core:posX "1633" ;
+	atxa-core:posY "-2914" .
+
+_:node1bfmomevkx3865 atxa-core:contains _:node1bfmomevkx3888 .
+
+_:node1bfmomevkx3888 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Famiglia.setId(Integer,)> ;
+	atxa-core:posX "1633" ;
+	atxa-core:posY "-2898" .
+
+_:node1bfmomevkx3865 atxa-core:contains _:node1bfmomevkx3889 .
+
+_:node1bfmomevkx3889 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Famiglia.setNome(String,)> ;
+	atxa-core:posX "1633" ;
+	atxa-core:posY "-2882" .
+
+_:node1bfmomevkx3581 atxa-core:contains _:node1bfmomevkx3810 .
+
+_:node1bfmomevkx3810 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Stabilimento> ;
+	atxa-core:posX "1828" ;
+	atxa-core:posY "-2439" .
+
+<http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Stabilimento> atxa-core:contains <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Stabilimento.citta> , <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Stabilimento.getCitta()> , <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Stabilimento.getId()> , <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Stabilimento.getProdottos()> , <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Stabilimento.getProduttore()> , <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Stabilimento.getProvincia()> , <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Stabilimento.id> , <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Stabilimento.prodottos> , <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Stabilimento.produttore> , <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Stabilimento.provincia> , <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Stabilimento.serialVersionUID> , <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Stabilimento.setCitta(String,)> , <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Stabilimento.setId(Integer,)> , <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Stabilimento.setProdottos(Set,)> , <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Stabilimento.setProduttore(Produttore,)> , <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Stabilimento.setProvincia(String,)> , <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Stabilimento.Stabilimento()> , <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Stabilimento.Stabilimento(Produttore,String,String,Set,)> , <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Stabilimento.Stabilimento(Produttore,)> .
+
+_:node1bfmomevkx3810 atxa-core:contains _:node1bfmomevkx3890 .
+
+_:node1bfmomevkx3890 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Stabilimento.citta> ;
+	atxa-core:posX "1829" ;
+	atxa-core:posY "-2421" .
+
+_:node1bfmomevkx3810 atxa-core:contains _:node1bfmomevkx3891 .
+
+_:node1bfmomevkx3891 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Stabilimento.getCitta()> ;
+	atxa-core:posX "1829" ;
+	atxa-core:posY "-2325" .
+
+_:node1bfmomevkx3810 atxa-core:contains _:node1bfmomevkx3892 .
+
+_:node1bfmomevkx3892 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Stabilimento.getId()> ;
+	atxa-core:posX "1829" ;
+	atxa-core:posY "-2309" .
+
+_:node1bfmomevkx3810 atxa-core:contains _:node1bfmomevkx3893 .
+
+_:node1bfmomevkx3893 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Stabilimento.getProdottos()> ;
+	atxa-core:posX "1829" ;
+	atxa-core:posY "-2293" .
+
+_:node1bfmomevkx3810 atxa-core:contains _:node1bfmomevkx3894 .
+
+_:node1bfmomevkx3894 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Stabilimento.getProduttore()> ;
+	atxa-core:posX "1829" ;
+	atxa-core:posY "-2277" .
+
+_:node1bfmomevkx3810 atxa-core:contains _:node1bfmomevkx3895 .
+
+_:node1bfmomevkx3895 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Stabilimento.getProvincia()> ;
+	atxa-core:posX "1829" ;
+	atxa-core:posY "-2261" .
+
+_:node1bfmomevkx3810 atxa-core:contains _:node1bfmomevkx3896 .
+
+_:node1bfmomevkx3896 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Stabilimento.id> ;
+	atxa-core:posX "1829" ;
+	atxa-core:posY "-2405" .
+
+_:node1bfmomevkx3810 atxa-core:contains _:node1bfmomevkx3897 .
+
+_:node1bfmomevkx3897 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Stabilimento.prodottos> ;
+	atxa-core:posX "1829" ;
+	atxa-core:posY "-2389" .
+
+_:node1bfmomevkx3810 atxa-core:contains _:node1bfmomevkx3898 .
+
+_:node1bfmomevkx3898 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Stabilimento.produttore> ;
+	atxa-core:posX "1829" ;
+	atxa-core:posY "-2373" .
+
+_:node1bfmomevkx3572 a atxa-core:link ;
+	atxa-core:model atxa-jdt:refType ;
+	rdf:subject _:node1bfmomevkx3898 ;
+	rdf:object _:node1bfmomevkx3899 .
+
+_:node1bfmomevkx3810 atxa-core:contains _:node1bfmomevkx3900 .
+
+_:node1bfmomevkx3900 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Stabilimento.provincia> ;
+	atxa-core:posX "1829" ;
+	atxa-core:posY "-2357" .
+
+_:node1bfmomevkx3810 atxa-core:contains _:node1bfmomevkx3901 .
+
+_:node1bfmomevkx3901 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Stabilimento.serialVersionUID> ;
+	atxa-core:posX "1829" ;
+	atxa-core:posY "-2341" .
+
+_:node1bfmomevkx3810 atxa-core:contains _:node1bfmomevkx3902 .
+
+_:node1bfmomevkx3902 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Stabilimento.setCitta(String,)> ;
+	atxa-core:posX "1829" ;
+	atxa-core:posY "-2245" .
+
+_:node1bfmomevkx3810 atxa-core:contains _:node1bfmomevkx3903 .
+
+_:node1bfmomevkx3903 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Stabilimento.setId(Integer,)> ;
+	atxa-core:posX "1829" ;
+	atxa-core:posY "-2229" .
+
+_:node1bfmomevkx3810 atxa-core:contains _:node1bfmomevkx3904 .
+
+_:node1bfmomevkx3904 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Stabilimento.setProdottos(Set,)> ;
+	atxa-core:posX "1829" ;
+	atxa-core:posY "-2213" .
+
+_:node1bfmomevkx3810 atxa-core:contains _:node1bfmomevkx3905 .
+
+_:node1bfmomevkx3905 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Stabilimento.setProduttore(Produttore,)> ;
+	atxa-core:posX "1829" ;
+	atxa-core:posY "-2197" .
+
+_:node1bfmomevkx3810 atxa-core:contains _:node1bfmomevkx3906 .
+
+_:node1bfmomevkx3906 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Stabilimento.setProvincia(String,)> ;
+	atxa-core:posX "1829" ;
+	atxa-core:posY "-2181" .
+
+_:node1bfmomevkx3810 atxa-core:contains _:node1bfmomevkx3907 .
+
+_:node1bfmomevkx3907 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Stabilimento.Stabilimento()> ;
+	atxa-core:posX "1829" ;
+	atxa-core:posY "-2165" .
+
+_:node1bfmomevkx3810 atxa-core:contains _:node1bfmomevkx3908 .
+
+_:node1bfmomevkx3908 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Stabilimento.Stabilimento(Produttore,String,String,Set,)> ;
+	atxa-core:posX "1829" ;
+	atxa-core:posY "-2149" .
+
+_:node1bfmomevkx3810 atxa-core:contains _:node1bfmomevkx3909 .
+
+_:node1bfmomevkx3909 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Stabilimento.Stabilimento(Produttore,)> ;
+	atxa-core:posX "1829" ;
+	atxa-core:posY "-2133" .
+
+_:node1bfmomevkx3581 atxa-core:contains _:node1bfmomevkx3899 .
+
+_:node1bfmomevkx3899 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Produttore> ;
+	atxa-core:posX "1845" ;
+	atxa-core:posY "-1998" .
+
+<http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Produttore> atxa-core:contains <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Produttore.getId()> , <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Produttore.getNome()> , <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Produttore.getSede()> , <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Produttore.getStabilimentos()> , <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Produttore.id> , <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Produttore.nome> , <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Produttore.Produttore()> , <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Produttore.Produttore(String,String,Set,)> , <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Produttore.sede> , <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Produttore.serialVersionUID> , <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Produttore.setId(Integer,)> , <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Produttore.setNome(String,)> , <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Produttore.setSede(String,)> , <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Produttore.setStabilimentos(Set,)> , <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Produttore.stabilimentos> .
+
+_:node1bfmomevkx3899 atxa-core:contains _:node1bfmomevkx3910 .
+
+_:node1bfmomevkx3910 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Produttore.getId()> ;
+	atxa-core:posX "1846" ;
+	atxa-core:posY "-1900" .
+
+_:node1bfmomevkx3899 atxa-core:contains _:node1bfmomevkx3911 .
+
+_:node1bfmomevkx3911 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Produttore.getNome()> ;
+	atxa-core:posX "1846" ;
+	atxa-core:posY "-1884" .
+
+_:node1bfmomevkx3899 atxa-core:contains _:node1bfmomevkx3912 .
+
+_:node1bfmomevkx3912 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Produttore.getSede()> ;
+	atxa-core:posX "1846" ;
+	atxa-core:posY "-1868" .
+
+_:node1bfmomevkx3899 atxa-core:contains _:node1bfmomevkx3913 .
+
+_:node1bfmomevkx3913 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Produttore.getStabilimentos()> ;
+	atxa-core:posX "1846" ;
+	atxa-core:posY "-1852" .
+
+_:node1bfmomevkx3899 atxa-core:contains _:node1bfmomevkx3914 .
+
+_:node1bfmomevkx3914 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Produttore.id> ;
+	atxa-core:posX "1846" ;
+	atxa-core:posY "-1980" .
+
+_:node1bfmomevkx3899 atxa-core:contains _:node1bfmomevkx3915 .
+
+_:node1bfmomevkx3915 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Produttore.nome> ;
+	atxa-core:posX "1846" ;
+	atxa-core:posY "-1964" .
+
+_:node1bfmomevkx3899 atxa-core:contains _:node1bfmomevkx3916 .
+
+_:node1bfmomevkx3916 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Produttore.Produttore()> ;
+	atxa-core:posX "1846" ;
+	atxa-core:posY "-1836" .
+
+_:node1bfmomevkx3899 atxa-core:contains _:node1bfmomevkx3917 .
+
+_:node1bfmomevkx3917 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Produttore.Produttore(String,String,Set,)> ;
+	atxa-core:posX "1846" ;
+	atxa-core:posY "-1820" .
+
+_:node1bfmomevkx3899 atxa-core:contains _:node1bfmomevkx3918 .
+
+_:node1bfmomevkx3918 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Produttore.sede> ;
+	atxa-core:posX "1846" ;
+	atxa-core:posY "-1948" .
+
+_:node1bfmomevkx3899 atxa-core:contains _:node1bfmomevkx3919 .
+
+_:node1bfmomevkx3919 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Produttore.serialVersionUID> ;
+	atxa-core:posX "1846" ;
+	atxa-core:posY "-1932" .
+
+_:node1bfmomevkx3899 atxa-core:contains _:node1bfmomevkx3920 .
+
+_:node1bfmomevkx3920 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Produttore.setId(Integer,)> ;
+	atxa-core:posX "1846" ;
+	atxa-core:posY "-1804" .
+
+_:node1bfmomevkx3899 atxa-core:contains _:node1bfmomevkx3921 .
+
+_:node1bfmomevkx3921 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Produttore.setNome(String,)> ;
+	atxa-core:posX "1846" ;
+	atxa-core:posY "-1788" .
+
+_:node1bfmomevkx3899 atxa-core:contains _:node1bfmomevkx3922 .
+
+_:node1bfmomevkx3922 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Produttore.setSede(String,)> ;
+	atxa-core:posX "1846" ;
+	atxa-core:posY "-1772" .
+
+_:node1bfmomevkx3899 atxa-core:contains _:node1bfmomevkx3923 .
+
+_:node1bfmomevkx3923 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Produttore.setStabilimentos(Set,)> ;
+	atxa-core:posX "1846" ;
+	atxa-core:posY "-1756" .
+
+_:node1bfmomevkx3899 atxa-core:contains _:node1bfmomevkx3924 .
+
+_:node1bfmomevkx3924 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain$Produttore.stabilimentos> ;
+	atxa-core:posX "1846" ;
+	atxa-core:posY "-1916" .
+
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix atxa-jdt: <http://www.architexa.com/rdf/jdt#> .
+@prefix atxa-rse-eclipse: <http://www.architexa.com/rdf/rse-eclipse#> .
+@prefix atxa-core: <http://www.architexa.com/rdf/core#> .
+@prefix atxa: <http://www.architexa.com/rdf/> .
+@prefix atxa-jdt-wkspc: <http://www.architexa.com/rdf/jdt-wkspc#> .
+
+<http://www.architexa.com/rdf/rse-eclipse#UML_slClassDiagramDomain.atxa> a atxa-core:reloFile ;
+	atxa-core:contains _:node1bfmomevkx3583 , _:node1bfmomevkx3584 , _:node1bfmomevkx3585 , _:node1bfmomevkx3586 , _:node1bfmomevkx3587 , _:node1bfmomevkx3588 , _:node1bfmomevkx3589 , _:node1bfmomevkx3590 , _:node1bfmomevkx3591 , _:node1bfmomevkx3592 , _:node1bfmomevkx3593 , _:node1bfmomevkx3594 , _:node1bfmomevkx3596 , _:node1bfmomevkx3597 , _:node1bfmomevkx3598 , _:node1bfmomevkx3599 , _:node1bfmomevkx3600 , _:node1bfmomevkx3601 , _:node1bfmomevkx3602 , _:node1bfmomevkx3603 , _:node1bfmomevkx3604 , _:node1bfmomevkx3605 , _:node1bfmomevkx3582 , _:node1bfmomevkx3607 , _:node1bfmomevkx3608 , _:node1bfmomevkx3609 , _:node1bfmomevkx3610 , _:node1bfmomevkx3612 , _:node1bfmomevkx3613 , _:node1bfmomevkx3614 , _:node1bfmomevkx3615 , _:node1bfmomevkx3616 , _:node1bfmomevkx3617 , _:node1bfmomevkx3618 , _:node1bfmomevkx3619 , _:node1bfmomevkx3620 , _:node1bfmomevkx3621 , _:node1bfmomevkx3622 , _:node1bfmomevkx3623 , _:node1bfmomevkx3624 , _:node1bfmomevkx3625 , _:node1bfmomevkx3626 , _:node1bfmomevkx3606 , _:node1bfmomevkx3628 , _:node1bfmomevkx3629 , _:node1bfmomevkx3630 , _:node1bfmomevkx3631 , _:node1bfmomevkx3632 , _:node1bfmomevkx3633 , _:node1bfmomevkx3634 , _:node1bfmomevkx3635 , _:node1bfmomevkx3636 , _:node1bfmomevkx3637 , _:node1bfmomevkx3638 , _:node1bfmomevkx3639 , _:node1bfmomevkx3640 , _:node1bfmomevkx3641 , _:node1bfmomevkx3642 , _:node1bfmomevkx3643 , _:node1bfmomevkx3627 , _:node1bfmomevkx3644 , _:node1bfmomevkx3645 , _:node1bfmomevkx3646 , _:node1bfmomevkx3647 , _:node1bfmomevkx3648 , _:node1bfmomevkx3649 , _:node1bfmomevkx3650 , _:node1bfmomevkx3651 , _:node1bfmomevkx3652 , _:node1bfmomevkx3653 , _:node1bfmomevkx3654 , _:node1bfmomevkx3655 , _:node1bfmomevkx3656 , _:node1bfmomevkx3657 , _:node1bfmomevkx3658 , _:node1bfmomevkx3659 , _:node1bfmomevkx3660 , _:node1bfmomevkx3661 , _:node1bfmomevkx3662 , _:node1bfmomevkx3663 , _:node1bfmomevkx3664 , _:node1bfmomevkx3665 , _:node1bfmomevkx3666 , _:node1bfmomevkx3667 , _:node1bfmomevkx3668 , _:node1bfmomevkx3669 , _:node1bfmomevkx3670 , _:node1bfmomevkx3671 , _:node1bfmomevkx3672 , _:node1bfmomevkx3673 , _:node1bfmomevkx3674 , _:node1bfmomevkx3595 , _:node1bfmomevkx3676 , _:node1bfmomevkx3677 , _:node1bfmomevkx3678 , _:node1bfmomevkx3679 , _:node1bfmomevkx3680 , _:node1bfmomevkx3681 , _:node1bfmomevkx3682 , _:node1bfmomevkx3683 , _:node1bfmomevkx3684 , _:node1bfmomevkx3685 , _:node1bfmomevkx3686 , _:node1bfmomevkx3687 , _:node1bfmomevkx3688 , _:node1bfmomevkx3689 , _:node1bfmomevkx3690 , _:node1bfmomevkx3691 , _:node1bfmomevkx3692 , _:node1bfmomevkx3693 , _:node1bfmomevkx3694 , _:node1bfmomevkx3675 , _:node1bfmomevkx3695 , _:node1bfmomevkx3696 , _:node1bfmomevkx3697 , _:node1bfmomevkx3698 , _:node1bfmomevkx3699 , _:node1bfmomevkx3700 , _:node1bfmomevkx3701 , _:node1bfmomevkx3702 , _:node1bfmomevkx3703 , _:node1bfmomevkx3704 , _:node1bfmomevkx3705 , _:node1bfmomevkx3706 , _:node1bfmomevkx3707 , _:node1bfmomevkx3708 , _:node1bfmomevkx3709 , _:node1bfmomevkx3710 , _:node1bfmomevkx3711 , _:node1bfmomevkx3712 , _:node1bfmomevkx3713 , _:node1bfmomevkx3714 , _:node1bfmomevkx3715 , _:node1bfmomevkx3716 , _:node1bfmomevkx3717 , _:node1bfmomevkx3718 , _:node1bfmomevkx3719 , _:node1bfmomevkx3720 , _:node1bfmomevkx3721 , _:node1bfmomevkx3722 , _:node1bfmomevkx3723 , _:node1bfmomevkx3724 , _:node1bfmomevkx3725 , _:node1bfmomevkx3726 , _:node1bfmomevkx3727 , _:node1bfmomevkx3728 , _:node1bfmomevkx3729 , _:node1bfmomevkx3730 , _:node1bfmomevkx3731 , _:node1bfmomevkx3732 , _:node1bfmomevkx3733 , _:node1bfmomevkx3734 , _:node1bfmomevkx3735 , _:node1bfmomevkx3736 , _:node1bfmomevkx3737 , _:node1bfmomevkx3738 , _:node1bfmomevkx3739 , _:node1bfmomevkx3611 , _:node1bfmomevkx3741 , _:node1bfmomevkx3742 , _:node1bfmomevkx3743 , _:node1bfmomevkx3744 , _:node1bfmomevkx3745 , _:node1bfmomevkx3746 , _:node1bfmomevkx3747 , _:node1bfmomevkx3748 , _:node1bfmomevkx3749 , _:node1bfmomevkx3750 , _:node1bfmomevkx3751 , _:node1bfmomevkx3752 , _:node1bfmomevkx3753 , _:node1bfmomevkx3754 , _:node1bfmomevkx3755 , _:node1bfmomevkx3757 , _:node1bfmomevkx3758 , _:node1bfmomevkx3759 , _:node1bfmomevkx3760 , _:node1bfmomevkx3761 , _:node1bfmomevkx3762 , _:node1bfmomevkx3763 , _:node1bfmomevkx3764 , _:node1bfmomevkx3765 , _:node1bfmomevkx3766 , _:node1bfmomevkx3740 , _:node1bfmomevkx3767 , _:node1bfmomevkx3768 , _:node1bfmomevkx3770 , _:node1bfmomevkx3771 , _:node1bfmomevkx3772 , _:node1bfmomevkx3773 , _:node1bfmomevkx3774 , _:node1bfmomevkx3775 , _:node1bfmomevkx3776 , _:node1bfmomevkx3777 , _:node1bfmomevkx3778 , _:node1bfmomevkx3779 , _:node1bfmomevkx3780 , _:node1bfmomevkx3781 , _:node1bfmomevkx3782 , _:node1bfmomevkx3783 , _:node1bfmomevkx3784 , _:node1bfmomevkx3785 , _:node1bfmomevkx3786 , _:node1bfmomevkx3787 , _:node1bfmomevkx3788 , _:node1bfmomevkx3789 , _:node1bfmomevkx3790 , _:node1bfmomevkx3791 , _:node1bfmomevkx3792 , _:node1bfmomevkx3793 , _:node1bfmomevkx3794 , _:node1bfmomevkx3795 , _:node1bfmomevkx3796 , _:node1bfmomevkx3797 , _:node1bfmomevkx3798 , _:node1bfmomevkx3799 , _:node1bfmomevkx3800 , _:node1bfmomevkx3801 , _:node1bfmomevkx3802 , _:node1bfmomevkx3803 , _:node1bfmomevkx3804 , _:node1bfmomevkx3805 , _:node1bfmomevkx3806 , _:node1bfmomevkx3807 , _:node1bfmomevkx3808 , _:node1bfmomevkx3809 , _:node1bfmomevkx3756 , _:node1bfmomevkx3812 , _:node1bfmomevkx3813 , _:node1bfmomevkx3814 , _:node1bfmomevkx3815 , _:node1bfmomevkx3816 , _:node1bfmomevkx3817 , _:node1bfmomevkx3818 , _:node1bfmomevkx3819 , _:node1bfmomevkx3820 , _:node1bfmomevkx3821 , _:node1bfmomevkx3822 , _:node1bfmomevkx3823 , _:node1bfmomevkx3824 , _:node1bfmomevkx3825 , _:node1bfmomevkx3826 , _:node1bfmomevkx3827 , _:node1bfmomevkx3828 , _:node1bfmomevkx3829 , _:node1bfmomevkx3830 , _:node1bfmomevkx3831 , _:node1bfmomevkx3832 , _:node1bfmomevkx3833 , _:node1bfmomevkx3811 , _:node1bfmomevkx3834 , _:node1bfmomevkx3835 , _:node1bfmomevkx3836 , _:node1bfmomevkx3837 , _:node1bfmomevkx3838 , _:node1bfmomevkx3839 , _:node1bfmomevkx3840 , _:node1bfmomevkx3841 , _:node1bfmomevkx3842 , _:node1bfmomevkx3843 , _:node1bfmomevkx3844 , _:node1bfmomevkx3845 , _:node1bfmomevkx3846 , _:node1bfmomevkx3847 , _:node1bfmomevkx3848 , _:node1bfmomevkx3849 , _:node1bfmomevkx3769 , _:node1bfmomevkx3851 , _:node1bfmomevkx3852 , _:node1bfmomevkx3853 , _:node1bfmomevkx3854 , _:node1bfmomevkx3855 , _:node1bfmomevkx3856 , _:node1bfmomevkx3857 , _:node1bfmomevkx3858 , _:node1bfmomevkx3859 , _:node1bfmomevkx3860 , _:node1bfmomevkx3861 , _:node1bfmomevkx3862 , _:node1bfmomevkx3850 , _:node1bfmomevkx3864 , _:node1bfmomevkx3866 , _:node1bfmomevkx3867 , _:node1bfmomevkx3868 , _:node1bfmomevkx3869 , _:node1bfmomevkx3870 , _:node1bfmomevkx3871 , _:node1bfmomevkx3872 , _:node1bfmomevkx3873 , _:node1bfmomevkx3874 , _:node1bfmomevkx3875 , _:node1bfmomevkx3876 , _:node1bfmomevkx3863 , _:node1bfmomevkx3877 , _:node1bfmomevkx3878 , _:node1bfmomevkx3879 , _:node1bfmomevkx3880 , _:node1bfmomevkx3881 , _:node1bfmomevkx3882 , _:node1bfmomevkx3883 , _:node1bfmomevkx3884 , _:node1bfmomevkx3885 , _:node1bfmomevkx3886 , _:node1bfmomevkx3887 , _:node1bfmomevkx3888 , _:node1bfmomevkx3889 , _:node1bfmomevkx3865 , _:node1bfmomevkx3890 , _:node1bfmomevkx3891 , _:node1bfmomevkx3892 , _:node1bfmomevkx3893 , _:node1bfmomevkx3894 , _:node1bfmomevkx3895 , _:node1bfmomevkx3896 , _:node1bfmomevkx3897 , _:node1bfmomevkx3898 , _:node1bfmomevkx3900 , _:node1bfmomevkx3901 , _:node1bfmomevkx3902 , _:node1bfmomevkx3903 , _:node1bfmomevkx3904 , _:node1bfmomevkx3905 , _:node1bfmomevkx3906 , _:node1bfmomevkx3907 , _:node1bfmomevkx3908 , _:node1bfmomevkx3909 , _:node1bfmomevkx3810 , _:node1bfmomevkx3910 , _:node1bfmomevkx3911 , _:node1bfmomevkx3912 , _:node1bfmomevkx3913 , _:node1bfmomevkx3914 , _:node1bfmomevkx3915 , _:node1bfmomevkx3916 , _:node1bfmomevkx3917 , _:node1bfmomevkx3918 , _:node1bfmomevkx3919 , _:node1bfmomevkx3920 , _:node1bfmomevkx3921 , _:node1bfmomevkx3922 , _:node1bfmomevkx3923 , _:node1bfmomevkx3924 , _:node1bfmomevkx3899 , _:node1bfmomevkx3581 , atxa-core:docRoot , _:node1bfmomevkx3583 , _:node1bfmomevkx3584 , _:node1bfmomevkx3585 , _:node1bfmomevkx3586 , _:node1bfmomevkx3587 , _:node1bfmomevkx3588 , _:node1bfmomevkx3589 , _:node1bfmomevkx3590 , _:node1bfmomevkx3591 , _:node1bfmomevkx3592 , _:node1bfmomevkx3593 , _:node1bfmomevkx3594 , _:node1bfmomevkx3596 , _:node1bfmomevkx3597 , _:node1bfmomevkx3598 , _:node1bfmomevkx3599 , _:node1bfmomevkx3600 , _:node1bfmomevkx3601 , _:node1bfmomevkx3602 , _:node1bfmomevkx3603 , _:node1bfmomevkx3604 , _:node1bfmomevkx3605 , _:node1bfmomevkx3582 , _:node1bfmomevkx3607 , _:node1bfmomevkx3608 , _:node1bfmomevkx3609 , _:node1bfmomevkx3610 , _:node1bfmomevkx3612 , _:node1bfmomevkx3613 , _:node1bfmomevkx3614 , _:node1bfmomevkx3615 , _:node1bfmomevkx3616 , _:node1bfmomevkx3617 , _:node1bfmomevkx3618 , _:node1bfmomevkx3619 , _:node1bfmomevkx3620 , _:node1bfmomevkx3621 , _:node1bfmomevkx3622 , _:node1bfmomevkx3623 , _:node1bfmomevkx3624 , _:node1bfmomevkx3625 , _:node1bfmomevkx3626 , _:node1bfmomevkx3606 , _:node1bfmomevkx3628 , _:node1bfmomevkx3629 , _:node1bfmomevkx3630 , _:node1bfmomevkx3631 , _:node1bfmomevkx3632 , _:node1bfmomevkx3633 , _:node1bfmomevkx3634 , _:node1bfmomevkx3635 , _:node1bfmomevkx3636 , _:node1bfmomevkx3637 , _:node1bfmomevkx3638 , _:node1bfmomevkx3639 , _:node1bfmomevkx3640 , _:node1bfmomevkx3641 , _:node1bfmomevkx3642 , _:node1bfmomevkx3643 , _:node1bfmomevkx3627 , _:node1bfmomevkx3644 , _:node1bfmomevkx3645 , _:node1bfmomevkx3646 , _:node1bfmomevkx3647 , _:node1bfmomevkx3648 , _:node1bfmomevkx3649 , _:node1bfmomevkx3650 , _:node1bfmomevkx3651 , _:node1bfmomevkx3652 , _:node1bfmomevkx3653 , _:node1bfmomevkx3654 , _:node1bfmomevkx3655 , _:node1bfmomevkx3656 , _:node1bfmomevkx3657 , _:node1bfmomevkx3658 , _:node1bfmomevkx3659 , _:node1bfmomevkx3660 , _:node1bfmomevkx3661 , _:node1bfmomevkx3662 , _:node1bfmomevkx3663 , _:node1bfmomevkx3664 , _:node1bfmomevkx3665 , _:node1bfmomevkx3666 , _:node1bfmomevkx3667 , _:node1bfmomevkx3668 , _:node1bfmomevkx3669 , _:node1bfmomevkx3670 , _:node1bfmomevkx3671 , _:node1bfmomevkx3672 , _:node1bfmomevkx3673 , _:node1bfmomevkx3674 , _:node1bfmomevkx3595 , _:node1bfmomevkx3676 , _:node1bfmomevkx3677 , _:node1bfmomevkx3678 , _:node1bfmomevkx3679 , _:node1bfmomevkx3680 , _:node1bfmomevkx3681 , _:node1bfmomevkx3682 , _:node1bfmomevkx3683 , _:node1bfmomevkx3684 , _:node1bfmomevkx3685 , _:node1bfmomevkx3686 , _:node1bfmomevkx3687 , _:node1bfmomevkx3688 , _:node1bfmomevkx3689 , _:node1bfmomevkx3690 , _:node1bfmomevkx3691 , _:node1bfmomevkx3692 , _:node1bfmomevkx3693 , _:node1bfmomevkx3694 , _:node1bfmomevkx3675 , _:node1bfmomevkx3695 , _:node1bfmomevkx3696 , _:node1bfmomevkx3697 , _:node1bfmomevkx3698 , _:node1bfmomevkx3699 , _:node1bfmomevkx3700 , _:node1bfmomevkx3701 , _:node1bfmomevkx3702 , _:node1bfmomevkx3703 , _:node1bfmomevkx3704 , _:node1bfmomevkx3705 , _:node1bfmomevkx3706 , _:node1bfmomevkx3707 , _:node1bfmomevkx3708 , _:node1bfmomevkx3709 , _:node1bfmomevkx3710 , _:node1bfmomevkx3711 , _:node1bfmomevkx3712 , _:node1bfmomevkx3713 , _:node1bfmomevkx3714 , _:node1bfmomevkx3715 , _:node1bfmomevkx3716 , _:node1bfmomevkx3717 , _:node1bfmomevkx3718 , _:node1bfmomevkx3719 , _:node1bfmomevkx3720 , _:node1bfmomevkx3721 , _:node1bfmomevkx3722 , _:node1bfmomevkx3723 , _:node1bfmomevkx3724 , _:node1bfmomevkx3725 , _:node1bfmomevkx3726 , _:node1bfmomevkx3727 , _:node1bfmomevkx3728 , _:node1bfmomevkx3729 , _:node1bfmomevkx3730 , _:node1bfmomevkx3731 , _:node1bfmomevkx3732 , _:node1bfmomevkx3733 , _:node1bfmomevkx3734 , _:node1bfmomevkx3735 , _:node1bfmomevkx3736 , _:node1bfmomevkx3737 , _:node1bfmomevkx3738 , _:node1bfmomevkx3739 , _:node1bfmomevkx3611 , _:node1bfmomevkx3741 , _:node1bfmomevkx3742 , _:node1bfmomevkx3743 , _:node1bfmomevkx3744 , _:node1bfmomevkx3745 , _:node1bfmomevkx3746 , _:node1bfmomevkx3747 , _:node1bfmomevkx3748 , _:node1bfmomevkx3749 , _:node1bfmomevkx3750 , _:node1bfmomevkx3751 , _:node1bfmomevkx3752 , _:node1bfmomevkx3753 , _:node1bfmomevkx3754 , _:node1bfmomevkx3755 , _:node1bfmomevkx3757 , _:node1bfmomevkx3758 , _:node1bfmomevkx3759 , _:node1bfmomevkx3760 , _:node1bfmomevkx3761 , _:node1bfmomevkx3762 , _:node1bfmomevkx3763 , _:node1bfmomevkx3764 , _:node1bfmomevkx3765 , _:node1bfmomevkx3766 , _:node1bfmomevkx3740 , _:node1bfmomevkx3767 , _:node1bfmomevkx3768 , _:node1bfmomevkx3770 , _:node1bfmomevkx3771 , _:node1bfmomevkx3772 , _:node1bfmomevkx3773 , _:node1bfmomevkx3774 , _:node1bfmomevkx3775 , _:node1bfmomevkx3776 , _:node1bfmomevkx3777 , _:node1bfmomevkx3778 , _:node1bfmomevkx3779 , _:node1bfmomevkx3780 , _:node1bfmomevkx3781 , _:node1bfmomevkx3782 , _:node1bfmomevkx3783 , _:node1bfmomevkx3784 , _:node1bfmomevkx3785 , _:node1bfmomevkx3786 , _:node1bfmomevkx3787 , _:node1bfmomevkx3788 , _:node1bfmomevkx3789 , _:node1bfmomevkx3790 , _:node1bfmomevkx3791 , _:node1bfmomevkx3792 , _:node1bfmomevkx3793 , _:node1bfmomevkx3794 , _:node1bfmomevkx3795 , _:node1bfmomevkx3796 , _:node1bfmomevkx3797 , _:node1bfmomevkx3798 , _:node1bfmomevkx3799 , _:node1bfmomevkx3800 , _:node1bfmomevkx3801 , _:node1bfmomevkx3802 , _:node1bfmomevkx3803 , _:node1bfmomevkx3804 , _:node1bfmomevkx3805 , _:node1bfmomevkx3806 , _:node1bfmomevkx3807 , _:node1bfmomevkx3808 , _:node1bfmomevkx3809 , _:node1bfmomevkx3756 , _:node1bfmomevkx3812 , _:node1bfmomevkx3813 , _:node1bfmomevkx3814 , _:node1bfmomevkx3815 , _:node1bfmomevkx3816 , _:node1bfmomevkx3817 , _:node1bfmomevkx3818 , _:node1bfmomevkx3819 , _:node1bfmomevkx3820 , _:node1bfmomevkx3821 , _:node1bfmomevkx3822 , _:node1bfmomevkx3823 , _:node1bfmomevkx3824 , _:node1bfmomevkx3825 , _:node1bfmomevkx3826 , _:node1bfmomevkx3827 , _:node1bfmomevkx3828 , _:node1bfmomevkx3829 , _:node1bfmomevkx3830 , _:node1bfmomevkx3831 , _:node1bfmomevkx3832 , _:node1bfmomevkx3833 , _:node1bfmomevkx3811 , _:node1bfmomevkx3834 , _:node1bfmomevkx3835 , _:node1bfmomevkx3836 , _:node1bfmomevkx3837 , _:node1bfmomevkx3838 , _:node1bfmomevkx3839 , _:node1bfmomevkx3840 , _:node1bfmomevkx3841 , _:node1bfmomevkx3842 , _:node1bfmomevkx3843 , _:node1bfmomevkx3844 , _:node1bfmomevkx3845 , _:node1bfmomevkx3846 , _:node1bfmomevkx3847 , _:node1bfmomevkx3848 , _:node1bfmomevkx3849 , _:node1bfmomevkx3769 , _:node1bfmomevkx3851 , _:node1bfmomevkx3852 , _:node1bfmomevkx3853 , _:node1bfmomevkx3854 , _:node1bfmomevkx3855 , _:node1bfmomevkx3856 , _:node1bfmomevkx3857 , _:node1bfmomevkx3858 , _:node1bfmomevkx3859 , _:node1bfmomevkx3860 , _:node1bfmomevkx3861 , _:node1bfmomevkx3862 , _:node1bfmomevkx3850 , _:node1bfmomevkx3864 , _:node1bfmomevkx3866 , _:node1bfmomevkx3867 , _:node1bfmomevkx3868 , _:node1bfmomevkx3869 , _:node1bfmomevkx3870 , _:node1bfmomevkx3871 , _:node1bfmomevkx3872 , _:node1bfmomevkx3873 , _:node1bfmomevkx3874 , _:node1bfmomevkx3875 , _:node1bfmomevkx3876 , _:node1bfmomevkx3863 , _:node1bfmomevkx3877 , _:node1bfmomevkx3878 , _:node1bfmomevkx3879 , _:node1bfmomevkx3880 , _:node1bfmomevkx3881 , _:node1bfmomevkx3882 , _:node1bfmomevkx3883 , _:node1bfmomevkx3884 , _:node1bfmomevkx3885 , _:node1bfmomevkx3886 , _:node1bfmomevkx3887 , _:node1bfmomevkx3888 , _:node1bfmomevkx3889 , _:node1bfmomevkx3865 , _:node1bfmomevkx3890 , _:node1bfmomevkx3891 , _:node1bfmomevkx3892 , _:node1bfmomevkx3893 , _:node1bfmomevkx3894 , _:node1bfmomevkx3895 , _:node1bfmomevkx3896 , _:node1bfmomevkx3897 , _:node1bfmomevkx3898 , _:node1bfmomevkx3900 , _:node1bfmomevkx3901 , _:node1bfmomevkx3902 , _:node1bfmomevkx3903 , _:node1bfmomevkx3904 , _:node1bfmomevkx3905 , _:node1bfmomevkx3906 , _:node1bfmomevkx3907 , _:node1bfmomevkx3908 , _:node1bfmomevkx3909 , _:node1bfmomevkx3810 , _:node1bfmomevkx3910 , _:node1bfmomevkx3911 , _:node1bfmomevkx3912 , _:node1bfmomevkx3913 , _:node1bfmomevkx3914 , _:node1bfmomevkx3915 , _:node1bfmomevkx3916 , _:node1bfmomevkx3917 , _:node1bfmomevkx3918 , _:node1bfmomevkx3919 , _:node1bfmomevkx3920 , _:node1bfmomevkx3921 , _:node1bfmomevkx3922 , _:node1bfmomevkx3923 , _:node1bfmomevkx3924 , _:node1bfmomevkx3899 , _:node1bfmomevkx3581 , atxa-core:docRoot , _:node1bfmomevkx3560 , _:node1bfmomevkx3566 , _:node1bfmomevkx3567 , _:node1bfmomevkx3564 , _:node1bfmomevkx3565 , _:node1bfmomevkx3571 , _:node1bfmomevkx3578 , _:node1bfmomevkx3579 , _:node1bfmomevkx3580 , _:node1bfmomevkx3570 , _:node1bfmomevkx3573 , _:node1bfmomevkx3568 , _:node1bfmomevkx3569 , _:node1bfmomevkx3577 , _:node1bfmomevkx3576 , _:node1bfmomevkx3575 , _:node1bfmomevkx3574 , _:node1bfmomevkx3572 , _:node1bfmomevkx3560 , _:node1bfmomevkx3566 , _:node1bfmomevkx3567 , _:node1bfmomevkx3564 , _:node1bfmomevkx3565 , _:node1bfmomevkx3571 , _:node1bfmomevkx3578 , _:node1bfmomevkx3579 , _:node1bfmomevkx3580 , _:node1bfmomevkx3570 , _:node1bfmomevkx3573 , _:node1bfmomevkx3568 , _:node1bfmomevkx3569 , _:node1bfmomevkx3577 , _:node1bfmomevkx3576 , _:node1bfmomevkx3575 , _:node1bfmomevkx3574 , _:node1bfmomevkx3572 .
+

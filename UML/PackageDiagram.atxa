@@ -1,0 +1,94 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix atxa-rse-eclipse: <http://www.architexa.com/rdf/rse-eclipse#> .
+@prefix atxa-strata: <http://www.architexa.com/rdf/strata#> .
+@prefix atxa-core: <http://www.architexa.com/rdf/core#> .
+@prefix atxa: <http://www.architexa.com/rdf/> .
+@prefix atxa-jdt-wkspc: <http://www.architexa.com/rdf/jdt-wkspc#> .
+
+<http://www.architexa.com/rdf/rse-eclipse#UML_slPackageDiagram.atxa> a atxa-core:strataFile .
+
+atxa:DetailNode atxa-core:detailLevel "2" .
+
+atxa-core:docRoot atxa-core:browseModel "com.architexa.diagrams.relo.jdt/com.architexa.diagrams.relo.jdt.browse.ClassStrucBrowseModel" ;
+	atxa-core:contains _:node1bfmomevkx2314 .
+
+_:node1bfmomevkx2314 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.action> ;
+	atxa-strata:nestedLayerIndexes ":2,false,false,true:0,false,false,true" ;
+	atxa-strata:layerIndex "0" ;
+	atxa-strata:indexWithinLayer "2" ;
+	atxa-core:containerState "false" , "true" , "false" .
+
+atxa-core:docRoot atxa-core:contains _:node1bfmomevkx2315 .
+
+_:node1bfmomevkx2315 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.model> ;
+	atxa-strata:nestedLayerIndexes ":1,false,false,true:0,false,false,true" ;
+	atxa-strata:layerIndex "0" ;
+	atxa-strata:indexWithinLayer "1" ;
+	atxa-core:containerState "false" , "true" , "false" .
+
+atxa-core:docRoot atxa-core:contains _:node1bfmomevkx2316 .
+
+_:node1bfmomevkx2316 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.daoimpl> ;
+	atxa-strata:nestedLayerIndexes ":1,false,false,true:2,false,false,true" ;
+	atxa-strata:layerIndex "2" ;
+	atxa-strata:indexWithinLayer "1" ;
+	atxa-core:containerState "false" , "true" , "false" .
+
+atxa-core:docRoot atxa-core:contains _:node1bfmomevkx2317 .
+
+_:node1bfmomevkx2317 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.dao> ;
+	atxa-strata:nestedLayerIndexes ":0,false,false,true:2,false,false,true" ;
+	atxa-strata:layerIndex "2" ;
+	atxa-strata:indexWithinLayer "0" ;
+	atxa-core:containerState "false" , "true" , "false" .
+
+atxa-core:docRoot atxa-core:contains _:node1bfmomevkx2318 .
+
+_:node1bfmomevkx2318 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.util> ;
+	atxa-strata:nestedLayerIndexes ":2,false,false,true:1,false,false,true" ;
+	atxa-strata:layerIndex "1" ;
+	atxa-strata:indexWithinLayer "2" ;
+	atxa-core:containerState "false" , "true" , "false" .
+
+atxa-core:docRoot atxa-core:contains _:node1bfmomevkx2319 .
+
+_:node1bfmomevkx2319 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.factory> ;
+	atxa-strata:nestedLayerIndexes ":0,false,false,true:1,false,false,true" ;
+	atxa-strata:layerIndex "1" ;
+	atxa-strata:indexWithinLayer "0" ;
+	atxa-core:containerState "false" , "true" , "false" .
+
+atxa-core:docRoot atxa-core:contains _:node1bfmomevkx2320 .
+
+_:node1bfmomevkx2320 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.domain> ;
+	atxa-strata:nestedLayerIndexes ":1,false,false,true:1,false,false,true" ;
+	atxa-strata:layerIndex "1" ;
+	atxa-strata:indexWithinLayer "1" ;
+	atxa-core:containerState "false" , "true" , "false" .
+
+atxa-core:docRoot atxa-core:contains _:node1bfmomevkx2321 .
+
+_:node1bfmomevkx2321 a atxa-core:node ;
+	atxa-core:model <http://www.architexa.com/rdf/jdt-wkspc#it.unisalento.distributori.interceptor> ;
+	atxa-strata:nestedLayerIndexes ":0,false,false,true:0,false,false,true" ;
+	atxa-strata:layerIndex "0" ;
+	atxa-strata:indexWithinLayer "0" ;
+	atxa-core:containerState "false" , "true" , "false" .
+
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix atxa-rse-eclipse: <http://www.architexa.com/rdf/rse-eclipse#> .
+@prefix atxa-strata: <http://www.architexa.com/rdf/strata#> .
+@prefix atxa-core: <http://www.architexa.com/rdf/core#> .
+@prefix atxa: <http://www.architexa.com/rdf/> .
+@prefix atxa-jdt-wkspc: <http://www.architexa.com/rdf/jdt-wkspc#> .
+
+<http://www.architexa.com/rdf/rse-eclipse#UML_slPackageDiagram.atxa> a atxa-core:strataFile ;
+	atxa-core:contains _:node1bfmomevkx2314 , _:node1bfmomevkx2315 , _:node1bfmomevkx2316 , _:node1bfmomevkx2317 , _:node1bfmomevkx2318 , _:node1bfmomevkx2319 , _:node1bfmomevkx2320 , _:node1bfmomevkx2321 , atxa-core:docRoot , _:node1bfmomevkx2314 , _:node1bfmomevkx2315 , _:node1bfmomevkx2316 , _:node1bfmomevkx2317 , _:node1bfmomevkx2318 , _:node1bfmomevkx2319 , _:node1bfmomevkx2320 , _:node1bfmomevkx2321 , atxa-core:docRoot .
+
