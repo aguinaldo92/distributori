@@ -12,7 +12,6 @@ import it.unisalento.distributori.domain.Dipendente;
 import it.unisalento.distributori.domain.Persona;
 import it.unisalento.distributori.factory.FactoryDao;
 import it.unisalento.distributori.model.PersonaModel;
-import it.unisalento.distributori.util.GeneraPwd;
 import it.unisalento.distributori.util.PasswordUtils;
 import it.unisalento.distributori.util.SendMailSSL;
 
@@ -37,8 +36,7 @@ public class AddDipendente extends ActionSupport implements ModelDriven<PersonaM
 			new_persona.setCognome(DipForm.getCognome());//modifico con quelli del form
 			new_persona.setNome(DipForm.getNome());
 			new_persona.setEmail(DipForm.getEmail());
-			GeneraPwd pw_generator = new GeneraPwd(dim_pw);//generatore di password lunghe 6 caratteri
-			String passwordInChiaro = pw_generator.getPWD();
+			String passwordInChiaro = PasswordUtils.getPWD(dim_pw);
 			String hashedPassword = PasswordUtils.getSha256(passwordInChiaro);
 			new_persona.setPassword(hashedPassword);
 			new_persona.setRuolo(ruoloDipendente);//ruolo 1 = dipendente

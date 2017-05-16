@@ -1,10 +1,24 @@
 package it.unisalento.distributori.util;
 
 import java.security.MessageDigest;
+import java.util.Random;
 
 
 public abstract class PasswordUtils {
+	
+	public static String getPWD(int dim) {
+    	Random rnd = new Random();
 
+        String pass="";
+    	for(int i=0; i<dim; i++){
+    		if(i%2==0)
+    			pass+=String.valueOf(rnd.nextInt(10));
+    		else
+    			pass+=String.valueOf((char) (rnd.nextInt(25)+97));
+    	}
+        
+        return pass;
+    }
 
 	public static String getSha256(String value) {
 		try{
