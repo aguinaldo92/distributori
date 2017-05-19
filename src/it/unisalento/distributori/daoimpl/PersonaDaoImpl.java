@@ -5,6 +5,7 @@ package it.unisalento.distributori.daoimpl;
 
 import it.unisalento.distributori.dao.PersonaDao;
 import it.unisalento.distributori.domain.Persona;
+import it.unisalento.distributori.util.HibernateUtil;
 
 import org.hibernate.Query;
 import org.hibernate.Session;

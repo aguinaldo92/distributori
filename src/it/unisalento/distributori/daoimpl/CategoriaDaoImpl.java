@@ -12,6 +12,7 @@ import org.hibernate.Transaction;
 
 import it.unisalento.distributori.dao.CategoriaDao;
 import it.unisalento.distributori.domain.Categoria;
+import it.unisalento.distributori.util.HibernateUtil;
 
 /**
  * @author aguinaldo

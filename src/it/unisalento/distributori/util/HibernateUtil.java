@@ -1,4 +1,4 @@
-package it.unisalento.distributori.daoimpl;
+package it.unisalento.distributori.util;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;

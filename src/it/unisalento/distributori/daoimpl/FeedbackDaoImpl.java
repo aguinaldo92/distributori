@@ -9,6 +9,7 @@ import org.hibernate.Transaction;
 
 import it.unisalento.distributori.dao.FeedbackDao;
 import it.unisalento.distributori.domain.Feedback;
+import it.unisalento.distributori.util.HibernateUtil;
 
 /**
  * @author aguinaldo

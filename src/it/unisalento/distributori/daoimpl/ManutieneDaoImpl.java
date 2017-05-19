@@ -9,6 +9,7 @@ import org.hibernate.Transaction;
 
 import it.unisalento.distributori.dao.ManutieneDao;
 import it.unisalento.distributori.domain.Manutiene;
+import it.unisalento.distributori.util.HibernateUtil;
 
 /**
  * @author aguinaldo
