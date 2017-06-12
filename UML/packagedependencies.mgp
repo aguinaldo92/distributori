@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PackageAnalysis>
+    <Package name="it.unisalento.distributori.action" x="555" y="271">
+        <DependencyLink destination="it.unisalento.distributori.model"/>
+        <DependencyLink destination="it.unisalento.distributori.factory"/>
+        <DependencyLink destination="it.unisalento.distributori.domain"/>
+        <DependencyLink destination="it.unisalento.distributori.util"/>
+    </Package>
+    <Package name="it.unisalento.distributori.dao" x="56" y="38">
+        <DependencyLink destination="it.unisalento.distributori.domain"/>
+    </Package>
+    <Package name="it.unisalento.distributori.daoimpl" x="234" y="79">
+        <DependencyLink destination="it.unisalento.distributori.dao"/>
+        <DependencyLink destination="it.unisalento.distributori.domain"/>
+        <DependencyLink destination="it.unisalento.distributori.util"/>
+    </Package>
+    <Package name="it.unisalento.distributori.domain" x="41" y="267"/>
+    <Package name="it.unisalento.distributori.factory" x="520" y="37">
+        <DependencyLink destination="it.unisalento.distributori.daoimpl"/>
+        <DependencyLink destination="it.unisalento.distributori.dao"/>
+    </Package>
+    <Package name="it.unisalento.distributori.interceptor" x="322" y="216">
+        <DependencyLink destination="it.unisalento.distributori.domain"/>
+        <DependencyLink destination="it.unisalento.distributori.util"/>
+    </Package>
+    <Package name="it.unisalento.distributori.model" x="309" y="325">
+        <DependencyLink destination="it.unisalento.distributori.domain"/>
+    </Package>
+    <Package name="it.unisalento.distributori.util" x="389" y="143"/>
+</PackageAnalysis>

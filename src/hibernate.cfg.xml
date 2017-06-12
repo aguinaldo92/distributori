@@ -13,6 +13,13 @@
         <property name="hibernate.search.autoregister_listeners">false</property>
         <property name="hibernate.show_sql">true</property>
         <property name="hibernate.validator.apply_to_ddl">false</property>
+        <property name="hibernate.c3p0.min_size">5</property>
+		<property name="hibernate.c3p0.max_size">20</property>
+		<property name="hibernate.c3p0.timeout">3000</property>
+		<property name="hibernate.c3p0.max_statements">50</property>
+		<property name="hibernate.c3p0.idle_test_period">300</property>
+        
+        
         <mapping resource="it/unisalento/distributori/domain/Dipendente.hbm.xml" />
         <mapping resource="it/unisalento/distributori/domain/Distributore.hbm.xml" />
         <mapping resource="it/unisalento/distributori/domain/Rifornisce.hbm.xml" />
