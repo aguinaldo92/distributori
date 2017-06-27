@@ -35,7 +35,7 @@
                                         <h4 class="panel-title">
                                             <a data-toggle="collapse" data-parent="#accordion" href="#showFB_${id}" class="collapsed">
                                             <s:if test="letto==0"><b></s:if>
-                                            <s:property value="data"/> - da <s:property value="persona.nome"/> <s:property value="persona.cognome"/>
+                                            <s:property value="data"/> - da <s:property value="persona.email"/>
                                             <s:if test="letto==0"></b></s:if>
                                             </a>
                                         </h4>

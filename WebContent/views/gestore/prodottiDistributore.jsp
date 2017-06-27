@@ -49,7 +49,7 @@
 												<s:iterator value="#listProdottiErogatixScaffale" var="listDettaglioDistributoreModel" status="columnStatus">
 													<s:url var="dettaglioProdotto" namespace="/gestore" action="ProdottoDetail">
 														<s:param name="idProdotto">
-															<s:property value="" />
+															<s:property value="%{#listDettaglioDistributoreModel.idProdotto}" />
 														</s:param>
 													</s:url>
 													<td><s:hidden name="listIdsProdottiErogati" value="%{#listDettaglioDistributoreModel.idProdottoErogato}" /> 
